@@ -1,0 +1,223 @@
+{
+  "sinkPDOs": {},
+  "sourcePDOs": {
+    "1": [
+      {
+        "decodedValue": "Fixed",
+        "enum": "Src_PDO_Supply_Type",
+        "specValue": "Fixed"
+      },
+      {
+        "decodedValue": "5",
+        "enum": "Src_PDO_Voltage",
+        "specValue": "100"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Max_Voltage",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Min_Voltage",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "3",
+        "enum": "Src_PDO_Max_Current",
+        "specValue": "300"
+      },
+      {
+        "decodedValue": "100%_IOC",
+        "enum": "Src_PDO_Peak_Current",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Max_Power",
+        "specValue": "0"
+      }
+    ],
+    "2": [
+      {
+        "decodedValue": "Fixed",
+        "enum": "Src_PDO_Supply_Type",
+        "specValue": "Fixed"
+      },
+      {
+        "decodedValue": "9",
+        "enum": "Src_PDO_Voltage",
+        "specValue": "180"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Max_Voltage",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Min_Voltage",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "3",
+        "enum": "Src_PDO_Max_Current",
+        "specValue": "300"
+      },
+      {
+        "decodedValue": "100%_IOC",
+        "enum": "Src_PDO_Peak_Current",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Max_Power",
+        "specValue": "0"
+      }
+    ],
+    "3": [
+      {
+        "decodedValue": "Fixed",
+        "enum": "Src_PDO_Supply_Type",
+        "specValue": "Fixed"
+      },
+      {
+        "decodedValue": "12",
+        "enum": "Src_PDO_Voltage",
+        "specValue": "240"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Max_Voltage",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Min_Voltage",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "2.25",
+        "enum": "Src_PDO_Max_Current",
+        "specValue": "225"
+      },
+      {
+        "decodedValue": "100%_IOC",
+        "enum": "Src_PDO_Peak_Current",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Max_Power",
+        "specValue": "0"
+      }
+    ],
+    "4": [
+      {
+        "decodedValue": "Augmented_PDO",
+        "enum": "Src_PDO_Supply_Type",
+        "specValue": "Augmented_PDO"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Voltage",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "5.9",
+        "enum": "Src_PDO_Max_Voltage",
+        "specValue": "59"
+      },
+      {
+        "decodedValue": "3.3",
+        "enum": "Src_PDO_Min_Voltage",
+        "specValue": "33"
+      },
+      {
+        "decodedValue": "3",
+        "enum": "Src_PDO_Max_Current",
+        "specValue": "60"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Peak_Current",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Max_Power",
+        "specValue": "0"
+      }
+    ],
+    "5": [
+      {
+        "decodedValue": "Augmented_PDO",
+        "enum": "Src_PDO_Supply_Type",
+        "specValue": "Augmented_PDO"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Voltage",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "11",
+        "enum": "Src_PDO_Max_Voltage",
+        "specValue": "110"
+      },
+      {
+        "decodedValue": "3.3",
+        "enum": "Src_PDO_Min_Voltage",
+        "specValue": "33"
+      },
+      {
+        "decodedValue": "2.45",
+        "enum": "Src_PDO_Max_Current",
+        "specValue": "49"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Peak_Current",
+        "specValue": "0"
+      },
+      {
+        "decodedValue": "",
+        "enum": "Src_PDO_Max_Power",
+        "specValue": "0"
+      }
+    ]
+  },
+  "staticVifElements": [
+    {
+      "decodedValue": "",
+      "enum": "TID",
+      "specValue": "0"
+    },
+    {
+      "decodedValue": "0x1FC9",
+      "enum": "USB_VID",
+      "specValue": "-1"
+    },
+    {
+      "decodedValue": "0",
+      "enum": "XID",
+      "specValue": "0"
+    },
+    {
+      "decodedValue": "0x0",
+      "enum": "PID",
+      "specValue": "-1"
+    },
+    {
+      "decodedValue": "0",
+      "enum": "Num_Snk_PDOs",
+      "specValue": "0"
+    },
+    {
+      "decodedValue": "0",
+      "enum": "Num_Src_PDOs",
+      "specValue": "0"
+    }
+  ],
+  "sviDs": {}
+}

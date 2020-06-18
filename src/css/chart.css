@@ -1,0 +1,424 @@
+/* Chart[index] Styles - CSS Cleanup */
+.packetString {
+  white-space: nowrap;
+  color: #e6e1e1;
+}
+
+.packetsAlign {
+  white-space: nowrap;
+  text-align: right;
+  line-height: 22px;
+}
+.ccpacket-font-color {
+  color: #cab902 !important;
+}
+
+.packet-Annotation {
+  background-color: transparent;
+  height: 15px;
+  color: red;
+  width: 100%;
+  position: absolute;
+  z-index: 99;
+}
+.xAxis-timeLabels {
+  text-align: center !important;
+  color: #e6e1e1 !important;
+  font-size: 12px !important;
+  position: relative !important;
+  user-select: none;
+}
+.arrow-right {
+  height: 11px;
+  width: 35px;
+}
+.channel-container {
+  margin: 2px;
+  padding: 3px 3px;
+  border: 1px solid #5a5353;
+  border-radius: 11px;
+  flex: 1;
+  min-height: 145px;
+}
+.ccPacketScrollToBottom {
+  margin: 0px;
+}
+.set-channel-custom-position {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  white-space: nowrap;
+  transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+.bar-Loader {
+  position: fixed;
+  top: 50%;
+  left: 60%;
+  z-index: 2;
+}
+.fade-loader-text {
+  font-weight: bold;
+  color: whitesmoke;
+}
+.chart-obsolute-container {
+  background-color: #000;
+}
+.setMaxHeight {
+  /* height: 100%; */
+  height: calc(100% - 35px) !important;
+}
+.packetDetails-header {
+  text-align: left;
+  padding-left: 20px;
+}
+.channel-customcolor {
+  color: green;
+}
+.marker-label-align {
+  background-color: 8488fb;
+  cursor: col-resize;
+  margin-left: 9px;
+  display: inline-block;
+  float: left;
+}
+.set-packetRowHeight {
+  line-height: 22px;
+}
+.channel-custom-align {
+  height: 100%;
+  float: left;
+}
+.chart-marker-align {
+  margin-top: 70px;
+  margin-left: -11px;
+  background-color: transparent;
+  cursor: col-resize;
+}
+
+/*old css moved from style.css */
+.chart-obsolute-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.chart-marker {
+  position: absolute;
+  z-index: 10;
+}
+.chart-marker-parent {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /*top:40px;*/
+  z-index: 98;
+}
+.marker-label {
+  width: 265px;
+  position: absolute;
+  margin-left: -272px;
+  /*height: auto;*/
+  font-size: 12px;
+  font-weight: bold;
+  color: #88001b;
+  padding: 2px 5px;
+  /*margin-left: 30px;*/
+  margin-top: 5px;
+  background-color: white;
+  border-width: 3px;
+  border-style: solid;
+  border-color: yellow;
+  user-select: none;
+  cursor: move;
+  white-space: pre-wrap;
+}
+/*Marker One*/
+.marker-one div:first-of-type {
+  background-color: #af3b3b !important;
+}
+.marker-one .marker-label {
+  border-color: #af3b3b;
+}
+.marker-one .marker-label:after {
+  border-left-color: #af3b3b;
+}
+/*Marker Two*/
+.marker-two div:first-of-type {
+  background-color: #7070f0 !important;
+}
+.marker-two .marker-label {
+  margin-top: 70px;
+  border-color: #7070f0;
+  color: #7070f0;
+}
+.marker-two .marker-label:after {
+  border-left-color: #7070f0;
+}
+/*Arrow mark for Vertical bar ToolTip*/
+div.marker-label:after {
+  content: " ";
+  height: 0px;
+  position: absolute;
+  width: 0;
+  left: 96px;
+  top: -3px;
+  border: 15px solid #efdbdb00;
+  border-left-color: #ffff00;
+  margin-left: 167px;
+}
+.chart-scrolltobottom {
+  width: 100%;
+  background-color: black;
+  overflow-x: hidden !important;
+  margin: 0px 2px;
+}
+.plot-container {
+  height: 60%;
+}
+.div-packettable {
+  background-color: black;
+  color: #e6e1e1 !important;
+}
+.packettable-row-class > td {
+  padding: 1px !important;
+  font-size: 14px;
+}
+.packettable-headerClasses {
+  padding: 1px !important;
+}
+.packettable-headerClasses > th {
+  padding: 1px !important;
+}
+
+#packet_table_id thead tr th {
+  position: sticky;
+  top: -1px;
+  background-color: #92989a;
+  color: #000;
+}
+#packet_table_id tbody tr td {
+  border: 1px solid rgb(38, 38, 38);
+}
+/* Handle Plot packet Scroll bar*/
+.css-y1c0xs::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.xAxisLabels {
+  flex: 1 1 15px;
+  /*width:100%;*/
+  max-height: 15px;
+  font-size: 12px;
+  /*padding-left: 30px;*/
+  background-color: black !important;
+  margin-left: 102px; /*127px*/
+  position: relative;
+  text-align: center;
+  margin-right: 15px;
+  /*margin-top: -14px;*/
+  user-select: none;
+}
+.xAxisLabels > div {
+  flex-grow: 2;
+  flex-basis: 0;
+  color: #e6e1e1;
+  position: relative;
+  z-index: 9;
+  /* border-color:pink;
+    border-width: 1px;
+    border-style: solid; */
+}
+.xAxisLabels > div:first-child {
+  flex-grow: 1;
+  text-align: left;
+}
+.xAxisLabels > div:last-child {
+  flex-grow: 1;
+  text-align: right;
+}
+.xAxisLabels > div:after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  height: 4px;
+  border-left: 2px solid #aeaeae;
+  transform: translate(-50%);
+}
+.xAxisLabels > div:first-child:after,
+.xAxisLabels > div:last-child:after {
+  border-left: none;
+}
+.annotation_pointer {
+  background-color: #0010ff;
+  opacity: 0.6;
+}
+.yaxis_custom_label {
+  font-size: 14px;
+  user-select: none;
+}
+.icon-device {
+  height: 13px !important;
+  min-width: 25px;
+  min-height: 13px !important;
+  background-image: url("UUT - Gray border.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  align-self: center;
+}
+.icon-tester {
+  height: 13px !important;
+  min-width: 25px;
+  min-height: 13px !important;
+  background-image: url("C2 - Gray border.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  align-self: center;
+}
+.icon-packet {
+  height: 13px !important;
+  min-width: 25px;
+  min-height: 13px !important;
+  background-image: url("tester-packet.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  align-self: center;
+}
+.chart-style {
+  background-color: black;
+  flex: 1 1 130px;
+  min-height: 130px;
+}
+.pan-cursor {
+  cursor: grab;
+}
+.chart-table-container {
+  width: 100%;
+}
+.draggable-marker-dimensions {
+  width: 100%;
+  height: 100%;
+}
+.css-1v0vju3-style-style {
+  margin-left: -5px;
+}
+/*changes realted to ccpacket */
+.css-y1c0xs,
+[data-css-y1c0xs] {
+  overflow-y: hidden !important;
+}
+.ccpacket-details {
+  border-bottom-style: outset;
+  border-width: 1px;
+  border-right-style: outset;
+  /* position: fixed; */
+  border-color: #e6e1e1;
+  position: static;
+}
+
+.timestamp-row {
+  /* border: 1px solid #ddd; */
+  border-width: 1px;
+  border-right-style: outset;
+  justify-content: center;
+  display: flex;
+  border-right-color: #e6e1e1;
+  line-height: 30px;
+}
+
+.timestamp-header {
+  float: left;
+}
+
+.ccpacket-description-header {
+  text-align: center;
+}
+
+.ccpacket-font-style {
+  color: #e6e1e1 !important;
+  font-size: 14px;
+}
+
+.ReactVirtualized__List {
+  width: 100% !important;
+  /* height: 100%!important; */
+}
+
+.ReactVirtualized__Grid__innerScrollContainer {
+  max-width: 100% !important;
+  /* max-height: 100%!important; */
+}
+.packetsBackground {
+  background: blue;
+}
+.blurBackground {
+  opacity: 0.2;
+}
+/*changes realted to ccpacket */
+
+/*changes realted to Plot Toolbar icon */
+.nav-bar-item {
+  z-index: 999;
+  background-color: lightgrey;
+  height: 40px;
+  /* width: min-content; */
+}
+@media (max-width: 1200px) {
+  .seperator {
+    border-right: none !important;
+  }
+}
+.nav-bar-icon-align {
+  display: contents;
+}
+.nav-link {
+  display: flex !important;
+  padding: 0px !important;
+}
+.arrow-righticon {
+  height: 11px;
+  width: 35px;
+}
+.markers-height {
+  height: 100%;
+}
+.packet-dimensions {
+  line-height: 25px;
+  float: right;
+  width: calc(100% - 124px);
+}
+.packets-leftalign {
+  float: left;
+}
+.chart-header {
+  font-weight: bold;
+  background-color: #92989a;
+}
+.packet-time-details {
+  font-weight: 600;
+  padding-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* Packet Details to differentiate the header css -> changed to n number of packets*/
+/* .rt-tr-group:nth-child(1n) > div > .rt-td:first-child { 
+  color:orange;
+}
+.rt-tr-group:nth-child(2n) > div > .rt-td:first-child {
+  color:blue ;
+}
+.rt-tr-group:nth-child(3n) > div > .rt-td:first-child {
+  color:green ;
+}
+.rt-tr-group:nth-child(4n) > div >.rt-td:first-child {
+  color:red ;
+}
+.rt-tr-group:nth-child(5n) > div >.rt-td:first-child {
+  color:cyan ;
+} */
+
+/*changes realted to Plot Toolbar icon */

@@ -1,0 +1,212 @@
+{
+    "_declaration": {
+        "_attributes": {
+            "version": "1.0",
+            "encoding": "utf-8"
+        }
+    },
+    "VIF": {
+        "_attributes": {
+            "xmlns": "http://usb.org/VendorInfoFile.xsd"
+        },
+        "VIF_Specification": {
+            "_text": "2.03"
+        },
+        "VIF_App": {
+            "Vendor": {
+                "_text": "USB-IF"
+            },
+            "Name": {
+                "_text": "Vendor Info File Editor"
+            },
+            "Version": {
+                "_text": "2.0.1.0"
+            }
+        },
+        "Vendor_Name": {
+            "_text": "GRL"
+        },
+        "Model_Part_Number": {
+            "_text": "GRL"
+        },
+        "Product_Revision": {
+            "_text": "Two"
+        },
+        "TID": {
+            "_text": "3.0"
+        },
+        "VIF_Product_Type": {
+            "_attributes": {
+                "value": "1"
+            },
+            "_text": "Cable"
+        },
+        "Component": {
+            "USB_PD_Support": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "PD_Specification_Revision": {
+                "_attributes": {
+                    "value": "2"
+                },
+                "_text": "Revision 3.0"
+            },
+            "SOP_Capable": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "SOP_P_Capable": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "SOP_PP_Capable": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "SOP_P_Debug_Capable": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "SOP_PP_Debug_Capable": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "XID": {
+                "_attributes": {
+                    "value": "1237"
+                }
+            },
+            "Data_Capable_As_USB_Host": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Data_Capable_As_USB_Device": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Product_Type": {
+                "_attributes": {
+                    "value": "3"
+                },
+                "_text": "Passive Cable"
+            },
+            "Modal_Operation_Supported": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "USB_VID": {
+                "_attributes": {
+                    "value": "1593"
+                },
+                "_text": "0639"
+            },
+            "PID": {
+                "_attributes": {
+                    "value": "29233"
+                },
+                "_text": "7231"
+            },
+            "bcdDevice": {
+                "_attributes": {
+                    "value": "65535"
+                },
+                "_text": "FFFF"
+            },
+            "Cable_HW_Vers": {
+                "_attributes": {
+                    "value": "0"
+                },
+                "_text": "0"
+            },
+            "Cable_FW_Vers": {
+                "_attributes": {
+                    "value": "0"
+                },
+                "_text": "0"
+            },
+            "Type_C_To_Type_A_B_C": {
+                "_attributes": {
+                    "value": "2"
+                },
+                "_text": "Type-C™"
+            },
+            "Type_C_To_Type_C_Capt_Vdm_V2": {
+                "_attributes": {
+                    "value": "2"
+                },
+                "_text": "USB Type-C™"
+            },
+            "Type_C_To_Plug_Receptacle": {
+                "_attributes": {
+                    "value": "0"
+                },
+                "_text": "Plug"
+            },
+            "Cable_Latency": {
+                "_attributes": {
+                    "value": "1"
+                },
+                "_text": "<10ns"
+            },
+            "Cable_Termination_Type": {
+                "_attributes": {
+                    "value": "1"
+                },
+                "_text": "Both ends Passive, VCONN required"
+            },
+            "VBUS_Through_Cable": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Cable_VBUS_Current": {
+                "_attributes": {
+                    "value": "2"
+                },
+                "_text": "5A"
+            },
+            "Cable_SOP_PP_Controller": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Cable_Superspeed_Support": {
+                "_attributes": {
+                    "value": "2"
+                },
+                "_text": "USB 3.1 Gen 2"
+            },
+            "Max_VBUS_Voltage_Vdm_V2": {
+                "_attributes": {
+                    "value": "0"
+                },
+                "_text": "20V"
+            },
+            "Manufacturer_Info_Supported": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Chunking_Implemented": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Security_Msgs_Supported": {
+                "_attributes": {
+                    "value": "false"
+                }
+            }
+        }
+    }
+}

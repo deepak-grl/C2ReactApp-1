@@ -1,0 +1,702 @@
+{
+  "xSupply_Type": "Supply_Type",
+  "xP_Src_PDO": "Src_PD",
+  "xP_Snk_PDO": "Snk_PD",
+  "xP_Voltage": "Voltage",
+  "xP_MaxVoltage": "Max_Voltage",
+  "xP_MinVoltage": "Min_Voltage",
+  "xP_MaxCurrent": "Max_Current",
+  "xP_PeakCurrent": "Peak_Current",
+  "xP_MaxPower": "Max_Power",
+  "xP_OpCurrent": "Op_Current",
+  "xP_OpPower": "Op_Power",
+  "m_strSrcPDO": "Src_PDO",
+  "m_strSnkPDO": "Snk_PDO",
+  "sop": false,
+  "listSinkPDO": [],
+  "listSourcePDO": [
+    {
+      "pdO_Index": 1,
+      "supply_Type": "Fixed",
+      "voltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 100,
+        "decValue": 5,
+        "m_SpecStrValue": "100",
+        "m_DecStrValue": "5",
+        "specStrValue": "100",
+        "decStrValue": "5"
+      },
+      "maxVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "minVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "maxCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 300,
+        "decValue": 3,
+        "m_SpecStrValue": "300",
+        "m_DecStrValue": "3",
+        "specStrValue": "300",
+        "decStrValue": "3"
+      },
+      "peakCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "0",
+        "m_DecStrValue": "100%_IOC",
+        "specStrValue": "0",
+        "decStrValue": "100%_IOC"
+      },
+      "maxPower": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      }
+    },
+    {
+      "pdO_Index": 2,
+      "supply_Type": "Fixed",
+      "voltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 180,
+        "decValue": 9,
+        "m_SpecStrValue": "180",
+        "m_DecStrValue": "9",
+        "specStrValue": "180",
+        "decStrValue": "9"
+      },
+      "maxVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "minVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "maxCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 300,
+        "decValue": 3,
+        "m_SpecStrValue": "300",
+        "m_DecStrValue": "3",
+        "specStrValue": "300",
+        "decStrValue": "3"
+      },
+      "peakCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "0",
+        "m_DecStrValue": "100%_IOC",
+        "specStrValue": "0",
+        "decStrValue": "100%_IOC"
+      },
+      "maxPower": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      }
+    },
+    {
+      "pdO_Index": 3,
+      "supply_Type": "Fixed",
+      "voltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 240,
+        "decValue": 12,
+        "m_SpecStrValue": "240",
+        "m_DecStrValue": "12",
+        "specStrValue": "240",
+        "decStrValue": "12"
+      },
+      "maxVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "minVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "maxCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 250,
+        "decValue": 2.5,
+        "m_SpecStrValue": "250",
+        "m_DecStrValue": "2.5",
+        "specStrValue": "250",
+        "decStrValue": "2.5"
+      },
+      "peakCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "0",
+        "m_DecStrValue": "100%_IOC",
+        "specStrValue": "0",
+        "decStrValue": "100%_IOC"
+      },
+      "maxPower": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      }
+    },
+    {
+      "pdO_Index": 4,
+      "supply_Type": "Fixed",
+      "voltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 300,
+        "decValue": 15,
+        "m_SpecStrValue": "300",
+        "m_DecStrValue": "15",
+        "specStrValue": "300",
+        "decStrValue": "15"
+      },
+      "maxVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "minVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "maxCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 200,
+        "decValue": 2,
+        "m_SpecStrValue": "200",
+        "m_DecStrValue": "2",
+        "specStrValue": "200",
+        "decStrValue": "2"
+      },
+      "peakCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "0",
+        "m_DecStrValue": "100%_IOC",
+        "specStrValue": "0",
+        "decStrValue": "100%_IOC"
+      },
+      "maxPower": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      }
+    },
+    {
+      "pdO_Index": 5,
+      "supply_Type": "Fixed",
+      "voltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 400,
+        "decValue": 20,
+        "m_SpecStrValue": "400",
+        "m_DecStrValue": "20",
+        "specStrValue": "400",
+        "decStrValue": "20"
+      },
+      "maxVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "minVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "maxCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 150,
+        "decValue": 1.5,
+        "m_SpecStrValue": "150",
+        "m_DecStrValue": "1.5",
+        "specStrValue": "150",
+        "decStrValue": "1.5"
+      },
+      "peakCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "0",
+        "m_DecStrValue": "100%_IOC",
+        "specStrValue": "0",
+        "decStrValue": "100%_IOC"
+      },
+      "maxPower": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      }
+    },
+    {
+      "pdO_Index": 6,
+      "supply_Type": "Augmented_PDO",
+      "voltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "maxVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 110,
+        "decValue": 11,
+        "m_SpecStrValue": "110",
+        "m_DecStrValue": "11",
+        "specStrValue": "110",
+        "decStrValue": "11"
+      },
+      "minVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 30,
+        "decValue": 3,
+        "m_SpecStrValue": "30",
+        "m_DecStrValue": "3",
+        "specStrValue": "30",
+        "decStrValue": "3"
+      },
+      "maxCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 60,
+        "decValue": 3,
+        "m_SpecStrValue": "60",
+        "m_DecStrValue": "3",
+        "specStrValue": "60",
+        "decStrValue": "3"
+      },
+      "peakCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "maxPower": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      }
+    },
+    {
+      "pdO_Index": 7,
+      "supply_Type": "Augmented_PDO",
+      "voltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "maxVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 160,
+        "decValue": 16,
+        "m_SpecStrValue": "160",
+        "m_DecStrValue": "16",
+        "specStrValue": "160",
+        "decStrValue": "16"
+      },
+      "minVoltage": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 30,
+        "decValue": 3,
+        "m_SpecStrValue": "30",
+        "m_DecStrValue": "3",
+        "specStrValue": "30",
+        "decStrValue": "3"
+      },
+      "maxCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 40,
+        "decValue": 2,
+        "m_SpecStrValue": "40",
+        "m_DecStrValue": "2",
+        "specStrValue": "40",
+        "decStrValue": "2"
+      },
+      "peakCurrent": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      },
+      "maxPower": {
+        "isSelected": false,
+        "isValReq": false,
+        "specValue": 0,
+        "decValue": 0,
+        "m_SpecStrValue": "",
+        "m_DecStrValue": "",
+        "specStrValue": "",
+        "decStrValue": ""
+      }
+    }
+  ],
+  "svidList": [],
+  "isVersionMismatch": false,
+  "isportBtryPowerd": false,
+  "vifElementList": {
+    "PD_SPECIFICATION_REVISION": {
+      "vifEnum": "PD_SPECIFICATION_REVISION",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "2",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 2,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "UNCHUNKED_EXTENDED_MESSAGES_SUPPORTED": {
+      "vifEnum": "UNCHUNKED_EXTENDED_MESSAGES_SUPPORTED",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "NO",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 0,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "USB_SUSPEND_MAY_BE_CLEARED": {
+      "vifEnum": "USB_SUSPEND_MAY_BE_CLEARED",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "YES",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 1,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "UNCONSTRAINED_POWER": {
+      "vifEnum": "UNCONSTRAINED_POWER",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "YES",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 1,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "USB_COMMS_CAPABLE": {
+      "vifEnum": "USB_COMMS_CAPABLE",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "NO",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 0,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "PD_POWER_AS_SOURCE": {
+      "vifEnum": "PD_POWER_AS_SOURCE",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "30000",
+      "vifDecodeValue": 30000,
+      "vifSpecValue": 30000,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "NUM_SRC_PDOS": {
+      "vifEnum": "NUM_SRC_PDOS",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "7",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 7,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "SENDS_PINGS": {
+      "vifEnum": "SENDS_PINGS",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "NO",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 0,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "PORT_BATTERY_POWERED": {
+      "vifEnum": "PORT_BATTERY_POWERED",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "NO",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 0,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "NUM_FIXED_BATTERIES": {
+      "vifEnum": "NUM_FIXED_BATTERIES",
+      "vifName": "",
+      "vifDecodeValueDesc": "0",
+      "vifSpecValueDesc": "0",
+      "vifDecodeValue": -1,
+      "vifSpecValue": -1,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "NUM_SWAPPABLE_BATTERY_SLOTS": {
+      "vifEnum": "NUM_SWAPPABLE_BATTERY_SLOTS",
+      "vifName": "",
+      "vifDecodeValueDesc": "0",
+      "vifSpecValueDesc": "0",
+      "vifDecodeValue": -1,
+      "vifSpecValue": -1,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "MANUFACTURER_INFO_SUPPORTED": {
+      "vifEnum": "MANUFACTURER_INFO_SUPPORTED",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "YES",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 1,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "VENDOR_NAME": {
+      "vifEnum": "VENDOR_NAME",
+      "vifName": "",
+      "vifDecodeValueDesc": "Lenovo",
+      "vifSpecValueDesc": "",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 0,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "MANUFACTURER_INFO_PID": {
+      "vifEnum": "MANUFACTURER_INFO_PID",
+      "vifName": "",
+      "vifDecodeValueDesc": "0xA202",
+      "vifSpecValueDesc": "0xA202",
+      "vifDecodeValue": -1,
+      "vifSpecValue": -1,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "MANUFACTURER_INFO_VID": {
+      "vifEnum": "MANUFACTURER_INFO_VID",
+      "vifName": "",
+      "vifDecodeValueDesc": "0x17EF",
+      "vifSpecValueDesc": "0x17EF",
+      "vifDecodeValue": -1,
+      "vifSpecValue": -1,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "SECURITY_MSGS_SUPPORTED": {
+      "vifEnum": "SECURITY_MSGS_SUPPORTED",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "NO",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 0,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "DR_SWAP_TO_DFP_SUPPORTED": {
+      "vifEnum": "DR_SWAP_TO_DFP_SUPPORTED",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "YES",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 1,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "DR_SWAP_TO_UFP_SUPPORTED": {
+      "vifEnum": "DR_SWAP_TO_UFP_SUPPORTED",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "YES",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 1,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "SOP_CAPABLE": {
+      "vifEnum": "SOP_CAPABLE",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "YES",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 1,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "SOP_P_CAPABLE": {
+      "vifEnum": "SOP_P_CAPABLE",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "NO",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 0,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "SOP_PP_CAPABLE": {
+      "vifEnum": "SOP_PP_CAPABLE",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "NO",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 0,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "SOP_P_DEBUG_CAPABLE": {
+      "vifEnum": "SOP_P_DEBUG_CAPABLE",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "NO",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 0,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    },
+    "SOP_PP_DEBUG_CAPABLE": {
+      "vifEnum": "SOP_PP_DEBUG_CAPABLE",
+      "vifName": "",
+      "vifDecodeValueDesc": "",
+      "vifSpecValueDesc": "NO",
+      "vifDecodeValue": -1,
+      "vifSpecValue": 0,
+      "isVDMCableFound": false,
+      "dataType": "Yes_No"
+    }
+  }
+}

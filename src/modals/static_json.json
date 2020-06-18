@@ -1,0 +1,996 @@
+{
+    "_declaration": {
+        "_attributes": {
+            "version": "1.0",
+            "encoding": "utf-8"
+        }
+    },
+    "VIF": {
+        "_attributes": {
+            "xmlns": "http://usb.org/VendorInfoFile.xsd"
+        },
+        "VIF_Specification": {
+            "_text": "2.0"
+        },
+        "VIF_App": {
+            "Vendor": {
+                "_text": "USB-IF"
+            },
+            "Name": {
+                "_text": "Vendor Info File Editor"
+            },
+            "Version": {
+                "_text": "2.0.0.0"
+            }
+        },
+        "Vendor_Name": {
+            "_text": "Test"
+        },
+        "Model_Part_Number": {
+            "_text": "DRP Modes"
+        },
+        "Product_Revision": {
+            "_text": "Good"
+        },
+        "TID": {
+            "_text": "1"
+        },
+        "VIF_Product_Type": {
+            "_attributes": {
+                "value": "0"
+            },
+            "_text": "Port Product"
+        },
+        "Component": {
+            "Port_Label": {
+                "_text": "Port"
+            },
+            "Connector_Type": {
+                "_attributes": {
+                    "value": "2"
+                },
+                "_text": "Type-C™"
+            },
+            "USB_PD_Support": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "PD_Port_Type": {
+                "_attributes": {
+                    "value": "4"
+                },
+                "_text": "DRP"
+            },
+            "Type_C_State_Machine": {
+                "_attributes": {
+                    "value": "2"
+                },
+                "_text": "DRP"
+            },
+            "Port_Battery_Powered": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "BC_1_2_Support": {
+                "_attributes": {
+                    "value": "3"
+                },
+                "_text": "Both"
+            },
+            "PD_Specification_Revision": {
+                "_attributes": {
+                    "value": "2"
+                },
+                "_text": "Revision 3.0"
+            },
+            "SOP_Capable": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "SOP_P_Capable": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "SOP_PP_Capable": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "SOP_P_Debug_Capable": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "SOP_PP_Debug_Capable": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Manufacturer_Info_Supported_Port": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Manufacturer_Info_VID_Port": {
+                "_attributes": {
+                    "value": "4660"
+                },
+                "_text": "1234"
+            },
+            "Manufacturer_Info_PID_Port": {
+                "_attributes": {
+                    "value": "65244"
+                },
+                "_text": "FEDC"
+            },
+            "USB_Comms_Capable": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "DR_Swap_To_DFP_Supported": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "DR_Swap_To_UFP_Supported": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Unconstrained_Power": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "VCONN_Swap_To_On_Supported": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "VCONN_Swap_To_Off_Supported": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Responds_To_Discov_SOP_UFP": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Responds_To_Discov_SOP_DFP": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Attempts_Discov_SOP": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Chunking_Implemented_SOP": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Unchunked_Extended_Messages_Supported": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Security_Msgs_Supported_SOP": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Num_Fixed_Batteries": {
+                "_attributes": {
+                    "value": "2"
+                }
+            },
+            "Num_Swappable_Battery_Slots": {
+                "_attributes": {
+                    "value": "1"
+                }
+            },
+            "Type_C_Can_Act_As_Host": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Type_C_Can_Act_As_Device": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Type_C_Implements_Try_SRC": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Type_C_Implements_Try_SNK": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Type_C_Supports_Audio_Accessory": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Type_C_Is_VCONN_Powered_Accessory": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Type_C_Is_Debug_Target_SRC": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Type_C_Is_Debug_Target_SNK": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Captive_Cable": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "RP_Value": {
+                "_attributes": {
+                    "value": "2"
+                },
+                "_text": "3A"
+            },
+            "Type_C_Port_On_Hub": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Type_C_Power_Source": {
+                "_attributes": {
+                    "value": "0"
+                },
+                "_text": "Externally Powered"
+            },
+            "Type_C_Sources_VCONN": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Type_C_Is_Alt_Mode_Controller": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Type_C_Is_Alt_Mode_Adapter": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Host_Speed": {
+                "_attributes": {
+                    "value": "4"
+                },
+                "_text": "USB 3.2 Gen 2x2"
+            },
+            "Host_Contains_Captive_Retimer": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Host_Truncates_DP_For_tDHPResponse": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Host_Gen1x1_tLinkTurnaround": {
+                "_attributes": {
+                    "value": "500"
+                },
+                "_text": "500 ns"
+            },
+            "Host_Gen2x1_tLinkTurnaround": {
+                "_attributes": {
+                    "value": "1250"
+                },
+                "_text": "1250 ns"
+            },
+            "Host_Is_Embedded": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Host_Suspend_Supported": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Is_DFP_On_Hub": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Hub_Port_Number": {
+                "_attributes": {
+                    "value": "1"
+                }
+            },
+            "Device_Speed": {
+                "_attributes": {
+                    "value": "1"
+                },
+                "_text": "USB 3.2 Gen 1x1"
+            },
+            "Device_Contains_Captive_Retimer": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Device_Truncates_DP_For_tDHPResponse": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Device_Gen1x1_tLinkTurnaround": {
+                "_attributes": {
+                    "value": "700"
+                },
+                "_text": "700 ns"
+            },
+            "BC_1_2_Charging_Port_Type": {
+                "_attributes": {
+                    "value": "2"
+                },
+                "_text": "Both"
+            },
+            "PD_Power_As_Source": {
+                "_attributes": {
+                    "value": "50000"
+                },
+                "_text": "50000 mW"
+            },
+            "USB_Suspend_May_Be_Cleared": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Sends_Pings": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Num_Src_PDOs": {
+                "_attributes": {
+                    "value": "4"
+                }
+            },
+            "PD_OC_Protection": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "PD_OCP_Method": {
+                "_attributes": {
+                    "value": "2"
+                },
+                "_text": "Both"
+            },
+            "SrcPdoList": {
+                "SrcPDO": [
+                    {
+                        "Src_PDO_Supply_Type": {
+                            "_attributes": {
+                                "value": "0"
+                            },
+                            "_text": "Fixed"
+                        },
+                        "Src_PDO_Peak_Current": {
+                            "_attributes": {
+                                "value": "2"
+                            },
+                            "_text": "150% IOC"
+                        },
+                        "Src_PDO_Voltage": {
+                            "_attributes": {
+                                "value": "100"
+                            },
+                            "_text": "5000 mV"
+                        },
+                        "Src_PDO_Max_Current": {
+                            "_attributes": {
+                                "value": "300"
+                            },
+                            "_text": "3000 mA"
+                        },
+                        "Src_PD_OCP_OC_Debounce": {
+                            "_attributes": {
+                                "value": "700"
+                            },
+                            "_text": "700 msec"
+                        },
+                        "Src_PD_OCP_OC_Threshold": {
+                            "_attributes": {
+                                "value": "500"
+                            },
+                            "_text": "5000 mA"
+                        },
+                        "Src_PD_OCP_UV_Debounce": {
+                            "_attributes": {
+                                "value": "250"
+                            },
+                            "_text": "250 msec"
+                        },
+                        "Src_PD_OCP_UV_Threshold_Type": {
+                            "_attributes": {
+                                "value": "0"
+                            },
+                            "_text": "Value"
+                        },
+                        "Src_PD_OCP_UV_Threshold": {
+                            "_attributes": {
+                                "value": "475"
+                            },
+                            "_text": "4750 mV"
+                        }
+                    },
+                    {
+                        "Src_PDO_Supply_Type": {
+                            "_attributes": {
+                                "value": "1"
+                            },
+                            "_text": "Battery"
+                        },
+                        "Src_PDO_Min_Voltage": {
+                            "_attributes": {
+                                "value": "50"
+                            },
+                            "_text": "2500 mV"
+                        },
+                        "Src_PDO_Max_Voltage": {
+                            "_attributes": {
+                                "value": "320"
+                            },
+                            "_text": "16000 mV"
+                        },
+                        "Src_PDO_Max_Power": {
+                            "_attributes": {
+                                "value": "300"
+                            },
+                            "_text": "75000 mW"
+                        }
+                    },
+                    {
+                        "Src_PDO_Supply_Type": {
+                            "_attributes": {
+                                "value": "2"
+                            },
+                            "_text": "Variable"
+                        },
+                        "Src_PDO_Max_Current": {
+                            "_attributes": {
+                                "value": "300"
+                            },
+                            "_text": "3000 mA"
+                        },
+                        "Src_PDO_Min_Voltage": {
+                            "_attributes": {
+                                "value": "90"
+                            },
+                            "_text": "4500 mV"
+                        },
+                        "Src_PDO_Max_Voltage": {
+                            "_attributes": {
+                                "value": "380"
+                            },
+                            "_text": "19000 mV"
+                        }
+                    },
+                    {
+                        "Src_PDO_Supply_Type": {
+                            "_attributes": {
+                                "value": "3"
+                            },
+                            "_text": "PPS"
+                        },
+                        "Src_PDO_Max_Current": {
+                            "_attributes": {
+                                "value": "100"
+                            },
+                            "_text": "5000 mA"
+                        },
+                        "Src_PDO_Min_Voltage": {
+                            "_attributes": {
+                                "value": "70"
+                            },
+                            "_text": "7000 mV"
+                        },
+                        "Src_PDO_Max_Voltage": {
+                            "_attributes": {
+                                "value": "205"
+                            },
+                            "_text": "20500 mV"
+                        }
+                    }
+                ]
+            },
+            "PD_Power_As_Sink": {
+                "_attributes": {
+                    "value": "65000"
+                },
+                "_text": "65000 mW"
+            },
+            "No_USB_Suspend_May_Be_Set": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "GiveBack_May_Be_Set": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Higher_Capability_Set": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "FR_Swap_Reqd_Type_C_Current_As_Initial_Source": {
+                "_attributes": {
+                    "value": "3"
+                },
+                "_text": "3A @ 5V"
+            },
+            "Num_Snk_PDOs": {
+                "_attributes": {
+                    "value": "4"
+                }
+            },
+            "SnkPdoList": {
+                "SnkPDO": [
+                    {
+                        "Snk_PDO_Supply_Type": {
+                            "_attributes": {
+                                "value": "0"
+                            },
+                            "_text": "Fixed"
+                        },
+                        "Snk_PDO_Voltage": {
+                            "_attributes": {
+                                "value": "100"
+                            },
+                            "_text": "5000 mV"
+                        },
+                        "Snk_PDO_Op_Current": {
+                            "_attributes": {
+                                "value": "230"
+                            },
+                            "_text": "2300 mA"
+                        }
+                    },
+                    {
+                        "Snk_PDO_Supply_Type": {
+                            "_attributes": {
+                                "value": "1"
+                            },
+                            "_text": "Battery"
+                        },
+                        "Snk_PDO_Op_Power": {
+                            "_attributes": {
+                                "value": "260"
+                            },
+                            "_text": "65000 mW"
+                        },
+                        "Snk_PDO_Min_Voltage": {
+                            "_attributes": {
+                                "value": "60"
+                            },
+                            "_text": "3000 mV"
+                        },
+                        "Snk_PDO_Max_Voltage": {
+                            "_attributes": {
+                                "value": "160"
+                            },
+                            "_text": "8000 mV"
+                        }
+                    },
+                    {
+                        "Snk_PDO_Supply_Type": {
+                            "_attributes": {
+                                "value": "2"
+                            },
+                            "_text": "Variable"
+                        },
+                        "Snk_PDO_Min_Voltage": {
+                            "_attributes": {
+                                "value": "180"
+                            },
+                            "_text": "9000 mV"
+                        },
+                        "Snk_PDO_Max_Voltage": {
+                            "_attributes": {
+                                "value": "220"
+                            },
+                            "_text": "11000 mV"
+                        },
+                        "Snk_PDO_Op_Current": {
+                            "_attributes": {
+                                "value": "500"
+                            },
+                            "_text": "5000 mA"
+                        }
+                    },
+                    {
+                        "Snk_PDO_Supply_Type": {
+                            "_attributes": {
+                                "value": "3"
+                            },
+                            "_text": "PPS"
+                        },
+                        "Snk_PDO_Min_Voltage": {
+                            "_attributes": {
+                                "value": "60"
+                            },
+                            "_text": "6000 mV"
+                        },
+                        "Snk_PDO_Max_Voltage": {
+                            "_attributes": {
+                                "value": "120"
+                            },
+                            "_text": "12000 mV"
+                        },
+                        "Snk_PDO_Op_Current": {
+                            "_attributes": {
+                                "value": "80"
+                            },
+                            "_text": "4000 mA"
+                        }
+                    }
+                ]
+            },
+            "Accepts_PR_Swap_As_Src": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Accepts_PR_Swap_As_Snk": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Requests_PR_Swap_As_Src": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "Requests_PR_Swap_As_Snk": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "FR_Swap_Supported_As_Initial_Sink": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "XID_SOP": {
+                "_attributes": {
+                    "value": "1"
+                }
+            },
+            "Data_Capable_As_USB_Host_SOP": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Data_Capable_As_USB_Device_SOP": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Product_Type_UFP_SOP": {
+                "_attributes": {
+                    "value": "5"
+                },
+                "_text": "Alternate Mode Adapter (AMA)"
+            },
+            "Product_Type_DFP_SOP": {
+                "_attributes": {
+                    "value": "4"
+                },
+                "_text": "Alternate Mode Controller (AMC)"
+            },
+            "Modal_Operation_Supported_SOP": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "USB_VID_SOP": {
+                "_attributes": {
+                    "value": "4369"
+                },
+                "_text": "1111"
+            },
+            "PID_SOP": {
+                "_attributes": {
+                    "value": "8738"
+                },
+                "_text": "2222"
+            },
+            "bcdDevice_SOP": {
+                "_attributes": {
+                    "value": "13107"
+                },
+                "_text": "3333"
+            },
+            "SVID_Fixed_SOP": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "Num_SVIDs_Min_SOP": {
+                "_attributes": {
+                    "value": "4"
+                }
+            },
+            "Num_SVIDs_Max_SOP": {
+                "_attributes": {
+                    "value": "4"
+                }
+            },
+            "SOPSVIDList": {
+                "SOPSVID": [
+                    {
+                        "SVID_SOP": {
+                            "_attributes": {
+                                "value": "1"
+                            },
+                            "_text": "0001"
+                        },
+                        "SVID_Modes_Fixed_SOP": {
+                            "_attributes": {
+                                "value": "true"
+                            }
+                        },
+                        "SVID_Num_Modes_Min_SOP": {
+                            "_attributes": {
+                                "value": "3"
+                            }
+                        },
+                        "SVID_Num_Modes_Max_SOP": {
+                            "_attributes": {
+                                "value": "3"
+                            }
+                        },
+                        "SOPSVIDModeList": {
+                            "SOPSVIDMode": [
+                                {
+                                    "SVID_Mode_Enter_SOP": {
+                                        "_attributes": {
+                                            "value": "false"
+                                        }
+                                    }
+                                },
+                                {
+                                    "SVID_Mode_Enter_SOP": {
+                                        "_attributes": {
+                                            "value": "true"
+                                        }
+                                    }
+                                },
+                                {
+                                    "SVID_Mode_Enter_SOP": {
+                                        "_attributes": {
+                                            "value": "false"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "SVID_SOP": {
+                            "_attributes": {
+                                "value": "2"
+                            },
+                            "_text": "0002"
+                        },
+                        "SVID_Modes_Fixed_SOP": {
+                            "_attributes": {
+                                "value": "false"
+                            }
+                        },
+                        "SVID_Num_Modes_Min_SOP": {
+                            "_attributes": {
+                                "value": "1"
+                            }
+                        },
+                        "SVID_Num_Modes_Max_SOP": {
+                            "_attributes": {
+                                "value": "3"
+                            }
+                        },
+                        "SOPSVIDModeList": {
+                            "SOPSVIDMode": [
+                                {
+                                    "SVID_Mode_Recog_Mask_SOP": {
+                                        "_attributes": {
+                                            "value": "305414945"
+                                        },
+                                        "_text": "12344321"
+                                    },
+                                    "SVID_Mode_Recog_Value_SOP": {
+                                        "_attributes": {
+                                            "value": "2309737967"
+                                        },
+                                        "_text": "89ABCDEF"
+                                    }
+                                },
+                                {
+                                    "SVID_Mode_Recog_Mask_SOP": {
+                                        "_attributes": {
+                                            "value": "303174162"
+                                        },
+                                        "_text": "12121212"
+                                    },
+                                    "SVID_Mode_Recog_Value_SOP": {
+                                        "_attributes": {
+                                            "value": "1128481603"
+                                        },
+                                        "_text": "43434343"
+                                    }
+                                },
+                                {
+                                    "SVID_Mode_Recog_Mask_SOP": {
+                                        "_attributes": {
+                                            "value": "4294901760"
+                                        },
+                                        "_text": "FFFF0000"
+                                    },
+                                    "SVID_Mode_Recog_Value_SOP": {
+                                        "_attributes": {
+                                            "value": "858993459"
+                                        },
+                                        "_text": "33333333"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "SVID_SOP": {
+                            "_attributes": {
+                                "value": "3"
+                            },
+                            "_text": "0003"
+                        },
+                        "SVID_Modes_Fixed_SOP": {
+                            "_attributes": {
+                                "value": "true"
+                            }
+                        },
+                        "SVID_Num_Modes_Min_SOP": {
+                            "_attributes": {
+                                "value": "1"
+                            }
+                        },
+                        "SVID_Num_Modes_Max_SOP": {
+                            "_attributes": {
+                                "value": "1"
+                            }
+                        },
+                        "SOPSVIDModeList": {
+                            "SOPSVIDMode": {
+                                "SVID_Mode_Enter_SOP": {
+                                    "_attributes": {
+                                        "value": "true"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "SVID_SOP": {
+                            "_attributes": {
+                                "value": "4"
+                            },
+                            "_text": "0004"
+                        },
+                        "SVID_Modes_Fixed_SOP": {
+                            "_attributes": {
+                                "value": "false"
+                            }
+                        },
+                        "SVID_Num_Modes_Min_SOP": {
+                            "_attributes": {
+                                "value": "1"
+                            }
+                        },
+                        "SVID_Num_Modes_Max_SOP": {
+                            "_attributes": {
+                                "value": "1"
+                            }
+                        },
+                        "SOPSVIDModeList": {
+                            "SOPSVIDMode": {
+                                "SVID_Mode_Recog_Mask_SOP": {
+                                    "_attributes": {
+                                        "value": "4294967295"
+                                    },
+                                    "_text": "FFFFFFFF"
+                                },
+                                "SVID_Mode_Recog_Value_SOP": {
+                                    "_attributes": {
+                                        "value": "3941264106"
+                                    },
+                                    "_text": "EAEAEAEA"
+                                }
+                            }
+                        }
+                    }
+                ]
+            },
+            "AMA_HW_Vers": {
+                "_attributes": {
+                    "value": "1"
+                },
+                "_text": "1"
+            },
+            "AMA_FW_Vers": {
+                "_attributes": {
+                    "value": "10"
+                },
+                "_text": "A"
+            },
+            "AMA_VCONN_Reqd": {
+                "_attributes": {
+                    "value": "true"
+                }
+            },
+            "AMA_VCONN_Power": {
+                "_attributes": {
+                    "value": "3"
+                },
+                "_text": "3W"
+            },
+            "AMA_VBUS_Reqd": {
+                "_attributes": {
+                    "value": "false"
+                }
+            },
+            "AMA_Superspeed_Support": {
+                "_attributes": {
+                    "value": "2"
+                },
+                "_text": "USB 3.2 Gen 2"
+            },
+            "Product_Total_Source_Power_mW": {
+                "_attributes": {
+                    "value": "35000"
+                },
+                "_text": "35000 mW"
+            },
+            "Port_Source_Power_Type": {
+                "_attributes": {
+                    "value": "1"
+                },
+                "_text": "Shared"
+            },
+            "Port_Source_Power_Gang": {
+                "_text": "Gang"
+            },
+            "Port_Source_Power_Gang_Max_Power": {
+                "_attributes": {
+                    "value": "30000"
+                },
+                "_text": "30000 mW"
+            }
+        }
+    }
+}

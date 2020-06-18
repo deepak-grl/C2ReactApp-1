@@ -1,0 +1,2716 @@
+[
+  {
+    "VifFieldEnum": "VIF_Specification",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "VIF_Producer",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Vendor",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Name",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Version",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Description",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Vendor_Name",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Model_Part_Number",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Product_Revision",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "TID",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "VIF_Product_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Port",
+      "1:Cable",
+      "2:Re-timer"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Port_Label",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Connector_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Type-A",
+      "1:Type-B",
+      "2:USB Type-C",
+      "3:Micro A/B"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB_PD_Support",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "PD_Port_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Consumer Only",
+      "1:Consumer/Provider",
+      "2:Provider/Consumer",
+      "3:Provider Only",
+      "4:DRP",
+      "5:eMarker"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_State_Machine",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:SRC",
+      "1:SNK",
+      "2:DRP"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Captive_Cable",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Port_Battery_Powered",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "BC_1_2_Support",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:None",
+      "1:Portable Device",
+      "2:Charging Port",
+      "3:Both"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "PD_Specification_Revision",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "Unknown Revision",
+      "1:Revision 2",
+      "2:Revision 3"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SOP_Capable",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SOP_P_Capable",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SOP_PP_Capable",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Master_Port",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "FR_Swap_Type_C_Current_Capability_As_Initial_Sink",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:FR_Swap not supported",
+      "1:Default USB Power",
+      "2:1.5A @ 5V",
+      "3:3A @ 5V"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SOP_P_Debug_Capable",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SOP_PP_Debug_Capable",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Manufacturer_Info_Supported_Port",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Manufacturer_Info_VID_Port",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Manufacturer_Info_PID_Port",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB_Comms_Capable",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "DR_Swap_To_DFP_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "DR_Swap_To_UFP_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Unconstrained_Power",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "VCONN_Swap_To_On_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "VCONN_Swap_To_Off_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Responds_To_Discov_SOP_UFP",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Responds_To_Discov_SOP_DFP",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Attempts_Discov_SOP",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Chunking_Implemented_SOP",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Unchunked_Extended_Messages_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Security_Msgs_Supported_SOP",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Num_Fixed_Batteries",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 0,
+    "MaxValue": 4,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Num_Swappable_Battery_Slots",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 0,
+    "MaxValue": 4,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Can_Act_As_Host",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Can_Act_As_Device",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Implements_Try_SRC",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Implements_Try_SNK",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Supports_Audio_Accessory",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Supports_VCONN_Powered_Accessory",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Is_VCONN_Powered_Accessory",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Is_Debug_Target_SRC",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Is_Debug_Target_SNK",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "RP_Value",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Default",
+      "1:1.5A",
+      "2:3A"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Port_On_Hub",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Power_Source",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Externally Powered",
+      "1:UFP-powered",
+      "2:Both"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Sources_VCONN",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Is_Alt_Mode_Controller",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_Is_Alt_Mode_Adapter",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Host_Speed",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:USB 2",
+      "1:USB 3.2 Gen 1x1",
+      "2:USB 3.2 Gen 2x1",
+      "3:USB 3.2 Gen 1x2",
+      "4:USB 3.2 Gen 2x2"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Host_Contains_Captive_Retimer",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Host_Truncates_DP_For_tDHPResponse",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Host_Gen1x1_tLinkTurnaround",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "ns",
+    "MinValue": 400,
+    "MaxValue": 1500,
+    "Multipliers": 1,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Host_Gen2x1_tLinkTurnaround",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "ns",
+    "MinValue": 700,
+    "MaxValue": 1500,
+    "Multipliers": 1,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Host_Is_Embedded",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Host_Suspend_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Is_DFP_On_Hub",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Host_Supports_USB_Data",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Hub_Port_Number",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Device_Speed",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:USB 2",
+      "1:USB 3.2 Gen 1x1",
+      "2:USB 3.2 Gen 2x1",
+      "3:USB 3.2 Gen 1x2",
+      "4:USB 3.2 Gen 2x2"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Device_Contains_Captive_Retimer",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Device_Truncates_DP_For_tDHPResponse",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Device_Gen1x1_tLinkTurnaround",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "ns",
+    "MinValue": 400,
+    "MaxValue": 1500,
+    "Multipliers": 1,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Device_Gen2x1_tLinkTurnaround",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "ns",
+    "MinValue": 700,
+    "MaxValue": 1500,
+    "Multipliers": 1,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "BC_1_2_Charging_Port_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:DCP",
+      "1:CDP",
+      "2:Both"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "PD_Power_As_Source",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mW",
+    "MinValue": 500,
+    "MaxValue": 100000,
+    "Multipliers": 1,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB_Suspend_May_Be_Cleared",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Sends_Pings",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Num_Src_PDOs",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 1,
+    "MaxValue": 7,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "PD_OC_Protection",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "PD_OCP_Method",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Over-Current Response",
+      "1:Under-Voltage Response",
+      "2:Both"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SrcPdoList",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "PD_Power_As_Sink",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mW",
+    "MinValue": 0,
+    "MaxValue": 100000,
+    "Multipliers": 1,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "No_USB_Suspend_May_Be_Set",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "GiveBack_May_Be_Set",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Higher_Capability_Set",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "FR_Swap_Reqd_Type_C_Current_As_Initial_Source",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:FR_Swap not supported",
+      "1:Default USB Power",
+      "2:1.5A @ 5V",
+      "3:3A @ 5V"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Num_Snk_PDOs",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 1,
+    "MaxValue": 7,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SnkPdoList",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Accepts_PR_Swap_As_Src",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Accepts_PR_Swap_As_Snk",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Requests_PR_Swap_As_Src",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Requests_PR_Swap_As_Snk",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "FR_Swap_Supported_As_Initial_Sink",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "XID_SOP",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 0,
+    "MaxValue": 1048575,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Data_Capable_As_USB_Host_SOP",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Data_Capable_As_USB_Device_SOP",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Product_Type_UFP_SOP",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Undefined",
+      "1:PDUSB Hub",
+      "2:PDUSB Peripheral",
+      "3:PSD",
+      "4:Reserved",
+      "5:Alternate Mode Adapter(AMA)"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Product_Type_DFP_SOP",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Undefined",
+      "1:PDUSB Hub",
+      "2:PDUSB Host",
+      "3:Power Brick",
+      "4:Alternate Mode Controller (AMC)"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Modal_Operation_Supported_SOP",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "PID_SOP",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "bcdDevice_SOP",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Fixed_SOP",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Num_SVIDs_Min_SOP",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 1,
+    "MaxValue": 52,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Num_SVIDs_Max_SOP",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 1,
+    "MaxValue": 52,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SOPSVIDList",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "AMA_HW_Vers",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "AMA_FW_Vers",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "AMA_VCONN_Reqd",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "AMA_VCONN_Power",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:1W",
+      "1:1.5W",
+      "2:2W",
+      "3:3W",
+      "4:4W",
+      "5:5W",
+      "6:6W"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "AMA_VBUS_Reqd",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "AMA_Superspeed_Support",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:USB 2.0 only",
+      "1:USB 3.2 Gen1",
+      "2:USB 3.2 Gen2",
+      "3:USB 2.0 Billboard Only"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Product_Total_Source_Power_mW",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mW",
+    "MinValue": 0,
+    "MaxValue": 1000000,
+    "Multipliers": 1,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Port_Source_Power_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Assured",
+      "1:Shared"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Port_Source_Power_Gang",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Port_Source_Power_Gang_Max_Power",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mW",
+    "MinValue": 0,
+    "MaxValue": 1000000,
+    "Multipliers": 1,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "XID",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 0,
+    "MaxValue": 1048575,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Data_Capable_As_USB_Host",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Data_Capable_As_USB_Device",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Product_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0-2:Reserved",
+      "",
+      "",
+      "3:Passive Cable",
+      "4:Active Cable",
+      "",
+      "6:Vconn Powered Device"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Modal_Operation_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB_VID",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB_VID_SOP",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "PID",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "bcdDevice",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Cable_HW_Vers",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Cable_FW_Vers",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_To_Type_A_B_C",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Type-A",
+      "1:Type-B",
+      "2:Type-C"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_To_Type_C_Capt_Vdm_V2",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0-1:Reserved",
+      "",
+      "2:USB Type-C",
+      "3:Captive"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Type_C_To_Plug_Receptacle",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Plug",
+      "1:Receptacle"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Cable_Latency",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Cable_Termination_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "VBUS_Through_Cable",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Cable_VBUS_Current",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Reserved",
+      "1:3A",
+      "2:5A",
+      "3:Reserved"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Cable_SOP_PP_Controller",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Cable_Superspeed_Support",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0: USB 2.0 only",
+      "1:USB 3.1 Gen 1",
+      "2:USB 3.1 Gen 2"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Max_VBUS_Voltage_Vdm_V2",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0: 20V",
+      "1:30V",
+      "2:40V",
+      "3:50V"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Manufacturer_Info_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Manufacturer_Info_VID",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Manufacturer_Info_PID",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Chunking_Implemented",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Security_Msgs_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Fixed",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Num_SVIDs_Min",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 1,
+    "MaxValue": 52,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Num_SVIDs_Max",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 1,
+    "MaxValue": 52,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "CableSVIDList",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Retimer_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:SRIS",
+      "1:Bit-Level"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Repeater_Two_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:SRIS Re-Timer",
+      "1:Bit-Level Re-Timer",
+      "2:Re-driver"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Src_PDO_Supply_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Fixed",
+      "1:Battery",
+      "2:Variable",
+      "3:PPS"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Src_PDO_Peak_Current",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:100% IOC",
+      "1:130% IOC",
+      "2:150% IOC",
+      "3:200% IOC"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Src_PDO_Voltage",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mV",
+    "MinValue": 0,
+    "MaxValue": 400,
+    "Multipliers": 50,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Src_PDO_Max_Current",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mA",
+    "MinValue": 0,
+    "MaxValue": 500,
+    "Multipliers": 10,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Src_PDO_Min_Voltage",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mV",
+    "MinValue": 0,
+    "MaxValue": 420,
+    "Multipliers": 50,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Src_PDO_Max_Voltage",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mV",
+    "MinValue": 0,
+    "MaxValue": 500,
+    "Multipliers": 50,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Src_PDO_Max_Power",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mW",
+    "MinValue": 0,
+    "MaxValue": 400,
+    "Multipliers": 250,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Src_PD_OCP_OC_Debounce",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mS",
+    "MinValue": 0,
+    "MaxValue": 1000,
+    "Multipliers": 1,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Src_PD_OCP_OC_Threshold",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mS",
+    "MinValue": 0,
+    "MaxValue": 1000,
+    "Multipliers": 10,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Src_PD_OCP_UV_Debounce",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mS",
+    "MinValue": 0,
+    "MaxValue": 1000,
+    "Multipliers": 1,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Src_PD_OCP_UV_Threshold_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Value",
+      "1:Percentage"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Src_PD_OCP_UV_Threshold",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mV",
+    "MinValue": 0,
+    "MaxValue": 95,
+    "Multipliers": 10,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Snk_PDO_Supply_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Fixed",
+      "1:Battery",
+      "2:Variable",
+      "3:PPS"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Snk_PDO_Voltage",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mV",
+    "MinValue": 0,
+    "MaxValue": 400,
+    "Multipliers": 50,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Snk_PDO_Op_Power",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mW",
+    "MinValue": 0,
+    "MaxValue": 400,
+    "Multipliers": 250,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Snk_PDO_Min_Voltage",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mV",
+    "MinValue": 0,
+    "MaxValue": 420,
+    "Multipliers": 50,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Snk_PDO_Max_Voltage",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mV",
+    "MinValue": 0,
+    "MaxValue": 420,
+    "Multipliers": 50,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Snk_PDO_Op_Current",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "mA",
+    "MinValue": 0,
+    "MaxValue": 500,
+    "Multipliers": 10,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_SOP",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Modes_Fixed_SOP",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Num_Modes_Min_SOP",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 1,
+    "MaxValue": 6,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Num_Modes_Max_SOP",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 1,
+    "MaxValue": 6,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SOPSVIDModeList",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Mode_Enter_SOP",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Mode_Recog_Mask_SOP",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Mode_Recog_Value_SOP",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 1,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Modes_Fixed",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Num_Modes_Min",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 1,
+    "MaxValue": 6,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Num_Modes_Max",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 1,
+    "MaxValue": 6,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "CableSVIDModeList",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Mode_Enter",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Mode_Recog_Mask",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SVID_Mode_Recog_Value",
+    "VifFieldType": 4,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "hex",
+    "MinValue": 0,
+    "MaxValue": 65535,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "NotSet",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Cable_Num_SVIDs_Min",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Cable_Num_SVIDs_Max",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "SnkPDO",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "VIF",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Component",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "srcPdoList",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "snkPdoList",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "sopSVIDList",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "sopSVIDModeList",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "cableSVIDList",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "cableSVIDModeList",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "CableSVID",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  }
+]

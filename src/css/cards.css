@@ -1,0 +1,263 @@
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?jd3qzb');
+  src:  url('../fonts/icomoon.eot?jd3qzb#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?jd3qzb') format('truetype'),
+    url('../fonts/icomoon.woff?jd3qzb') format('woff'),
+    url('../fonts/icomoon.svg?jd3qzb#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1.2;
+  
+  /* Enable Ligatures ================ */
+  letter-spacing: 0;
+
+  font-feature-settings: "liga";
+  font-variant-ligatures: discretionary-ligatures;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  vertical-align: middle;
+  
+}
+
+.dev-card .pro-img::-moz-focus-inner{
+  display: block;
+  max-width: 100%;
+
+}
+.dev-card.inactive{
+  background: rgba(255, 255, 255, 0.5215686274509804);
+}
+
+.dev-card.active{
+  background: #e6ecf2;
+}
+
+.dev-card.inactive .pro-img{
+  background-position: center;
+  background-size: 64px;
+  background-repeat:  no-repeat;
+  background-color: #404040;   
+  font-size: 51px; 
+}
+
+.dev-card.active .pro-img{
+  background-position: center;
+  background-size: 64px;
+  background-repeat:  no-repeat;
+  background-color: #aedc4e;
+  font-size: 51px;
+}
+
+.inactive[class^="icon-"], .inactive[class*=" icon-"], .inactive[class^="icon-"], .inactive [class*=" icon-"]{
+  color:white;
+}
+.active[class^="icon-"], .active[class*=" icon-"], .active[class^="icon-"], .active [class*=" icon-"]{
+  color:#000;
+}
+
+/* Icons Start */
+/* Ac */
+
+.icon-air-conditioner:before {
+  content: "\e902";
+} 
+
+
+.icon-active-speaker:before {
+  content: "\e900";
+}
+.icon-air-purifier:before {
+  content: "\e903";
+}
+.icon-audio-system:before {
+  content: "\e904";
+}
+.icon-battery:before {
+  content: "\e905";
+}
+.icon-bell:before {
+  content: "\e906";
+}
+.icon-blind:before {
+  content: "\e907";
+}
+
+.icon-camera:before {
+  content: "\e909";
+}
+.icon-electric-vehicle-charger:before {
+  content: "\e90a";
+}
+.icon-clothes-washer-dryer:before {
+  content: "\e90b";
+}
+.icon-coffee-machine:before {
+  content: "\e90c";
+}
+.icon-cooker-hood:before {
+  content: "\e90d";
+}
+.icon-cooktop:before {
+  content: "\e90e";
+}
+.icon-curtains:before {
+  content: "\e90f";
+}
+.icon-dehumidifier:before {
+  content: "\e910";
+}
+.icon-dishwasher:before {
+  content: "\e911";
+}
+.icon-door:before {
+  content: "\e912";
+}
+.icon-dryer-laundry:before {
+  content: "\e913";
+}
+.icon-electric-meter:before {
+  content: "\e914";
+}
+.icon-energy-generator:before {
+  content: "\e915";
+}
+.icon-fan:before {
+  content: "\e916";
+}
+.icon-food-probe:before {
+  content: "\e917";
+}
+.icon-freezer:before {
+  content: "\e918";
+}
+.icon-grinder:before {
+  content: "\e919";
+}
+.icon-humidifier:before {
+  content: "\e91a";
+}
+
+.icon-lights:before {
+  content: "\e91c";
+}
+.icon-light:before {
+  content: "\e91d";
+}
+.icon-air-quality-monitor:before {
+  content: "\e91e";
+}
+.icon-oven:before {
+  content: "\e91f";
+}
+.icon-powerbackup:before {
+  content: "\e920";
+}
+.icon-printer:before {
+  content: "\e921";
+}
+.icon-printer-multi-function:before {
+  content: "\e922";
+}
+.icon-receiver:before {
+  content: "\e923";
+}
+.icon-refrigerator:before {
+  content: "\e924";
+}
+.icon-robot-cleaner:before {
+  content: "\e925";
+}
+.icon-scanner:before {
+  content: "\e926";
+}
+.icon-security-panel:before {
+  content: "\e927";
+}
+.icon-sensor:before {
+  content: "\e928";
+}
+.icon-smart-lock:before {
+  content: "\e929";
+}
+.icon-smart-plug:before {
+  content: "\e92a";
+}
+.icon-storage:before {
+  content: "\e92b";
+}
+.icon-switch:before {
+  content: "\e92c";
+}
+.icon-television:before {
+  content: "\e92d";
+}
+.icon-water-valve:before {
+  content: "\e92e";
+}
+.icon-washer-laundry:before {
+  content: "\e92f";
+}
+.icon-water-heater:before {
+  content: "\e930";
+}
+.icon-set-top-box:before {
+  content: "\e92d";
+}
+
+.icon-window:before {
+  content: "\e932";
+}
+
+.icon-wi-fi:before {
+  content: "\e931";
+}
+.icon-home2:before {
+  content: "\e901";
+}
+
+.icon-bluetooth:before {
+  content: "\e908";
+}
+
+.icon-lan:before {
+  content: "\e91b";
+}
+.icon-3d-printer:before{
+  content: "\e936";
+}
+.icon-steam-closet:before{
+  content: "\e937";
+}
+.icon-kettle:before {
+  content:"\e933";
+}
+.icon-thermostat:before {
+  content:"\e938";
+}
+.icon-virtual-device:before{
+  content:"\e939";
+}
+.icon-garage-door:before{
+  content:"\e935";
+}
+.icon-generic-sensor:before{
+  content:"\e934";
+}
+.icon-bridge:before{
+  content:"\e93a"
+}

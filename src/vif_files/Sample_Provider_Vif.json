@@ -1,0 +1,476 @@
+{
+  "_declaration": {
+      "_attributes": {
+          "version": "1.0",
+          "encoding": "utf-8"
+      }
+  },
+  "VIF": {
+      "_attributes": {
+          "xmlns": "http://usb.org/VendorInfoFile.xsd"
+      },
+      "VIF_Specification": {
+          "_text": "2.03"
+      },
+      "VIF_App": {
+          "Vendor": {
+              "_text": "USB-IF"
+          },
+          "Name": {
+              "_text": "Vendor Info File Editor"
+          },
+          "Version": {
+              "_text": "2.0.1.0"
+          }
+      },
+      "Vendor_Name": {
+          "_text": "GRL"
+      },
+      "Model_Part_Number": {
+          "_text": "GRL"
+      },
+      "Product_Revision": {
+          "_text": "QC4+"
+      },
+      "TID": {
+          "_text": "0"
+      },
+      "VIF_Product_Type": {
+          "_attributes": {
+              "value": "0"
+          },
+          "_text": "Port Product"
+      },
+      "Component": {
+          "Port_Label": {
+              "_text": "0"
+          },
+          "Connector_Type": {
+              "_attributes": {
+                  "value": "2"
+              },
+              "_text": "Type-C™"
+          },
+          "USB_PD_Support": {
+              "_attributes": {
+                  "value": "true"
+              }
+          },
+          "PD_Port_Type": {
+              "_attributes": {
+                  "value": "3"
+              },
+              "_text": "Provider Only"
+          },
+          "Type_C_State_Machine": {
+              "_attributes": {
+                  "value": "0"
+              },
+              "_text": "SRC"
+          },
+          "Port_Battery_Powered": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "BC_1_2_Support": {
+              "_attributes": {
+                  "value": "2"
+              },
+              "_text": "Charging Port"
+          },
+          "PD_Specification_Revision": {
+              "_attributes": {
+                  "value": "2"
+              },
+              "_text": "Revision 3.0"
+          },
+          "SOP_Capable": {
+              "_attributes": {
+                  "value": "true"
+              }
+          },
+          "SOP_P_Capable": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "SOP_PP_Capable": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "SOP_P_Debug_Capable": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "SOP_PP_Debug_Capable": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Manufacturer_Info_Supported_Port": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "USB_Comms_Capable": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "DR_Swap_To_DFP_Supported": {
+              "_attributes": {
+                  "value": "true"
+              }
+          },
+          "DR_Swap_To_UFP_Supported": {
+              "_attributes": {
+                  "value": "true"
+              }
+          },
+          "Unconstrained_Power": {
+              "_attributes": {
+                  "value": "true"
+              }
+          },
+          "VCONN_Swap_To_On_Supported": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "VCONN_Swap_To_Off_Supported": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Responds_To_Discov_SOP_UFP": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Responds_To_Discov_SOP_DFP": {
+              "_attributes": {
+                  "value": "true"
+              }
+          },
+          "Attempts_Discov_SOP": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Chunking_Implemented_SOP": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Unchunked_Extended_Messages_Supported": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Security_Msgs_Supported_SOP": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Num_Fixed_Batteries": {
+              "_attributes": {
+                  "value": "0"
+              }
+          },
+          "Num_Swappable_Battery_Slots": {
+              "_attributes": {
+                  "value": "0"
+              }
+          },
+          "Type_C_Can_Act_As_Host": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Type_C_Can_Act_As_Device": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Type_C_Supports_Audio_Accessory": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Type_C_Is_Debug_Target_SRC": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Captive_Cable": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "RP_Value": {
+              "_attributes": {
+                  "value": "2"
+              },
+              "_text": "3A"
+          },
+          "Type_C_Port_On_Hub": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Type_C_Power_Source": {
+              "_attributes": {
+                  "value": "0"
+              },
+              "_text": "Externally Powered"
+          },
+          "Type_C_Sources_VCONN": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Type_C_Is_Alt_Mode_Controller": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "BC_1_2_Charging_Port_Type": {
+              "_attributes": {
+                  "value": "0"
+              },
+              "_text": "DCP"
+          },
+          "PD_Power_As_Source": {
+              "_attributes": {
+                  "value": "27000"
+              },
+              "_text": "27000 mW"
+          },
+          "USB_Suspend_May_Be_Cleared": {
+              "_attributes": {
+                  "value": "true"
+              }
+          },
+          "Sends_Pings": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "FR_Swap_Type_C_Current_Capability_As_Initial_Sink": {
+              "_attributes": {
+                  "value": "0"
+              },
+              "_text": "FR_Swap not supported"
+          },
+          "Master_Port": {
+              "_attributes": {
+                  "value": "true"
+              }
+          },
+          "Num_Src_PDOs": {
+              "_attributes": {
+                  "value": "5"
+              }
+          },
+          "PD_OC_Protection": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "SrcPdoList": {
+              "SrcPDO": [{
+                      "Src_PDO_Supply_Type": {
+                          "_attributes": {
+                              "value": "0"
+                          },
+                          "_text": "Fixed"
+                      },
+                      "Src_PDO_Peak_Current": {
+                          "_attributes": {
+                              "value": "0"
+                          },
+                          "_text": "100% IOC"
+                      },
+                      "Src_PDO_Voltage": {
+                          "_attributes": {
+                              "value": "100"
+                          },
+                          "_text": "5000 mV"
+                      },
+                      "Src_PDO_Max_Current": {
+                          "_attributes": {
+                              "value": "300"
+                          },
+                          "_text": "3000 mA"
+                      }
+                  }, {
+                      "Src_PDO_Supply_Type": {
+                          "_attributes": {
+                              "value": "0"
+                          },
+                          "_text": "Fixed"
+                      },
+                      "Src_PDO_Peak_Current": {
+                          "_attributes": {
+                              "value": "0"
+                          },
+                          "_text": "100% IOC"
+                      },
+                      "Src_PDO_Voltage": {
+                          "_attributes": {
+                              "value": "180"
+                          },
+                          "_text": "9000 mV"
+                      },
+                      "Src_PDO_Max_Current": {
+                          "_attributes": {
+                              "value": "300"
+                          },
+                          "_text": "3000 mA"
+                      }
+                  }, {
+                      "Src_PDO_Supply_Type": {
+                          "_attributes": {
+                              "value": "0"
+                          },
+                          "_text": "Fixed"
+                      },
+                      "Src_PDO_Peak_Current": {
+                          "_attributes": {
+                              "value": "0"
+                          },
+                          "_text": "100% IOC"
+                      },
+                      "Src_PDO_Voltage": {
+                          "_attributes": {
+                              "value": "240"
+                          },
+                          "_text": "12000 mV"
+                      },
+                      "Src_PDO_Max_Current": {
+                          "_attributes": {
+                              "value": "225"
+                          },
+                          "_text": "2250 mA"
+                      }
+                  }, {
+                      "Src_PDO_Supply_Type": {
+                          "_attributes": {
+                              "value": "3"
+                          },
+                          "_text": "PPS"
+                      },
+                      "Src_PDO_Max_Current": {
+                          "_attributes": {
+                              "value": "60"
+                          },
+                          "_text": "3000 mA"
+                      },
+                      "Src_PDO_Min_Voltage": {
+                          "_attributes": {
+                              "value": "33"
+                          },
+                          "_text": "3300 mV"
+                      },
+                      "Src_PDO_Max_Voltage": {
+                          "_attributes": {
+                              "value": "59"
+                          },
+                          "_text": "5900 mV"
+                      }
+                  }, {
+                      "Src_PDO_Supply_Type": {
+                          "_attributes": {
+                              "value": "3"
+                          },
+                          "_text": "PPS"
+                      },
+                      "Src_PDO_Max_Current": {
+                          "_attributes": {
+                              "value": "49"
+                          },
+                          "_text": "2450 mA"
+                      },
+                      "Src_PDO_Min_Voltage": {
+                          "_attributes": {
+                              "value": "33"
+                          },
+                          "_text": "3300 mV"
+                      },
+                      "Src_PDO_Max_Voltage": {
+                          "_attributes": {
+                              "value": "110"
+                          },
+                          "_text": "11000 mV"
+                      }
+                  }
+              ]
+          },
+          "XID_SOP": {
+              "_attributes": {
+                  "value": "0"
+              }
+          },
+          "Data_Capable_As_USB_Host_SOP": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Data_Capable_As_USB_Device_SOP": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "Product_Type_UFP_SOP": {
+              "_attributes": {
+                  "value": "0"
+              },
+              "_text": "Undefined"
+          },
+          "Product_Type_DFP_SOP": {
+              "_attributes": {
+                  "value": "3"
+              },
+              "_text": "Power Brick"
+          },
+          "Modal_Operation_Supported_SOP": {
+              "_attributes": {
+                  "value": "false"
+              }
+          },
+          "USB_VID_SOP": {
+              "_attributes": {
+                  "value": "8137"
+              },
+              "_text": "1FC9"
+          },
+          "PID_SOP": {
+              "_attributes": {
+                  "value": "0"
+              },
+              "_text": "0000"
+          },
+          "bcdDevice_SOP": {
+              "_attributes": {
+                  "value": "0"
+              },
+              "_text": "0000"
+          },
+          "Product_Total_Source_Power_mW": {
+              "_attributes": {
+                  "value": "270000"
+              },
+              "_text": "270000 mW"
+          },
+          "Port_Source_Power_Type": {
+              "_attributes": {
+                  "value": "0"
+              },
+              "_text": "Assured"
+          }
+      }
+  }
+}
