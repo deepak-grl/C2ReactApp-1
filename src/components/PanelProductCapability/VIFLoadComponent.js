@@ -94,7 +94,7 @@ const VIFLoadComponent = observer(
         }
 
         generateVIFFile = () => {
-            var parsedJson = basemodal.vifDataModal.getportA().getCleanedJson();
+            var parsedJson = basemodal.vifDataModal.getportA().getCleanedFileJson();
             var options = { compact: true, ignoreAttributes: false, ignoreComment: true, spaces: 4 };
             var jsonObject = convert.json2xml(parsedJson, options);
             if (mainstore.popUpInputs.responseButton === "Ok")

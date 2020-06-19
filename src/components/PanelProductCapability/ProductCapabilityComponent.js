@@ -62,14 +62,15 @@ const ProductCapabilityComponent = observer(
 
         generateVIFFile = () => {
             var parsedJson;
-            if (basemodal.vifDataModal.portA)
-                parsedJson = basemodal.vifDataModal.getportB().getCleanedDeviceJson();
-            else if (basemodal.vifDataModal.portB)
-                parsedJson = basemodal.vifDataModal.getportB().getCleanedDeviceJson();
-            console.log('basemodal.vifDataModal: ', basemodal.vifDataModal);
-            var options = { compact: true, ignoreAttributes: false, ignoreComment: true, spaces: 4 };
-            var jsonObject = convert.json2xml(parsedJson, options);
-            fileDownloader(jsonObject, mainstore.popUpInputs.userTextBoxInput)
+            if (basemodal.vifDataModal.portA || basemodal.vifDataModal.portB) {
+                if (basemodal.vifDataModal.portA.deviceJson && mainstore.getCapsPortNumber === 1)
+                    parsedJson = basemodal.vifDataModal.getportA().getCleanedDeviceJson();
+                else if (basemodal.vifDataModal.portB.deviceJson && mainstore.getCapsPortNumber === 2)
+                    parsedJson = basemodal.vifDataModal.getportB().getCleanedDeviceJson();
+                var options = { compact: true, ignoreAttributes: false, ignoreComment: true, spaces: 4 };
+                var jsonObject = convert.json2xml(parsedJson, options);
+                fileDownloader(jsonObject, mainstore.popUpInputs.userTextBoxInput)
+            }
         }
 
         showDialogForVifGenerationDialog() {

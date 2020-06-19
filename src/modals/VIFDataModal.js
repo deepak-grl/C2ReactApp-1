@@ -247,6 +247,11 @@ export class VIFPort {
         return cleaner(cloneJson, 'localProps');
     }
 
+    getCleanedFileJson(){
+        let cloneFileJson = JSON.parse(JSON.stringify(this.fileJson));
+        return cleaner(cloneFileJson, 'localProps');
+    }
+
 
     createJsonStructureForBackend() {
         let allStaticElements = {};
