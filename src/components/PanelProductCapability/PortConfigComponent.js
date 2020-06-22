@@ -213,10 +213,10 @@ const PortConfigComponent = observer(
                         <div>
                             <FlexView>
                                 <OverlayTrigger placement="top" overlay={<Tooltip> {PC_GETCAP_BTN} </Tooltip>}>
-                                    <Button className="grl-button-blue grl-getCapabilities-button" id={this.props.portnumber + "_getCaps_button"} onClick={this.getCapabilities.bind(this)}>Get Capabilities</Button>
+                                    <Button className="grl-button-blue grl-getCapabilities-button" id={this.props.portnumber + "_getCaps_button"} onClick={this.getCapabilities.bind(this)}>Get Device Data</Button>
                                 </OverlayTrigger>
                                 <OverlayTrigger placement="top" overlay={<Tooltip > {PC_RESET_BTN} </Tooltip>}>
-                                    <Button className="grl-button grl-reset-button" id={this.props.portnumber + "_reset_button"} onClick={this.clearDeviceData.bind(this)} >Reset</Button>
+                                    <Button className="grl-button grl-reset-button" id={this.props.portnumber + "_reset_button"} onClick={this.clearDeviceData.bind(this)} >Clear Device Data</Button>
                                 </OverlayTrigger>
                                 <div className="clip-Loader-Align">
                                     <ClipLoader
