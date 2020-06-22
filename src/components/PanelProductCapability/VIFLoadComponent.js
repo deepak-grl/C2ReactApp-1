@@ -95,6 +95,9 @@ const VIFLoadComponent = observer(
 
         generateVIFFile = () => {
             var parsedJson = basemodal.vifDataModal.getportA().getCleanedFileJson();
+            if (parsedJson.VIF)
+                if (parsedJson.VIF.VIF_App)  
+                    parsedJson.VIF.VIF_App.Vendor["_text"] = "GRL"        //changing the Vendor Name for the Generating VIF data
             var options = { compact: true, ignoreAttributes: false, ignoreComment: true, spaces: 4 };
             var jsonObject = convert.json2xml(parsedJson, options);
             if (mainstore.popUpInputs.responseButton === "Ok")

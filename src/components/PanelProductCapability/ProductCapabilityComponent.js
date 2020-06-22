@@ -61,15 +61,23 @@ const ProductCapabilityComponent = observer(
         }
 
         generateVIFFile = () => {
-            var parsedJson;
+            var parsedJson = null;
             if (basemodal.vifDataModal.portA || basemodal.vifDataModal.portB) {
-                if (basemodal.vifDataModal.portA.deviceJson && mainstore.getCapsPortNumber === 1)
-                    parsedJson = basemodal.vifDataModal.getportA().getCleanedDeviceJson();
-                else if (basemodal.vifDataModal.portB.deviceJson && mainstore.getCapsPortNumber === 2)
-                    parsedJson = basemodal.vifDataModal.getportB().getCleanedDeviceJson();
+                if (basemodal.vifDataModal.portA.deviceJson) {
+                    if (basemodal.vifDataModal.portA.deviceJson && mainstore.getCapsPortNumber === 1)
+                        parsedJson = basemodal.vifDataModal.getportA().getCleanedDeviceJson();
+                }
+                else if (basemodal.vifDataModal.portA.deviceJson) {
+                    if (basemodal.vifDataModal.portB.deviceJson && mainstore.getCapsPortNumber === 2)
+                        parsedJson = basemodal.vifDataModal.getportB().getCleanedDeviceJson();
+                }
+                if (parsedJson)
+                    if (parsedJson.VIF && parsedJson.VIF.VIF_App)
+                        parsedJson.VIF.VIF_App.Vendor["_text"] = "GRL"          //changing the Vendor Name for the Generating device data
                 var options = { compact: true, ignoreAttributes: false, ignoreComment: true, spaces: 4 };
                 var jsonObject = convert.json2xml(parsedJson, options);
-                fileDownloader(jsonObject, mainstore.popUpInputs.userTextBoxInput)
+                if (parsedJson !== null)        //to avoid to download the empty file
+                    fileDownloader(jsonObject, mainstore.popUpInputs.userTextBoxInput)
             }
         }
 

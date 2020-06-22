@@ -65,21 +65,22 @@ export class VIFDataModal {
 
         //Checking the loading VIF from GRL
         var allowGrlXmlToast = new toastNotification("Loaded unsupported VIF, please load the VIF generated from USB-IF official VIF generator tool", Constants.TOAST_ERROR, 5000);
-        if (mainstore.productCapabilityProps.executionMode === Constants.INFORMATIONAL_MODE) {
-            var vendorName = port.fileJson.VIF.VIF_App.Vendor._text
-            if (vendorName !== "GRL" && vendorName !== "USB-IF") {
-                allowGrlXmlToast.show();
-                this.clearAll();
-                return allowGrlXmlToast
+        if (port.fileJson)
+            if (mainstore.productCapabilityProps.executionMode === Constants.INFORMATIONAL_MODE) {
+                var vendorName = port.fileJson.VIF.VIF_App.Vendor._text
+                if (vendorName !== "GRL" && vendorName !== "USB-IF") {
+                    allowGrlXmlToast.show();
+                    this.clearAll();
+                    return allowGrlXmlToast
+                }
             }
-        }
-        else {
-            if (port.fileJson.VIF.VIF_App.Vendor._text !== "USB-IF") {
-                allowGrlXmlToast.show();
-                this.clearAll();
-                return allowGrlXmlToast
+            else {
+                if (port.fileJson.VIF.VIF_App.Vendor._text !== "USB-IF") {
+                    allowGrlXmlToast.show();
+                    this.clearAll();
+                    return allowGrlXmlToast
+                }
             }
-        }
 
         var showValidXmlToast = new toastNotification("Please Provide a Valid XML File", Constants.TOAST_WARN, 4000);
         if (port.fileJson !== undefined && mainstore.isGetCapsEnabled !== true) {
