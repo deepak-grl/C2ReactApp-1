@@ -21,7 +21,7 @@ export class VIFDataModal {
         mainstore.isGetCapsEnabled = false;
     }
     clearGetCapsData() {
-        let port = this.getportA();
+        let port = this.getCurrentPort(mainstore.currentPortIndex);
         port.setDeviceData(null);
         this.vifDataModified();
         basemodal.putClearGetCapsData();

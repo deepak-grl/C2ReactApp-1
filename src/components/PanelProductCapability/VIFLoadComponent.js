@@ -96,7 +96,7 @@ const VIFLoadComponent = observer(
         generateVIFFile = () => {
             var parsedJson = basemodal.vifDataModal.getportA().getCleanedFileJson();
             if (parsedJson.VIF)
-                if (parsedJson.VIF.VIF_App)  
+                if (parsedJson.VIF.VIF_App)
                     parsedJson.VIF.VIF_App.Vendor["_text"] = "GRL"        //changing the Vendor Name for the Generating VIF data
             var options = { compact: true, ignoreAttributes: false, ignoreComment: true, spaces: 4 };
             var jsonObject = convert.json2xml(parsedJson, options);
@@ -178,6 +178,7 @@ const VIFLoadComponent = observer(
                         onChange={this.onFileSeletionInDialog}
                         onClick={(event) => { event.target.value = null; }}
                     />
+                    <p className="panelHeading">VIF Data Operation</p>
                     <FlexView>
                         <label className="load-vif-label">Load VIF</label>
                         <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip>{"Load DUT's XML VIF File"} </Tooltip>}>

@@ -96,7 +96,7 @@ const ProductCapabilityComponent = observer(
             // ProductCapabilityProps.udpateProductCapsPros();//TODO Check with kishore if this is ok
             return (
                 <>
-                    <FlexView column className="right-border align-on-zoom panel-padding scroll mobile-product-capability-left-side-container" style={{ width: Constants.LEFT_PANEL_WIDTH, overflowY: 'auto' }} onWheel={(e) => utils.listenScrollEvent(e)}>
+                    <FlexView column className="right-border align-on-zoom panel-padding scroll mobile-product-capability-left-side-container" style={{ width: Constants.LEFT_PANEL_WIDTH, overflowY: 'auto', display: "block" }} onWheel={(e) => utils.listenScrollEvent(e)}>
                         <NewProjectButton />
                         <FlexView>
                             <Form className="form-padding">
@@ -114,11 +114,14 @@ const ProductCapabilityComponent = observer(
                             null : <PortConfigComponent portnumber={Constants.PORTB} isInCompMode={isCompModeSelected} />}
 
                         {isCompModeSelected ? null :
-                            <FlexView>
-                                <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip>{this.state.generateVIFFileDeviceData} </Tooltip>}>
-                                    <Button className="grl-button generate-vif-device-btn generate-vif-button-height-min-screen" onClick={this.showDialogForVifGenerationDialog.bind(this)}>{this.state.generateVIFFileDeviceData} </Button>
-                                </OverlayTrigger>
-                            </FlexView>}
+                            <>
+                                <p className="panelHeading">Device Data Operation</p>
+                                <FlexView>
+                                    <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip>{this.state.generateVIFFileDeviceData} </Tooltip>}>
+                                        <Button className="grl-button generate-vif-device-btn generate-vif-button-height-min-screen" onClick={this.showDialogForVifGenerationDialog.bind(this)}>{this.state.generateVIFFileDeviceData} </Button>
+                                    </OverlayTrigger>
+                                </FlexView>
+                            </>}
 
                         < FlexView >
                             {mainstore.productCapabilityProps.executionMode !== Constants.COMPLIANCE_MODE ?
