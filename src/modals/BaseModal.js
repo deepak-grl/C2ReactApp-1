@@ -996,6 +996,7 @@ class BaseModal {
   //Report Generation Start
   getCurrentReportFileName() {
     ajax.callGET(Constants.URL_ReportConfiguration + "GetReportFileName", {}, function (response) {
+      mainstore.currentReportFileName = ""
       mainstore.currentReportFileName = response.data
     }, function (error) {
       console.log("Error", error)
