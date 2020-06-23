@@ -69,7 +69,7 @@ const PortTesting = observer(
                 toast.show()
             }
             else {
-                mainstore.enableGlassPaneIfFivePortSelected = true;
+                mainstore.enableGlassPaneIfOptionsPanelSelected = true;
                 this.run5PortTesting();
             }
         }

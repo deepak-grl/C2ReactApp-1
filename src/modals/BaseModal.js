@@ -60,7 +60,7 @@ export const mainstore = observable({
   showIrDropCalibrationPopUp: false,
   show5PortTestingPopUp: false,
   portTestingReRender: 0,
-  enableGlassPaneIfFivePortSelected: false,
+  enableGlassPaneIfOptionsPanelSelected: false,
   isFivePortStartedExecution: false,
   showMarkerByDefault: false,
   markerTimeDiffernce: 0,

@@ -271,7 +271,7 @@ class GlassPanel extends React.Component {
       isGlasspaneActive = true;
     }
 
-    if (mainstore.enableGlassPaneIfFivePortSelected === true && mainstore.currentPanelIndex === 5 && mainstore.status.appState === Constants.BUSY) {
+    if (mainstore.enableGlassPaneIfOptionsPanelSelected && mainstore.currentPanelIndex === 5 && mainstore.status.appState === Constants.BUSY) {
       isGlasspaneActive = false;
     }
 

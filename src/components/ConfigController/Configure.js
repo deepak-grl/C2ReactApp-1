@@ -99,6 +99,7 @@ const Configure = observer(
         startCapture = () => {
             mainstore.status.appState = Constants.BUSY
             mainstore.currentPanelIndex = 3;
+            mainstore.enableGlassPaneIfOptionsPanelSelected = true;
             this.setChartAndPollingState(true)
             basemodal.configControllerStartCapture();
         }
@@ -109,6 +110,7 @@ const Configure = observer(
 
         doneCaptureLoading = () => {
             this.setChartAndPollingState(false)
+            mainstore.enableGlassPaneIfOptionsPanelSelected = false;
         }
 
         setChartAndPollingState = (enableStatus) => {
