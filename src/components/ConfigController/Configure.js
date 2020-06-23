@@ -114,7 +114,8 @@ const Configure = observer(
         }
 
         setChartAndPollingState = (enableStatus) => {
-            mainstore.panelResultPolling = enableStatus
+            if (enableStatus)
+                mainstore.panelResultPolling = enableStatus
             mainstore.configControllerCaptureInProgress = enableStatus;
             mainstore.chartPollEnabled = enableStatus;
             this.setState({ startCaptureLoader: enableStatus })
