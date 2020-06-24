@@ -224,7 +224,7 @@ const PanelConnectionSetup = observer(
             <div className="panel-div">Tool Updates</div>
             <FlexView className="update-firmware-btn-div">
               <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip>{FIRMWARE_UPDATE}  </Tooltip>}>
-                <Button disabled={this.state.eLoadFirmwareUpdateLoading || this.state.autoDiscoverLoading || mainstore.connectionStatusLoader} className="grl-button grl-button update-firmware-btn-width" id="connectionsetup_update_firmware_button" onClick={this.firmwareUpdate}>{CS_UPDATE_FIRMWARE_BTN}</Button>
+                <Button disabled={mainstore.isTesterStatusNotConnected || this.state.eLoadFirmwareUpdateLoading || this.state.autoDiscoverLoading || mainstore.connectionStatusLoader} className="grl-button grl-button update-firmware-btn-width" id="connectionsetup_update_firmware_button" onClick={this.firmwareUpdate}>{CS_UPDATE_FIRMWARE_BTN}</Button>
               </OverlayTrigger>
               <div className="update-firmware-btn-cliploader-div">
                 <ClipLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={this.state.firmwareUpdateLoading} />
@@ -232,7 +232,7 @@ const PanelConnectionSetup = observer(
             </FlexView>
             <p className="firmware-spinner-status"> {updateFirmwareSpinnerDescription}</p>
             <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip> {UPDATE_ELOAD_FIRMWARE} </Tooltip>}>
-              <Button disabled={this.state.firmwareUpdateLoading || this.state.autoDiscoverLoading || mainstore.connectionStatusLoader} className="grl-button update-eloadFirmware" id="connectionsetup_update_eload_firmware_button" onClick={this.updateEloadFirmware}>{CS_UPDATE_ELOAD_FIRMWARE_BTN}</Button>
+              <Button disabled={mainstore.isTesterStatusNotConnected || this.state.firmwareUpdateLoading || this.state.autoDiscoverLoading || mainstore.connectionStatusLoader} className="grl-button update-eloadFirmware" id="connectionsetup_update_eload_firmware_button" onClick={this.updateEloadFirmware}>{CS_UPDATE_ELOAD_FIRMWARE_BTN}</Button>
             </OverlayTrigger>
             {/* <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip> </Tooltip>}>
               <Button disabled className="grl-button" id="connectionsetup_update_software_button">{CS_UPDATE_SOFTWARE_BTN}</Button>

@@ -315,7 +315,7 @@ const PortTesting = observer(
                         </FlexView>
                         <FlexView className="auto-run-btn-div-five-port">
                             <OverlayTrigger placement="top" overlay={<Tooltip>{fivePortStartButtonTooltip}</Tooltip>}>
-                                <Button disabled={!mainstore.disableFivePortExecutionBtn} className={"grl-button port-run-button " + buttonClass} onClick={(e) => { this.validateFivePortToStartEexcution() }}>{buttonText}</Button>
+                                <Button disabled={!mainstore.disableFivePortExecutionBtn || mainstore.isTesterStatusNotConnected} className={"grl-button port-run-button " + buttonClass} onClick={(e) => { this.validateFivePortToStartEexcution() }}>{buttonText}</Button>
                             </OverlayTrigger>
                         </FlexView>
 
@@ -335,7 +335,7 @@ const PortTesting = observer(
                             </div>
 
                             <OverlayTrigger placement="auto" overlay={<Tooltip>Current Selected Port</Tooltip>}>
-                                <Button className="grl-button current-port-check-button" onClick={(e) => { this.checkCurrentSelectedPort() }}>Check</Button>
+                                <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button current-port-check-button" onClick={(e) => { this.checkCurrentSelectedPort() }}>Check</Button>
                             </OverlayTrigger>
                             <div className="cliploader-check-selected-port-status">
                                 <ClipLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={this.state.loading} />

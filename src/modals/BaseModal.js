@@ -51,6 +51,7 @@ export const mainstore = observable({
   getCapsPortNumber: 1,
   isCreateNewVifInProgress: false,
   selectedEload: '',
+  isTesterStatusNotConnected: false,
   mfi_Eloads: [],
   connectionStatusLoader: false,
   eLoadResponseData: '',
@@ -78,7 +79,7 @@ export const mainstore = observable({
   renderFivePort: 0,
   enableOrDisableAllPopups: false,
   copyisAllPopupDisabled: false,
-  copyDebugModeEnabled : false,
+  copyDebugModeEnabled: false,
   isCalibratedButtonClicked: false,
   logMessages: [],
   isMfiEloadConnected: false,
@@ -533,11 +534,14 @@ class BaseModal {
     mainstore.connectionStatusLoader = false
     mainstore.irDropCalibrationStatus = ""
     if (mainstore.connectionInfo.testerStatus === "Connected") {
+      mainstore.isTesterStatusNotConnected = false
       me.getIrDropCalibrationStatus();
       me.getIRDropCalibrationTableValues()    //Getting the ir drop table values only if tester is connected, We want to call this on both connect btn click and reload application time
       me.latestFirmwareVersion();
+
     }
     else {
+      mainstore.isTesterStatusNotConnected = true
       mainstore.irDropTableValues = {}        //we're clearing the Ir Drop table Values When tester is not connected.So here emptying the object
     }
     mouseBusy(false)

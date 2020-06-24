@@ -35,7 +35,7 @@ const MifiChargerConfig = observer((props) => {
                 <Table striped bordered hover>
                     <tbody>
                         <tr>
-                            <td colSpan="2" className="mfi-table-td">
+                            <td colSpan={2} className="mfi-table-td">
                                 <FlexView>
                                     <label className="checkbox-label-width">
                                         <input type="checkbox" className="checkbox-align-custom" onChange={(e) => isCaptiveLightningPlugChanged(e)} checked={mfiInfo.isCaptiveLightningPlugChecked} />Charger has captive lightning plug
@@ -47,7 +47,7 @@ const MifiChargerConfig = observer((props) => {
                             </td>
                         </tr>
                         <tr>
-                            <td colSpan="2">
+                            <td colSpan={2}>
                                 <span>E-Load Channel</span>
                                 <Dropdown className="eload-dropdown e-load-channel-dropdown">
                                     <Dropdown.Toggle className="dropdowncustom e-load-channel-div" variant="success" id="dropdown-basic" >{mfiInfo.selectedEloadChannel}</Dropdown.Toggle>
@@ -62,7 +62,7 @@ const MifiChargerConfig = observer((props) => {
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2" >
+                            <td colSpan={2} >
                                 <OverlayTrigger placement="top" overlay={<Tooltip> Refresh Instrument Connection </Tooltip>}>
                                     <Button onClick={scanEloads} className="grl-button mfi-scan-btn" >Scan Eload</Button>
                                 </OverlayTrigger>

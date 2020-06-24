@@ -223,7 +223,7 @@ const Configure = observer(
 
                             <FlexView>
                                 <OverlayTrigger placement="top" overlay={<Tooltip > {APPLY_CONFIGURE} </Tooltip>}>
-                                    <Button className="grl-button configure-apply-button" disabled={this.state.AppMode === Constants.APP_MODE[1]} onClick={this.getControls.bind(this)}>Apply </Button>
+                                    <Button className="grl-button configure-apply-button" disabled={this.state.AppMode === Constants.APP_MODE[1] ||mainstore.isTesterStatusNotConnected} onClick={this.getControls.bind(this)}>Apply </Button>
                                 </OverlayTrigger>
                                 <div className="cliploader-div">
                                     <ClipLoader
@@ -240,8 +240,8 @@ const Configure = observer(
 
                             <FlexView >
                                 <span className="configure-label-padding">Emulate Cable</span>
-                                <Button className="grl-button configure-attach-button attach-detach-btn-align" disabled={this.state.AppMode === Constants.APP_MODE[1]} onClick={this.handleAttach.bind(this)}>Attach </Button>
-                                <Button className="grl-button configure-detach-button" disabled={this.state.AppMode === Constants.APP_MODE[1]} onClick={this.handleDetach.bind(this)}>Detach </Button>
+                                <Button className="grl-button configure-attach-button attach-detach-btn-align" disabled={this.state.AppMode === Constants.APP_MODE[1] || mainstore.isTesterStatusNotConnected} onClick={this.handleAttach.bind(this)}>Attach </Button>
+                                <Button className="grl-button configure-detach-button" disabled={this.state.AppMode === Constants.APP_MODE[1] || mainstore.isTesterStatusNotConnected} onClick={this.handleDetach.bind(this)}>Detach </Button>
                             </FlexView>
 
                             <FlexView>
@@ -262,7 +262,7 @@ const Configure = observer(
 
                             <FlexView >
                                 <span className="configure-label-padding">Capture</span>
-                                <Button disabled={this.state.AppMode === Constants.APP_MODE[0]} className={"grl-button configure-attach-button start-capture-btn-align " + startCaptureBtnColor} onClick={() => { this.startCapture() }}>Start </Button>
+                                <Button disabled={this.state.AppMode === Constants.APP_MODE[0] || mainstore.isTesterStatusNotConnected} className={"grl-button configure-attach-button start-capture-btn-align " + startCaptureBtnColor} onClick={() => { this.startCapture() }}>Start </Button>
                                 <div className="cliploader-div">
                                     <ClipLoader
                                         sizeUnit={"px"}
@@ -271,7 +271,7 @@ const Configure = observer(
                                         loading={this.state.startCaptureLoader}
                                     />
                                 </div>
-                                <Button disabled={this.state.AppMode === Constants.APP_MODE[0]} className="grl-button configure-detach-button" onClick={() => { this.stopCapture() }}>Stop </Button>
+                                <Button disabled={this.state.AppMode === Constants.APP_MODE[0] || mainstore.isTesterStatusNotConnected} className="grl-button configure-detach-button" onClick={() => { this.stopCapture() }}>Stop </Button>
                             </FlexView>
                             <FlexView >
                                 <span className="configure-label-padding">Save Location</span>

@@ -138,7 +138,7 @@ const SendMessage = observer(
 
                         <FlexView>
                             <OverlayTrigger placement="top" overlay={<Tooltip> {CO_SEND_BTN} </Tooltip>}>
-                                <Button className="grl-button config-send-button" onClick={this.getdeviceinfo.bind(this)}>Send</Button>
+                                <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button config-send-button" onClick={this.getdeviceinfo.bind(this)}>Send</Button>
                             </OverlayTrigger>
                             <div className="cliploader-div">
                                 <ClipLoader

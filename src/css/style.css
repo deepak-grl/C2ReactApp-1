@@ -2348,6 +2348,7 @@ width:40%!important;
 }
 .eload-visa-dropdown {
   width: auto !important;
+  min-width: 180px;
 }
 .mfi-eload-connect-btn-div {
   display: flex;
