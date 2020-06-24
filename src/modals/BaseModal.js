@@ -985,8 +985,8 @@ class BaseModal {
         mainstore.productCapabilityProps.vifFileName = Constants.VIF_LOAD_BTN_DEFAULT//TODO Load file instead of clearing to default
         // mainstore.productCapabilityProps.executionMode = response.data.executionMode
         mainstore.productCapabilityProps.rerenderRandomNum = response.data.rerenderRandomNum
-        mainstore.productCapabilityProps.ports[Constants.PORTA] = new ProductCapabilityProps(Constants.PORTA, portA.dutType, portA.cableType)
-        mainstore.productCapabilityProps.ports[Constants.PORTB] = new ProductCapabilityProps(Constants.PORTB, portB.dutType, portB.cableType)
+        mainstore.productCapabilityProps.ports[Constants.PORTA] = new ProductCapabilityProps(Constants.PORTA, portA.dutType, portA.cableType, portA.stateMachineType)
+        mainstore.productCapabilityProps.ports[Constants.PORTB] = new ProductCapabilityProps(Constants.PORTB, portB.dutType, portB.cableType, portB.stateMachineType)
         if (callback)
           callback()
       }

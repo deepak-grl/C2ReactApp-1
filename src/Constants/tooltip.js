@@ -82,6 +82,8 @@ export const COMPLIANCE_CABLE_SELECTION = `1. GRL-SPL test cable(Vconn pass-thro
 export const USB_C_FUNCTIONAL_MOI_INFO = `TD 4.11.2 Sink Dead Battery Test
 Please visually inspect the presence of battery in PUT. Enable this check box if battery is available else, disable it.`
 
+export const STATE_MACHINE_INFO = `VIF Field  Type_C_State_Machine: Indicates which Type-C connection state machine is implemented on the DUT`
+
 export const USB_FUNCTIONAL_DEVICE_URL = `Refer above setup image and enter the URL displayed in the Golden device(Google pixel phone)`
 
 export const USB_TYPE_B_PORT = `TD 4.12.2 Hub Port Types Test

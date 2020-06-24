@@ -1886,6 +1886,9 @@ width:40%!important;
 .dut-Dropdown {
   margin-left: 55px;
 }
+.state-machine-Dropdown {
+  margin-left: 30px;
+}
 .test-cableOptions-dropdown {
   /*  margin-left: 15px;*/
   margin-left: 22px; /*for application font size 13px */
@@ -2178,7 +2181,7 @@ width:40%!important;
   z-index: 9999 !important;
   margin-bottom: -5px;
 }
-.debug-mode-checkbox{
+.debug-mode-checkbox {
   margin-left: 15px;
 }
 .usbPanelcontrol {
@@ -2361,7 +2364,7 @@ width:40%!important;
   margin-left: 5px;
   margin-top: 5px;
 }
-.qc-legacy-test-case{
+.qc-legacy-test-case {
   opacity: 0.6;
   pointer-events: none;
 }
@@ -2710,7 +2713,7 @@ width:40%!important;
   flex: 1;
   justify-content: center;
 }
-.save-location-config{
+.save-location-config {
   margin-top: 5px;
   margin-left: 18px;
 }
@@ -2740,19 +2743,19 @@ width:40%!important;
 .attach-detach-btn-align {
   margin-left: 14px;
 }
-.start-capture-btn-align{
+.start-capture-btn-align {
   margin-left: 53px;
 }
-.start-capture-btn-color{
-  border-color: white!important;
-  background-color: green!important;
+.start-capture-btn-color {
+  border-color: white !important;
+  background-color: green !important;
 }
 .request-input-field-width {
   width: 125px;
   margin-right: 10px;
 }
-.config-channels-checkbox{
-  margin-right: 45px!important;
+.config-channels-checkbox {
+  margin-right: 45px !important;
 }
 .checkbox-label-align {
   margin: 5px;
@@ -2834,7 +2837,7 @@ label {
   margin-left: 49px;
   margin-bottom: -4px;
 }
-.app-mode-dropdown{
+.app-mode-dropdown {
   margin-left: 45px;
   margin-bottom: 0px;
 }

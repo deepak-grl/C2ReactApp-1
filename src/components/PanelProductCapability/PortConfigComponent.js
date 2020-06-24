@@ -4,7 +4,7 @@ import FlexView from 'react-flexview/lib';
 import * as Constants from '../../Constants';
 import { mouseBusy, resizeSplitterPaneToNormalMode } from '../../utils';
 import { basemodal, mainstore } from '../../modals/BaseModal';
-import { PC_RESET_BTN, PC_GETCAP_BTN, PC_DUT_DISBALE_MODE, FP_CABLE_SELECTION, COMPLIANCE_CABLE_SELECTION } from '../../Constants/tooltip';
+import { PC_RESET_BTN, PC_GETCAP_BTN, PC_DUT_DISBALE_MODE, FP_CABLE_SELECTION, COMPLIANCE_CABLE_SELECTION, STATE_MACHINE_INFO } from '../../Constants/tooltip';
 import { ClipLoader } from 'react-spinners';
 import { observer } from "mobx-react";
 import { convertCapsJsonFormat } from '../../modals/JsonConverter';
@@ -21,6 +21,7 @@ const PortConfigComponent = observer(
                 dutType: mainstore.productCapabilityProps.ports[this.props.portnumber].getDutType(),
                 cableType: mainstore.productCapabilityProps.ports[this.props.portnumber].getCableType(),
                 selectedPort: mainstore.productCapabilityProps.ports[this.props.portnumber].getPortLableType(),
+                stateMachineType: mainstore.productCapabilityProps.ports[this.props.portnumber].getStateMachineType(),
                 loading: false,
             };
 
@@ -32,9 +33,16 @@ const PortConfigComponent = observer(
 
         dutTypeDropDownChange = eventKey => {
             this.setState({ dutType: eventKey })
-            //   console.log("MainStore",mainstore.productCapabilityProps.ports[this.props.portnumber],)
             mainstore.productCapabilityProps.ports[this.props.portnumber].setDutType(eventKey)
 
+            mainstore.testConfiguration.testList = []
+            /*while emptying the selected testcase,its not unchecking the selected one in test config panel,so empty the selected testcase and called gettestlist method */
+            basemodal.getTestList();
+        }
+
+        stateMachineTypeDropDownChange = eventKey => {
+            this.setState({ stateMachineType: eventKey })
+            mainstore.productCapabilityProps.ports[this.props.portnumber].setStateMachineType(eventKey)
             mainstore.testConfiguration.testList = []
             /*while emptying the selected testcase,its not unchecking the selected one in test config panel,so empty the selected testcase and called gettestlist method */
             basemodal.getTestList();
@@ -176,6 +184,29 @@ const PortConfigComponent = observer(
                                 </Dropdown >}
                             </FlexView >
                         </div> : null}
+
+                    {mainstore.productCapabilityProps.ports[this.props.portnumber].dutType === Constants.USBPDDeviceType[6] && this.props.isInCompMode === false ?
+                        <div>
+                            <FlexView className="dut-TypeSelection" column >
+                                {<Dropdown className="dut-port-align">
+                                    <span className="label-text-padding">State Machine</span>
+                                    <Dropdown.Toggle className="dropdowncustom state-machine-Dropdown" variant="success" id={this.props.portnumber + "_DUT_TYPE "}>{mainstore.productCapabilityProps.ports[this.props.portnumber].stateMachineType}</Dropdown.Toggle>        {/*Dropdown in normal state without any tooltip */}
+                                    <Dropdown.Menu>
+                                        {
+                                            Constants.STATE_MACHINE.map((machineType, index) => {
+                                                return <Dropdown.Item className="uutTypeSelection" key={index} eventKey={machineType} onSelect={this.stateMachineTypeDropDownChange}>{machineType}</Dropdown.Item>
+                                            })
+                                        }
+                                    </Dropdown.Menu>
+                                    <div className="product-caps-cable-selection-info-icon" >
+                                        <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
+                                            overlay={<Tooltip className="product-caps-cable-selection-tooltip-inner-content-align">{STATE_MACHINE_INFO}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" />
+                                        </OverlayTrigger>
+                                    </div>
+                                </Dropdown >}
+                            </FlexView>
+                        </div> : null}
+
                     <Dropdown className="dut-port-align">
                         {mainstore.reRenderCableSelectionDropDown ? null : null}             {/*we're updating "CABLE_DATA_TYPES" constant value in getcablename api ,it's not re-rendering , so using this variable to update the render method*/}
                         <span className="label-text-padding">Cable Selection</span>

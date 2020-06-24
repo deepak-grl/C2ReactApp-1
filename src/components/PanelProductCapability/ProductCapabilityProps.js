@@ -4,11 +4,12 @@ import toastNotification from '../../utils/toastNotification';
 
 export default class ProductCapabilityProps {
 
-    constructor(port, dutType = Constants.USBPDDeviceType[3], cableType = Constants.CABLE_DATA_TYPES[0]) {
+    constructor(port, dutType = Constants.USBPDDeviceType[3], cableType = Constants.CABLE_DATA_TYPES[0], stateMachineType = Constants.STATE_MACHINE[0]) {
         this.port = port;
         this.dutType = dutType;
         this.cableType = cableType;
         this.portLable = "";
+        this.stateMachineType = stateMachineType
     }
 
     setPortLableType(portLable) {
@@ -27,12 +28,17 @@ export default class ProductCapabilityProps {
         if (mainstore.isGetDeviceCapsInProgress === false) {
             this.cableTypeSelectionRules(dutType)
         }
-        mainstore.selectedMoiTestCase = [];//TODO @thiru move this into a common reset method
-
+        mainstore.selectedMoiTestCase = [];
         this.dutType = dutType
         this.syncToServer();
-        //TODO Get test list after setting DUT Type
     }
+
+    setStateMachineType (machineType){
+        mainstore.selectedMoiTestCase = [];
+        this.stateMachineType = machineType
+        this.syncToServer();
+    }
+
     setvifEditorEditable(editInfo) {
         mainstore.productCapabilityProps.vifEditorEditable = editInfo;
     }
@@ -47,6 +53,10 @@ export default class ProductCapabilityProps {
 
     getDutType() {
         return this.dutType
+    }
+
+    getStateMachineType() {
+        return this.stateMachineType
     }
 
     getvifEditorEditable() {

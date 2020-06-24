@@ -33,6 +33,7 @@ export const USBPDDeviceType = ["Consumer Only",
     "Cable",
     "Type C Only",
 ];
+export const STATE_MACHINE = ["SRC", "SNK", "DRP"]
 export const PORTA = "PortA";
 export const PORTB = "PortB";
 export const ExPORTA = "ExPortA";
