@@ -299,9 +299,12 @@ export class VIFPort {
         }
         else {
             if (mainstore.productCapabilityProps.vifFileName !== Constants.VIF_LOAD_BTN_DEFAULT) {
-                basemodal.putVIFData(Constants.PORTA, vIFInfoModelNew);
+                basemodal.putVIFData(Constants.PORTA, vIFInfoModelNew, this.getReportInputs.bind(this));
             }
         }
+    }
+    getReportInputs() {
+        basemodal.getReportInputs()
     }
     _getRowElementsForBackedJson(allrows) {
         let elements = allrows.map(row => {

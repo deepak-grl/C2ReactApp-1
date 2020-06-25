@@ -107,6 +107,7 @@ const PortConfigComponent = observer(
 
         setChartAndPollingState(enabled) {
             this.setAppState(enabled)
+            basemodal.getReportInputs()
             mainstore.isGetDeviceCapsInProgress = enabled;
             mainstore.chartPollEnabled = enabled;
             if (enabled)//This will be set to false from backend once getcaps process is completed

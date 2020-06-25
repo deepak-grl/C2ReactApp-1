@@ -647,8 +647,10 @@ class BaseModal {
     });
   }
 
-  putVIFData(portnumber, VifInfo) {
+  putVIFData(portnumber, VifInfo, callback) {
     ajax.callPUT(Constants.URL_ProductCapability + "PutVIFData/" + portnumber, VifInfo, function (response) {
+      if (callback)
+        callback()
     }, function (error) {
       console.log("Error", error);
     });
