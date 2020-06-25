@@ -79,7 +79,7 @@ const PortConfigComponent = observer(
                 chartstore.channelList = [];                //Clear channel list 
             }, 1000);
             mainstore.currentPanelIndex = 3;
-            this.resettingToDefaults()
+            this.resettingToDefaults();
         }
 
         resettingToDefaults = () => {
@@ -123,6 +123,7 @@ const PortConfigComponent = observer(
         clearDeviceData(data) {
             mainstore.isGetCapsEnabled = false;
             basemodal.vifDataModal.clearGetCapsData()
+            basemodal.getReportInputs()
         }
 
         setgetCapsStatusDescrpition = () => {

@@ -87,6 +87,7 @@ const VIFLoadComponent = observer(
             mainstore.selectedMoiTestCase = [];
             mainstore.testConfiguration.selectedTestList = [];
             mainstore.numberofPorts = true
+            basemodal.getReportInputs()
         }
 
         onGenerateVifFileNameChange(event) {
