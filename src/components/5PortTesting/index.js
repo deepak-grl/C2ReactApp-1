@@ -5,7 +5,7 @@ import { mainstore, basemodal } from '../../modals/BaseModal';
 import { observer } from "mobx-react";
 import { ClipLoader } from 'react-spinners';
 import FivePortInfo from "./FivePortInfo";
-import { AUTO_CONNECT } from '../../Constants/tooltip';
+import { AUTO_CONNECT, FIVEPORTNOTE } from '../../Constants/tooltip';
 import * as Constants from '../../Constants/index';
 import { getCurrentDateAndTime } from '../../utils/index';
 import { chartstore } from '../../modals/ChartStoreModal';
@@ -228,7 +228,7 @@ const PortTesting = observer(
                     mainstore.fivePortConfiguration[i].vifFilePath = " ";
                     mainstore.fivePortConfiguration[i].cableType = data.fivePort.cableType[i]._text;
                     mainstore.fivePortConfiguration[i].dutType = data.fivePort.dutType[i]._text;
-                    mainstore.fivePortConfiguration[i].generalRepeatCount = data.fivePort.generalRepeatCount[i]._text;
+                    // mainstore.fivePortConfiguration[i].generalRepeatCount = data.fivePort.generalRepeatCount[i]._text;
                     mainstore.fivePortConfiguration[i].failureRepeatCount = data.fivePort.failureRepeatCount[i]._text;
                     mainstore.fivePortConfiguration[i].comPort = data.fivePort.comPort[i]._text;
                     if (data.fivePort.vifFileName[i]._text)
@@ -292,11 +292,18 @@ const PortTesting = observer(
         render() {
             var ifProjectInputFieldEnabled = "";
             if (this.state.isNewProjectChecked) {
-                ifProjectInputFieldEnabled = "project-input-field-enabled"
+                ifProjectInputFieldEnabled = " project-input-field-enabled "
             }
             else {
-                ifProjectInputFieldEnabled = "five-port-panel-width"
+                ifProjectInputFieldEnabled = " five-port-panel-width "
             }
+
+            var disableFivePort = "";
+            if (mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE)
+                disableFivePort = " disabled-fiveport "
+            else
+                disableFivePort = ""
+
             var appState = mainstore.status.appState === Constants.BUSY
             var buttonText = appState ? "Stop Execution" : "Start Execution";
             var buttonClass = appState ? "stopbtn" : "runbtn";
@@ -304,76 +311,86 @@ const PortTesting = observer(
 
             return (
                 <>
-                    <FlexView column className={ifProjectInputFieldEnabled}>
-                        <input ref={(ref) => { this.refUploadInput = ref; }} type="file" accept=".xml" style={{ display: 'none' }}
-                            onChange={this.onFileSeletionInDialog}
-                            onClick={(event) => { event.target.value = null; }}
-                        />
-                        <FlexView className="auto-run-btn-div-five-port">
-                            <Button className={"grl-button port-run-button "} onClick={(e) => { this.saveFivePortInfoGenerationDialog() }}>Save Five Port Data</Button>
-                            <Button className={"grl-button port-run-button "} onClick={(e) => { this.displayFileDialog(e) }}>{this.state.fileName}</Button>
-                        </FlexView>
-                        <FlexView className="auto-run-btn-div-five-port">
-                            <OverlayTrigger placement="top" overlay={<Tooltip>{fivePortStartButtonTooltip}</Tooltip>}>
-                                <Button disabled={!mainstore.disableFivePortExecutionBtn || mainstore.isTesterStatusNotConnected} className={"grl-button port-run-button " + buttonClass} onClick={(e) => { this.validateFivePortToStartEexcution() }}>{buttonText}</Button>
-                            </OverlayTrigger>
-                        </FlexView>
+                    <FlexView column style={{ width: "100%" }}>
+                        {mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE ?
+                            <>
+                                <p className="five-port-note-tag">
+                                    <strong>*Note: This option is available in Informational mode only</strong>
+                                    <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="tooltip-inner-content-align">{FIVEPORTNOTE}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" /></OverlayTrigger>
+                                </p>
+                            </> : null}
+                        <FlexView column className={ifProjectInputFieldEnabled + disableFivePort}>
+                            <input ref={(ref) => { this.refUploadInput = ref; }} type="file" accept=".xml" style={{ display: 'none' }}
+                                onChange={this.onFileSeletionInDialog}
+                                onClick={(event) => { event.target.value = null; }}
+                            />
+                            <FlexView className="auto-run-btn-div-five-port">
+                                <Button className={"grl-button port-run-button "} onClick={(e) => { this.saveFivePortInfoGenerationDialog() }}>Save Five Port Data</Button>
+                                <Button className={"grl-button port-run-button "} onClick={(e) => { this.displayFileDialog(e) }}>{this.state.fileName}</Button>
+                            </FlexView>
+                            <FlexView className="auto-run-btn-div-five-port">
+                                <OverlayTrigger placement="top" overlay={<Tooltip>{fivePortStartButtonTooltip}</Tooltip>}>
+                                    <Button disabled={!mainstore.disableFivePortExecutionBtn || mainstore.isTesterStatusNotConnected} className={"grl-button port-run-button " + buttonClass} onClick={(e) => { this.validateFivePortToStartEexcution() }}>{buttonText}</Button>
+                                </OverlayTrigger>
+                            </FlexView>
 
-                        <FlexView className="com-port-width">
-                            <label className="com-port-label">
-                                <span className="com-port-text">COM Port
+                            <FlexView className="com-port-width">
+                                <label className="com-port-label">
+                                    <span className="com-port-text">COM Port
                                 <OverlayTrigger placement="top" overlay={<Tooltip>COM Port Info Image</Tooltip>}>
-                                        <img src="../../images/icons8-five-port-help-48.png" alt="help-five-port" className="plot-toolbar-img help-img-com-port" onClick={() => this.showComPortInfoImage()} />
-                                    </OverlayTrigger>
-                                </span>
-                                <input type="text" className="com-port-input-field" value={this.state.comPort} onChange={(e) => this.handleComPortOnChange(e)} />
-                            </label>
+                                            <img src="../../images/icons8-five-port-help-48.png" alt="help-five-port" className="plot-toolbar-img help-img-com-port" onClick={() => this.showComPortInfoImage()} />
+                                        </OverlayTrigger>
+                                    </span>
+                                    <input type="text" className="com-port-input-field" value={this.state.comPort} onChange={(e) => this.handleComPortOnChange(e)} />
+                                </label>
 
-                            <p className="select-port-label">Select Port </p>
-                            <div className="select-port-input">
-                                <NumericInput min={1} max={5} value={this.state.currentSelectedPort} onChange={this.onCurrentSelectedPortInputChange} />
-                            </div>
+                                <p className="select-port-label">Select Port </p>
+                                <div className="select-port-input">
+                                    <NumericInput min={1} max={5} value={this.state.currentSelectedPort} onChange={this.onCurrentSelectedPortInputChange} />
+                                </div>
 
-                            <OverlayTrigger placement="auto" overlay={<Tooltip>Current Selected Port</Tooltip>}>
-                                <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button current-port-check-button" onClick={(e) => { this.checkCurrentSelectedPort() }}>Check</Button>
-                            </OverlayTrigger>
-                            <div className="cliploader-check-selected-port-status">
-                                <ClipLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={this.state.loading} />
-                            </div>
-                            {this.state.showCheckStatus === true && this.state.loading === false ?
-                                this.state.statusIcon === "PASS" ?
-                                    <OverlayTrigger placement="top" overlay={<Tooltip>Enabled Port - {mainstore.currentPortStatus.currentSelectedPortNumber}</Tooltip>}>
-                                        <img src="images/pass.png" className="check-status-icon" alt='PASS' ></img>
-                                    </OverlayTrigger> :
-                                    <OverlayTrigger placement="top" overlay={<Tooltip>Could not communicate with PORT - {mainstore.currentPortStatus.currentSelectedPortNumber}</Tooltip>}>
-                                        <img src="images/fail.png" className="check-status-icon" alt='FAIL' ></img>
-                                    </OverlayTrigger> : null}
-                        </FlexView>
-                        <FlexView className="check-port-status-desc">
-                            <p className="firmware-spinner-status">{checkPortStatusDescription}</p>
-                        </FlexView>
+                                <OverlayTrigger placement="auto" overlay={<Tooltip>Current Selected Port</Tooltip>}>
+                                    <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button current-port-check-button" onClick={(e) => { this.checkCurrentSelectedPort() }}>Connect</Button>
+                                </OverlayTrigger>
+                                <div className="cliploader-check-selected-port-status">
+                                    <ClipLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={this.state.loading} />
+                                </div>
+                                {this.state.showCheckStatus === true && this.state.loading === false ?
+                                    this.state.statusIcon === "PASS" ?
+                                        <OverlayTrigger placement="top" overlay={<Tooltip>Enabled Port - {mainstore.currentPortStatus.currentSelectedPortNumber}</Tooltip>}>
+                                            <img src="images/pass.png" className="check-status-icon" alt='PASS' ></img>
+                                        </OverlayTrigger> :
+                                        <OverlayTrigger placement="top" overlay={<Tooltip>Could not communicate with PORT - {mainstore.currentPortStatus.currentSelectedPortNumber}</Tooltip>}>
+                                            <img src="images/fail.png" className="check-status-icon" alt='FAIL' ></img>
+                                        </OverlayTrigger> : null}
+                            </FlexView>
+                            <FlexView className="check-port-status-desc">
+                                <p className="firmware-spinner-status">{checkPortStatusDescription}</p>
+                            </FlexView>
 
-                        <FlexView column className="five-port-height">
-                            <Tabs activeKey={this.state.activeTab} className="tab-pane-control" onSelect={this.handleSelectedTab} >
-                                <Tab eventKey="1" title="1" id="tab-btn-align">
-                                    <FivePortInfo portNumber={0} />
-                                </Tab>
-                                <Tab eventKey="2" title="2">
-                                    <FivePortInfo portNumber={1} />
-                                </Tab>
-                                <Tab eventKey="3" title="3" >
-                                    <FivePortInfo portNumber={2} />
-                                </Tab>
-                                <Tab eventKey="4" title="4" >
-                                    <FivePortInfo portNumber={3} />
-                                </Tab>
-                                <Tab eventKey="5" title="5" >
-                                    <FivePortInfo portNumber={4} />
-                                </Tab>
-                            </Tabs>
+                            <FlexView column className="five-port-height">
+                                <Tabs activeKey={this.state.activeTab} className="tab-pane-control" onSelect={this.handleSelectedTab} >
+                                    <Tab eventKey="1" title="1" id="tab-btn-align">
+                                        <FivePortInfo portNumber={0} />
+                                    </Tab>
+                                    <Tab eventKey="2" title="2">
+                                        <FivePortInfo portNumber={1} />
+                                    </Tab>
+                                    <Tab eventKey="3" title="3" >
+                                        <FivePortInfo portNumber={2} />
+                                    </Tab>
+                                    <Tab eventKey="4" title="4" >
+                                        <FivePortInfo portNumber={3} />
+                                    </Tab>
+                                    <Tab eventKey="5" title="5" >
+                                        <FivePortInfo portNumber={4} />
+                                    </Tab>
+                                </Tabs>
+                            </FlexView>
+                            {/* <Button className={"grl-button port-run-button"} onClick={(e) => { this.run5PortTesting() }}>Run</Button> */}
                         </FlexView>
-                        {/* <Button className={"grl-button port-run-button"} onClick={(e) => { this.run5PortTesting() }}>Run</Button> */}
                     </FlexView>
+
                 </>
             );
         }

@@ -2744,7 +2744,10 @@ width:40%!important;
   margin-left: 14px;
 }
 .start-capture-btn-align {
-  margin-left: 53px;
+  margin-left: 13px;
+}
+.download-capture-btn-align {
+  margin-left: 110px;
 }
 .start-capture-btn-color {
   border-color: white !important;
@@ -3082,6 +3085,13 @@ label {
   color: #766b6b !important;
   /* background: #e4e4e4!important */
 }
+.dut-info-label {
+  margin-right: 75px !important;
+}
+.five-port-repeat-info-icon {
+  margin-left: 2px;
+  margin-top: 10px;
+}
 .check-status-icon {
   width: 25px;
   height: 25px;
@@ -3163,15 +3173,26 @@ label {
   display: flex;
   justify-content: center;
 }
+.disabled-fiveport {
+  opacity: 0.5;
+  pointer-events: none;
+}
 .five-port-panel-width {
   width: 100%;
   /* border-right-style: solid;
   border-right-color: gray;
   border-right-width: 2px; */
   /* overflow: auto; */
-  margin-top: 15px;
+  margin-top: 10px;
   margin-left: 10px;
   padding: 5px;
+}
+.five-port-note-tag {
+  width: 35%;
+  text-align: center;
+  margin-bottom: -10px;
+  position: relative;
+  top: 5px;
 }
 .five-port-repeat-text-align {
   margin-top: 10px;
@@ -3509,7 +3530,7 @@ label {
 }
 
 .auto-run-btn-div-five-port {
-  margin-top: 10px;
+  margin-top: 5px;
   width: 35%;
 }
 

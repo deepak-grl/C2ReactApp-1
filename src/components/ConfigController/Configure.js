@@ -133,6 +133,10 @@ const Configure = observer(
             mainstore.configControlChannels.isCheckedCc2 = !mainstore.configControlChannels.isCheckedCc2
         }
 
+        downloadCaptureFile = () => {
+            basemodal.getCaptureFile(null);
+        }
+
         render() {
 
             if (mainstore.popUpInputs.spinnerID === 5)
@@ -261,7 +265,7 @@ const Configure = observer(
                             </FlexView>
 
                             <FlexView >
-                                <span className="configure-label-padding">Capture</span>
+                                <span className="configure-label-padding">Signal Capture</span>
                                 <Button disabled={mainstore.isTesterStatusNotConnected} className={"grl-button configure-attach-button start-capture-btn-align " + startCaptureBtnColor} onClick={() => { this.startCapture() }}>Start </Button>
                                 <div className="cliploader-div">
                                     <ClipLoader
@@ -274,8 +278,11 @@ const Configure = observer(
                                 <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button configure-detach-button" onClick={() => { this.stopCapture() }}>Stop </Button>
                             </FlexView>
                             <FlexView >
-                                <span className="configure-label-padding">Save Location</span>
+                                <span className="configure-label-padding">Capture File</span>
                                 <p className="save-location-config">{mainstore.configControlSaveLocation}</p>
+                            </FlexView>
+                            <FlexView >
+                                <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button configure-attach-button download-capture-btn-align " onClick={() => { this.downloadCaptureFile() }}>Download Capture </Button>
                             </FlexView>
                         </div>
                     </FlexView>

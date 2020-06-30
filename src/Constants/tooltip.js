@@ -102,3 +102,7 @@ Note: Test results will vary if checkbox is enabled`
 export const MFILIGHTNINGCABLE = ` Please select this option when UUT connected with Lightning cable`
 
 export const ENABLEDEBUGMODE = `Additional information will be added to test case capture. So test capture size will be comparatively more. This is recommended only for debug purpose.`
+
+export const FIVEPORTREPEATCOUNT = `Use this option to repeat the test execution for a given number of times`
+
+export const FIVEPORTNOTE = `Navigate to product capability panel and select informational mode`

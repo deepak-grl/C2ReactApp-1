@@ -3,7 +3,7 @@ import { Button, Dropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import { mainstore, basemodal } from '../../modals/BaseModal';
 import Switch from "react-switch";
-import { ENABLE_PORT, BROWSE_VIF, TC_REPEAT, FP_CABLE_SELECTION } from '../../Constants/tooltip';
+import { ENABLE_PORT, BROWSE_VIF, TC_REPEAT, FP_CABLE_SELECTION, FIVEPORTREPEATCOUNT } from '../../Constants/tooltip';
 import * as Constants from '../../Constants';
 import Select from 'react-select';
 import { observer } from "mobx-react";
@@ -50,7 +50,7 @@ const FivePortInfo = observer(
             mainstore.fivePortConfiguration[this.props.portNumber].moiSelected = [];
             mainstore.fivePortConfiguration[this.props.portNumber].cableType = Constants.CABLE_DATA_TYPES[0];
             mainstore.fivePortConfiguration[this.props.portNumber].dutType = "Provider Only";
-            mainstore.fivePortConfiguration[this.props.portNumber].generalRepeatCount = 0;
+            // mainstore.fivePortConfiguration[this.props.portNumber].generalRepeatCount = 0;
             mainstore.fivePortConfiguration[this.props.portNumber].failureRepeatCount = 0;
             mainstore.fivePortConfiguration[this.props.portNumber].comPort = "COM4";
             mainstore.fivePortConfiguration[this.props.portNumber].repeatCondition = [];
@@ -238,7 +238,6 @@ const FivePortInfo = observer(
                             <FlexView className="five-port-label-bottom-spacing">
                                 <label className="label-project-name-align"> Project Name</label>
                                 <input type="text" className="project-name-input-field" placeholder="Name of Project" value={mainstore.fivePortConfiguration[this.props.portNumber].newProjectName ? mainstore.fivePortConfiguration[this.props.portNumber].newProjectName : ''} onChange={(e) => this.handlePojectNameOnChange(e)} />
-
                             </FlexView>
 
                             <FlexView className="five-port-label-bottom-spacing">
@@ -280,7 +279,7 @@ const FivePortInfo = observer(
                             </FlexView>
 
                             <FlexView className={disable5Port + "five-port-label-bottom-spacing"} >
-                                <span className="port-label-padding">DUT Info</span>
+                                <span className="port-label-padding dut-info-label">DUT Info</span>
                                 <label className="label-checkbox-align">
                                     <input type="radio" value="vif" className="checkbox-text-align" checked={mainstore.fivePortConfiguration[this.props.portNumber].isVifLoaded ? mainstore.fivePortConfiguration[this.props.portNumber].isVifLoaded : false} onChange={() => this.isVifChecked(true)} />
                                     VIF
@@ -288,7 +287,7 @@ const FivePortInfo = observer(
 
                                 <label className="label-checkbox-align getcaps-checkbox">
                                     <input type="radio" value="getcaps" className="checkbox-text-align" checked={!mainstore.fivePortConfiguration[this.props.portNumber].isVifLoaded} onChange={() => this.isVifChecked(false)} />
-                                    Get Caps
+                                    DUT Type
                          </label>
                             </FlexView>
 
@@ -335,7 +334,7 @@ const FivePortInfo = observer(
                                 />
                             </FlexView>
 
-                            <FlexView className={disable5Port + "five-port-label-bottom-spacing"}>
+                            {/* <FlexView className={disable5Port + "five-port-label-bottom-spacing"}>
                                 <p className="five-port-test-repeat-text-align">Rerun Count </p>
                                 <div className="numeric-input-align-five-port">
                                     <OverlayTrigger placement="top" overlay={<Tooltip>General Test Rerun Count </Tooltip>}>
@@ -344,21 +343,17 @@ const FivePortInfo = observer(
                                         </>
                                     </OverlayTrigger>
                                 </div>
-                            </FlexView>
+                            </FlexView> */}
                             <FlexView className={disable5Port + "five-port-label-bottom-spacing"}>
                                 <p className="five-port-failure-repeat-text-align">Repeat Count </p>
                                 <div className="numeric-input-align-five-port">
-                                    <OverlayTrigger placement="top" overlay={<Tooltip>Test Repeat Condition </Tooltip>}>
-                                        <>
-                                            <NumericInput className="five-port-failure-repeat-btn" min={0} max={100} value={mainstore.fivePortConfiguration[this.props.portNumber].failureRepeatCount} style={{ width: '100px' }} onChange={this.onFailureRepeatInputChange} />
-                                        </>
-                                    </OverlayTrigger>
+                                    <NumericInput className="five-port-failure-repeat-btn" min={0} max={100} value={mainstore.fivePortConfiguration[this.props.portNumber].failureRepeatCount} style={{ width: '100px' }} onChange={this.onFailureRepeatInputChange} />
+                                    <div className="five-port-repeat-info-icon" ><OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="tooltip-inner-content-align">{FIVEPORTREPEATCOUNT}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" /></OverlayTrigger></div>
                                 </div>
                             </FlexView>
                             <FlexView className={disable5Port + "five-port-label-bottom-spacing"}>
                                 <span className="failure-condition-label-padding">Repeat Condition</span>
                                 <Select
-                                    // autoFocus
                                     isMulti
                                     placeholder="Select Condition"
                                     className='failure-condition-dropdown-padding'
