@@ -280,7 +280,7 @@ const FivePortInfo = observer(
                             </FlexView>
 
                             <FlexView className={disable5Port + "five-port-label-bottom-spacing"} >
-                                <span className="port-label-padding">DUT Info Source</span>
+                                <span className="port-label-padding">DUT Info</span>
                                 <label className="label-checkbox-align">
                                     <input type="radio" value="vif" className="checkbox-text-align" checked={mainstore.fivePortConfiguration[this.props.portNumber].isVifLoaded ? mainstore.fivePortConfiguration[this.props.portNumber].isVifLoaded : false} onChange={() => this.isVifChecked(true)} />
                                     VIF
