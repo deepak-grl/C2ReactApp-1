@@ -254,7 +254,7 @@ export const mainstore = observable({
   },
 
   configControlChannels: {
-    isCheckedVbus: false,
+    isCheckedVbus: true,
     isCheckedCc1: false,
     isCheckedCc2: false,
   },
@@ -464,7 +464,7 @@ class BaseModal {
   }
 
   syncDataFromServer() {
-    mouseBusy(true)
+    // mouseBusy(true)
     this.getSoftwareVersion()
     this.loadConnectionSetupPanelValues()
     this.getIPAddressHistory();
@@ -1445,6 +1445,18 @@ class BaseModal {
         callback()
     }, function (error) {
       console.log("Error", error);
+    });
+  }
+
+  getCaptureFile(callback) {
+    ajax.callGET(Constants.URL_ConfigControl + "GetCaptureFile", {}, function (blob) {
+      fileDownloader(blob.data, mainstore.configControlSaveLocation + ".zip")
+      if (callback)
+        callback();
+    }, function (error) {
+      var toast = new toastNotification("Please run test cases before downloading capture", Constants.TOAST_ERROR)
+      toast.show()
+      console.log("Error", error)
     });
   }
 

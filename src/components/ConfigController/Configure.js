@@ -133,6 +133,10 @@ const Configure = observer(
             mainstore.configControlChannels.isCheckedCc2 = !mainstore.configControlChannels.isCheckedCc2
         }
 
+        downloadCaptureFile = () => {
+            basemodal.getCaptureFile(null);
+        }
+
         render() {
 
             if (mainstore.popUpInputs.spinnerID === 5)
@@ -223,7 +227,7 @@ const Configure = observer(
 
                             <FlexView>
                                 <OverlayTrigger placement="top" overlay={<Tooltip > {APPLY_CONFIGURE} </Tooltip>}>
-                                    <Button className="grl-button configure-apply-button" disabled={this.state.AppMode === Constants.APP_MODE[1] ||mainstore.isTesterStatusNotConnected} onClick={this.getControls.bind(this)}>Apply </Button>
+                                    <Button className="grl-button configure-apply-button" disabled={mainstore.isTesterStatusNotConnected} onClick={this.getControls.bind(this)}>Apply </Button>
                                 </OverlayTrigger>
                                 <div className="cliploader-div">
                                     <ClipLoader
@@ -246,23 +250,23 @@ const Configure = observer(
 
                             <FlexView>
                                 <span className="configure-label-padding config-channels-checkbox">Channels</span>
-                                <label className={"checkbox-label-align" + disableRequestMessage}>
+                                <label className={"checkbox-label-align"}>
                                     <input type="checkbox" className="checkbox-text-align" checked={mainstore.configControlChannels.isCheckedVbus} onChange={() => { this.onChangeVbusCheck() }} />
                                VBUS
                             </label>
-                                <label className={"checkbox-label-align" + disableRequestMessage}>
+                                <label className={"checkbox-label-align"}>
                                     <input type="checkbox" className="checkbox-text-align" checked={mainstore.configControlChannels.isCheckedCc1} onChange={() => { this.onChangeCcOneCheck() }} />
                                CC1
                             </label>
-                                <label className={"checkbox-label-align" + disableRequestMessage}>
+                                <label className={"checkbox-label-align"}>
                                     <input type="checkbox" className="checkbox-text-align" checked={mainstore.configControlChannels.isCheckedCc2} onChange={() => { this.onChangeCc2TwoCheck() }} />
                                CC2
                             </label>
                             </FlexView>
 
                             <FlexView >
-                                <span className="configure-label-padding">Capture</span>
-                                <Button disabled={this.state.AppMode === Constants.APP_MODE[0] || mainstore.isTesterStatusNotConnected} className={"grl-button configure-attach-button start-capture-btn-align " + startCaptureBtnColor} onClick={() => { this.startCapture() }}>Start </Button>
+                                <span className="configure-label-padding">Signal Capture</span>
+                                <Button disabled={mainstore.isTesterStatusNotConnected} className={"grl-button configure-attach-button start-capture-btn-align " + startCaptureBtnColor} onClick={() => { this.startCapture() }}>Start </Button>
                                 <div className="cliploader-div">
                                     <ClipLoader
                                         sizeUnit={"px"}
@@ -271,11 +275,14 @@ const Configure = observer(
                                         loading={this.state.startCaptureLoader}
                                     />
                                 </div>
-                                <Button disabled={this.state.AppMode === Constants.APP_MODE[0] || mainstore.isTesterStatusNotConnected} className="grl-button configure-detach-button" onClick={() => { this.stopCapture() }}>Stop </Button>
+                                <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button configure-detach-button" onClick={() => { this.stopCapture() }}>Stop </Button>
                             </FlexView>
                             <FlexView >
-                                <span className="configure-label-padding">Save Location</span>
+                                <span className="configure-label-padding">Capture File</span>
                                 <p className="save-location-config">{mainstore.configControlSaveLocation}</p>
+                            </FlexView>
+                            <FlexView >
+                                <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button configure-attach-button download-capture-btn-align " onClick={() => { this.downloadCaptureFile() }}>Download Capture </Button>
                             </FlexView>
                         </div>
                     </FlexView>
