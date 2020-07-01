@@ -2981,6 +2981,7 @@ label {
 }
 .popup-heder-font-align {
   font-size: 17px;
+  white-space: pre-line;
 }
 .custom-dropdown-btn {
   position: relative;
