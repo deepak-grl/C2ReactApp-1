@@ -3,6 +3,7 @@ import { basemodal, mainstore } from './BaseModal';
 import { chartstore } from './ChartStoreModal';
 import { observe } from 'mobx';
 import { mouseBusy, setPlotCursor, getVerticalMarkerTime, timeFormatter, scrollToPacket, setPlotButtonCursor_Wait, verticalZoomArea_CustomDiv } from '../utils';
+import toastNotification from '../utils/toastNotification';
 
 const axios = require('axios');
 const PLOT_POLLING_DELAY = 500;
@@ -347,6 +348,10 @@ export class ChartModal {
                             return;
 
                     });
+                    if (response[me.allChannels[0].channelNumber].displayDataChunk.length === 0 && chartstore.AppState == Constants.READY) {
+                        var toast = new toastNotification("Zoom limit reached or No signal data received to plot", Constants.TOAST_ERROR, 5000)
+                        toast.show()
+                    }
                     if (absoluteStartTime && absoluteStopTime) {
                         chartstore.absoluteStartTime = absoluteStartTime;
                         chartstore.absoluteStopTime = absoluteStopTime;
