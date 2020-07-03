@@ -1624,6 +1624,7 @@ width:40%!important;
 }
 .circular-progressbar-padding {
   margin-left: 10px;
+  min-width: 40px;
 }
 .navbar-container {
   max-width: 40px;
