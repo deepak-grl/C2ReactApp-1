@@ -86,7 +86,7 @@ const TBTConfig = observer((props) => {
             <tr>
               <td className="panellabel">Stress Test Timer</td>
               <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={tbtconfiginfo.stressTiming} onChange={stressTimingTextBoxOnChange} placeholder="" /></td>
-              <td className="alignlabel">(mins)</td>
+              <td className="alignlabel">(secs)</td>
             </tr>
 
             <tr>
