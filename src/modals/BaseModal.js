@@ -464,7 +464,7 @@ class BaseModal {
   }
 
   syncDataFromServer() {
-    // mouseBusy(true)
+    mouseBusy(true)
     this.getSoftwareVersion()
     this.loadConnectionSetupPanelValues()
     this.getIPAddressHistory();

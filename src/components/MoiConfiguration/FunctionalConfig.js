@@ -21,7 +21,7 @@ const FunctionalConfig = observer((props) => {
   }
 
   const serverURLTextBoxOnChange = (event) => {
-    funcInfo.serverURL = event.target.value.replace(/[^0-9.]/g, "")        //to allow only positive and decimal numbers;
+    funcInfo.serverURL = event.target.value
   }
   const isBatteryConnectedToTheDut = (event) => {
     funcInfo.isBatteryConnectedToTheDut = event.target.checked;

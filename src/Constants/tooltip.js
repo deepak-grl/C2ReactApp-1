@@ -84,7 +84,7 @@ Please visually inspect the presence of battery in PUT. Enable this check box if
 
 export const STATE_MACHINE_INFO = `VIF Field  Type_C_State_Machine: Indicates which Type-C connection state machine is implemented on the DUT`
 
-export const USB_FUNCTIONAL_DEVICE_URL = `Refer above setup image and enter the URL displayed in the Golden device(Google pixel phone)`
+export const USB_FUNCTIONAL_DEVICE_URL = `Refer above setup image and enter the URL displayed in the Golden device(Google pixel phone).\n(Example : http://192.168.255.5:5324)`
 
 export const USB_TYPE_B_PORT = `TD 4.12.2 Hub Port Types Test
 Step - 4 and 5 validation: Enter the number of USB Type-B or Micro-B ports that is present in the product.`
