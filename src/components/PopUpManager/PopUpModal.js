@@ -177,7 +177,7 @@ const PopUpModal = observer(
                             <FlexView className="form-group1">
                                 {popupIcon}
                             </FlexView>
-                            <FlexView className="form-group2">
+                            <FlexView className="form-group2 display-message-div">
                                 <strong className={"displayMessage " + alignPopUpMessage}>{mainstore.popUpInputs.message}</strong>
                             </FlexView>
 

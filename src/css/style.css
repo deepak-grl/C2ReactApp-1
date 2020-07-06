@@ -1507,6 +1507,11 @@ width:40%!important;
 }
 .popupbuttons-align {
   justify-content: flex-end;
+  align-items: center;
+}
+.display-message-div {
+  overflow-y: auto;
+  width: 100% !important;
 }
 .popup-dropdown-align {
   width: 60%;
@@ -1671,7 +1676,7 @@ width:40%!important;
   /* overflow: auto; */
   /* margin-left: 15%; */
   /* margin-top: 10%; */
-  top: -6% !important;
+  top: 0% !important;
   position: relative;
 }
 .panel-connection-setup-tester-info {
