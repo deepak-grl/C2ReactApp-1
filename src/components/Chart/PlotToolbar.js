@@ -146,9 +146,9 @@ class PlotToolbar extends React.Component {
         ajax.fileUpload(path, file, "WaveformFile", function (response) {
             basemodal.chartModal.plotReadyStatusPoll();
             mainstore.clearTestResultInOfflineMode = true;
-            mainstore.panelResultPolling = true;
+            mainstore.panelResultPolling = true;            //want to call the "GetTestResultOffline" api only once , so here making the paneresluting to true
             setTimeout(() => {
-                mainstore.panelResultPolling = false;
+                mainstore.panelResultPolling = false;       //no need poll the  "GetTestResultOffline" api continuosly, so here making the paneresulting to false
             }, 2000);
         });
     }
