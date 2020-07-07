@@ -50,6 +50,7 @@ const PanelTestConfig = observer(
 
     //Method to select all child and parent from MOI name
     onSelectItem = (checked, targetNode) => {
+      orderedTestList = []   //ordered test list not updating while test list gets updated  , so clearing here and updating the ordered list in getmoiorder method
       this.setState({ reRender: !this.state.reRender, checkedKeys: checked })
       mainstore.testConfiguration.selectedTestList = checked;
       if (targetNode.checked === false) {
@@ -71,7 +72,6 @@ const PanelTestConfig = observer(
           }
         }
       }
-
     }
 
     createTreeNodes(nodes) {
@@ -94,8 +94,8 @@ const PanelTestConfig = observer(
     }
 
     disableQCLegacyTestCases = (testCaseName) => {
-      for (var i = 0; i <  mainstore.qcLegacyTestCase.length; i++) {
-        if (testCaseName ===  mainstore.qcLegacyTestCase[i])
+      for (var i = 0; i < mainstore.qcLegacyTestCase.length; i++) {
+        if (testCaseName === mainstore.qcLegacyTestCase[i])
           return "qc-legacy-test-case "
       }
     }
@@ -103,27 +103,37 @@ const PanelTestConfig = observer(
 
     //Re-ordering the Moi list order while dragging
     getMoiOrder = (parent) => {
-      for (var i = 0; i < parent.length; i++) {
-        if (parent[i].props.children !== undefined && parent[i].props.children.length > 0) {
-          for (var j = 0; j < parent[i].props.children.length; j++) {
-            if (parent[j] !== undefined) {
-              if (orderedTestList.includes(parent[j].key)) {
-                orderedTestList.splice(orderedTestList.indexOf(parent[j].key), 1);
-                orderedTestList.push(parent[j].key)
-              }
-              else {
-                orderedTestList.push(parent[j].key)
-              }
-            }
-            if (orderedTestList.includes(parent[i].props.children[j].key))
-              orderedTestList.splice(orderedTestList.indexOf(parent[i].props.children[j].key), 1);
-            orderedTestList.push(parent[i].props.children[j].key)
-          }
-        }
+      for (let n of parent) {
+        if (!(orderedTestList.includes(n.key)))
+          orderedTestList.push(n.key)
+      }
+
+      // this code is used before adding one more parent(second parent) to the QC3 Test case list , so now we're using the above for loop to update the ordered test list
+      {
+        // for (var i = 0; i < parent.length; i++) {
+        //   if (parent[i].props.children !== undefined && parent[i].props.children.length > 0) {
+
+
+        //     for (var j = 0; j < parent[i].props.children.length; j++) {
+        //       console.log('parent[i].props.children: ', parent[i].props.children);
+        //       if (parent[j] !== undefined) {
+        //         if (orderedTestList.includes(parent[j].key)) {
+        //           orderedTestList.splice(orderedTestList.indexOf(parent[j].key), 1);
+        //           orderedTestList.push(parent[j].key)
+        //         }
+        //         else {
+        //           orderedTestList.push(parent[j].key)
+        //         }
+        //       }
+        //       if (orderedTestList.includes(parent[i].props.children[j].key))
+        //         orderedTestList.splice(orderedTestList.indexOf(parent[i].props.children[j].key), 1);
+        //       orderedTestList.push(parent[i].props.children[j].key)
+
+        //     }
+        //   }
+        // }
       }
     }
-
-
 
     certFilterDropDownOnChange = eventKey => {
       this.setState({ selectedCertFilter: eventKey })
