@@ -146,6 +146,10 @@ class PlotToolbar extends React.Component {
         ajax.fileUpload(path, file, "WaveformFile", function (response) {
             basemodal.chartModal.plotReadyStatusPoll();
             mainstore.clearTestResultInOfflineMode = true;
+            mainstore.panelResultPolling = true;
+            setTimeout(() => {
+                mainstore.panelResultPolling = false;
+            }, 2000);
         });
     }
     handleClickPan = () => {

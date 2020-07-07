@@ -100,9 +100,13 @@ class PanelResults extends React.Component {
             this.clearProgressBarValues()
             resultsPollingURLEndPoint = "GetCapsResults"
         }
-        if (mainstore.configControllerCaptureInProgress) {
+        else if (mainstore.configControllerCaptureInProgress) {
             this.clearProgressBarValues()
             resultsPollingURLEndPoint = "GetConfigureControllerResults"
+        }
+
+        else if (mainstore.clearTestResultInOfflineMode) {
+            resultsPollingURLEndPoint = "GetTestResultOffline"
         }
 
         const request$ = ajax({
