@@ -179,12 +179,13 @@ const QC3Config = observer((props) => {
                 </Dropdown >
               </td>
             </tr>
-
-            <tr>
-              <td className="panellabel">Input Supply Voltage</td>
-              <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={qc3Info.inputSupplyVoltage} onChange={inputsupplyvoltageTextBoxOnChange} placeholder="" /></td>
-              <td className="alignlabel">(V)</td>
-            </tr>
+            {mainstore.selectedMoiTestCase.includes(Constants.Qc3Tests) ? null :   // showing the ISV only in QC3+ test cases
+              <tr>
+                <td className="panellabel">Input Supply Voltage</td>
+                <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={qc3Info.inputSupplyVoltage} onChange={inputsupplyvoltageTextBoxOnChange} placeholder="" /></td>
+                <td className="alignlabel">(V)</td>
+              </tr>
+            }
 
           </tbody>
         </Table>
