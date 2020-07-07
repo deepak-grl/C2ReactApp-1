@@ -1465,10 +1465,13 @@ width:40%!important;
   width: 100%;
 }
 .align-timer-text {
-  width: 80% !important;
+  position: absolute;
+  left: 8%;
+  font-weight: bold;
+  bottom:1%;
 }
 .modal-timer-align {
-  position: absolute;
+  /* position: absolute; */
   right: 2%;
   top: 6%;
   font-weight: 600;
