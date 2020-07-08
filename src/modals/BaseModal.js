@@ -68,7 +68,7 @@ export const mainstore = observable({
   enableMergeByDefault: true,
   renderDefaultMerge: true,
   imgWidth: 760,
-  clearTestResultInOfflineMode: false,
+  isTestResultInOfflineMode: false,
   alignTestResultsClearPopUp: false,
   copyVifInfo: {},
   isVifLoadedFromProductCaps: true,

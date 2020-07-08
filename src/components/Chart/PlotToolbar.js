@@ -123,12 +123,15 @@ class PlotToolbar extends React.Component {
 
     displayFileDialog = (event) => {
         mainstore.alignTestResultsClearPopUp = true
-        basemodal.showPopUp("Existing test results will be cleared from application if a new capture file is loaded.\nClick OK to load the capture file.\nClick Cancel to keep the existing test results", null, 'Warning', null, false, 'OKCancel', null, this.clearingTestReuslt.bind(this, event))
+        if (mainstore.results.testResultsList.length > 0)
+            basemodal.showPopUp("Existing test results will be cleared from application if a new capture file is loaded.\nClick OK to load the capture file.\nClick Cancel to keep the existing test results", null, 'Warning', null, false, 'OKCancel', null, this.clearingTestReuslt.bind(this, event))
+        else
+            this.clearingTestReuslt(event)
     }
 
     clearingTestReuslt = (event) => {
         if (mainstore.popUpInputs.responseButton === "Cancel") {
-            mainstore.clearTestResultInOfflineMode = false
+            mainstore.isTestResultInOfflineMode = false
         }
         else {
             this.setBackgroundColor(this.folderButton)
@@ -145,7 +148,7 @@ class PlotToolbar extends React.Component {
             clearInterval(this.readStatusPoll)
         ajax.fileUpload(path, file, "WaveformFile", function (response) {
             basemodal.chartModal.plotReadyStatusPoll();
-            mainstore.clearTestResultInOfflineMode = true;
+            mainstore.isTestResultInOfflineMode = true;
             mainstore.panelResultPolling = true;            //want to call the "GetTestResultOffline" api only once , so here making the paneresluting to true
             setTimeout(() => {
                 mainstore.panelResultPolling = false;       //no need poll the  "GetTestResultOffline" api continuosly, so here making the paneresulting to false

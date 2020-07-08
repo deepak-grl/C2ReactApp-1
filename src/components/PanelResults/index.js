@@ -64,8 +64,8 @@ class PanelResults extends React.Component {
                 this.pollingObj = this.stopPolling();
             }
         });
-        const disposer1 = observe(mainstore, "clearTestResultInOfflineMode", () => {
-            if (mainstore.clearTestResultInOfflineMode === true && mainstore.status.appState === Constants.READY)
+        const disposer1 = observe(mainstore, "isTestResultInOfflineMode", () => {
+            if (mainstore.isTestResultInOfflineMode === true && mainstore.status.appState === Constants.READY)
                 this.setState({ treeNodes: [] });
         });
 
@@ -104,9 +104,9 @@ class PanelResults extends React.Component {
             this.clearProgressBarValues()
             resultsPollingURLEndPoint = "GetConfigureControllerResults"
         }
-
-        else if (mainstore.clearTestResultInOfflineMode) {
-            resultsPollingURLEndPoint = "GetTestResultOffline"
+        else if (mainstore.isTestResultInOfflineMode) {
+            this.clearProgressBarValues()
+            resultsPollingURLEndPoint = "GetTestResultOffline"          //this api is used to call after the loading the trace file , only one time we'll call this api 
         }
 
         const request$ = ajax({

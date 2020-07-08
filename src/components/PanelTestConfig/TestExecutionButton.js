@@ -47,7 +47,7 @@ const TestExecutionButton = observer(
 
         resettingVariablesToDefaults = () => {
             mainstore.results.testResultsList = [];
-            mainstore.clearTestResultInOfflineMode = false;
+            mainstore.isTestResultInOfflineMode = false;
             mainstore.isFivePortStartedExecution = false;
             mainstore.showMarkerByDefault = false;
             mainstore.renderGlassPaneWhileGetcaps = false;
