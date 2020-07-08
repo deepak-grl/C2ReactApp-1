@@ -154,6 +154,14 @@ const FunctionalConfig = observer((props) => {
                   </OverlayTrigger>
                 </td>
               </tr>
+              <tr>
+                <td colSpan={2}>
+                  {funcInfo.typeCCanActAsHostValue === 0 ?
+                    <p><strong>Prerequisite : Please Install CV tool in DUT. Add this to USB-C Functional test configuration </strong></p>
+                    : null
+                  }
+                </td>
+              </tr>
 
               {funcInfo.typeCPortOnHub !== undefined && funcInfo.typeCPortOnHub !== 0 ?
                 <>
