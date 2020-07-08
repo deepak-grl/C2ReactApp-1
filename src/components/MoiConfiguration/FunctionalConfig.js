@@ -86,7 +86,7 @@ const FunctionalConfig = observer((props) => {
       </tr>
 
       <tr>
-        <td className="usb-panel-label">Number of USB Type-B or Micro-B ports </td>
+        <td className="usb-panel-label">Number of USB Type-B/Micro-B receptacle or Type-A plug </td>
         <td className="usb-td-label">
           <input className="usbPanelcontrol textbox" value={funcInfo.numberofMicroBPorts} onChange={usbTypeBPortOnchange} />
           <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{USB_TYPE_B_PORT}</Tooltip>}>
@@ -154,14 +154,12 @@ const FunctionalConfig = observer((props) => {
                   </OverlayTrigger>
                 </td>
               </tr>
-              <tr>
-                <td colSpan={2}>
-                  {funcInfo.typeCCanActAsHostValue === 0 ?
+              {funcInfo.typeCCanActAsHostValue === 0 ?
+                <tr>
+                  <td colSpan={2}>
                     <p><strong>Prerequisite : Please Install CV tool in DUT. Add this to USB-C Functional test configuration </strong></p>
-                    : null
-                  }
-                </td>
-              </tr>
+                  </td>
+                </tr> : null}
 
               {funcInfo.typeCPortOnHub !== undefined && funcInfo.typeCPortOnHub !== 0 ?
                 <>
