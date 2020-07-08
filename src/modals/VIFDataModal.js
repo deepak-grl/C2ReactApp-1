@@ -29,6 +29,11 @@ export class VIFDataModal {
     vifDataModified() {
         mainstore.vifEditorDataUpdated = mainstore.vifEditorDataUpdated + 1;
     }
+
+    updatedFileJson(fileData) {
+        let port = this.getCurrentPort(1);
+        port.createJsonStructureForBackend();
+    }
     getportA() {
         if (!this.portA) {
             this.portA = new VIFPort(1);

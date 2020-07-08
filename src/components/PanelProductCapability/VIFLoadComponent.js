@@ -114,7 +114,7 @@ const VIFLoadComponent = observer(
         }
 
         showDialogForVifGenerationDialog() {
-            basemodal.showPopUp('FileName', null, 'Save File', "DeviceData.xml", true, "OKCancel", null, this.generateVIFFile.bind(this))
+            basemodal.showPopUp('FileName', null, 'Save File', "VifData.xml", true, "OKCancel", null, this.generateVIFFile.bind(this))
         }
 
 
