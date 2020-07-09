@@ -160,7 +160,9 @@ const PopUpModal = observer(
                         <FlexView>
                             <p className={"popup-title "}><strong className="popup-heder-font-align" >{mainstore.popUpInputs.title}</strong></p>
                         </FlexView>
-                        <hr className="horizontal-ruler" />
+                        {popupImage ? null :
+                            <hr className="horizontal-ruler" />
+                        }
                         {popupImage}
                         <FlexView>
                             <FlexView className="form-group1">
@@ -179,7 +181,7 @@ const PopUpModal = observer(
 
                         <hr className="horizontal-ruler" />
                         <FlexView className="popupbuttons-align">
-                            <div className = "align-timer-text">
+                            <div className="align-timer-text">
                                 {mainstore.popUpInputs.showTimer || mainstore.enableOrDisableAllPopups && mainstore.popUpInputs.mandatePopUp === false ?
                                     <OverlayTrigger placement="right" trigger="hover" overlay={<Tooltip style={{ zIndex: '99999', position: 'relative' }}>Pop Up will close after {mainstore.popUpInputs.showTimerForModal} secs</Tooltip>}>
                                         <label>Time Left(sec):   <p className={"modal-timer-align"}>{mainstore.popUpInputs.showTimerForModal}</p></label>
