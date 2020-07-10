@@ -197,7 +197,7 @@ const VIFLoadComponent = observer(
                                     <Button className="grl-button createNewFilebtn"  onClick={(e) => { this.setDefaultValues(e) }} >Default Values</Button>
                                 </OverlayTrigger> */}
                                 <div className="clear-vif-link-label-div">
-                                    <OverlayTrigger placement="auto" overlay={<Tooltip>{PC_CLEAR_BTN}</Tooltip>}>
+                                    <OverlayTrigger placement="bottom" overlay={<Tooltip>{PC_CLEAR_BTN}</Tooltip>}>
                                         <a href="javascript:void(0);" className="clear-btn" onClick={this.clearVifData.bind(this)} >Clear VIF Data</a>
                                     </OverlayTrigger>
                                 </div>
