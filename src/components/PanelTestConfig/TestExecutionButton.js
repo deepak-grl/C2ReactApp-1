@@ -31,7 +31,8 @@ const TestExecutionButton = observer(
             setTimeout(() => {
                 this.setMouseReady()
             }, 3000);
-            basemodal.vifDataModal.updatedFileJson(basemodal.vifDataModal.portA.fileJson)          //after editing the vif fields , we're updating to the backend for one more time
+            if (basemodal.vifDataModal.portA)
+                basemodal.vifDataModal.updatedFileJson(basemodal.vifDataModal.portA.fileJson)          //after editing the vif fields , we're updating to the backend for one more time
             mainstore.status.appState = Constants.BUSY;
             chartstore.AppState = Constants.BUSY;
             basemodal.syncDataToServer();

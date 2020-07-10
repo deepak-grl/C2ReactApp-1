@@ -1650,8 +1650,11 @@ width:40%!important;
   align-items: center!important;
 }
 .circular-progressbar-padding {
-  margin-left: 10px;
+  margin-left: 5px;
   min-width: 40px;
+  width: auto!important;
+  border-left: 2px solid white;
+  padding-left: 10px;
 }
 .navbar-container {
   /* max-width: 40px; */

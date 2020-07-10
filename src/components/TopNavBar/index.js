@@ -109,9 +109,6 @@ const TopNavBar = observer(
                       </FlexView>
                     </FlexView>
                   </NavItem>
-                  <NavItem href="#" >
-                    {progressBar}
-                  </NavItem>
                 </Nav>
                 <Nav>
                   <NavItem href="#" >
@@ -137,6 +134,9 @@ const TopNavBar = observer(
                       />
                       <p className="set-app-mode-labels">CTS</p>
                     </div>
+                  </NavItem>
+                  <NavItem href="#" >
+                    {progressBar}
                   </NavItem>
                 </Nav>
               </Navbar.Collapse>
