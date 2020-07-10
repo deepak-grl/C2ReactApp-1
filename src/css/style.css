@@ -135,6 +135,9 @@ header {
   margin-top: 2px;
   padding: 0px 10px;
 }
+.nav-bar-parent {
+  justify-content: space-between !important;
+}
 .nav-item-text {
   font-size: 16px;
   color: #fff;
@@ -144,6 +147,7 @@ header {
   display: flex;
   align-items: center;
   align-content: center;
+  margin-right: 20px;
 }
 .nav > li {
   float: left;
@@ -151,6 +155,14 @@ header {
 }
 .navwidth {
   width: 25% !important;
+}
+.app-modetoggle-switch {
+  display: flex;
+}
+.set-app-mode-labels {
+  color: white;
+  font-size: 13px;
+  padding: 15px 5px;
 }
 
 /* --- PanelRightBorder*/
@@ -1634,12 +1646,15 @@ width:40%!important;
   font-size: 15px;
   font-family: Arial;
 }
+.nav-bar-second-text-div{
+  align-items: center!important;
+}
 .circular-progressbar-padding {
   margin-left: 10px;
   min-width: 40px;
 }
 .navbar-container {
-  max-width: 40px;
+  /* max-width: 40px; */
   border-left: 2px solid white;
   margin-right: 10px;
 }
@@ -1650,6 +1665,18 @@ width:40%!important;
   margin: 0px 0px 20px 0px;
 }
 
+.app-mode-label {
+  color: white;
+  font-size: 13px;
+  margin: 5px;
+  padding-right: 5px;
+  top: 10px;
+  position: relative;
+}
+.app-mode-switch-btn {
+  position: relative;
+  top: 15px;
+}
 /*Panel Connection Setup Panel Cleanup CSS */
 
 .connectionsetup-leftsideSetWidth {

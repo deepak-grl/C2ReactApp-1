@@ -18,6 +18,11 @@ export const mainstore = observable({
     appState: Constants.READY,
     connectionState: Constants.DISCONNECTED,
   },
+  apiMode: {
+    appState: Constants.READY,
+    connectionState: " ",
+    isAppModeAPI: false,
+  },
   chartPollEnabled: false, //TODO Move all polling objects into a new object called polling and place all these individual polling flags into it also rename to "startPlotPolling"
   currentPanelIndex: 0,
   //showVerticalBar: false,
@@ -464,8 +469,9 @@ class BaseModal {
   }
 
   syncDataFromServer() {
-    mouseBusy(true)
+    // mouseBusy(true)
     this.getSoftwareVersion()
+    this.getAppMode()
     this.loadConnectionSetupPanelValues()
     this.getIPAddressHistory();
     this.getAppState(this.syncAjaxCalls.bind(this));
@@ -611,6 +617,32 @@ class BaseModal {
     }, function (error) {
       console.log("Error", error);
     });
+  }
+
+  getAppMode(callBack) {
+    ajax.callGET(Constants.URL_App + "GetAppMode", {}, function (response) {
+      mainstore.apiMode.isAppModeAPI = response.data;
+      if (callBack)
+        callBack();
+    }, function (error) {
+      console.log("Error", error);
+    })
+  }
+
+  forceStopCurrentExecution(callBack) {
+    ajax.callGET(Constants.URL_ConnectionSetup + "ForceStopCurrentExecution", {}, function (response) {
+      if (callBack)
+        callBack();
+    }, function (error) {
+      console.log("Error", error);
+    });
+  }
+
+  putAppMode() {
+    ajax.callPUT(Constants.URL_App + "PutAppMode/" + mainstore.apiMode.isAppModeAPI, {}, function (response) {
+    }, function (error) {
+      console.log("Error", error);
+    })
   }
 
   putProjectFolderName() {
