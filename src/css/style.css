@@ -2435,10 +2435,10 @@ width:40%!important;
   margin: 0 1%;
 }
 .set-results-icon-dimensions {
-  width: 20px;
+  width: 22px;
 }
 .set-results-repeat-icon-dimensions {
-  width: 25px;
+  width: 22px;
 }
 .scrollToTestCase-icon:focus,
 .scrollToTestCase-icon:active {
@@ -2459,8 +2459,8 @@ width:40%!important;
 }
 .results-notify {
   padding: 4px 0px 10px;
-  justify-content: flex-start;
-  min-height: initial !important;
+  justify-content: center;
+  /* min-height: initial !important; */
 }
 .css-14bf3rg-style-style,
 .css-f4xmnd-style-style {

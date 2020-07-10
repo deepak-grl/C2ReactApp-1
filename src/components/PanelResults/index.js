@@ -460,8 +460,13 @@ class PanelResults extends React.Component {
 class CountResults extends React.Component {
     render() {
         var repeatResultsAlign = " ";
+        var repeactIcon = "";
         if (this.props.repeatCount !== "") {
             repeatResultsAlign = ' repeat-results-icon-align'
+            if (mainstore.status.appState === Constants.BUSY)
+                repeactIcon = "repeat-count.gif"
+            else
+                repeactIcon = "repeat-count-stop.png"
         }
         return (
             <>
@@ -493,7 +498,7 @@ class CountResults extends React.Component {
                     {this.props.repeatCount !== "" ?
                         <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> current run test case sequence </Tooltip>}>
                             <div className={"results-icon-align" + repeatResultsAlign}>
-                                <img className="set-results-repeat-icon-dimensions" src="../../images/repeat-count.gif" /><strong className="test-results-notify-count">  {this.props.repeatCount}</strong>
+                                <img className="set-results-repeat-icon-dimensions" src={"../../images/" + repeactIcon} /><strong className="test-results-notify-count">  {this.props.repeatCount}</strong>
                             </div>
                         </OverlayTrigger> : null}
                 </FlexView>
