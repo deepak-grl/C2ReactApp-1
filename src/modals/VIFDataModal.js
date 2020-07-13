@@ -315,6 +315,7 @@ export class VIFPort {
         let elements = allrows.map(row => {
             let fileEle = row.fileElement;
             let xmlDecodedValue = fileEle.getVIFElementDecodedValue();
+            console.log('xmlDecodedValue: ', xmlDecodedValue);
             var multiplierValue = fileEle.getMultiplier();
             var typeOfEle = basemodal.metaData.getElementValue(fileEle.elementName, Constants.VIF_ELEMENT_TYPE);
 

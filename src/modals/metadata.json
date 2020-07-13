@@ -136,6 +136,37 @@
     "SubFields": []
   },
   {
+    "VifFieldEnum": "Certification_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:EndProduct",
+      "1:Reference Platform",
+      "2:Silicon"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
     "VifFieldEnum": "Port_Label",
     "VifFieldType": 0,
     "VifFieldValue": "",
@@ -855,6 +886,225 @@
     "SubFields": []
   },
   {
+    "VifFieldEnum": "USB4_Router_Index",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 0,
+    "MaxValue": 15,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_Lane_0_Adapter",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 1,
+    "MaxValue": 62,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_Max_Speed",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Gen 2(20 Gb)",
+      "1:Gen 3(40 Gb)"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_DFP_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_UFP_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_USB3_Tunneling_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_DP_Tunneling_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_PCIe_Tunneling_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_TBT3_Compatibility_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_CL1_State_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_CL2_State_Supported",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_Num_Retimers",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 0,
+    "MaxValue": 2,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_DP_Bit_Rate",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:RBR",
+      "1:HBR",
+      "2:HBR2",
+      "3:HBR3"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "USB4_Num_DP_Lanes",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:_1lane",
+      "1:_2lanes",
+      "2:_4lanes"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Host_Supports_USB_Data",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
     "VifFieldEnum": "Host_Speed",
     "VifFieldType": 2,
     "VifFieldValue": "",
@@ -972,8 +1222,20 @@
     "SubFields": []
   },
   {
-    "VifFieldEnum": "Host_Supports_USB_Data",
-    "VifFieldType": 3,
+    "VifFieldEnum": "Hub_Port_Number",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Device_Supports_USB_Data",
+    "VifFieldType": "3",
     "VifFieldValue": "",
     "DisplayString": "",
     "Units": "",
@@ -984,18 +1246,6 @@
       "NO",
       "YES"
     ],
-    "SubFields": []
-  },
-  {
-    "VifFieldEnum": "Hub_Port_Number",
-    "VifFieldType": 1,
-    "VifFieldValue": "",
-    "DisplayString": "",
-    "Units": "",
-    "MinValue": null,
-    "MaxValue": null,
-    "Multipliers": null,
-    "ComboBoxEntries": [],
     "SubFields": []
   },
   {
@@ -1433,6 +1683,18 @@
       "3:Power Brick",
       "4:Alternate Mode Controller (AMC)"
     ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "DFP_VDO_Port_Number",
+    "VifFieldType": 0,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
     "SubFields": []
   },
   {
