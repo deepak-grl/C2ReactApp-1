@@ -2,7 +2,7 @@ import React from 'react';
 import FlexView from "react-flexview/lib";
 import { Table, DropdownButton, Dropdown } from 'react-bootstrap';
 import { mainstore, basemodal } from '../../modals/BaseModal';
-import { VIFDataModal } from '../../modals/VIFDataModal';
+import { VIFDataModal, VIFRowData } from '../../modals/VIFDataModal';
 import * as VIF_ENUMS from '../../Constants/VIF_ENUMS';
 import utils from '../../utils';
 import { observe } from 'mobx';
@@ -164,7 +164,25 @@ class VIFEditor extends React.Component {
                 vifEditable: !me.vifEditable
             });
         });
+        const vifMisMatch = observe(mainstore, "filePdPortTypeValue", (change) => {
+            me.vifFieldsMisMatchToast()
+        });
+        const deviceMisMatch = observe(mainstore, "devicePdPortTypeValue", (change) => {
+            me.vifFieldsMisMatchToast()
+        });
     }
+
+    vifFieldsMisMatchToast() {
+        var showPdPortTypeMisMatchToast = null;
+        if (mainstore.filePdPortTypeValue !== null && mainstore.devicePdPortTypeValue !== null)
+            if (mainstore.filePdPortTypeValue !== mainstore.devicePdPortTypeValue) {
+                showPdPortTypeMisMatchToast = new toastNotification(`"PD_Port_Type" value in the loaded VIF doesn't match with Device data`, Constants.TOAST_ERROR, 5000);
+                showPdPortTypeMisMatchToast.show();
+                mainstore.devicePdPortTypeValue = null;
+                mainstore.filePdPortTypeValue = null
+            }
+    }
+
     renderVifEditor() {
         var dm = basemodal.vifDataModal;
         var res = [];
@@ -202,12 +220,11 @@ class VIFEditor extends React.Component {
                     else if (eachComp.getSOPSVIDList().deviceJson && eachComp.getSOPSVIDList().deviceJson.SOPSVID && eachComp.getSOPSVIDList().deviceJson.SOPSVID.length > 0) {
                         res.push(this.renderCategoryList(eachComp.getSOPSVIDList()));
                     }
-
-
                 }
             });
         }
         return res;
+
     }
     updateVIFDataInUI() {
         this.setState({
@@ -252,7 +269,7 @@ class VIFEditor extends React.Component {
             {mainstore.productCapabilityProps.executionMode !== "ComplianceMode" ?
                 < td ></td> : null
             }
-            </tr>);
+        </tr>);
         return items;
     }
     renderComponent(vifComp, index) {

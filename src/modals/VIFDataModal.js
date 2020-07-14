@@ -52,6 +52,7 @@ export class VIFDataModal {
     }
 
     loadJson(jsonData, fileOrDevice, portIndex) {
+        console.log('jsonData: ', jsonData);
         this.initialized = true;
         if (jsonData) { } else {
             throw Error("json null");
@@ -107,6 +108,10 @@ export class VIFDataModal {
         port.createJsonStructureForBackend();
 
         var pdPortType = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getElementByName(VIF_ENUMS.PD_Port_Type);
+
+        if (fileOrDevice === Constants.TYPE_FILE) {
+            mainstore.filePdPortTypeValue = pdPortType.getValue();
+        }
         var vifProductType = port.vif.getElementByName(VIF_ENUMS.VIF_Product_Type);
         var captiveCable = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getElementByName(VIF_ENUMS.Captive_Cable);
         mainstore.captiveCableVal = captiveCable.getValue();
@@ -315,7 +320,6 @@ export class VIFPort {
         let elements = allrows.map(row => {
             let fileEle = row.fileElement;
             let xmlDecodedValue = fileEle.getVIFElementDecodedValue();
-            console.log('xmlDecodedValue: ', xmlDecodedValue);
             var multiplierValue = fileEle.getMultiplier();
             var typeOfEle = basemodal.metaData.getElementValue(fileEle.elementName, Constants.VIF_ELEMENT_TYPE);
 
@@ -818,7 +822,6 @@ class VIFBaseObject {
     reCreateRowDatas() {
         this.allRowDatas = [];
         if (this.fileJson) {
-
             var fileKeys = Object.keys(this.fileJson);
             //let onlyFileElements = this.getOnlyElements(this.fileJson);
 
@@ -840,6 +843,7 @@ class VIFBaseObject {
         }
         if (this.deviceJson) {
             var deviceKeys = Object.keys(this.deviceJson);
+
             /**
              * Set or add device elements in the RowData
              */
@@ -853,10 +857,13 @@ class VIFBaseObject {
                 } else {
                     let fileJsonEle = null;
                     if ((deviceJsonEle['_attributes'] || deviceJsonEle['_text'])) {
-
                         let vifRowData = new VIFRowData(elementName, fileJsonEle, deviceJsonEle, this, this.rulesMethodRef);
                         this.allRowDatas.push(vifRowData);
+
                     }
+                }
+                if (elementName === VIF_ENUMS.PD_Port_Type) {
+                    mainstore.devicePdPortTypeValue = parseInt(deviceJsonEle['_attributes'].value)
                 }
             }
         }
