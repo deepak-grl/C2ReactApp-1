@@ -52,7 +52,6 @@ export class VIFDataModal {
     }
 
     loadJson(jsonData, fileOrDevice, portIndex) {
-        console.log('jsonData: ', jsonData);
         this.initialized = true;
         if (jsonData) { } else {
             throw Error("json null");
