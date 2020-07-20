@@ -72,11 +72,13 @@ export class VIFDataModal {
         var allowGrlXmlToast = new toastNotification("Loaded unsupported VIF, please load the VIF generated from USB-IF official VIF generator tool", Constants.TOAST_ERROR, 5000);
         if (port.fileJson)
             if (mainstore.productCapabilityProps.executionMode === Constants.INFORMATIONAL_MODE) {
-                var vendorName = port.fileJson.VIF.VIF_App.Vendor._text
-                if (vendorName !== "GRL" && vendorName !== "USB-IF") {
-                    allowGrlXmlToast.show();
-                    this.clearAll();
-                    return allowGrlXmlToast
+                if (fileOrDevice === Constants.TYPE_FILE && port.fileJson.VIF.VIF_App) {
+                    var vendorName = port.fileJson.VIF.VIF_App.Vendor._text
+                    if (vendorName !== "GRL" && vendorName !== "USB-IF") {
+                        allowGrlXmlToast.show();
+                        this.clearAll();
+                        return allowGrlXmlToast
+                    }
                 }
             }
             else {
@@ -291,6 +293,7 @@ export class VIFPort {
 
         comps.forEach(eachComp => {
             allStaticElements = this._getRowElementsForBackedJson(eachComp.getAllRowDatasForBackendJson());
+            console.log('allStaticElements: ', allStaticElements);
             let vifInfo = {
                 "staticPortElements": allStaticElements,
                 "sourcePDOs": this._getCategoryStructureForBackedJson(eachComp.getSrcPdoList()),
@@ -517,8 +520,11 @@ export class VIFElement {
         return json._attributes;
     }
     setSelectedIndex(index) {
+        console.log('index: ', index);
         if (this.source && this.source.getVif().isValidationRun) {
+            console.log('this.getValue(): ', this.getValue());
             if (index !== this.getValue()) {
+
                 this.setLocalProperty(INVALID_VALUE, true, true);
             }
         }
