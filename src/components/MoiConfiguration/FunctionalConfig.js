@@ -157,7 +157,7 @@ const FunctionalConfig = observer((props) => {
               {funcInfo.typeCCanActAsHostValue === 0 ?
                 <tr>
                   <td colSpan={2}>
-                    <p><strong>Prerequisite : Please Install CV tool in DUT. Add this to USB-C Functional test configuration </strong></p>
+                    <p><strong>Prerequisite : Please Install CV tool in DUT </strong></p>
                   </td>
                 </tr> : null}
 
