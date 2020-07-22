@@ -99,6 +99,8 @@ export const ENABLEORDISABLEPOPUP = `This feature can be used only in Informatio
 Enable this checkbox to disable all pop-up during test execution, else disable it
 Note: Test results will vary if checkbox is enabled`
 
+export const CAR_CHARGER = `For Car Chargers, repeat all the test cases with 9V, 12.5V and 16V input voltage supply connected to DUT`
+
 export const MFILIGHTNINGCABLE = ` Please select this option when UUT connected with Lightning cable`
 
 export const ENABLEDEBUGMODE = `Additional information will be added to test case capture. So test capture size will be comparatively more. This is recommended only for debug purpose.`

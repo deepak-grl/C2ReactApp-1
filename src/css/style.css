@@ -2181,6 +2181,11 @@ width:40%!important;
   position: relative;
   top: 5px;
 }
+.car-charger-tooltip-inner-content-align > .tooltip-inner {
+  white-space: pre-wrap !important;
+  max-width: 400px;
+  text-align: left !important;
+}
 .count-results-tooltip > .tooltip-inner {
   white-space: pre-line !important;
   text-align: left !important;

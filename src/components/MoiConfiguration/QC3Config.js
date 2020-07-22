@@ -1,9 +1,10 @@
 import React from 'react';
 import FlexView from 'react-flexview/lib';
-import { Form, Dropdown, Table } from 'react-bootstrap';
+import { Form, Dropdown, Table, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import * as Constants from '../../Constants';
 import { mainstore } from '../../modals/BaseModal';
 import { observer } from 'mobx-react';
+import { CAR_CHARGER } from '../../Constants/tooltip';
 
 const QC3Config = observer((props) => {
   const qc3Info = mainstore.testConfiguration.qc3Configuration;
@@ -179,12 +180,18 @@ const QC3Config = observer((props) => {
                 </Dropdown >
               </td>
             </tr>
-            {mainstore.selectedMoiTestCase.includes(Constants.Qc3Tests) ? null :   // showing the ISV only in QC3+ test cases
+            {qc3Info.qcDUTtype === Constants.QCDutCategory[2] ?   // showing the ISV only in QC3+ test cases
               <tr>
                 <td className="panellabel">Input Supply Voltage</td>
                 <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={qc3Info.inputSupplyVoltage} onChange={inputsupplyvoltageTextBoxOnChange} placeholder="" /></td>
-                <td className="alignlabel">(V)</td>
+                <td className="alignlabel">
+                  (V)
+                  <OverlayTrigger placement="bottom" popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} overlay={<Tooltip className="car-charger-tooltip-inner-content-align">{CAR_CHARGER}</Tooltip>}>
+                    <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
+                  </OverlayTrigger>
+                </td>
               </tr>
+              : null
             }
 
           </tbody>
