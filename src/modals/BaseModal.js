@@ -155,6 +155,7 @@ export const mainstore = observable({
 
     pd3Configuration: {
       vconnVoltage_PD3: "",
+      isFrSwapIncluded:false,
     },
 
     pd2Configuration: {

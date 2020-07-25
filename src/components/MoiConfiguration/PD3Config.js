@@ -12,6 +12,10 @@ const PD3Config = observer((props) => {
         pd3Info.vconnVoltage_PD3 = eventKey
     }
 
+    const isFrSwapCheckBoxOnchange = () => {
+        pd3Info.isFrSwapIncluded = !pd3Info.isFrSwapIncluded
+    }
+
     return (
         <FlexView column style={{ display: props.display }}>
             <p className='panelHeading'>Power Delivery 3.0 Test Configuration</p>
@@ -33,6 +37,14 @@ const PD3Config = observer((props) => {
                                     </Dropdown.Menu>
                                 </Dropdown >
 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colSpan={2}>
+                                <label className="checkbox-label-width">
+                                    <input type="checkbox" className="checkbox-align-custom"
+                                        onChange={isFrSwapCheckBoxOnchange} type='checkbox' checked={pd3Info.isFrSwapIncluded} />Is FR_Swap Included
+                                </label>
                             </td>
                         </tr>
                     </tbody>
