@@ -17,40 +17,45 @@ const PD3Config = observer((props) => {
     }
 
     return (
-        <FlexView column style={{ display: props.display }}>
-            <p className='panelHeading'>Power Delivery 3.0 Test Configuration</p>
-            <FlexView column>
-                <Table striped bordered hover>
-                    <tbody>
-                        <tr>
-                            <td className="panellabel">Vconn Voltage</td>
-                            <td className="dropdown-config">
+        <>
+            {mainstore.productCapabilityProps.ports[Constants.PORTA].getDutType() === Constants.USBPDDeviceType[5] || mainstore.productCapabilityProps.ports[Constants.PORTA].getDutType() === Constants.USBPDDeviceType[4] ?
+                <FlexView column style={{ display: props.display }}>
+                    <p className='panelHeading'>Power Delivery 3.0 Test Configuration</p>
+                    <FlexView column>
+                        <Table striped bordered hover>
+                            <tbody>
+                                {mainstore.productCapabilityProps.ports[Constants.PORTA].getDutType() === Constants.USBPDDeviceType[5] ?
+                                    <tr>
+                                        <td className="panellabel">Vconn Voltage</td>
+                                        <td className="dropdown-config">
 
-                                <Dropdown >
-                                    <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{pd3Info.vconnVoltage_PD3}</Dropdown.Toggle>
-                                    <Dropdown.Menu className='pd3-moi-dropdwon-menu'>
-                                        {
-                                            Constants.CommunicationEngineVconnVoltageLevel.map((uutType, index) => {
-                                                return <Dropdown.Item key={index} eventKey={uutType} onSelect={pd3VconnVoltageDropDownOnChange} >{uutType}</Dropdown.Item>
-                                            })
-                                        }
-                                    </Dropdown.Menu>
-                                </Dropdown >
+                                            <Dropdown >
+                                                <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{pd3Info.vconnVoltage_PD3}</Dropdown.Toggle>
+                                                <Dropdown.Menu className='pd3-moi-dropdwon-menu'>
+                                                    {
+                                                        Constants.CommunicationEngineVconnVoltageLevel.map((uutType, index) => {
+                                                            return <Dropdown.Item key={index} eventKey={uutType} onSelect={pd3VconnVoltageDropDownOnChange} >{uutType}</Dropdown.Item>
+                                                        })
+                                                    }
+                                                </Dropdown.Menu>
+                                            </Dropdown >
 
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colSpan={2}>
-                                <label className="checkbox-label-width">
-                                    <input type="checkbox" className="checkbox-align-custom"
-                                        onChange={isFrSwapCheckBoxOnchange} type='checkbox' checked={pd3Info.isFrSwapIncluded} />Is FR_Swap Included
+                                        </td>
+                                    </tr> : null}
+                                {mainstore.productCapabilityProps.ports[Constants.PORTA].getDutType() === Constants.USBPDDeviceType[4] ?
+                                    <tr>
+                                        <td colSpan={2}>
+                                            <label className="checkbox-label-width">
+                                                <input type="checkbox" className="checkbox-align-custom"
+                                                    onChange={isFrSwapCheckBoxOnchange} type='checkbox' checked={pd3Info.isFrSwapIncluded} />Is FR_Swap Included
                                 </label>
-                            </td>
-                        </tr>
-                    </tbody>
-                </Table>
-            </FlexView>
-        </FlexView>
+                                        </td>
+                                    </tr> : null}
+                            </tbody>
+                        </Table>
+                    </FlexView>
+                </FlexView> : null}
+        </>
     )
 }
 )

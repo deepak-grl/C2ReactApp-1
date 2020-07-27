@@ -112,7 +112,7 @@ const MoiComponents = observer(
         }
 
         render() {
-            var showPD3Config = mainstore.selectedMoiTestCase.includes(Constants.Pd3Tests) && (mainstore.productCapabilityProps.ports[Constants.PORTA].getDutType() === Constants.USBPDDeviceType[5]) > 0 || this.checkIfMoiIsSelected(Constants.Pd3Tests);
+            var showPD3Config = mainstore.selectedMoiTestCase.includes(Constants.Pd3Tests)  || this.checkIfMoiIsSelected(Constants.Pd3Tests);
             var showQC4Config = mainstore.selectedMoiTestCase.includes(Constants.Qc4Tests) || this.checkIfMoiIsSelected(Constants.Qc4Tests);
             var showqQC3Config = (mainstore.selectedMoiTestCase.includes(Constants.Qc3Tests) || mainstore.selectedMoiTestCase.includes(Constants.Qc3PlusTests)) || (this.checkIfMoiIsSelected(Constants.Qc3Tests) || this.checkIfMoiIsSelected(Constants.Qc3PlusTests));
             var showSptConfig = mainstore.selectedMoiTestCase.includes(Constants.SourcePowerTests) || this.checkIfMoiIsSelected(Constants.SourcePowerTests);
