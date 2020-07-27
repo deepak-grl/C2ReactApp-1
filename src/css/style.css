@@ -1646,13 +1646,13 @@ width:40%!important;
   font-size: 15px;
   font-family: Arial;
 }
-.nav-bar-second-text-div{
-  align-items: center!important;
+.nav-bar-second-text-div {
+  align-items: center !important;
 }
 .circular-progressbar-padding {
   margin-left: 5px;
   min-width: 40px;
-  width: auto!important;
+  width: auto !important;
   border-left: 2px solid white;
   padding-left: 10px;
 }
@@ -2897,6 +2897,12 @@ label {
 }
 .pd-spec {
   margin-left: 21px;
+}
+.rp-level {
+  margin-left: 53px;
+}
+.cable-emulation {
+  margin-left: 10px;
 }
 .controller-mode {
   margin-left: 12px;

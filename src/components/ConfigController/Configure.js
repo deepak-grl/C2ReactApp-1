@@ -11,84 +11,37 @@ let applyStatusDescription = ""
 const Configure = observer(
     class Configure extends Component {
         state = {
-            selectedUutCategory: mainstore.controllerCapability.port1.uutDeviceTypePort,
-            TestCableOptions: mainstore.controllerCapability.port1.cableTypePort,
-            PortTypes: mainstore.controllerCapability.port1.portType,
-            PdRevTypes: mainstore.controllerCapability.port1.pdType,
-            AppMode: mainstore.controllerCapability.port1.appMode,
             grlSpclCableSelected: true,
             startCaptureLoader: false,
             loading: false,
         };
-
-        componentDidMount() {
-            var portType = Constants.PORT_TYPES[mainstore.ConfigControl.c2Config.portType];
-            var cabelDataType = Constants.CABLE_DATA_TYPES[mainstore.ConfigControl.c2Config.cableType];
-            var pdRevType = Constants.PDREV_TYPES[mainstore.ConfigControl.c2Config.pdSpecType];
-            var controllerMode = Constants.CONTROLLER_MODES[mainstore.ConfigControl.c2Config.controllerMode];
-            this.setState({ PortTypes: portType, TestCableOptions: cabelDataType, PdRevTypes: pdRevType, selectedUutCategory: controllerMode });
-        }
-
-        uutTypeDropDownOnChange = (eventKey, index) => {
-            this.setState({ selectedUutCategory: eventKey })
-            if (this.props.portnumber === Constants.PORTA) {
-                mainstore.controllerCapability.uutDeviceTypePort1 = eventKey;
-                basemodal.putCONTROLType(this.updateTestList.bind(this));
-            }
-            mainstore.ConfigControl.c2Config.cableType = index;
-        }
 
         getControls() {
             this.setState({ loading: true })
             basemodal.putC2Configuration(this.doneApplyConfigurations.bind(this));
         }
 
-        dropDownOnChange(index, eventKey) {
-            this.setState({ TestCableOptions: eventKey })
-            if (this.props.portnumber === Constants.PORTA) {
-                mainstore.controllerCapability.cableTypePort = eventKey;
-            }
-            else {
-                mainstore.controllerCapability.cableTypePort = eventKey;
-            }
-            mainstore.ConfigControl.c2Config.controllerMode = index;
+        uutTypeDropDownOnChange = (index) => {
+            console.log('index: ', index);
+            mainstore.configControl.c2Config.controllerMode = index;
         }
 
-        dropDownOnChangePort(index, eventKey) {
-            this.setState({ PortTypes: eventKey })
-            if (this.props.portnumber === Constants.PORTA) {
-                mainstore.controllerCapability.portType = eventKey;
-            }
-            else {
-                mainstore.controllerCapability.portType = eventKey;
-            }
-            mainstore.ConfigControl.c2Config.portType = index;
-        }
+        onChangeTestCableType = (index) => mainstore.configControl.c2Config.cableType = index;
 
-        dropDownOnChangeAppMode(index, eventKey) {
-            this.setState({ AppMode: eventKey })
-            mainstore.ConfigControl.c2Config.appMode = index
-        }
+        onChangePortType = (index) => mainstore.configControl.c2Config.portType = index;
 
-        dropDownOnChangePd(index, eventKey) {
-            this.setState({ PdRevTypes: eventKey })
-            if (this.props.portnumber === Constants.PORTA) {
-                mainstore.controllerCapability.pdType = eventKey;
-            }
-            else {
-                mainstore.controllerCapability.pdType = eventKey;
+        onChangeAppMode = (index) => mainstore.configControl.c2Config.appMode = index
 
-            }
-            mainstore.ConfigControl.c2Config.pdSpecType = index;
-        }
+        onChangePdSpecType = (index) => mainstore.configControl.c2Config.pdSpecType = index;
 
-        handleAttach = () => {
-            basemodal.putSimulateAttachDetach(true)
-        }
+        onChangeCableEmulation = (index) => mainstore.configControl.c2Config.cableEmulation = index
 
-        handleDetach = () => {
-            basemodal.putSimulateAttachDetach(false)
-        }
+        onChangeRpLevels = (index) => mainstore.configControl.c2Config.rpLevel = index
+
+        handleAttach = () => basemodal.putSimulateAttachDetach(true)
+
+        handleDetach = () => basemodal.putSimulateAttachDetach(false)
+
         doneApplyConfigurations = () => {
             setTimeout(() => {
                 this.setState({ loading: false })
@@ -104,9 +57,7 @@ const Configure = observer(
             basemodal.configControllerStartCapture();
         }
 
-        stopCapture = () => {
-            basemodal.configControllerStopCapture(this.doneCaptureLoading.bind(this));
-        }
+        stopCapture = () => basemodal.configControllerStopCapture(this.doneCaptureLoading.bind(this));
 
         doneCaptureLoading = () => {
             this.setChartAndPollingState(false)
@@ -121,21 +72,13 @@ const Configure = observer(
             this.setState({ startCaptureLoader: enableStatus })
         }
 
-        onChangeVbusCheck = () => {
-            mainstore.configControlChannels.isCheckedVbus = !mainstore.configControlChannels.isCheckedVbus
-        }
+        onChangeVbusCheck = () => mainstore.configControlChannels.isCheckedVbus = !mainstore.configControlChannels.isCheckedVbus
 
-        onChangeCcOneCheck = () => {
-            mainstore.configControlChannels.isCheckedCc1 = !mainstore.configControlChannels.isCheckedCc1
-        }
+        onChangeCcOneCheck = () => mainstore.configControlChannels.isCheckedCc1 = !mainstore.configControlChannels.isCheckedCc1
 
-        onChangeCc2TwoCheck = () => {
-            mainstore.configControlChannels.isCheckedCc2 = !mainstore.configControlChannels.isCheckedCc2
-        }
+        onChangeCc2TwoCheck = () => mainstore.configControlChannels.isCheckedCc2 = !mainstore.configControlChannels.isCheckedCc2
 
-        downloadCaptureFile = () => {
-            basemodal.getCaptureFile(null);
-        }
+        downloadCaptureFile = () => basemodal.getCaptureFile(null);
 
         render() {
 
@@ -147,18 +90,18 @@ const Configure = observer(
             if (this.state.startCaptureLoader)
                 startCaptureBtnColor = "start-capture-btn-color"
 
-            if (this.state.AppMode === Constants.APP_MODE[0])
+            if (Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[0])
                 disableRequestMessage = " disable-request-message"
 
             let dutTypeSelection = (<FlexView column className="dut-type-selection">
 
                 <span className="configure-label-padding">Controller Mode
-            {<Dropdown className="config-control-dropdown-flex">
-                        <Dropdown.Toggle className="dropdowncustom controller-mode" disabled={this.state.AppMode === Constants.APP_MODE[1]} variant="success" id="dropdown-basic">{this.state.selectedUutCategory}</Dropdown.Toggle>
+                    {<Dropdown className="config-control-dropdown-flex">
+                        <Dropdown.Toggle className="dropdowncustom controller-mode" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1]} variant="success" id="dropdown-basic">{Constants.CONTROLLER_MODES[mainstore.configControl.c2Config.controllerMode]}</Dropdown.Toggle>
                         <Dropdown.Menu className="config-dropdown-menu">
                             {
                                 Constants.CONTROLLER_MODES.map((uutType, index) => {
-                                    return <Dropdown.Item className="uutTypeSelection" key={index} eventKey={uutType} onSelect={(e) => this.uutTypeDropDownOnChange(e, index)}>{uutType}</Dropdown.Item>
+                                    return <Dropdown.Item className="uutTypeSelection" key={index} eventKey={uutType} onSelect={this.uutTypeDropDownOnChange.bind(this, index)}>{uutType}</Dropdown.Item>
 
                                 })
                             }
@@ -173,12 +116,12 @@ const Configure = observer(
                         <p className="panelHeading">Configure</p>
                         <div className="panel-div">
                             <span className="configure-label-padding" >App Mode
-                            <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom app-mode-dropdown" variant="success" id="dropdown-basic" >{this.state.AppMode}</Dropdown.Toggle>
+                               <Dropdown className="config-control-dropdown-flex">
+                                    <Dropdown.Toggle className="dropdowncustom app-mode-dropdown" variant="success" id="dropdown-basic" >{Constants.APP_MODE[mainstore.configControl.c2Config.appMode]}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.APP_MODE.map((mode, index) => {
-                                                return <Dropdown.Item key={index} eventKey={mode} value={mode} onSelect={this.dropDownOnChangeAppMode.bind(this, index)} >{mode}</Dropdown.Item>
+                                                return <Dropdown.Item key={index} eventKey={mode} value={mode} onSelect={this.onChangeAppMode.bind(this, index)} >{mode}</Dropdown.Item>
                                             })
                                         }
                                     </Dropdown.Menu>
@@ -186,12 +129,12 @@ const Configure = observer(
                             </span>
 
                             <span className="configure-label-padding" >Port Type
-                            <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom configure" disabled={this.state.AppMode === Constants.APP_MODE[1]} variant="success" id="dropdown-basic" >{this.state.PortTypes}</Dropdown.Toggle>
+                                <Dropdown className="config-control-dropdown-flex">
+                                    <Dropdown.Toggle className="dropdowncustom configure" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1]} variant="success" id="dropdown-basic" >{Constants.PORT_TYPES[mainstore.configControl.c2Config.portType]}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.PORT_TYPES.map((data, index) => {
-                                                return <Dropdown.Item key={index} eventKey={data} value={data} onSelect={this.dropDownOnChangePort.bind(this, index)} >{data}</Dropdown.Item>
+                                                return <Dropdown.Item key={index} eventKey={data} value={data} onSelect={this.onChangePortType.bind(this, index)} >{data}</Dropdown.Item>
                                             })
                                         }
                                     </Dropdown.Menu>
@@ -200,12 +143,12 @@ const Configure = observer(
                             {dutTypeSelection}
 
                             <span className="configure-label-padding">Test Cable Type
-                         <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom cable-type" disabled={this.state.AppMode === Constants.APP_MODE[1]} variant="success" id="dropdown-basic">{this.state.TestCableOptions}</Dropdown.Toggle>
+                                <Dropdown className="config-control-dropdown-flex">
+                                    <Dropdown.Toggle className="dropdowncustom cable-type" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1]} variant="success" id="dropdown-basic">{Constants.CABLE_DATA_TYPES[mainstore.configControl.c2Config.cableType]}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.CABLE_DATA_TYPES.map((data, index) => {
-                                                return <Dropdown.Item key={index} eventKey={data} value={data} onSelect={this.dropDownOnChange.bind(this, index)}>{data}</Dropdown.Item>
+                                                return <Dropdown.Item key={index} eventKey={data} value={data} onSelect={this.onChangeTestCableType.bind(this, index)}>{data}</Dropdown.Item>
                                             })
                                         }
                                     </Dropdown.Menu>
@@ -213,12 +156,38 @@ const Configure = observer(
                             </span>
 
                             <span className="configure-label-padding">PD Spec Type
-                         <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom pd-spec" disabled={this.state.AppMode === Constants.APP_MODE[1]} variant="success" id="dropdown-basic">{this.state.PdRevTypes}</Dropdown.Toggle>
+                                  <Dropdown className="config-control-dropdown-flex">
+                                    <Dropdown.Toggle className="dropdowncustom pd-spec" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1]} variant="success" id="dropdown-basic">{Constants.PDREV_TYPES[mainstore.configControl.c2Config.pdSpecType]}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.PDREV_TYPES.map((data, index) => {
-                                                return <Dropdown.Item key={index} eventKey={data} value={data} onSelect={this.dropDownOnChangePd.bind(this, index)}>{data}</Dropdown.Item>
+                                                return <Dropdown.Item key={index} eventKey={data} value={data} onSelect={this.onChangePdSpecType.bind(this, index)}>{data}</Dropdown.Item>
+                                            })
+                                        }
+                                    </Dropdown.Menu>
+                                </Dropdown >
+                            </span>
+
+                            <span className="configure-label-padding">Cable Emulation
+                                 <Dropdown className="config-control-dropdown-flex">
+                                    <Dropdown.Toggle className="dropdowncustom cable-emulation" variant="success" id="dropdown-basic">{Constants.CABLE_EMULATION[mainstore.configControl.c2Config.cableEmulation]}</Dropdown.Toggle>
+                                    <Dropdown.Menu className="config-dropdown-menu">
+                                        {
+                                            Constants.CABLE_EMULATION.map((data, index) => {
+                                                return <Dropdown.Item key={index} eventKey={data} value={data} onSelect={this.onChangeCableEmulation.bind(this, index)}>{data}</Dropdown.Item>
+                                            })
+                                        }
+                                    </Dropdown.Menu>
+                                </Dropdown >
+                            </span>
+
+                            <span className="configure-label-padding">Rp Level
+                                  <Dropdown className="config-control-dropdown-flex">
+                                    <Dropdown.Toggle className="dropdowncustom rp-level" variant="success" id="dropdown-basic">{Constants.RP_LEVELS[mainstore.configControl.c2Config.rpLevel]}</Dropdown.Toggle>
+                                    <Dropdown.Menu className="config-dropdown-menu">
+                                        {
+                                            Constants.RP_LEVELS.map((data, index) => {
+                                                return <Dropdown.Item key={index} eventKey={data} value={data} onSelect={this.onChangeRpLevels.bind(this, index)}>{data}</Dropdown.Item>
                                             })
                                         }
                                     </Dropdown.Menu>
@@ -244,8 +213,8 @@ const Configure = observer(
 
                             <FlexView >
                                 <span className="configure-label-padding">Emulate Cable</span>
-                                <Button className="grl-button configure-attach-button attach-detach-btn-align" disabled={this.state.AppMode === Constants.APP_MODE[1] || mainstore.isTesterStatusNotConnected} onClick={this.handleAttach.bind(this)}>Attach </Button>
-                                <Button className="grl-button configure-detach-button" disabled={this.state.AppMode === Constants.APP_MODE[1] || mainstore.isTesterStatusNotConnected} onClick={this.handleDetach.bind(this)}>Detach </Button>
+                                <Button className="grl-button configure-attach-button attach-detach-btn-align" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1] || mainstore.isTesterStatusNotConnected} onClick={this.handleAttach.bind(this)}>Attach </Button>
+                                <Button className="grl-button configure-detach-button" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1] || mainstore.isTesterStatusNotConnected} onClick={this.handleDetach.bind(this)}>Detach </Button>
                             </FlexView>
 
                             <FlexView>

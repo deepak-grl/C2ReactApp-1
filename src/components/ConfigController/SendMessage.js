@@ -27,16 +27,16 @@ const SendMessage = observer(
                 render: false,
             };
             var me = this;
-            const disposer = observe(mainstore.ConfigControl.sendMessage, "svid", (change) => {
+            const disposer = observe(mainstore.configControl.sendMessage, "svid", (change) => {
                 me.setState({ render: !this.state.render });
             });
         }
 
 
         componentDidMount() {
-            var sopType = Constants.SOP_TYPES[mainstore.ConfigControl.sendMessage.sopType];
-            var messageType = Constants.MESSAGE_TYPES[mainstore.ConfigControl.sendMessage.messageType];
-            var svid = mainstore.ConfigControl.sendMessage.svid;
+            var sopType = Constants.SOP_TYPES[mainstore.configControl.sendMessage.sopType];
+            var messageType = Constants.MESSAGE_TYPES[mainstore.configControl.sendMessage.messageType];
+            var svid = mainstore.configControl.sendMessage.svid;
             this.setState({ SopTypes: sopType, MessageTypes: messageType, value: svid });
         }
 
@@ -56,7 +56,7 @@ const SendMessage = observer(
             } else {
                 this.setState({ isSvidDisabled: true });
             }
-            mainstore.ConfigControl.sendMessage.messageType = index;
+            mainstore.configControl.sendMessage.messageType = index;
         }
 
         dropDownOnChangeSop(index, eventKey) {
@@ -67,13 +67,13 @@ const SendMessage = observer(
             else {
                 mainstore.controllerCapability.sopType = eventKey;
             }
-            mainstore.ConfigControl.sendMessage.sopType = index;
+            mainstore.configControl.sendMessage.sopType = index;
         }
 
         handleChange(e) {
             this.setState({ [e.target.name]: e.target.value.replace(/[^A-Fa-f0-9]/gi, "") })
             // const binarytohex = ([e.target.name]);
-            mainstore.ConfigControl.sendMessage.svid = e.target.value.replace(/[^A-Fa-f0-9]/gi, "");
+            mainstore.configControl.sendMessage.svid = e.target.value.replace(/[^A-Fa-f0-9]/gi, "");
         }
 
         listenScrollEvent(e) {
@@ -128,7 +128,7 @@ const SendMessage = observer(
                             <label className="svid-align">SVID(0X0000)
                            <span className="svid-input-span-text-align">0X
                             </span>
-                                <input type="text" className="svid-input" name='value' maxLength={4} value={mainstore.ConfigControl.sendMessage.svid} onChange={(e) => this.handleChange(e)}
+                                <input type="text" className="svid-input" name='value' maxLength={4} value={mainstore.configControl.sendMessage.svid} onChange={(e) => this.handleChange(e)}
                                     disabled={this.state.isSvidDisabled} />
                             </label>
 

@@ -246,6 +246,7 @@ export const mainstore = observable({
       podType: 'Select Index Value',
       supplyType: 'Select Supply',
       appMode: Constants.APP_MODE[0],
+      cableEmulation:Constants.CABLE_EMULATION[0],
     },
 
     port2: {
@@ -257,6 +258,7 @@ export const mainstore = observable({
       messageType: 'Select Message Type',
       podType: 'Select Index Value',
       supplyType: 'Select Supply',
+      cableEmulation:Constants.CABLE_EMULATION[0],
       appMode: Constants.APP_MODE[0],
     }
   },
@@ -395,12 +397,15 @@ export const mainstore = observable({
   softwareVersion: "",
   testExecutionRepeat: 0,
 
-  ConfigControl: {
+  configControl: {
     c2Config: {
       portType: 0,
       controllerMode: 0,
       cableType: 0,
-      pdSpecType: 0
+      pdSpecType: 0,
+      appMode:0,
+      cableEmulation:0,
+      rpLevel:0,
     },
     sendMessage: {
       sopType: 0,
@@ -518,9 +523,7 @@ class BaseModal {
     this.getCommonTestConfiguration();
 
     this.getC2Configuration();
-    //this.putC2Configuration();
     this.getConfigSendMessage();
-    //this.putConfigSendMessage();
   }
 
   syncConnectionSetup(ipaddress, callback) {
@@ -1331,14 +1334,14 @@ class BaseModal {
   //Config Control Start
   getC2Configuration() {
     ajax.callGET(Constants.URL_ConfigControl + "GetC2Configuration", {}, function (response) {
-      mainstore.ConfigControl.c2Config = response.data
+      mainstore.configControl.c2Config = response.data
     }, function (error) {
       console.log("Error", error)
     });
   }
 
   putC2Configuration(callBack) {
-    ajax.callPUT(Constants.URL_ConfigControl + "PutC2Configuration", mainstore.ConfigControl.c2Config, function (response) {
+    ajax.callPUT(Constants.URL_ConfigControl + "PutC2Configuration", mainstore.configControl.c2Config, function (response) {
       if (callBack)
         callBack()
     }, function (error) {
@@ -1378,14 +1381,14 @@ class BaseModal {
   // Config controller Send Message
   getConfigSendMessage() {
     ajax.callGET(Constants.URL_ConfigControl + "GetConfigSendMessage", {}, function (response) {
-      mainstore.ConfigControl.sendMessage = response.data;
+      mainstore.configControl.sendMessage = response.data;
     }, function (error) {
       console.log("Error", error)
     });
   }
 
   putConfigSendMessage() {
-    ajax.callPUT(Constants.URL_ConfigControl + "PutConfigSendMessage", mainstore.ConfigControl.sendMessage, function (response) {
+    ajax.callPUT(Constants.URL_ConfigControl + "PutConfigSendMessage", mainstore.configControl.sendMessage, function (response) {
 
     }, function (error) {
       console.log("Error", error);

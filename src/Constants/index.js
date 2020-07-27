@@ -48,7 +48,7 @@ export const QC3DutTypes = ['QC2', 'QC2_QC3', 'QC4Plus']
 export const QC3Connectortype = ["TypeA_TypeC", "TypeC_TypeC"]
 export const NoOfPorts = ["Single_Port", "Two_Port"]
 export const PDSupport = ["Non-PD", "PD"]
-export const QCDutCategory = ["Power_Adaptor", "Power_bank","Car_Charger"]
+export const QCDutCategory = ["Power_Adaptor", "Power_bank", "Car_Charger"]
 export const PoweredType = ["Self_Powered", "Bus_Powered"]
 export const TBTDutCategory = ["Host", "Device"]
 export const DPDeviceType = ["DP_Source", "DP_Sink"]
@@ -225,21 +225,15 @@ export const CERTIFICATION_FILTER = [
 
 
 export const CONTROLLER_MODES = ['UFP/Sink', 'DFP/Source', 'DRP', 'Cable Tester'];
-
 export const PORT_TYPES = ['PortA', 'PortB'];
-
 export const APP_MODE = ["CTS", "DP AUX"];
-
+export const CABLE_EMULATION = ['Ra in CC1', 'Ra in CC2', 'Ra in Both CC Lines']
+export const RP_LEVELS = ["Rp 900mA", "Rp 1.5A", "Rp 3A"]
 export const EX_PORT_TYPES = ['ExPortA', 'ExPortB', 'ExPortC', 'ExPortD', 'ExPortE', 'None']
-
 export const PDREV_TYPES = ['Spec Rev2', 'Spec Rev3'];
-
 export const SOP_TYPES = ['SOP', 'SOP1', 'SOP2'];
-
 export const MESSAGE_TYPES = ['VDM Disocver ID Initiator', 'VDM SVID Initiator', 'VDM Mode Initiator', 'VDM Enter Mode Initiator', 'VDM Exit Mode Initiator', 'Data Role Swap', 'Power Role Swap', 'Vconn Swap', 'Hard Reset', 'Cable Reset', 'Soft Reset', 'Get Sink capability', 'Get Source capability', 'BIST Carrier Mode2', 'Ping', 'Get Source Cap Extended', 'Get_Status', 'Get_PPS Status', 'BIST Test Data', 'Get_Manufacturer Info']
-
 export const PDO_TYPES = ['1', '2', '3', '4', '5', '6', '7'];
-
 export const SUPPLY_TYPES = ['Fixed', 'PPS', 'Variable', 'Battery'];
 // Toast Types
 export const TOAST_SUCCESS = "success"
