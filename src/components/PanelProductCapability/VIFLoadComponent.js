@@ -83,6 +83,7 @@ const VIFLoadComponent = observer(
             mainstore.productCapabilityProps.vifFileName = "Load XML VIF File"
             // this.setState({ vifFileName: 'Load XML VIF File' })
             basemodal.vifDataModal.clearAll();
+            mainstore.captiveCableVal = 0;
             basemodal.putVIFData(Constants.PORTA, {})
             mainstore.selectedMoiTestCase = [];
             mainstore.testConfiguration.selectedTestList = [];

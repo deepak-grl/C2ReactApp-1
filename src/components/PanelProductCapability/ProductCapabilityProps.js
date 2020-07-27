@@ -33,7 +33,7 @@ export default class ProductCapabilityProps {
         this.syncToServer();
     }
 
-    setStateMachineType (machineType){
+    setStateMachineType(machineType) {
         mainstore.selectedMoiTestCase = [];
         this.stateMachineType = machineType
         this.syncToServer();

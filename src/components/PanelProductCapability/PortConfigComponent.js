@@ -34,7 +34,6 @@ const PortConfigComponent = observer(
         dutTypeDropDownChange = eventKey => {
             this.setState({ dutType: eventKey })
             mainstore.productCapabilityProps.ports[this.props.portnumber].setDutType(eventKey)
-
             mainstore.testConfiguration.testList = []
             /*while emptying the selected testcase,its not unchecking the selected one in test config panel,so empty the selected testcase and called gettestlist method */
             basemodal.getTestList();
