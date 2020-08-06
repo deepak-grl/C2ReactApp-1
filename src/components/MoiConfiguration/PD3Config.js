@@ -47,7 +47,7 @@ const PD3Config = observer((props) => {
                                         <td colSpan={2}>
                                             <label className="checkbox-label-width">
                                                 <input type="checkbox" className="checkbox-align-custom"
-                                                    onChange={isFrSwapCheckBoxOnchange} type='checkbox' checked={pd3Info.isFrSwapIncluded} />Is FR_Swap Included
+                                                    onChange={isFrSwapCheckBoxOnchange} type='checkbox' checked={pd3Info.isFrSwapIncluded} />FR_Swap AUTO Box Connected
                                 </label>
                                         </td>
                                     </tr> : null}
