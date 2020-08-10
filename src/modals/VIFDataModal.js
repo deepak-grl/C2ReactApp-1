@@ -132,6 +132,7 @@ export class VIFDataModal {
                 }
                 else if (typeCStateMachine && typeCStateMachineValue === false) {
                     mainstore.productCapabilityProps.ports[Constants.PORTA].setDutType(Constants.USBPDDeviceType[6])
+                    mainstore.productCapabilityProps.ports[Constants.PORTA].setStateMachineType(typeCStateMachine.source.fileJson.Type_C_State_Machine._text);
                 }
             }
 

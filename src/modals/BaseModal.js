@@ -155,7 +155,7 @@ export const mainstore = observable({
 
     pd3Configuration: {
       vconnVoltage_PD3: "",
-      isFrSwapIncluded:false,
+      isFrSwapIncluded: false,
     },
 
     pd2Configuration: {
@@ -246,7 +246,7 @@ export const mainstore = observable({
       podType: 'Select Index Value',
       supplyType: 'Select Supply',
       appMode: Constants.APP_MODE[0],
-      cableEmulation:Constants.CABLE_EMULATION[0],
+      cableEmulation: Constants.CABLE_EMULATION[0],
     },
 
     port2: {
@@ -258,7 +258,7 @@ export const mainstore = observable({
       messageType: 'Select Message Type',
       podType: 'Select Index Value',
       supplyType: 'Select Supply',
-      cableEmulation:Constants.CABLE_EMULATION[0],
+      cableEmulation: Constants.CABLE_EMULATION[0],
       appMode: Constants.APP_MODE[0],
     }
   },
@@ -403,9 +403,9 @@ export const mainstore = observable({
       controllerMode: 0,
       cableType: 0,
       pdSpecType: 0,
-      appMode:0,
-      cableEmulation:0,
-      rpLevel:0,
+      appMode: 0,
+      cableEmulation: 0,
+      rpLevel: 0,
     },
     sendMessage: {
       sopType: 0,

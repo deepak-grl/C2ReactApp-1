@@ -186,12 +186,12 @@ const PortConfigComponent = observer(
                             </FlexView >
                         </div> : null}
 
-                    {mainstore.productCapabilityProps.ports[this.props.portnumber].dutType === Constants.USBPDDeviceType[6] && this.props.isInCompMode === false ?
+                    {mainstore.productCapabilityProps.ports[this.props.portnumber].dutType === Constants.USBPDDeviceType[6] ?
                         <div>
                             <FlexView className="dut-TypeSelection" column >
                                 {<Dropdown className="dut-port-align">
                                     <span className="label-text-padding">State Machine</span>
-                                    <Dropdown.Toggle className="dropdowncustom state-machine-Dropdown" variant="success" id={this.props.portnumber + "_DUT_TYPE "}>{mainstore.productCapabilityProps.ports[this.props.portnumber].stateMachineType}</Dropdown.Toggle>        {/*Dropdown in normal state without any tooltip */}
+                                    <Dropdown.Toggle disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} className="dropdowncustom state-machine-Dropdown" variant="success" id={this.props.portnumber + "_DUT_TYPE "}>{mainstore.productCapabilityProps.ports[this.props.portnumber].stateMachineType}</Dropdown.Toggle>        {/*Dropdown in normal state without any tooltip */}
                                     <Dropdown.Menu>
                                         {
                                             Constants.STATE_MACHINE.map((machineType, index) => {
