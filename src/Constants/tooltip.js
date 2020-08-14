@@ -70,8 +70,8 @@ export const AUTO_CONNECT = "Connect Port"
 export const BROWSE_VIF = "Load XML VIF File"
 
 export const IRDROP_CABLENAME_INFO = "Provide test cable name to differentiate the cable IR drop for different test cables"
-export const IRDROP_GRL_SPL_CABLE = "This is a special Vconn pass through test cable provided by GRL"
-export const IRDROP_USB_C_CABLE = "This is a standard USB Type-C test cable available in market"
+export const IRDROP_GRL_SPL_CABLE = "This is a VCONN passthrough USB-C test cable provided by GRL (GRL-USB-PD-STC)"
+export const IRDROP_USB_C_CABLE = "This is a standard USB Type-C test cable available in the market"
 export const IRDROP_SAVE_LOCATION = "C2 controller can store cable IR drop for 4 different test cables.Select the memory location in C2 controller for saving the IR drop computed for connected test cable"
 
 export const FP_CABLE_SELECTION = "After loading vif file, please check the test cable selection that it is same as actual test cable connected in setup"

@@ -87,7 +87,9 @@ const VIFLoadComponent = observer(
             basemodal.putVIFData(Constants.PORTA, {})
             mainstore.selectedMoiTestCase = [];
             mainstore.testConfiguration.selectedTestList = [];
-            mainstore.numberofPorts = true
+            mainstore.numberofPorts = true;
+            mainstore.devicePdPortTypeValue = null;
+            mainstore.filePdPortTypeValue = null;
             basemodal.getReportInputs()
         }
 

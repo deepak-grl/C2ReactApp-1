@@ -141,7 +141,7 @@ const IrDropCalibration = observer(class IrDropCalibration extends Component {
                                         })
                                     }
                                 </Dropdown.Menu>
-                                <div className="irDrop_info_btn_div" ><OverlayTrigger placement="left" overlay={<Tooltip className="tooltip-inner-content-align" > {this.state.cableType === "GRL-SPL test cable" ? IRDROP_GRL_SPL_CABLE : IRDROP_USB_C_CABLE} </Tooltip>}><img src="../../images/irDrop-info.png" alt="info-irdrop" className="info-img-irdrop" /></OverlayTrigger></div>
+                                <div className="irDrop_info_btn_div" ><OverlayTrigger placement="left" overlay={<Tooltip className="tooltip-inner-content-align" > {this.state.cableType === Constants.IR_DROP_CABLE_DATA_TYPES[0] || this.state.cableType === Constants.IR_DROP_CABLE_DATA_TYPES[1]  ? IRDROP_GRL_SPL_CABLE : IRDROP_USB_C_CABLE} </Tooltip>}><img src="../../images/irDrop-info.png" alt="info-irdrop" className="info-img-irdrop" /></OverlayTrigger></div>
                             </Dropdown >
                         </FlexView>
                         {/* <FlexView>
