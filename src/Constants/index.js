@@ -43,7 +43,7 @@ export const ExPORTD = "ExPortD";
 export const ExPORTE = "ExPortE";
 export const VIF_LOAD_BTN_DEFAULT = "Load XML VIF File";
 // MOI Configuration START
-export const QC4DutTypes = ['QC4', 'QC4Plus']
+export const QC4DutTypes = ['QC4', 'QC4Plus',"QC5"]
 export const QC3DutTypes = ['QC2', 'QC2_QC3', 'QC4Plus']
 export const QC3Connectortype = ["TypeA_TypeC", "TypeC_TypeC"]
 export const NoOfPorts = ["Single_Port", "Two_Port"]
