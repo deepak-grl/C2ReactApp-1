@@ -37,6 +37,7 @@ const MoiComponents = observer(
                 if (mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE) {   //handling the checkboxe based on App mode and Reteving to prevoius selection state while switching from mode to mode
                     mainstore.commonMoiSetting.isDisableAllPopupChecked = false;
                     mainstore.commonMoiSetting.enableDebugMode = false
+                    mainstore.testConfiguration.pd3Configuration.isFrSwapIncluded = false
                 }
                 else {
                     mainstore.commonMoiSetting.enableDebugMode = mainstore.copyDebugModeEnabled
