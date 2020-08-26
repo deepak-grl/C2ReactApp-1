@@ -1,9 +1,10 @@
 import React from 'react';
 import FlexView from 'react-flexview/lib';
-import { Dropdown, Table } from 'react-bootstrap';
+import { Dropdown, Table, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import * as Constants from '../../Constants';
 import { mainstore } from '../../modals/BaseModal';
 import { observer } from 'mobx-react';
+import { FRSWAP_TEST_INFO, VCONN_INFO, COMM_VCONN_INFO } from '../../Constants/tooltip';
 
 
 const PD2CommunicationConfig = observer((props) => {
@@ -19,8 +20,8 @@ const PD2CommunicationConfig = observer((props) => {
 
   var vconnVoltage = dutType === Constants.USBPDDeviceType[5] ? (<tr>
     <td className="panellabel">Vconn Voltage</td>
-    <td className="dropdown-config">
-      <Dropdown >
+    <td className="dropdown-config vconn-volt-info-div">
+      <Dropdown className="vconn-volt-info-img">
         <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{pd2ConfigInfo.vconnVoltage_CE}</Dropdown.Toggle>
         <Dropdown.Menu>
           {
@@ -30,6 +31,9 @@ const PD2CommunicationConfig = observer((props) => {
           }
         </Dropdown.Menu>
       </Dropdown >
+      <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{COMM_VCONN_INFO}</Tooltip>}>
+        <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
+      </OverlayTrigger>
     </td>
   </tr>) : null
 
@@ -64,6 +68,7 @@ const PD2CommunicationConfig = observer((props) => {
                     }
                   </Dropdown.Menu>
                 </Dropdown >
+
               </td>
             </tr>
             {vconnVoltage}

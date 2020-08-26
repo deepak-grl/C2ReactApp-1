@@ -605,6 +605,16 @@ button:focus {
   background-color: #ffffffe3 !important;
   color: #9d9393 !important;
 }
+.fr-swap-connected-info{
+  display: flex!important;
+}
+.vconn-volt-info-div{
+display: flex;
+}
+.vconn-volt-info-img{
+display: flex;
+flex:1
+}
 
 /* End */
 /* VIF Editor*/

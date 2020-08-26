@@ -99,6 +99,14 @@ export const ENABLEORDISABLEPOPUP = `This feature can be used only in Informatio
 Enable this checkbox to disable all pop-up during test execution, else disable it
 Note: Test results will vary if checkbox is enabled`
 
+export const FRSWAP_TEST_INFO = `Select this option if FR_Swap AUTO test fixture is available in the test setup
+This test fixture is required for running Fast Role Swap test cases when DUT acts as Initial Source 
+Fast Role Swap test results are for informational only for now and these are not mandatory for certification testing`
+
+export const VCONN_INFO =`Deterministic tests need to be tested using selected VCONN voltage`
+export const PD3_VCONN_INFO=`PD3 tests need to be tested using selected VCONN voltage`
+export const COMM_VCONN_INFO=`Communication Engine tests need to be tested using selected VCONN voltage`
+
 export const CAR_CHARGER = `For Car Chargers, repeat all the test cases with 9V, 12.5V and 16V input voltage supply connected to DUT`
 
 export const MFILIGHTNINGCABLE = ` Please select this option when UUT connected with Lightning cable`
