@@ -303,6 +303,12 @@ const PanelConnectionSetup = observer(
                       }
                     </td>
                   </tr>
+                  <tr>
+                    <th className="panel-connection-setup-tester-info device-details-border">C2 Tester Calibration</th>
+                    <td className="panel-connection-setup-tester-info tester-info-border  device-details-border">
+                      <div className="right-spacing-tester"><b>{ci.boardCalibration}</b></div>
+                    </td>
+                  </tr>
                 </tbody>
               </Table>
             </FlexView>

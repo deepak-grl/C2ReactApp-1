@@ -43,8 +43,8 @@ export const ExPORTD = "ExPortD";
 export const ExPORTE = "ExPortE";
 export const VIF_LOAD_BTN_DEFAULT = "Load XML VIF File";
 // MOI Configuration START
-export const QC4DutTypes = ['QC4', 'QC4Plus',"QC5"]
-export const QC3DutTypes = ['QC2', 'QC2_QC3', 'QC4Plus']
+export const QC4DutTypes = ['QC4', 'QC4Plus', "QC5"]
+export const QC3DutTypes = ['QC2', 'QC3', 'QC3Plus', 'QC4Plus']
 export const QC3Connectortype = ["TypeA_TypeC", "TypeC_TypeC"]
 export const NoOfPorts = ["Single_Port", "Two_Port"]
 export const PDSupport = ["Non-PD", "PD"]
@@ -58,6 +58,7 @@ export const CommunicationEngineVconnVoltageLevel = ["_5_75V", "_2_75V", "_4_25V
 export const DeterministicVconnVoltageLevel = ["_2_75V", "_5_75V"]
 export const PD2Noise = ["Two Tone Noise", "Square Wave Noise"]
 export const BCDetectionTypes = ['Implemented', 'Not_Implemented']
+export const CONNECTOR_TYPE_CABLE = ['Spl_Emarker_Cable', 'Standard_Cable']
 
 // MOI Configuration END
 

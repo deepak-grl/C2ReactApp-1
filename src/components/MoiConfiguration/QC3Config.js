@@ -18,6 +18,9 @@ const QC3Config = observer((props) => {
   const connectorTypeDropDownOnChange = (eventKey) => {
     qc3Info.connectorType = eventKey;
   }
+  const connectorTypeCableDropDownOnChange = (eventKey) => {
+    qc3Info.connectorTypeCable = eventKey;
+  }
   const porttypeDropDownOnChange = (eventKey) => {
     qc3Info.ports = eventKey;
   }
@@ -86,6 +89,22 @@ const QC3Config = observer((props) => {
                     {
                       Constants.QC3Connectortype.map((uutType, index) => {
                         return <Dropdown.Item key={index} eventKey={uutType} onSelect={connectorTypeDropDownOnChange} >{uutType}</Dropdown.Item>
+                      })
+                    }
+                  </Dropdown.Menu>
+                </Dropdown >
+              </td>
+            </tr>
+
+            <tr>
+              <td className="panellabel">Connector Type Cable</td>
+              <td colSpan="2" className="dropdown-config">
+                <Dropdown >
+                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{ qc3Info.connectorTypeCable}</Dropdown.Toggle>
+                  <Dropdown.Menu>
+                    {
+                      Constants.CONNECTOR_TYPE_CABLE.map((cable, index) => {
+                        return <Dropdown.Item key={index} eventKey={cable} onSelect={connectorTypeCableDropDownOnChange} >{cable}</Dropdown.Item>
                       })
                     }
                   </Dropdown.Menu>

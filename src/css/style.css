@@ -1691,10 +1691,10 @@ width:40%!important;
 }
 
 .device-details-container {
-  flex-grow: 2 !important;
+  /* flex-grow: 2 !important;
   flex-shrink: 1 !important;
   flex-basis: 0% !important;
-  max-height: 40%;
+  max-height: 40%; */
 }
 .device-details-container .sub-container {
   width: 81%;

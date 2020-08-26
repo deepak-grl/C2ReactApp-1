@@ -128,7 +128,8 @@ export const mainstore = observable({
     licenseInfo: [],
     defaultIpConfig: true,//TODO @vikram Deprecate this
     calibration_St_Date: 'N/A',
-    calibration_Sp_Date: 'N/A'
+    calibration_Sp_Date: 'N/A',
+    boardCalibration : "N/A",
   },
   moiSelections: {
   },
@@ -176,6 +177,7 @@ export const mainstore = observable({
     qc3Configuration: {
       dutType: '',
       connectorType: '',
+      connectorTypeCable:'',
       irDrop: '',
       ratedCurrent5V: '',
       ratedCurrent9V: '',
