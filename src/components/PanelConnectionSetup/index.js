@@ -152,12 +152,12 @@ const PanelConnectionSetup = observer(
       return <>
         <p>
           {calibrationEndDate}
-          {Date.parse(currentDate) > Date.parse(calibrationEndDate) ?
+          {/* {Date.parse(currentDate) > Date.parse(calibrationEndDate) ?
             <OverlayTrigger placement="auto" overlay={<Tooltip className="calibration-end-date-tooltip">Tester Calibration Expired, Please Contact Granite River Labs(support@graniteriverlabs.com) </Tooltip>}>
               <img className="firmware-version-icon" src="../../images/warning.png" />
             </OverlayTrigger >
             : null
-          }
+          } */}
         </p>
       </>
     }
