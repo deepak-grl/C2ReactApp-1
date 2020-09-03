@@ -103,9 +103,10 @@ export const FRSWAP_TEST_INFO = `Select this option if FR_Swap AUTO test fixture
 This test fixture is required for running Fast Role Swap test cases when DUT acts as Initial Source 
 Fast Role Swap test results are for informational only for now and these are not mandatory for certification testing`
 
-export const VCONN_INFO =`Deterministic tests need to be tested using selected VCONN voltage`
-export const PD3_VCONN_INFO=`PD3 tests need to be tested using selected VCONN voltage`
-export const COMM_VCONN_INFO=`Communication Engine tests need to be tested using selected VCONN voltage`
+export const VCONN_INFO =`Deterministic tests need to be tested using VCONN voltage 2.75V , 5.75V`
+export const PD3_VCONN_INFO=`PD3 tests need to be tested using VCONN voltage 2.75V , 5.75V`
+export const COMM_VCONN_INFO=`1. All the Communication Engine Cable tests need to be tested using VCONN voltage 2.75V , 5.75V
+2. TDA 1.1.1.1.1 CABLE PHY TX EYE test need to be tested using VCONN voltage 2.75V , 4.75V , 5.75V`
 
 export const CAR_CHARGER = `For Car Chargers, repeat all the test cases with 9V, 12.5V and 16V input voltage supply connected to DUT`
 
