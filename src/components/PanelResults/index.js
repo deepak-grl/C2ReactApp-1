@@ -483,7 +483,7 @@ class CountResults extends React.Component {
                         </div>
                     </OverlayTrigger>
 
-                    <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of test cases incompleted </Tooltip>}>
+                    <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of test cases incomplete </Tooltip>}>
                         <div className={"results-icon-align" + repeatResultsAlign}>
                             <img className="set-results-icon-dimensions" src="../../images/skip_incomplete.png" /><strong className="test-results-notify-count"> {this.props.incomplete}/{this.props.total}</strong>
                         </div>
