@@ -129,7 +129,7 @@ export const mainstore = observable({
     defaultIpConfig: true,//TODO @vikram Deprecate this
     calibration_St_Date: 'N/A',
     calibration_Sp_Date: 'N/A',
-    boardCalibration : "N/A",
+    boardCalibration: "N/A",
   },
   moiSelections: {
   },
@@ -177,7 +177,7 @@ export const mainstore = observable({
     qc3Configuration: {
       dutType: '',
       connectorType: '',
-      connectorTypeCable:'',
+      connectorTypeCable: '',
       irDrop: '',
       ratedCurrent5V: '',
       ratedCurrent9V: '',
@@ -725,6 +725,8 @@ class BaseModal {
     ajax.callGET(Constants.URL_TestConfiguration + "GetCableName", {}, function (response) {
       for (var i = 0; i < response.data.length; i++) {
         if (response.data[i].length > 0) {
+          if (Constants.CABLE_DATA_TYPES_FOR_UI_ONLY[i].includes("("))
+            Constants.CABLE_DATA_TYPES_FOR_UI_ONLY[i] = Constants.CABLE_DATA_TYPES_FOR_UI_ONLY[i].substring(0, Constants.CABLE_DATA_TYPES_FOR_UI_ONLY[i].indexOf("("));
           Constants.CABLE_DATA_TYPES_FOR_UI_ONLY[i] = Constants.CABLE_DATA_TYPES_FOR_UI_ONLY[i] + "(" + response.data[i] + ")"
           mainstore.reRenderCableSelectionDropDown = !mainstore.reRenderCableSelectionDropDown;
         }
