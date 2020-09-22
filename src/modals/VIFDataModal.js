@@ -325,7 +325,6 @@ export class VIFPort {
             let xmlDecodedValue = fileEle.getVIFElementDecodedValue();
             var multiplierValue = fileEle.getMultiplier();
             var typeOfEle = basemodal.metaData.getElementValue(fileEle.elementName, Constants.VIF_ELEMENT_TYPE);
-
             if (multiplierValue && multiplierValue !== undefined) {
                 if (xmlDecodedValue.includes("mV") || xmlDecodedValue.includes("mA") || xmlDecodedValue.includes("mW") || xmlDecodedValue.includes("msec") || xmlDecodedValue.includes("ns")) {
                     xmlDecodedValue = xmlDecodedValue.split(' ');
@@ -338,9 +337,11 @@ export class VIFPort {
             if (xmlSpecValue === 1 && typeOfEle === 3) {
                 xmlDecodedValue = "YES"
             }
-            else if (xmlSpecValue === 0 && typeOfEle === 3) {
+            else if (xmlSpecValue === 0 && typeOfEle === 3)
                 xmlDecodedValue = "NO"
-            }
+
+            if (typeOfEle === 2 && fileEle.comboBoxItems)
+                xmlDecodedValue = fileEle.comboBoxItems[xmlSpecValue]
 
             let obj = {
                 "enum": fileEle.getElementName(),
