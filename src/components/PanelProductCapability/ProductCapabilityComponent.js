@@ -50,6 +50,7 @@ const ProductCapabilityComponent = observer(
             }
             basemodal.putPortConfig()
             basemodal.vifDataModal.specialCases()           //To set functional moi values(Enable USB Data Validation) while changing the btwn compliance and info mode
+            basemodal.getTestList()
         }
 
         copyDeviceData() {

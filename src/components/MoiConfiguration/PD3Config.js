@@ -46,7 +46,7 @@ const PD3Config = observer((props) => {
 
                                         </td>
                                     </tr> : null}
-                                {mainstore.productCapabilityProps.ports[Constants.PORTA].getDutType() === Constants.USBPDDeviceType[4] || mainstore.productCapabilityProps.ports[Constants.PORTA].getDutType() === Constants.USBPDDeviceType[2] ?
+                                {(mainstore.productCapabilityProps.ports[Constants.PORTA].getDutType() === Constants.USBPDDeviceType[4] || mainstore.productCapabilityProps.ports[Constants.PORTA].getDutType() === Constants.USBPDDeviceType[2]) && mainstore.productCapabilityProps.executionMode === Constants.INFORMATIONAL_MODE ?
                                     <tr>
                                         <td className="fr-swap-connected-info">
                                             <label className="checkbox-label-width">
