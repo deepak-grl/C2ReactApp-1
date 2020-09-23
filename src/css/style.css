@@ -1662,9 +1662,13 @@ width:40%!important;
 .circular-progressbar-padding {
   margin-left: 5px;
   min-width: 40px;
-  width: auto !important;
+  width: 55px !important;
   border-left: 2px solid white;
   padding-left: 10px;
+}
+.progress-bar-nav-div{
+  display: flex;
+  justify-content: flex-end;
 }
 .navbar-container {
   /* max-width: 40px; */

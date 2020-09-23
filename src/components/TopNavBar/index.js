@@ -135,7 +135,7 @@ const TopNavBar = observer(
                       <p className="set-app-mode-labels">CTS</p>
                     </div>
                   </NavItem> */}
-                  <NavItem href="#" >
+                  <NavItem href="#" className="progress-bar-nav-div" >
                     {progressBar}
                   </NavItem>
                 </Nav>
