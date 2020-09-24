@@ -20,6 +20,7 @@ export class VIFDataModal {
         mainstore.portLabelArrayEntries = [];
         mainstore.isGetCapsEnabled = false;
     }
+
     clearGetCapsData() {
         let port = this.getCurrentPort(mainstore.currentPortIndex);
         port.setDeviceData(null);
@@ -200,6 +201,7 @@ export class VIFDataModal {
         let sourcePdoList = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getSrcPdoList();
         let snkPdoList = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getSnkPdoList();
         let sopPdoList = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getSOPSVIDList();
+        let cableSvidList = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getCableSVIDList();
 
         for (let i = 0; i < metadata.length; i++) {
             let currentEle = metadata[i].VifFieldEnum;
@@ -229,6 +231,8 @@ export class VIFDataModal {
         this.clearPdoValues(sourcePdoList);
         this.clearPdoValues(snkPdoList);
         this.clearPdoValues(sopPdoList);
+        this.clearPdoValues(cableSvidList);
+        basemodal.vifDataModal.vifDataModified()
     }
 
     clearPdoValues(PdoList) {
@@ -244,6 +248,7 @@ export class VIFDataModal {
                     if (currentPdoEle.json) {
                         currentPdoEle.setVIFElementDecodedValue("");
                         currentPdoEle.setVIFElementRawValue("");
+                        currentPdoEle.setSelectedIndex(null)
                     }
                 }
             }
@@ -294,7 +299,6 @@ export class VIFPort {
 
         comps.forEach(eachComp => {
             allStaticElements = this._getRowElementsForBackedJson(eachComp.getAllRowDatasForBackendJson());
-            console.log('allStaticElements: ', allStaticElements);
             let vifInfo = {
                 "staticPortElements": allStaticElements,
                 "sourcePDOs": this._getCategoryStructureForBackedJson(eachComp.getSrcPdoList()),
@@ -481,7 +485,7 @@ export class VIFElement {
                     if (this.isLiveMode(this.json._text, val)) {
                         this.json._text = val;
                         let multiplierValue = this.getMultiplier();
-                        if (multiplierValue !== null || multiplierValue !== undefined) {
+                        if (multiplierValue !== null && multiplierValue !== undefined) {
                             if (this.json._attributes) {
                                 this.json._attributes.value = (val / multiplierValue)
                             };
@@ -522,11 +526,8 @@ export class VIFElement {
         return json._attributes;
     }
     setSelectedIndex(index) {
-        console.log('index: ', index);
         if (this.source && this.source.getVif().isValidationRun) {
-            console.log('this.getValue(): ', this.getValue());
             if (index !== this.getValue()) {
-
                 this.setLocalProperty(INVALID_VALUE, true, true);
             }
         }
