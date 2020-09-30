@@ -4,12 +4,14 @@ function _elementStruct(mainstruct) {
     let item = mainstruct;
     let decodedValue = item.decodedValue;
     let specValue = item.specValue;
-
+    let decodeValueUnits = ""
+    if (item.units !== "NOT_SET")
+        decodeValueUnits = item.units
     let tempEle = {
         "_attributes": {
             "value": specValue
         },
-        "_text": decodedValue
+        "_text": decodedValue + " " + decodeValueUnits
     };
 
     return tempEle;
