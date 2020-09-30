@@ -103,7 +103,7 @@ export class VIFDataModal {
         if (port.fileJson && port.deviceJson === undefined) {
             if (port.fileJson.VIF.VIF_App)
                 if (port.fileJson.VIF.VIF_App.Version["_text"].split('.').join("") > Constants.VIF_SUPPORTED_VERSION.split('.').join("")) {
-                    basemodal.showPopUp("The current version of software only supports VIF files with version upto " + [Constants.VIF_SUPPORTED_VERSION] + ".There might be issues with decoding the VIF data. ", null, 'VIF Version Support', null, null, null, null, null)
+                    basemodal.showPopUp("The current version of software only supports VIF files with version upto  " + [Constants.VIF_SUPPORTED_VERSION] + ". But still user can load other versions of VIF files." + "\n" + "There might be issues with decoding the VIF data, If find any issue in VIF loading, Please report it to support@graniteriverlabs.com", null, 'VIF Version Support', null, null, null, null, null)
                 }
         }
 
