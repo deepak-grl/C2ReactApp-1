@@ -100,6 +100,7 @@ export const mainstore = observable({
   configControlSaveLocation: " ",
   qcLegacyTestCase: [],
   configControllerCaptureInProgress: false,
+  skipMissingVIFFieldToast : null,
 
   alert: {//TODO @Thiru please deprecate this and use the new Toast to all the places used instead of the browser alert
     alertMessage: "",

@@ -114,6 +114,7 @@ const VIFLoadComponent = observer(
 
         loadFileData(data) {
             if (data) {
+                mainstore.skipMissingVIFFieldToast = null
                 mainstore.cableSelectionFromDropDownInInformational = false;
                 mainstore.loadSelectedCableFromBackend = false;
                 basemodal.vifDataModal.loadJson(data, Constants.TYPE_FILE, 1);

@@ -76,18 +76,17 @@ class VIFRow extends React.Component {
             var listitems = fileElement.comboBoxEntries();
             var fileStrigify = "";//JSON.stringify(fileElement);
             var ddb = <DropdownButton id={disableVifComboBox} key={"ddb-" + index} title={fileElement.getTextValueForDropDown()} onClick={(e) => { this.showToastMessage(e) }} className={textStyle} >
-                {
-                    listitems.map((valItem, index) => {
-                        //return <Dropdown.Item key={index + valItem} eventKey={JSON.stringify(fileElement)} onSelect={this.vifDropDownSelect}>{valItem}</Dropdown.Item>
-                        return <Dropdown.Item key={index + valItem} className={disableVifComboBox + "index"}
-                            eventKey={fileStrigify}
-                            onSelect={function () {
-                                //fileItem.setCurrentValue(index);
-                                fileElement.setSelectedIndex(index);
-                                me.props.vIFEditor.updateVIFDataInUI();
-                            }}
-                        > {valItem} </Dropdown.Item>
-                    })
+                {listitems.map((valItem, index) => {
+                    //return <Dropdown.Item key={index + valItem} eventKey={JSON.stringify(fileElement)} onSelect={this.vifDropDownSelect}>{valItem}</Dropdown.Item>
+                    return <Dropdown.Item key={index + valItem} className={disableVifComboBox + "index"}
+                        eventKey={fileStrigify}
+                        onSelect={function () {
+                            //fileItem.setCurrentValue(index);
+                            fileElement.setSelectedIndex(index);
+                            me.props.vIFEditor.updateVIFDataInUI();
+                        }}
+                    > {valItem} </Dropdown.Item>
+                })
                 }
             </DropdownButton>;
             return ddb;
@@ -189,11 +188,8 @@ class VIFEditor extends React.Component {
         if (dm.initialized) {
             var comps = dm.getCurrentPort(mainstore.currentPortIndex).vif.getComponents();
             res.push(this.renderVif(dm.getCurrentPort(mainstore.currentPortIndex).vif));
-
             comps.forEach((eachComp, index) => {
-
                 res.push(this.renderPort(eachComp, index));
-
                 if (eachComp.UI_isPortExpanded) {
                     res.push(this.renderComponent(eachComp, index));
                     if (eachComp.getSrcPdoList().fileJson && eachComp.getSrcPdoList().fileJson.SrcPDO && eachComp.getSrcPdoList().fileJson.SrcPDO.length > 0) {
@@ -251,7 +247,8 @@ class VIFEditor extends React.Component {
             ></VIFRow>
             if (this.state.isVifExpanded) {
                 if (vifRow) {
-                    items.push(vifRow);
+                    if (basemodal.metaData.getElement(vIFRowData.elementName) !== null)
+                        items.push(vifRow);
                 }
             }
         });
@@ -295,7 +292,8 @@ class VIFEditor extends React.Component {
                 vIFEditor={this}
             ></VIFRow>
             if (vifComp.UI_isComponentExpanded) {
-                items.push(vifRow);
+                if (basemodal.metaData.getElement(vIFRowData.elementName) !== null)
+                    items.push(vifRow);
             }
         });
 
@@ -323,7 +321,8 @@ class VIFEditor extends React.Component {
                 vIFEditor={this}
             ></VIFRow>
             if (!categoryList.UI_isCategoryListExpanded) {
-                res.push(vifRow);
+                if (basemodal.metaData.getElement(vIFRowData.elementName) !== null)
+                    res.push(vifRow);
             }
         });
         var me = this;
@@ -355,8 +354,8 @@ class VIFEditor extends React.Component {
                 vIFRowData={vIFRowData}
                 vIFEditor={this}
             ></VIFRow>
-
-            items.push(vifRow);
+            if (basemodal.metaData.getElement(vIFRowData.elementName) !== null)
+                items.push(vifRow);
 
         });
         // render mode categoryList's
@@ -383,7 +382,8 @@ class VIFEditor extends React.Component {
                 vIFRowData={vIFRowData}
                 vIFEditor={this}
             ></VIFRow>
-            items.push(vifRow);
+            if (basemodal.metaData.getElement(vIFRowData.elementName) !== null)
+                items.push(vifRow);
         });
         var me = this;
         var categoryArray = categoryList.getCategoriesArray();

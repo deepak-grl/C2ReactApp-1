@@ -324,36 +324,42 @@ export class VIFPort {
         basemodal.getReportInputs()
     }
     _getRowElementsForBackedJson(allrows) {
-        let elements = allrows.map(row => {
+        let filteredAllrows = allrows.filter(function (obj) {
+            var checkIsElementPresentInMetaData = basemodal.metaData.getElement(obj.elementName)
+            if (checkIsElementPresentInMetaData !== null) {
+                return obj;
+            }
+        });
+        let elements = filteredAllrows.map(row => {
             let fileEle = row.fileElement;
             let xmlDecodedValue = fileEle.getVIFElementDecodedValue();
             var multiplierValue = fileEle.getMultiplier();
             var typeOfEle = basemodal.metaData.getElementValue(fileEle.elementName, Constants.VIF_ELEMENT_TYPE);
-            if (multiplierValue && multiplierValue !== undefined) {
-                if (xmlDecodedValue.includes("mV") || xmlDecodedValue.includes("mA") || xmlDecodedValue.includes("mW") || xmlDecodedValue.includes("msec") || xmlDecodedValue.includes("ns")) {
-                    xmlDecodedValue = xmlDecodedValue.split(' ');
-                    var xmlDecodedUnit = xmlDecodedValue[1];
-                    xmlDecodedValue = xmlDecodedValue[0];
+                if (multiplierValue && multiplierValue !== undefined) {
+                    if (xmlDecodedValue)
+                        if (xmlDecodedValue.includes("mV") || xmlDecodedValue.includes("mA") || xmlDecodedValue.includes("mW") || xmlDecodedValue.includes("msec") || xmlDecodedValue.includes("ns")) {
+                            xmlDecodedValue = xmlDecodedValue.split(' ');
+                            var xmlDecodedUnit = xmlDecodedValue[1];
+                            xmlDecodedValue = xmlDecodedValue[0];
+                        }
                 }
-            }
 
-            let xmlSpecValue = fileEle.getValue();
-            if (xmlSpecValue === 1 && typeOfEle === 3) {
-                xmlDecodedValue = "YES"
-            }
-            else if (xmlSpecValue === 0 && typeOfEle === 3)
-                xmlDecodedValue = "NO"
+                let xmlSpecValue = fileEle.getValue();
+                if (xmlSpecValue === 1 && typeOfEle === 3) {
+                    xmlDecodedValue = "YES"
+                }
+                else if (xmlSpecValue === 0 && typeOfEle === 3)
+                    xmlDecodedValue = "NO"
 
-            if (typeOfEle === 2 && fileEle.comboBoxItems)
-                xmlDecodedValue = fileEle.comboBoxItems[xmlSpecValue]
-
-            let obj = {
-                "enum": fileEle.getElementName(),
-                "specValue": fileEle.getValue(),
-                "decodedValue": xmlDecodedValue,
-                "units": xmlDecodedUnit
-            };
-            return obj;
+                if (typeOfEle === 2 && fileEle.comboBoxItems)
+                    xmlDecodedValue = fileEle.comboBoxItems[xmlSpecValue]
+                let obj = {
+                    "enum": fileEle.getElementName(),
+                    "specValue": fileEle.getValue(),
+                    "decodedValue": xmlDecodedValue,
+                    "units": xmlDecodedUnit
+                };
+                return obj;
         });
         return elements;
     }
@@ -567,7 +573,6 @@ export class VIFElement {
         return this.elementName;
     }
     getVIFElementValueForTextBox() {
-
         let xmlDecodedValue = this.getVIFElementDecodedValue();
         var multiplierValue = this.getMultiplier();
         if (multiplierValue && multiplierValue !== undefined) {
@@ -639,6 +644,7 @@ export class VIFElement {
             this.comboBoxItems = basemodal.metaData.getElementValue(this.elementName, Constants.VIF_COMBOBOXENTRIES);
         }
         return this.comboBoxItems;
+
     }
     getUnitsForTextBox() {
         if (!this.comboBoxUnits) {
@@ -1337,10 +1343,14 @@ export class MetaData {
         if (ele) {
             return ele[propertyName];
         } else {
+            if (elementName !== undefined)
+                if (mainstore.skipMissingVIFFieldToast === null) {
+                    mainstore.skipMissingVIFFieldToast = new toastNotification(` Identified invalid VIF field , Please report it to support@graniteriverlabs.com, But still user can continue using this software`, Constants.TOAST_ERROR, 5000);
+                    mainstore.skipMissingVIFFieldToast.show();
+                }
         }
         return '-!-';
     }
-
 }
 
 export class UsbIf {
