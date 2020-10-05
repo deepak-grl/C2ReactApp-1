@@ -155,7 +155,12 @@ export class ChartModal {
         } else {
             this.markerTwoTime = stopTime;
         }
-        var timeDiff = "\u0394T : " + Math.abs(((this.markerTwoTime - this.markerOneTime) * 1000)).toFixed(1) + 'ms';
+        // console.log('this.markerTwoTime - this.markerOneTime: ', this.markerTwoTime, "++", this.markerOneTime, "++", (this.markerTwoTime - this.markerOneTime), (Math.abs(((this.markerTwoTime - this.markerOneTime) * 1000))).toPrecision(2));
+        var calcTimeDiff = (Math.abs(((this.markerTwoTime - this.markerOneTime) * 1000)))
+        var splitTimeDiff = calcTimeDiff.toString().split('.')
+        var displayTimeDiff = splitTimeDiff[0].length > 2 ? calcTimeDiff.toFixed(2) : calcTimeDiff.toFixed(4)
+
+        var timeDiff = "\u0394T : " + displayTimeDiff + 'ms';
         var text = "Time : " + stopTimeText + " / " + timeDiff + "\n";
 
         // sort based on voltage current group
