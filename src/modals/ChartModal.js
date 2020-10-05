@@ -33,7 +33,6 @@ export class ChartModal {
         this.markerTwoTime = 0;
     }
     setMarkerTime(markerNum, newTimeVal) {
-        console.log('markerNum, newTimeVal: ', markerNum, newTimeVal);
         if (newTimeVal >= 0) {
             if (Constants.MARKER_ONE === markerNum) {
                 chartstore.markerCustomPositioningData.marker_1_PointInTime = newTimeVal;
@@ -128,9 +127,9 @@ export class ChartModal {
             chartAjaxModal.getSignalFileReadStatus();
             if (chartstore.signalFileReadStatus === Constants.READY || chartstore.signalFileReadStatus === Constants.ERROR) {
                 clearInterval(me.readStatusPoll)
-                chartAjaxModal.getChannelList()
                 chartAjaxModal.getSignalFileStartTime();
-                chartAjaxModal.getSignalFileStopTime(me.loadPlotData.bind(me));
+                chartAjaxModal.getSignalFileStopTime(); //chartAjaxModal.getSignalFileStopTime(me.loadPlotData.bind(me));
+                chartAjaxModal.getChannelList(me.loadPlotData.bind(me))
             }
         }, 2000)
     }
@@ -250,6 +249,7 @@ export class ChartModal {
         numChannels.forEach(function (channelNum) {
             me.allChannels.push(new Channel(channelNum, me));
         });
+        this.requestChartRerender()
     }
 
     stopTimer() {
