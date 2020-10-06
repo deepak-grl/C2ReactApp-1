@@ -778,7 +778,11 @@ export class VIFRowData {
             else if (typeOfEle === 3 && fdecodeVal === 0)
                 fdecodeVal = "NO";
             if (fdecodeVal && ddecodeVal) {
-                if (fdecodeVal.toString() !== ddecodeVal.toString()) {
+                fdecodeVal = fdecodeVal.toString()
+                ddecodeVal = ddecodeVal.toString()
+                fdecodeVal = fdecodeVal.trim()
+                ddecodeVal = ddecodeVal.trim()
+                if (fdecodeVal !== ddecodeVal) {
                     return true;
                 }
             }
