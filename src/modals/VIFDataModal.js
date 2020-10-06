@@ -335,31 +335,36 @@ export class VIFPort {
             let xmlDecodedValue = fileEle.getVIFElementDecodedValue();
             var multiplierValue = fileEle.getMultiplier();
             var typeOfEle = basemodal.metaData.getElementValue(fileEle.elementName, Constants.VIF_ELEMENT_TYPE);
-                if (multiplierValue && multiplierValue !== undefined) {
-                    if (xmlDecodedValue)
-                        if (xmlDecodedValue.includes("mV") || xmlDecodedValue.includes("mA") || xmlDecodedValue.includes("mW") || xmlDecodedValue.includes("msec") || xmlDecodedValue.includes("ns")) {
-                            xmlDecodedValue = xmlDecodedValue.split(' ');
-                            var xmlDecodedUnit = xmlDecodedValue[1];
-                            xmlDecodedValue = xmlDecodedValue[0];
-                        }
-                }
+            if (multiplierValue && multiplierValue !== undefined) {
+                if (xmlDecodedValue)
+                    if (xmlDecodedValue.includes("mV") || xmlDecodedValue.includes("mA") || xmlDecodedValue.includes("mW") || xmlDecodedValue.includes("msec") || xmlDecodedValue.includes("ns")) {
+                        xmlDecodedValue = xmlDecodedValue.split(' ');
+                        var xmlDecodedUnit = xmlDecodedValue[1];
+                        xmlDecodedValue = xmlDecodedValue[0];
+                    }
+            }
 
-                let xmlSpecValue = fileEle.getValue();
-                if (xmlSpecValue === 1 && typeOfEle === 3) {
-                    xmlDecodedValue = "YES"
-                }
-                else if (xmlSpecValue === 0 && typeOfEle === 3)
-                    xmlDecodedValue = "NO"
+            let xmlSpecValue = fileEle.getValue();
+            if (xmlSpecValue === 1 && typeOfEle === 3) {
+                xmlDecodedValue = "YES"
+            }
+            else if (xmlSpecValue === 0 && typeOfEle === 3)
+                xmlDecodedValue = "NO"
 
-                if (typeOfEle === 2 && fileEle.comboBoxItems)
-                    xmlDecodedValue = fileEle.comboBoxItems[xmlSpecValue]
-                let obj = {
-                    "enum": fileEle.getElementName(),
-                    "specValue": fileEle.getValue(),
-                    "decodedValue": xmlDecodedValue,
-                    "units": xmlDecodedUnit
-                };
-                return obj;
+            if (typeOfEle === 2 && fileEle.comboBoxItems) {
+                xmlDecodedValue = fileEle.comboBoxItems[xmlSpecValue]
+                if (xmlDecodedValue.includes(":")) {
+                    xmlDecodedValue = xmlDecodedValue.split(":")
+                    xmlDecodedValue = xmlDecodedValue[1]
+                }
+            }
+            let obj = {
+                "enum": fileEle.getElementName(),
+                "specValue": fileEle.getValue(),
+                "decodedValue": xmlDecodedValue,
+                "units": xmlDecodedUnit
+            };
+            return obj;
         });
         return elements;
     }
