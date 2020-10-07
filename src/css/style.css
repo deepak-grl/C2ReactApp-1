@@ -1724,11 +1724,11 @@ width:40%!important;
 .grey-panel-align {
   width: 77%;
   /* height: 70%; */
-  /* overflow: auto; */
+  overflow: auto;
   /* margin-left: 15%; */
   /* margin-top: 10%; */
   top: 0% !important;
-  padding-bottom: 3%;
+  /* padding-bottom: 3%; */
   position: relative;
 }
 .panel-connection-setup-tester-info {
@@ -1766,7 +1766,7 @@ width:40%!important;
     /* height: 58%; */
     /* overflow: auto; */
     /* margin-left: 15%; */
-    margin-bottom: 7%;
+    margin-bottom: 4%;
   }
 }
 @media screen and (max-width: 1400px) {

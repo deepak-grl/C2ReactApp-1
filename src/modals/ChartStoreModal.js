@@ -32,6 +32,7 @@ export const chartstore = observable({
   rowStartAndStopTImeDiff: 0,
   previousPktDelay: 0,
   postPktDelay: 0,
+  dpAuxRawData: '',
   chartValues: {
     startTimeZoom: 0,
     endTimeZoom: 0

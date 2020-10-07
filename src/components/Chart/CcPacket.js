@@ -202,7 +202,7 @@ export const CcPacket = observer(class CcPacket extends React.Component {
                                     rowRenderer={this.rowRenderer}
                                     scrollToIndex={mainstore.isPollingChecked ? mainstore.currentCClinePacketsClicked : mainstore.currentpacketIndex}
                                     overscanRowCount={2}
-                                    scrollToAlignment={'center'}
+                                // scrollToAlignment={'center'}
                                 />
                             </div></>
                         : null)}
@@ -248,6 +248,8 @@ export const CcPacket = observer(class CcPacket extends React.Component {
         else {
             chartstore.postPktDelay = 0;
         }
+        if (row.dpDesc && row.dpDesc !== "")
+            chartstore.dpAuxRawData = row.dpDesc
         return <PacketDetails key={"packet-" + rowIndex} />
     }
 
@@ -432,6 +434,7 @@ export const PacketDetails = observer(class PacketDetails extends React.Componen
                     <p>Pkt Duration : {chartstore.rowStartAndStopTImeDiff + " ms"}</p>
                     <p>Prev Pkt Delay : {chartstore.previousPktDelay + " ms"} </p>
                     <p>Post Pkt Delay : {chartstore.postPktDelay + " ms"}</p>
+                    {chartstore.dpAuxRawData !== "" ? <p>Raw Data : {chartstore.dpAuxRawData}</p> : null}
                 </div>
                 <div style={{ height: '100%' }} onWheel={(e) => utils.listenScrollEvent(e)} className="scroll setMaxHeight">
                     <ReactTable data={chartstore.ccPacket.packetDetails} pivotBy={["parent"]}
