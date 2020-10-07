@@ -250,6 +250,8 @@ export const CcPacket = observer(class CcPacket extends React.Component {
         }
         if (row.dpDesc && row.dpDesc !== "")
             chartstore.dpAuxRawData = row.dpDesc
+        else
+            chartstore.dpAuxRawData = ""
         return <PacketDetails key={"packet-" + rowIndex} />
     }
 
