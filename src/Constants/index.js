@@ -266,3 +266,18 @@ export const DUT_TYPE = ['Consumer Only', 'Provider Only', 'Cable', 'Dual Role P
 export const IR_DROP_CABLE_DATA_TYPES = ["GRL-SPL test cable 1", "GRL-SPL test cable 2", "USB-C STD test cable 1", "USB-C STD test cable 2"];
 
 export const QC_LEGACY_PARENT_NAMES = ["QC_LEGACY_Shorting", "QC_LEGACY_HVDCP", "QC_LEGACY_PD_Req", "QC_LEGACY_PD_Removal", "QC_LEGACY_PD_Phy_Err_Rej", "QC_LEGACY_PD_Req_Reg", "QC_LEGACY_Trans", "QC_LEGACY_Continuous_mode", "QC_LEGACY_Pwr_pf", "QC_LEGACY_USBPD_Trans",]
+
+
+export const MANUAL_UPDATE_FIRMWARWE_INSTRUCTIONS = `Automatic Firmware Update Procedure:
+1. Connect firmware update USB port of C2 to the test PC using standard USB Type-B cable where C2 Browser Application is running 
+2. Click on the "Update Firmware Update" button 
+3. If automatic firmware update fails, please update the firmware manually using below instructions
+
+Manual firmware update procedure:
+1. Connect firmware update USB port of C2 to the test PC using standard USB Type-B cable where C2 Browser Application is running 
+2. Press the reset button on the back-side of the C2 controller"
+3. Wait for the test PC to detect a new removable USB drive"
+4. Copy all the files from \"C:\\GRL\\USBPD-C2-Browser-App\\Firmware_Files\" folder into newly detected removable USB drive 
+5. Power cycle the C2 controller using the push button on the left top corner in the front panel of C2 controller 
+Note1. If Step-4 fails, format the C2 SD card's removable drive that appears in the Test PC after connecting FW update USB cable 
+Note2. If the above step(Note1) Fails, remove the SD card, connect it to the Test PC, and format it`

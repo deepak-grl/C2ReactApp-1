@@ -114,6 +114,11 @@ const PanelConnectionSetup = observer(
     showSetupImagePopUp() {
       basemodal.showPopUp(null, null, 'C2 Setup Diagram', null, false, null, "PDC2 Connection Diagram.png", null)
     }
+
+    showFirmwareUpdateInstructionPopup() {
+      basemodal.showPopUp(Constants.MANUAL_UPDATE_FIRMWARWE_INSTRUCTIONS, null, 'Update C2 Firmware Instruction', null, false, null, "C2FWUpdate.png", null)
+    }
+
     checkFirmwareVersion() {
       if (mainstore.connectionInfo !== undefined && Object.keys(mainstore.connectionInfo).length > 1) {
         var c2FirmwareVersion = mainstore.connectionInfo.firmwareVersion.split(" ");
@@ -229,6 +234,7 @@ const PanelConnectionSetup = observer(
               <div className="update-firmware-btn-cliploader-div">
                 <ClipLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={this.state.firmwareUpdateLoading} />
               </div>
+              <a href="javascript:void(0);" onClick={this.showFirmwareUpdateInstructionPopup} className="update-firmware-label">Firmware Update Instructions</a>
             </FlexView>
             <p className="firmware-spinner-status"> {updateFirmwareSpinnerDescription}</p>
             <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip> {UPDATE_ELOAD_FIRMWARE} </Tooltip>}>
@@ -239,7 +245,7 @@ const PanelConnectionSetup = observer(
             </OverlayTrigger> */}
           </FlexView>
 
-        </FlexView>
+        </FlexView >
         <FlexView column className="connectionsetup-rightsidecontainer">
           <FlexView className="device-details-container">
             <FlexView column className="panel-padding sub-container">
