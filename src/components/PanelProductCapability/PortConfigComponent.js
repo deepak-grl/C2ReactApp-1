@@ -4,7 +4,7 @@ import FlexView from 'react-flexview/lib';
 import * as Constants from '../../Constants';
 import { mouseBusy, resizeSplitterPaneToNormalMode } from '../../utils';
 import { basemodal, mainstore } from '../../modals/BaseModal';
-import { PC_RESET_BTN, PC_GETCAP_BTN, PC_DUT_DISBALE_MODE, FP_CABLE_SELECTION, COMPLIANCE_CABLE_SELECTION, STATE_MACHINE_INFO } from '../../Constants/tooltip';
+import { PC_RESET_BTN, PC_GETCAP_BTN, PC_DUT_DISBALE_MODE, FP_CABLE_SELECTION, COMPLIANCE_CABLE_SELECTION, STATE_MACHINE_INFO, DUT_TYPE_INFO } from '../../Constants/tooltip';
 import { ClipLoader } from 'react-spinners';
 import { observer } from "mobx-react";
 import { convertCapsJsonFormat } from '../../modals/JsonConverter';
@@ -182,6 +182,11 @@ const PortConfigComponent = observer(
                                             })
                                         }
                                     </Dropdown.Menu>
+                                    <div className="product-caps-cable-selection-info-icon" >
+                                        <OverlayTrigger trigger="click" popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
+                                            overlay={<Tooltip className="dut-type-info-tooltip tooltip-inner-content-align">{DUT_TYPE_INFO}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" />
+                                        </OverlayTrigger>
+                                    </div>
                                 </Dropdown >}
                             </FlexView >
                         </div> : null}
