@@ -409,6 +409,7 @@ export const mainstore = observable({
       appMode: 0,
       cableEmulation: 0,
       rpLevel: 0,
+      fixtureSelection : 0,
     },
     sendMessage: {
       sopType: 0,

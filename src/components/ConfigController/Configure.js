@@ -21,10 +21,7 @@ const Configure = observer(
             basemodal.putC2Configuration(this.doneApplyConfigurations.bind(this));
         }
 
-        uutTypeDropDownOnChange = (index) => {
-            console.log('index: ', index);
-            mainstore.configControl.c2Config.controllerMode = index;
-        }
+        uutTypeDropDownOnChange = (index) => mainstore.configControl.c2Config.controllerMode = index;
 
         onChangeTestCableType = (index) => mainstore.configControl.c2Config.cableType = index;
 
@@ -37,6 +34,8 @@ const Configure = observer(
         onChangeCableEmulation = (index) => mainstore.configControl.c2Config.cableEmulation = index
 
         onChangeRpLevels = (index) => mainstore.configControl.c2Config.rpLevel = index
+
+        onChangeFixtureSelection = (index) => mainstore.configControl.c2Config.fixtureSelection = index
 
         handleAttach = () => basemodal.putSimulateAttachDetach(true)
 
@@ -127,6 +126,19 @@ const Configure = observer(
                                     </Dropdown.Menu>
                                 </Dropdown >
                             </span>
+
+                            {/* <span className="configure-label-padding">Fixture Selection
+                               <Dropdown className="config-control-dropdown-flex">
+                                    <Dropdown.Toggle className="dropdowncustom fixture-selection-dropdown" variant="success" id="dropdown-basic" >{Constants.FIXTURE_SELECTION[mainstore.configControl.c2Config.fixtureSelection]}</Dropdown.Toggle>
+                                    <Dropdown.Menu className="config-dropdown-menu">
+                                        {
+                                            Constants.FIXTURE_SELECTION.map((fixture, index) => {
+                                                return <Dropdown.Item key={index} eventKey={fixture} value={fixture} onSelect={this.onChangeFixtureSelection.bind(this, index)} >{fixture}</Dropdown.Item>
+                                            })
+                                        }
+                                    </Dropdown.Menu>
+                                </Dropdown >
+                            </span> */}
 
                             <span className="configure-label-padding" >Port Type
                                 <Dropdown className="config-control-dropdown-flex">
