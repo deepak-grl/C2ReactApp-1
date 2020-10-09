@@ -183,7 +183,7 @@ const PortConfigComponent = observer(
                                         }
                                     </Dropdown.Menu>
                                     <div className="product-caps-cable-selection-info-icon" >
-                                        <OverlayTrigger trigger="click" popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
+                                        <OverlayTrigger  trigger="click" popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
                                             overlay={<Tooltip className="dut-type-info-tooltip tooltip-inner-content-align">{DUT_TYPE_INFO}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" />
                                         </OverlayTrigger>
                                     </div>

@@ -79,7 +79,11 @@ export const COMPLIANCE_CABLE_SELECTION = `1. GRL-SPL test cable(Vconn pass-thro
 2. Primary test port of DUT should be connected to Port 1 of Tester.
 3. To run test cases with standard USB - C cable, select informational test mode and choose the test cable type`
 
-export const DUT_TYPE_INFO =`Provider: Source the port partner. Ex: Wall/car changer`
+export const DUT_TYPE_INFO =`Provider: Supplies power to the port partner.Ex: Wall/car changer
+Consumer: Sinks power from the port partner.Ex: Bus-powered Hub/Dock, adapter
+DRP: Can act as Source or Sink.Ex: Notebook PC, self-powered Dock/Hub, power bank
+Cable: Interconnects source and sink
+Note: A self-power Dock(DRP) and bus-powered dock(Consumer-Only) will have 2 different VIF file to test`
 
 export const USB_C_FUNCTIONAL_MOI_INFO = `TD 4.11.2 Sink Dead Battery Test
 Please visually inspect the presence of battery in PUT. Enable this check box if battery is available else, disable it.`
