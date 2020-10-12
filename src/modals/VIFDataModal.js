@@ -21,6 +21,18 @@ export class VIFDataModal {
         mainstore.isGetCapsEnabled = false;
     }
 
+    clearVifData() {
+        mainstore.productCapabilityProps.vifFileName = "Load XML VIF File"
+        mainstore.captiveCableVal = 0;
+        basemodal.putVIFData(Constants.PORTA, {})
+        mainstore.selectedMoiTestCase = [];
+        mainstore.testConfiguration.selectedTestList = [];
+        mainstore.numberofPorts = true;
+        mainstore.devicePdPortTypeValue = null;
+        mainstore.filePdPortTypeValue = null;
+        basemodal.getReportInputs()
+    }
+
     clearGetCapsData() {
         let port = this.getCurrentPort(mainstore.currentPortIndex);
         port.setDeviceData(null);
@@ -70,21 +82,24 @@ export class VIFDataModal {
         }
 
         //Checking the loading VIF from GRL
-        var allowGrlXmlToast = new toastNotification("Loaded unsupported VIF, please load the VIF generated from USB-IF official VIF generator tool", Constants.TOAST_ERROR, 5000);
+        var allowGrlXmlToast = basemodal.showPopUp(Constants.UNSUPPORTED_VIF, null, 'Loaded Unsupported VIF', null, null, null, null, null);
+        var vendorName = ""
         if (port.fileJson)
-            if (mainstore.productCapabilityProps.executionMode === Constants.INFORMATIONAL_MODE) {
+            if (mainstore.productCapabilityProps.executionMode === Constants.INFORMATIONAL_MODE || port.fileJson.VIF.VIF_App) {
                 if (fileOrDevice === Constants.TYPE_FILE && port.fileJson.VIF.VIF_App) {
-                    var vendorName = port.fileJson.VIF.VIF_App.Vendor._text
+                    vendorName = port.fileJson.VIF.VIF_App.Vendor._text;
+                    console.log('vendorName: ', vendorName);
+                    mainstore.loadedVifVendorName = vendorName;
                     if (vendorName !== "GRL" && vendorName !== "USB-IF") {
-                        allowGrlXmlToast.show();
+                        // allowGrlXmlToast.show();
                         this.clearAll();
                         return allowGrlXmlToast
                     }
                 }
             }
             else {
-                if (port.fileJson.VIF.VIF_App.Vendor._text !== "USB-IF") {
-                    allowGrlXmlToast.show();
+                if (mainstore.loadedVifVendorName !== "USB-IF") {   //* avoid loading the generate device data in comp mode
+                    // allowGrlXmlToast.show();
                     this.clearAll();
                     return allowGrlXmlToast
                 }
@@ -143,6 +158,7 @@ export class VIFDataModal {
         this.getPortLabels();
         this.specialCases();
         return port.vif;
+
     }
     numOfPorts() {
         var components = this.getCurrentPort(mainstore.currentPortIndex).vif.getComponents()
@@ -537,6 +553,7 @@ export class VIFElement {
         return json._attributes;
     }
     setSelectedIndex(index) {
+        mainstore.isVifFieldChange = true;
         if (this.source && this.source.getVif().isValidationRun) {
             if (index !== this.getValue()) {
                 this.setLocalProperty(INVALID_VALUE, true, true);
@@ -663,6 +680,7 @@ export class VIFElement {
         basemodal.vifDataModal.specialCases();
     }
     setVIFElementDecodedValue(val) {
+        mainstore.isVifFieldChange = true;
         this.setPropertyValue(Constants.STR_TEXT, val);
         this.minMaxValidation(val);
         return true;

@@ -80,21 +80,11 @@ const VIFLoadComponent = observer(
         }
 
         clearVifData() {
-            mainstore.productCapabilityProps.vifFileName = "Load XML VIF File"
-            // this.setState({ vifFileName: 'Load XML VIF File' })
             if (basemodal.vifDataModal.portA.deviceJson)
                 basemodal.vifDataModal.clearVifFileValues();
             else
                 basemodal.vifDataModal.clearAll();
-
-            mainstore.captiveCableVal = 0;
-            basemodal.putVIFData(Constants.PORTA, {})
-            mainstore.selectedMoiTestCase = [];
-            mainstore.testConfiguration.selectedTestList = [];
-            mainstore.numberofPorts = true;
-            mainstore.devicePdPortTypeValue = null;
-            mainstore.filePdPortTypeValue = null;
-            basemodal.getReportInputs()
+            basemodal.vifDataModal.clearVifData()
         }
 
         onGenerateVifFileNameChange(event) {
@@ -114,7 +104,10 @@ const VIFLoadComponent = observer(
 
         loadFileData(data) {
             if (data) {
-                mainstore.skipMissingVIFFieldToast = null
+                mainstore.loadedVifVendorName = ""
+                mainstore.skipMissingVIFFieldToast = null;
+                mainstore.isVifFieldChange = false;
+                mainstore.copyLoadedXmlVif = JSON.parse(JSON.stringify(data))
                 mainstore.cableSelectionFromDropDownInInformational = false;
                 mainstore.loadSelectedCableFromBackend = false;
                 basemodal.vifDataModal.loadJson(data, Constants.TYPE_FILE, 1);

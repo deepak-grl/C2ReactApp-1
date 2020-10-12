@@ -219,7 +219,12 @@ class VIFEditor extends React.Component {
                 }
             });
         }
+        if (res.length > 0)
+            mainstore.isVifXmlLoaded = true
+        else
+            mainstore.isVifXmlLoaded = false
         return res;
+
 
     }
     updateVIFDataInUI() {

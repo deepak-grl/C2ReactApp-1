@@ -24,37 +24,67 @@ const ProductCapabilityComponent = observer(
             this.state = {
                 vifFileData: null,
                 vifDeviceData: null,
-                generateVIFFileDeviceData: "Generate VIF(Device Data)"
+                generateVIFFileDeviceData: "Generate VIF(Device Data)",
             };
 
         }
 
-        appModeSelectionRadBtnClick = event => {
-            mainstore.productCapabilityProps.executionMode = event.currentTarget.value
+        appModeSelectionRadBtnClick = (event) => {
+            if (mainstore.isVifFieldChange || mainstore.loadedVifVendorName !== "USB-IF") {
+                if (mainstore.isVifXmlLoaded)
+                    basemodal.showPopUp(mainstore.loadedVifVendorName === "USB-IF" ? Constants.USB_IF_LOADEDVIF : Constants.NON_USB_IFLOADED_VIF, null, 'VIF fields Changed', null, false, 'OKCancel', null, this.showNewVIF.bind(this, event.currentTarget.value))
+            }
+            if (!mainstore.isVifFieldChange && !mainstore.popUpInputs.displayPopUp) {
+                this.appMode(event.currentTarget.value)
+            }
+        }
+
+
+        appMode = (selectedAppMode) => {
+            mainstore.productCapabilityProps.executionMode = selectedAppMode
             if (mainstore.productCapabilityProps.executionMode === "ComplianceMode") {
                 informationalCableType = mainstore.productCapabilityProps.ports[Constants.PORTA].cableType
                 mainstore.productCapabilityProps.ports[Constants.PORTA].cableType = mainstore.complianceCableType
                 mainstore.vifEditorEditable = true;
             }
-            else if (mainstore.vifEditableOnlyInInformationalMode === true) {
+            else if (mainstore.vifEditableOnlyInInformationalMode) {
                 mainstore.vifEditorEditable = false;
             }
             else {
-                if (mainstore.cableSelectionFromDropDownInInformational === false && mainstore.loadSelectedCableFromBackend === false) {
+                if (mainstore.cableSelectionFromDropDownInInformational === false && mainstore.loadSelectedCableFromBackend === false)
                     mainstore.productCapabilityProps.ports[Constants.PORTA].cableType = mainstore.complianceCableType
-                }
-                else {
+                else
                     mainstore.productCapabilityProps.ports[Constants.PORTA].cableType = informationalCableType
-                }
                 mainstore.vifEditorEditable = true;
             }
             basemodal.putPortConfig()
-            basemodal.vifDataModal.specialCases()           //To set functional moi values(Enable USB Data Validation) while changing the btwn compliance and info mode
+            basemodal.vifDataModal.specialCases()           //To set functional moi values(Enable USB Data Validation) while changing the btwn compliance and info mod
+        }
+
+        showNewVIF = (selectedMode) => {
+            if (mainstore.popUpInputs.responseButton === "Ok") {
+                mainstore.isVifFieldChange = false;
+                if (mainstore.loadedVifVendorName === "USB-IF")
+                    basemodal.vifDataModal.loadJson(JSON.parse(JSON.stringify(mainstore.copyLoadedXmlVif)), Constants.TYPE_FILE, 1);
+                this.appMode(selectedMode)
+                if (selectedMode === "ComplianceMode" && mainstore.loadedVifVendorName !== "USB-IF") {
+                    this.clearLoadedGeneratedDeviceDataFromInfoToCompMode()
+                }
+            }
+        }
+
+        clearLoadedGeneratedDeviceDataFromInfoToCompMode() {
+            if (mainstore.popUpInputs.responseButton === "Ok")
+                if (basemodal.vifDataModal.portA.fileJson && mainstore.loadedVifVendorName !== "USB-IF") {
+                    basemodal.vifDataModal.clearAll();
+                    basemodal.vifDataModal.clearVifData()
+                }
         }
 
         copyDeviceData() {
             if (basemodal.vifDataModal.portA && mainstore.getCapsPortNumber === 1)
                 basemodal.vifDataModal.portA.vif.copyDeviceDataToFileData()
+
             else if (basemodal.vifDataModal.portB && mainstore.getCapsPortNumber === 2)
                 basemodal.vifDataModal.portB.vif.copyDeviceDataToFileData()
 

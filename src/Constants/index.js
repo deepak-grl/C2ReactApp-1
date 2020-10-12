@@ -282,3 +282,15 @@ Manual firmware update procedure:
 5. Power cycle the C2 controller using the push button on the left top corner in the front panel of C2 controller 
 Note1. If Step-4 fails, format the C2 SD card's removable drive that appears in the Test PC after connecting FW update USB cable 
 Note2. If the above step(Note1) Fails, remove the SD card, connect it to the Test PC, and format it`
+
+export const USB_IF_LOADEDVIF = `Some of the VIF fields were edited, switching to compliance mode would revert back the edited fileds to values what was loaded from VIF file
+Click Yes to switch Compilance Mode
+Click No to stay in the Informational Mode`
+
+export const NON_USB_IFLOADED_VIF = `To run tests in Compliance Mode please load the VIF generated from USB-IF official VIF generator tool
+Click Yes to clear the VIF loaded before and switch to Compliance Mode
+Click No to stay in the Informational Mode`
+
+export const UNSUPPORTED_VIF = `Loaded unsupported VIF for Compilance Test Mode
+To run tests in Compliance Mode please load the VIF generated from USB-IF official VIF generator tool
+Please use Informational Test Mode to load VIF file generated from tools other than USB-IF VIF generator`
