@@ -82,26 +82,25 @@ export class VIFDataModal {
         }
 
         //Checking the loading VIF from GRL
-        var allowGrlXmlToast = basemodal.showPopUp(Constants.UNSUPPORTED_VIF, null, 'Loaded Unsupported VIF', null, null, null, null, null);
         var vendorName = ""
         if (port.fileJson)
             if (mainstore.productCapabilityProps.executionMode === Constants.INFORMATIONAL_MODE || port.fileJson.VIF.VIF_App) {
                 if (fileOrDevice === Constants.TYPE_FILE && port.fileJson.VIF.VIF_App) {
                     vendorName = port.fileJson.VIF.VIF_App.Vendor._text;
-                    console.log('vendorName: ', vendorName);
                     mainstore.loadedVifVendorName = vendorName;
                     if (vendorName !== "GRL" && vendorName !== "USB-IF") {
-                        // allowGrlXmlToast.show();
+                        console.log('vendorName: ', vendorName);
+                        basemodal.showPopUp(Constants.UNSUPPORTED_VIF, null, 'Loaded Unsupported VIF', null, null, null, null, null)
                         this.clearAll();
-                        return allowGrlXmlToast
+                        return;
                     }
                 }
             }
             else {
                 if (mainstore.loadedVifVendorName !== "USB-IF") {   //* avoid loading the generate device data in comp mode
-                    // allowGrlXmlToast.show();
+                    basemodal.showPopUp(Constants.UNSUPPORTED_VIF, null, 'Loaded Unsupported VIF', null, null, null, null, null)
                     this.clearAll();
-                    return allowGrlXmlToast
+                    return;
                 }
             }
 
