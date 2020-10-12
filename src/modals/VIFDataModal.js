@@ -369,10 +369,11 @@ export class VIFPort {
 
             if (typeOfEle === 2 && fileEle.comboBoxItems) {
                 xmlDecodedValue = fileEle.comboBoxItems[xmlSpecValue]
-                if (xmlDecodedValue.includes(":")) {
-                    xmlDecodedValue = xmlDecodedValue.split(":")
-                    xmlDecodedValue = xmlDecodedValue[1]
-                }
+                if (xmlDecodedValue)
+                    if (xmlDecodedValue.includes(":")) {
+                        xmlDecodedValue = xmlDecodedValue.split(":")
+                        xmlDecodedValue = xmlDecodedValue[1]
+                    }
             }
             let obj = {
                 "enum": fileEle.getElementName(),

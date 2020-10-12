@@ -2446,6 +2446,7 @@ width:40%!important;
 
 .dut-type-info-tooltip>.tooltip-inner {
   max-width: max-content !important;
+  white-space: pre-line;
 }
 
 .product-caps-cable-selection-tooltip-inner-content-align>.tooltip-inner {

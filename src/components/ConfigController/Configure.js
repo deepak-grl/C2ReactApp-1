@@ -127,7 +127,7 @@ const Configure = observer(
                                 </Dropdown >
                             </span>
 
-                            {/* <span className="configure-label-padding">Fixture Selection
+                            { <span className="configure-label-padding">Fixture Selection
                                <Dropdown className="config-control-dropdown-flex">
                                     <Dropdown.Toggle className="dropdowncustom fixture-selection-dropdown" variant="success" id="dropdown-basic" >{Constants.FIXTURE_SELECTION[mainstore.configControl.c2Config.fixtureSelection]}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
@@ -138,7 +138,7 @@ const Configure = observer(
                                         }
                                     </Dropdown.Menu>
                                 </Dropdown >
-                            </span> */}
+                            </span> }
 
                             <span className="configure-label-padding" >Port Type
                                 <Dropdown className="config-control-dropdown-flex">
