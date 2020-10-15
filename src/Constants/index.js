@@ -227,7 +227,7 @@ export const CERTIFICATION_FILTER = [
 
 
 export const CONTROLLER_MODES = ['UFP/Sink', 'DFP/Source', 'DRP', 'Cable Tester'];
-export const PORT_TYPES = ['PortA', 'PortB'];
+export const PORT_TYPES = ['Port1', 'Port2'];
 export const APP_MODE = ["CTS", "DP AUX"];
 export const FIXTURE_SELECTION = ['C2 DP AUX Sniffer', 'USB-C SBU']
 export const CABLE_EMULATION = ['Ra in CC1', 'Ra in CC2', 'Ra in Both CC Lines']
