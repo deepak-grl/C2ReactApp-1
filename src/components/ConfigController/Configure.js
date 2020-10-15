@@ -27,7 +27,11 @@ const Configure = observer(
 
         onChangePortType = (index) => mainstore.configControl.c2Config.portType = index;
 
-        onChangeAppMode = (index) => mainstore.configControl.c2Config.appMode = index
+        onChangeAppMode = (index) => {
+            mainstore.configControl.c2Config.appMode = index
+            if (index === 1)
+                mainstore.configControl.c2Config.portType = 0
+        }
 
         onChangePdSpecType = (index) => mainstore.configControl.c2Config.pdSpecType = index;
 
@@ -60,6 +64,7 @@ const Configure = observer(
 
         doneCaptureLoading = () => {
             this.setChartAndPollingState(false)
+            mainstore.configControllerCaptureInProgress = false
             mainstore.enableGlassPaneIfOptionsPanelSelected = false;
         }
 

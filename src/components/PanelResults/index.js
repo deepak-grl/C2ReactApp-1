@@ -169,6 +169,7 @@ class PanelResults extends React.Component {
                     if (mainstore.status.appState === Constants.READY || mainstore.status.appState === Constants.ERROR) {
                         mainstore.panelResultPolling = false;
                         mainstore.chartPollEnabled = false;
+                        mainstore.configControllerCaptureInProgress = false;
                         this.loadSelectedTestCaseInfo(lastTestCaseName)
                         if (this.connectionErrorToast) {
                             this.connectionErrorToast.hide()

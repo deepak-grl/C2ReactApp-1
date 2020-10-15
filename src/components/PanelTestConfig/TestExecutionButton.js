@@ -82,7 +82,7 @@ const TestExecutionButton = observer(
             var buttonToolTip = mainstore.status.appState === Constants.BUSY ? TC_STOP_BTN : TC_RUN_BTN;
             return (<FlexView column className="testexecutionbutton-container">
                 <OverlayTrigger placement="auto" trigger="hover" delay={{ show: 0, hide: 1 }} overlay={<Tooltip> {buttonToolTip} </Tooltip>}>
-                    <Button id={Constants.PANELS[this.state.currentPanelIndex].name + "_" + buttonText + "_button"} onClick={this.runHandler} disabled={!this.isDisabled} className={buttonClass}>{buttonText}</Button>
+                    <Button id={Constants.PANELS[this.state.currentPanelIndex].name + "_" + buttonText + "_button"} onClick={this.runHandler} disabled={!this.isDisabled || mainstore.configControllerCaptureInProgress} className={buttonClass}>{buttonText}</Button>
                 </OverlayTrigger>
             </FlexView >);
         }
