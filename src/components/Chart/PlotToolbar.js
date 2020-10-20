@@ -146,6 +146,8 @@ class PlotToolbar extends React.Component {
         var path = Constants.URL_Plot + "PutWaveformFile";
         if (this.readStatusPoll != null)
             clearInterval(this.readStatusPoll)
+        chartstore.isPlotDataLoading = true;
+        chartstore.isPlotResultActive = true;
         ajax.fileUpload(path, file, "WaveformFile", function (response) {
             basemodal.chartModal.plotReadyStatusPoll();
             mainstore.isTestResultInOfflineMode = true;
