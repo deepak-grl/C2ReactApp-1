@@ -9,7 +9,7 @@ export const PANELS = [{ title: "Connection Setup", name: "ConnectionSetup" },
 ];
 
 const URL_Server_Address = "http://" + window.location.hostname + ":" + window.location.port + "/"
-//const URL_Server_Address = "http://" + window.location.hostname + ":5001/"
+// const URL_Server_Address = "http://" + window.location.hostname + ":5001/"
 export const URL_base = URL_Server_Address + "api/";
 export const URL_ConnectionSetup = URL_base + PANELS[0].name + "/";
 export const URL_ProductCapability = URL_base + PANELS[1].name + "/";
@@ -229,8 +229,8 @@ export const CERTIFICATION_FILTER = [
 export const CONTROLLER_MODES = ['UFP/Sink', 'DFP/Source', 'DRP', 'Cable Tester'];
 export const PORT_TYPES = ['Port1', 'Port2'];
 export const APP_MODE = ["CTS", "DP AUX"];
-export const FIXTURE_SELECTION = ['C2 DP AUX Sniffer', 'USB-C SBU']
-export const CABLE_EMULATION = ['Ra in CC1', 'Ra in CC2', 'Ra in Both CC Lines' ,'Remove Ra in both CC line']
+export const FIXTURE_SELECTION = ['DP Sink side', 'DP Source side']
+export const CABLE_EMULATION = ['Ra in CC1', 'Ra in CC2', 'Ra in Both CC Lines', 'Remove Ra in both CC line']
 export const RP_LEVELS = ["Rp 900mA", "Rp 1.5A", "Rp 3A"]
 export const EX_PORT_TYPES = ['ExPortA', 'ExPortB', 'ExPortC', 'ExPortD', 'ExPortE', 'None']
 export const PDREV_TYPES = ['Spec Rev2', 'Spec Rev3'];

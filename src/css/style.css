@@ -3370,7 +3370,14 @@ label {
 }
 
 .fixture-selection-dropdown {
-  margin-left: 7px;
+  margin-left: 12px;
+  margin-top: 0px;
+}
+
+.fixture-selection-label {
+  white-space: pre;
+  line-height: 14px;
+  margin-top: 5px;
 }
 
 .cable-type {
