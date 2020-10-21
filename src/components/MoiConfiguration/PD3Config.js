@@ -29,9 +29,8 @@ const PD3Config = observer((props) => {
                                     <tr>
                                         <td className="panellabel">Vconn Voltage</td>
                                         <td className="dropdown-config vconn-volt-info-div">
-
                                             <Dropdown className="vconn-volt-info-img">
-                                                <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{pd3Info.vconnVoltage_PD3}</Dropdown.Toggle>
+                                                <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcPd3VconnVoltageComboBox">{pd3Info.vconnVoltage_PD3}</Dropdown.Toggle>
                                                 <Dropdown.Menu className='pd3-moi-dropdwon-menu'>
                                                     {
                                                         Constants.CommunicationEngineVconnVoltageLevel.map((uutType, index) => {
@@ -50,7 +49,7 @@ const PD3Config = observer((props) => {
                                     <tr>
                                         <td className="fr-swap-connected-info">
                                             <label className="checkbox-label-width">
-                                                <input type="checkbox" className="checkbox-align-custom" disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE}
+                                                <input type="checkbox" id="tcPd3FRSwapAutoBoxConnectedCheckBox" className="checkbox-align-custom" disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE}
                                                     onChange={isFrSwapCheckBoxOnchange} type='checkbox' checked={pd3Info.isFrSwapIncluded} />FR_Swap AUTO Box Connected
                                           </label>
                                             <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{FRSWAP_TEST_INFO}</Tooltip>}>

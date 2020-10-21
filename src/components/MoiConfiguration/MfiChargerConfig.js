@@ -38,7 +38,7 @@ const MifiChargerConfig = observer((props) => {
                             <td colSpan={2} className="mfi-table-td">
                                 <FlexView>
                                     <label className="checkbox-label-width">
-                                        <input type="checkbox" className="checkbox-align-custom" onChange={(e) => isCaptiveLightningPlugChanged(e)} checked={mfiInfo.isCaptiveLightningPlugChecked} />Charger has captive lightning plug
+                                        <input type="checkbox" id="tcMfiChargerHasCaptiveLightningPlugCheckBox" className="checkbox-align-custom" onChange={(e) => isCaptiveLightningPlugChanged(e)} checked={mfiInfo.isCaptiveLightningPlugChecked} />Charger has captive lightning plug
                                 </label>
                                     <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{MFILIGHTNINGCABLE}</Tooltip>}>
                                         <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
@@ -50,7 +50,7 @@ const MifiChargerConfig = observer((props) => {
                             <td colSpan={2}>
                                 <span>E-Load Channel</span>
                                 <Dropdown className="eload-dropdown e-load-channel-dropdown">
-                                    <Dropdown.Toggle className="dropdowncustom e-load-channel-div" variant="success" id="dropdown-basic" >{mfiInfo.selectedEloadChannel}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom e-load-channel-div" variant="success" id="tcMfiChargerELoadChannelComboBox" >{mfiInfo.selectedEloadChannel}</Dropdown.Toggle>
                                     <Dropdown.Menu>
                                         {
                                             Constants.ELOAD_CHANNEL.map((channel, index) => {
@@ -64,7 +64,7 @@ const MifiChargerConfig = observer((props) => {
                         <tr>
                             <td colSpan={2} >
                                 <OverlayTrigger placement="top" overlay={<Tooltip> Refresh Instrument Connection </Tooltip>}>
-                                    <Button onClick={scanEloads} className="grl-button mfi-scan-btn" >Scan Eload</Button>
+                                    <Button onClick={scanEloads} id="tcMfiScanEloadBtn" className="grl-button mfi-scan-btn" >Scan Eload</Button>
                                 </OverlayTrigger>
                             </td>
                         </tr>
@@ -72,7 +72,7 @@ const MifiChargerConfig = observer((props) => {
                             <td className="panel-label" style={{ border: 'none' }}>
                                 <span>External eLoad VISA Address</span>
                                 <Dropdown className="eload-dropdown">
-                                    <Dropdown.Toggle className="dropdowncustom eload-visa-dropdown" variant="success" id="dropdown-basic" >{mainstore.selectedEload}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom eload-visa-dropdown" variant="success" id="tcMfiExternalEloadVisaComboBox" >{mainstore.selectedEload}</Dropdown.Toggle>
                                     <Dropdown.Menu>
                                         {
                                             (mainstore.mfi_Eloads).map((mfiType, index) => {
@@ -84,7 +84,7 @@ const MifiChargerConfig = observer((props) => {
                             </td>
                             <td className="mfi-table-td mfi-eload-connect-btn-div">
                                 <OverlayTrigger placement="top" overlay={<Tooltip> Connect </Tooltip>}>
-                                    <Button onClick={connectEload} className="grl-eload-connect-button grl-button">Connect</Button>
+                                    <Button onClick={connectEload} id="tcMfiConnectBtn" className="grl-eload-connect-button grl-button">Connect</Button>
                                 </OverlayTrigger>
                                 {mainstore.isEloadAdressLoaded === true ?
                                     mainstore.isMfiEloadConnected ?

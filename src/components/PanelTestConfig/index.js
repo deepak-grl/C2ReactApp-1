@@ -86,7 +86,7 @@ const PanelTestConfig = observer(
           checkTestCaseNameIsNotEmpty = n.title
         }
         else {
-          parent.push(<TreeNode disableCheckbox={mainstore.connectionInfo.testerStatus !== "Connected"} key={n.title} title={n.title}  >{children}</TreeNode>)
+          parent.push(<TreeNode className={n.title} disableCheckbox={mainstore.connectionInfo.testerStatus !== "Connected"} key={n.title} title={n.title}  >{children}</TreeNode>)
         }
       }
       this.getMoiOrder(parent)
@@ -324,7 +324,7 @@ const PanelTestConfig = observer(
 
       let certFilter = (<FlexView column>
         {<Dropdown className="dut-port-align" >
-          <Dropdown.Toggle className="dropdowncustom setwidth" variant="success" id="dropdown-basic">{this.state.selectedCertFilter}</Dropdown.Toggle>
+          <Dropdown.Toggle className="dropdowncustom setwidth" variant="success" id="tcCertificationComboBox">{this.state.selectedCertFilter}</Dropdown.Toggle>
           <Dropdown.Menu>
             {
               Constants.CERTIFICATION_FILTER.map((certName, index) => {
@@ -350,11 +350,11 @@ const PanelTestConfig = observer(
               {/* {mainstore.showReRunTestCase ? */}
               <div className="testselection-toolbar">
                 <div className="toolbar_btn_div selection-label"> <p> Filter Selection</p></div>
-                <div className="toolbar_btn_div" ><OverlayTrigger placement="auto" overlay={<Tooltip> {TC_PASSTESTCASES} </Tooltip>}><Button className={"test-selection-toolbar-btn " + (selectedFilters.includes("PASS") ? "pass-filter" : null)}><img src="../../images/pass.png" alt="passed-testCase" className="plot-toolbar-img" onClick={() => this.selectTestCase('PASS')} /></Button></OverlayTrigger></div>
-                <div className="toolbar_btn_div" ><OverlayTrigger placement="auto" overlay={<Tooltip> {TC_FAILEDTESTCASES} </Tooltip>}><Button className={"test-selection-toolbar-btn " + (selectedFilters.includes(undefined) ? "fail-filter" : null)} ><img src="../../images/fail.png" alt="failed-testCase" className="plot-toolbar-img" onClick={() => this.selectTestCase()} /></Button></OverlayTrigger></div>
-                <div className="toolbar_btn_div" ><OverlayTrigger placement="auto" overlay={<Tooltip> {TC_INCOMPLETETESTCASE} </Tooltip>}><Button className={"test-selection-toolbar-btn " + (selectedFilters.includes("INCOMPLETE") ? "incomplete-filter" : null)} ><img src="../../images/skip_incomplete.png" alt="incomplete-testCase" className="plot-toolbar-img" onClick={() => this.selectTestCase("INCOMPLETE")} /></Button></OverlayTrigger></div>
-                <div className="toolbar_btn_div" ><OverlayTrigger placement="auto" overlay={<Tooltip> {TC_WARNINGTESTCASES} </Tooltip>}><Button className={"test-selection-toolbar-btn " + (selectedFilters.includes("WARNING") ? "warning-filter" : null)}><img src="../../images/warning.png" alt="warning-testCase" className="plot-toolbar-img" onClick={() => this.selectTestCase('WARNING')} /></Button></OverlayTrigger></div>
-                <div className="toolbar_btn_div" ><OverlayTrigger placement="auto" overlay={<Tooltip> {TC_CLEARFILTERS} </Tooltip>}><Button className={"test-selection-toolbar-btn"}><img src="../../images/clear-filters.png" alt="clear-filters" className="plot-toolbar-img" onClick={() => this.clearFiltersTestCase()} /></Button></OverlayTrigger></div>
+                <div className="toolbar_btn_div" ><OverlayTrigger placement="auto" overlay={<Tooltip> {TC_PASSTESTCASES} </Tooltip>}><Button id="tcFilterSelectionPassBtn" className={"test-selection-toolbar-btn " + (selectedFilters.includes("PASS") ? "pass-filter" : null)}><img src="../../images/pass.png" alt="passed-testCase" className="plot-toolbar-img" onClick={() => this.selectTestCase('PASS')} /></Button></OverlayTrigger></div>
+                <div className="toolbar_btn_div" ><OverlayTrigger placement="auto" overlay={<Tooltip> {TC_FAILEDTESTCASES} </Tooltip>}><Button id="tcFilterSelectionFailBtn" className={"test-selection-toolbar-btn " + (selectedFilters.includes(undefined) ? "fail-filter" : null)} ><img src="../../images/fail.png" alt="failed-testCase" className="plot-toolbar-img" onClick={() => this.selectTestCase()} /></Button></OverlayTrigger></div>
+                <div className="toolbar_btn_div" ><OverlayTrigger placement="auto" overlay={<Tooltip> {TC_INCOMPLETETESTCASE} </Tooltip>}><Button id="tcFilterSelectionIncompleteBtn" className={"test-selection-toolbar-btn " + (selectedFilters.includes("INCOMPLETE") ? "incomplete-filter" : null)} ><img src="../../images/skip_incomplete.png" alt="incomplete-testCase" className="plot-toolbar-img" onClick={() => this.selectTestCase("INCOMPLETE")} /></Button></OverlayTrigger></div>
+                <div className="toolbar_btn_div" ><OverlayTrigger placement="auto" overlay={<Tooltip> {TC_WARNINGTESTCASES} </Tooltip>}><Button id="tcFilterSelectionWarningBtn" className={"test-selection-toolbar-btn " + (selectedFilters.includes("WARNING") ? "warning-filter" : null)}><img src="../../images/warning.png" alt="warning-testCase" className="plot-toolbar-img" onClick={() => this.selectTestCase('WARNING')} /></Button></OverlayTrigger></div>
+                <div className="toolbar_btn_div" ><OverlayTrigger placement="auto" overlay={<Tooltip> {TC_CLEARFILTERS} </Tooltip>}><Button id="tcFilterSelectionClearFiltertn" className={"test-selection-toolbar-btn"}><img src="../../images/clear-filters.png" alt="clear-filters" className="plot-toolbar-img" onClick={() => this.clearFiltersTestCase()} /></Button></OverlayTrigger></div>
                 {/* <div className="sleep-info-icon-test-config" ><OverlayTrigger placement="bottom" overlay={<Tooltip className="tooltip-inner-content-align">Click the required filter to select all test cases under the particular category</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" /></OverlayTrigger></div> */}
               </div>
               {/* : null} */}
@@ -369,6 +369,7 @@ const PanelTestConfig = observer(
                 </FlexView>
               </div>
               <Input
+                id="tcSearchTestCaseInputField"
                 className='panel-search-input '
                 placeholder=" &#xf002; Search"
                 onChange={(event, data) => {

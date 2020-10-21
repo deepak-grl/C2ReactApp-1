@@ -22,7 +22,7 @@ const SPTConfig = observer((props) => {
                 <td className="panellabel">Port Type</td>
                 <td className="dropdown-config">
                   <Dropdown >
-                    <Dropdown.Toggle className= "dropdowncustom" variant="success" id="dropdown-basic">{sptconfiginfo.portType}</Dropdown.Toggle>
+                    <Dropdown.Toggle className= "dropdowncustom" variant="success" id="tcSorcePowerPortTypeComboBox">{sptconfiginfo.portType}</Dropdown.Toggle>
                     <Dropdown.Menu>
                       {
                       Constants.NoOfPorts.map((uutType, index) => {

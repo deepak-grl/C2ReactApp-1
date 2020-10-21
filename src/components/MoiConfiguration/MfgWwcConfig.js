@@ -30,14 +30,14 @@ const MfgWwcConfig = observer((props) => {
         var selectedTestCaseList = mainstore.testConfiguration.selectedTestList;
         if (selectedTestCaseList.includes(Constants.CBChargerTid10) || selectedTestCaseList.includes(Constants.CBChargerTid14)) {
             displayFrSwapBoard = <>
-                <Form.Check className="form-check-align" label="FR_Swap Board" type='checkbox' onChange={isFRSwapBoardConnectedToTheDut}  checked={cbChargerInfo.is_FRSwapConnected} />
-                <a href="javascript:void(0);" onClick={showFrSwapBoardSetupImagePopUp} className="connection-setup-image cb-setup-image">Setup Diagram</a>
+                <Form.Check className="form-check-align" id="tcMfgFRSwapBoardInputCheckBox" label="FR_Swap Board" type='checkbox' onChange={isFRSwapBoardConnectedToTheDut} checked={cbChargerInfo.is_FRSwapConnected} />
+                <a href="javascript:void(0);" td="tcMfgFRSwapBoardSetupDiagramLinkLabel" onClick={showFrSwapBoardSetupImagePopUp} className="connection-setup-image cb-setup-image">Setup Diagram</a>
             </>
         }
         if (selectedTestCaseList.includes(Constants.CBChargerTid11)) {
             displayFlirCamera = <>
-                <Form.Check className="form-check-align" label="FLIR Camera" type='checkbox' onChange={isFLIRCameraConnectedToTheDut} checked={cbChargerInfo.is_FLIRConnected} />
-                <a href="javascript:void(0);" onClick={showFlirCameraSetupImagePopUp} className="connection-setup-image cb-setup-image">Setup Diagram</a>
+                <Form.Check className="form-check-align" id="tcMfgFLIRCameraCheckBox" label="FLIR Camera" type='checkbox' onChange={isFLIRCameraConnectedToTheDut} checked={cbChargerInfo.is_FLIRConnected} />
+                <a href="javascript:void(0);" id="tcMfgFLIRCameraSetupDiagramLinkLabel" onClick={showFlirCameraSetupImagePopUp} className="connection-setup-image cb-setup-image">Setup Diagram</a>
             </>
         }
     }

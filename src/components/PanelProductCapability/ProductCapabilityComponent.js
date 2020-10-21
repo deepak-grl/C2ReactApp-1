@@ -126,8 +126,8 @@ const ProductCapabilityComponent = observer(
                         <FlexView>
                             <Form className="form-padding">
                                 <span>Select Test Mode </span>
-                                <label className="test-mode-label"><input type='radio' className="test-mode-radio-btn" value={Constants.COMPLIANCE_MODE} checked={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} onChange={this.appModeSelectionRadBtnClick} />Compliance </label>
-                                <label className="test-mode-label"><input type='radio' className="test-mode-radio-btn" value={Constants.INFORMATIONAL_MODE} checked={mainstore.productCapabilityProps.executionMode === Constants.INFORMATIONAL_MODE} onChange={this.appModeSelectionRadBtnClick} />Informational (No VIF)</label>
+                                <label className="test-mode-label"><input type='radio' id="pcComplianceTestRadioBtn" className="test-mode-radio-btn" value={Constants.COMPLIANCE_MODE} checked={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} onChange={this.appModeSelectionRadBtnClick} />Compliance </label>
+                                <label className="test-mode-label"><input type='radio' id="pcInformationalTestRadioBtn" className="test-mode-radio-btn" value={Constants.INFORMATIONAL_MODE} checked={mainstore.productCapabilityProps.executionMode === Constants.INFORMATIONAL_MODE} onChange={this.appModeSelectionRadBtnClick} />Informational (No VIF)</label>
                             </Form>
                         </FlexView>
 
@@ -143,7 +143,7 @@ const ProductCapabilityComponent = observer(
                                 <p className="panelHeading">Device Data Operation</p>
                                 <FlexView>
                                     <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip>{this.state.generateVIFFileDeviceData} </Tooltip>}>
-                                        <Button className="grl-button generate-vif-device-btn generate-vif-button-height-min-screen" onClick={this.showDialogForVifGenerationDialog.bind(this)}>{this.state.generateVIFFileDeviceData} </Button>
+                                        <Button className="grl-button generate-vif-device-btn generate-vif-button-height-min-screen" id="pcGenerateVifDeviceDataBtn" onClick={this.showDialogForVifGenerationDialog.bind(this)}>{this.state.generateVIFFileDeviceData} </Button>
                                     </OverlayTrigger>
                                 </FlexView>
                             </>}
@@ -152,13 +152,13 @@ const ProductCapabilityComponent = observer(
                             {mainstore.productCapabilityProps.executionMode !== Constants.COMPLIANCE_MODE ?
                                 <>
                                     <OverlayTrigger placement="top" overlay={<Tooltip>Copy Device data to VIF data</Tooltip>}>
-                                        <Button className="grl-button-blue copyGetCapsbtn" disabled={!mainstore.isGetCapsEnabled} onClick={this.copyDeviceData.bind(this)}>Copy Device Data to VIF Data</Button>
+                                        <Button className="grl-button-blue copyGetCapsbtn" id="pcCopyDeviceDataToVifDataBtn" disabled={!mainstore.isGetCapsEnabled} onClick={this.copyDeviceData.bind(this)}>Copy Device Data to VIF Data</Button>
                                     </OverlayTrigger>
                                 </>
                                 : null}
 
                             <OverlayTrigger placement="top" overlay={<Tooltip> {PC_FILE_CONVERTER_BTN} </Tooltip>}>
-                                <a href="javascript:void(0);" onClick={() => window.open("https://www.usb.org/document-library/usb-vendor-info-file-generator")} className={"xml-tool" + compilanceModeSelected} id="file-converter-button">VIF Generator</a>
+                                <a href="javascript:void(0);" onClick={() => window.open("https://www.usb.org/document-library/usb-vendor-info-file-generator")} className={"xml-tool" + compilanceModeSelected} id="pcVifGeneratorLinkLabel">VIF Generator</a>
                             </OverlayTrigger>
                         </FlexView>
                     </FlexView>

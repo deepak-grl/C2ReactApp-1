@@ -144,11 +144,10 @@ const MoiComponents = observer(
                 <>
                     <FlexView column className="panel-setWidth" column>
                         <div onWheel={(e) => utils.listenScrollEvent(e)} className="scroll moi-container" >
-
                             <FlexView>
                                 <label className="checkbox-label-width">
-                                    <input type="checkbox" disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} className="functional-moi-checkbox" checked={mainstore.commonMoiSetting.isDisableAllPopupChecked} type='checkbox' onChange={(e) => { this.enableOrDisableAllPopup(e) }} />Timeout Pop-up Messages
-                                            </label>
+                                    <input type="checkbox" id="tcTimeoutPopupMessageCheckBox" disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} className="functional-moi-checkbox" checked={mainstore.commonMoiSetting.isDisableAllPopupChecked} type='checkbox' onChange={(e) => { this.enableOrDisableAllPopup(e) }} />Timeout Pop-up Messages
+                                </label>
                                 <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{ENABLEORDISABLEPOPUP}</Tooltip>}>
                                     <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
                                 </OverlayTrigger>
@@ -156,18 +155,18 @@ const MoiComponents = observer(
                                 {mainstore.commonMoiSetting.isDisableAllPopupChecked ?
                                     <div className="popup-timer-div">
                                         <span>Popup Timer(sec)</span>
-                                        <input type="textbox" className="popup-timer-input" value={mainstore.commonMoiSetting.defaultTimerForPopup} onChange={(e) => { this.defaultTimerForPopupOnChange(e) }} />
+                                        <input type="textbox" id="tcPopupTimerInputField" className="popup-timer-input" value={mainstore.commonMoiSetting.defaultTimerForPopup} onChange={(e) => { this.defaultTimerForPopupOnChange(e) }} />
                                     </div>
                                     : null}
                             </FlexView>
                             <FlexView>
                                 <label className="checkbox-label-width">
-                                    <input type="checkbox" className="functional-moi-checkbox" disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} checked={this.state.isReRunSelected} type='checkbox' onChange={(e) => { this.reRunSelectedTests(e) }} />Rerun Selected Tests
+                                    <input type="checkbox" id="tcRunSelectedTestsCheckBox" className="functional-moi-checkbox" disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} checked={this.state.isReRunSelected} type='checkbox' onChange={(e) => { this.reRunSelectedTests(e) }} />Rerun Selected Tests
                                             </label>
-                                <input type="textbox" className="popup-timer-input" disabled={!this.state.isReRunSelected} value={this.state.isReRunSelected ? mainstore.testExecutionRepeat : 0} onChange={(e) => { this.reRunSelectedTestsInputValue(e) }} />
+                                <input type="textbox" id="tcRunSelectedTestInputField" className="popup-timer-input" disabled={!this.state.isReRunSelected} value={this.state.isReRunSelected ? mainstore.testExecutionRepeat : 0} onChange={(e) => { this.reRunSelectedTestsInputValue(e) }} />
 
                                 <label className="debug-mode-checkbox checkbox-label-width">
-                                    <input type="checkbox" className="functional-moi-checkbox" disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} checked={mainstore.commonMoiSetting.enableDebugMode} type='checkbox' onChange={(e) => { this.debugMode(e) }} />Enable Debug Mode
+                                    <input type="checkbox" id="tcTimeoutEnableDebugModeCheckBox"  className="functional-moi-checkbox" disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} checked={mainstore.commonMoiSetting.enableDebugMode} type='checkbox' onChange={(e) => { this.debugMode(e) }} />Enable Debug Mode
                                  </label>
                                 <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{ENABLEDEBUGMODE}</Tooltip>}>
                                     <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />

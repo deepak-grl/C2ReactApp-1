@@ -25,7 +25,7 @@ const QC4Config = observer((props) => {
               <td className="panellabel">QC4 DUT Type</td>
               <td className="dropdown-config">
                 <Dropdown>
-                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{qc4Info.dutType}</Dropdown.Toggle>
+                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcQc4QC4DutTypeComboBox">{qc4Info.dutType}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.QC4DutTypes.map((uutType, index) => {
@@ -39,7 +39,7 @@ const QC4Config = observer((props) => {
 
             <tr>
               <td className="panellabel">Room Temperature </td>
-              <td className="panel-input"><Form.Control className="panelcontrol textbox" value={qc4Info.roomTemperature} onChange={roomTempTextBoxOnChange} placeholder="" /></td>
+              <td className="panel-input"><Form.Control className="panelcontrol textbox" value={qc4Info.roomTemperature} id="tcQc4RoomTemperatureInputField" onChange={roomTempTextBoxOnChange} placeholder="" /></td>
               <td className="alignlabel">(&#x2103;)</td>
             </tr>
 

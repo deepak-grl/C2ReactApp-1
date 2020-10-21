@@ -26,7 +26,7 @@ const BCTestConfig = observer((props) => {
                             <td className="panellabel">Secondary Detection</td>
                             <td className="dropdown-config">
                                 <Dropdown >
-                                    <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{bc_1_2configinfo.secondary_detection}</Dropdown.Toggle>
+                                    <Dropdown.Toggle  className="dropdowncustom" variant="success" id="tcBc1.2SecondaryDetectionComboBox">{bc_1_2configinfo.secondary_detection}</Dropdown.Toggle>
                                     <Dropdown.Menu>
                                         {
                                             Constants.BCDetectionTypes.map((detectType, index) => {
@@ -39,7 +39,7 @@ const BCTestConfig = observer((props) => {
                         </tr>
                         <tr>
                             <td className="panellabel">Maximum Current</td>
-                            <td className="panel-input"><Form.Control className="panelcontrol textbox" value={bc_1_2configinfo.bC_1_2_MaxCurrent} onChange={maximumCurrentTextBoxOnChange} placeholder="" /></td>
+                            <td className="panel-input"><Form.Control className="panelcontrol textbox" id="tcBc1.2MaximumCurrentInputField" value={bc_1_2configinfo.bC_1_2_MaxCurrent} onChange={maximumCurrentTextBoxOnChange} placeholder="" /></td>
                         </tr>
                     </tbody>
                 </Table>

@@ -60,7 +60,7 @@ const FunctionalConfig = observer((props) => {
     if (selectedTestCaseList.includes(Constants.USBFunctionalDeadBatteryTest)) {
       showDeadBatteryCheckBox = <FlexView>
         <label className="checkbox-label-width">
-          <input type="checkbox" className="functional-moi-checkbox" checked={funcInfo.isBatteryConnectedToTheDut} type='checkbox' onChange={isBatteryConnectedToTheDut} />Is Battery Connected to DUT
+          <input type="checkbox" id="tcUSB-CFunctionalIsBatteryConnectedToDutCheckBox" className="functional-moi-checkbox" checked={funcInfo.isBatteryConnectedToTheDut} type='checkbox' onChange={isBatteryConnectedToTheDut} />Is Battery Connected to DUT
        </label>
         <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{USB_C_FUNCTIONAL_MOI_INFO}</Tooltip>}>
           <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
@@ -78,7 +78,7 @@ const FunctionalConfig = observer((props) => {
       <tr>
         <td className="usb-panel-label">Number of USB Type-C ports</td>
         <td className="usb-td-label">
-          <input className="usbPanelcontrol textbox" value={funcInfo.numberofType_C_Ports} onChange={usbTypeCPortOnchange} />
+          <input className="usbPanelcontrol textbox" id="tcUSB-CFunctionalNumberofUSBTypeCPortsInputField" value={funcInfo.numberofType_C_Ports} onChange={usbTypeCPortOnchange} />
           <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{USB_TYPE_C_PORT}</Tooltip>}>
             <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
           </OverlayTrigger>
@@ -88,7 +88,7 @@ const FunctionalConfig = observer((props) => {
       <tr>
         <td className="usb-panel-label">Number of USB Type-B/Micro-B receptacle or Type-A plug </td>
         <td className="usb-td-label">
-          <input className="usbPanelcontrol textbox" value={funcInfo.numberofMicroBPorts} onChange={usbTypeBPortOnchange} />
+          <input className="usbPanelcontrol textbox" id="tcUSB-CFunctionalNumberofUSBType-BReceptaclesInputField" value={funcInfo.numberofMicroBPorts} onChange={usbTypeBPortOnchange} />
           <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{USB_TYPE_B_PORT}</Tooltip>}>
             <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
           </OverlayTrigger>
@@ -100,7 +100,7 @@ const FunctionalConfig = observer((props) => {
         <td>
           <FlexView>
             <label className="checkbox-label-width">
-              <input type="checkbox" className="functional-moi-checkbox" checked={funcInfo.isConnectedHub} type='checkbox' onChange={isConnectedHub} />Is connected Hub is embedded
+              <input type="checkbox" id="tcUSB-CFunctionalIsConnectedHubIsEmbeddedCheckBox" className="functional-moi-checkbox" checked={funcInfo.isConnectedHub} type='checkbox' onChange={isConnectedHub} />Is connected Hub is embedded
           </label>
             <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{USB_HUB_CONNECTED}</Tooltip>}>
               <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
@@ -125,7 +125,7 @@ const FunctionalConfig = observer((props) => {
                 <td col="true"></td>
                 <td>
                   <label className="checkbox-label-width">
-                    <input type="checkbox" className="checkbox-align-custom" disabled={mainstore.productCapabilityProps.executionMode === "ComplianceMode" ? true : funcInfo.typeCCanActAsHostValue === 0 && funcInfo.typeCCanActAsDeviceValue === 0}
+                    <input type="checkbox" id="tcUSB-CFunctionalEnableUSBDataValidationCheckBox" className="checkbox-align-custom" disabled={mainstore.productCapabilityProps.executionMode === "ComplianceMode" ? true : funcInfo.typeCCanActAsHostValue === 0 && funcInfo.typeCCanActAsDeviceValue === 0}
                       onChange={OnisHSValidationEnabledChange} type='checkbox' checked={funcInfo.isHSValidationEnabled} /> Enable USB Data Validation
                 </label>
                 </td>
@@ -134,9 +134,9 @@ const FunctionalConfig = observer((props) => {
                 <td col="true"></td>
                 <td>
                   <label className="checkbox-label-width">
-                    <input type="checkbox" className="checkbox-align-custom" disabled={funcInfo.isHSValidationEnabled === false} onChange={OnisValidationAutomatedEnabledChange} type='checkbox' checked={funcInfo.isValidationAutomated} />Automate USB Data Validation
+                    <input type="checkbox" id="tcUSB-CFunctionalAutomateUSBDataValidationCheckBox" className="checkbox-align-custom" disabled={funcInfo.isHSValidationEnabled === false} onChange={OnisValidationAutomatedEnabledChange} type='checkbox' checked={funcInfo.isValidationAutomated} />Automate USB Data Validation
                   </label>
-                  <a href="javascript:void(0);" onClick={showUsbCManualTestSetupImagePopUp} className="connection-setup-image usbc-setup-image">Setup Image</a>
+                  <a href="javascript:void(0);" id="tcUSB-CFunctionalAutomateUSBDataValidationSetupImageLinkLabel" onClick={showUsbCManualTestSetupImagePopUp} className="connection-setup-image usbc-setup-image">Setup Image</a>
                 </td>
               </tr>
               {/* <tr>
@@ -148,7 +148,7 @@ const FunctionalConfig = observer((props) => {
               <tr>
                 <td >Device URL </td>
                 <td className="usb-td-label">  {/*className="panel-input"*/}
-                  <input type="text" className="usbPanelcontrol textbox" disabled={funcInfo.isValidationAutomated === false} value={funcInfo.serverURL} onChange={serverURLTextBoxOnChange} placeholder="" />
+                  <input type="text" id="tcUSB-CFunctionalDeviceURLInputField" className="usbPanelcontrol textbox" disabled={funcInfo.isValidationAutomated === false} value={funcInfo.serverURL} onChange={serverURLTextBoxOnChange} placeholder="" />
                   <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{USB_FUNCTIONAL_DEVICE_URL}</Tooltip>}>
                     <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
                   </OverlayTrigger>

@@ -184,7 +184,7 @@ const VIFLoadComponent = observer(
                     <FlexView>
                         <label className="load-vif-label">Load VIF</label>
                         <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip>{"Load DUT's XML VIF File"} </Tooltip>}>
-                            <Button className="grl-button load-vif-button" id="load_xml_vif_button" onClick={(e) => { this.displayFileDialog(e) }}>{mainstore.productCapabilityProps.vifFileName}</Button>
+                            <Button className="grl-button load-vif-button" id="pcLoadXmlVifFileBtn" onClick={(e) => { this.displayFileDialog(e) }}>{mainstore.productCapabilityProps.vifFileName}</Button>
                         </OverlayTrigger>
                     </FlexView>
 
@@ -192,21 +192,21 @@ const VIFLoadComponent = observer(
                         <div>
                             <FlexView>
                                 <OverlayTrigger placement="top" trigger="hover" overlay={<Tooltip >Create a new VIF File in Xml Format</Tooltip>}>
-                                    <Button className="grl-button createNewFilebtn" onClick={(e) => { this.showVifModal(e) }} >Create New VIF </Button>
+                                    <Button className="grl-button createNewFilebtn" id="pcCreateNewVifBtn" onClick={(e) => { this.showVifModal(e) }} >Create New VIF </Button>
                                 </OverlayTrigger>
                                 {/* <OverlayTrigger placement="auto" overlay={<Tooltip>Set Default Values</Tooltip>}>
                                     <Button className="grl-button createNewFilebtn"  onClick={(e) => { this.setDefaultValues(e) }} >Default Values</Button>
                                 </OverlayTrigger> */}
                                 <div className="clear-vif-link-label-div">
                                     <OverlayTrigger placement="bottom" overlay={<Tooltip>{PC_CLEAR_BTN}</Tooltip>}>
-                                        <a href="javascript:void(0);" className="clear-btn" onClick={this.clearVifData.bind(this)} >Clear VIF Data</a>
+                                        <a href="javascript:void(0);" id className="clear-btn" id="pcClearVifDataLinkLabel" onClick={this.clearVifData.bind(this)} >Clear VIF Data</a>
                                     </OverlayTrigger>
                                 </div>
                             </FlexView>
 
                             <FlexView className="generate-vif-container" >
                                 <OverlayTrigger placement="bottom" trigger="hover" overlay={<Tooltip>{this.state.generateVIFFile} </Tooltip>}>
-                                    <Button className="grl-button generate-vif-btn generate-vif-button-height-min-screen" onClick={this.showDialogForVifGenerationDialog.bind(this)}>{this.state.generateVIFFile} </Button>
+                                    <Button className="grl-button generate-vif-btn generate-vif-button-height-min-screen" id="pcGenerateVifVifDataBtn" onClick={this.showDialogForVifGenerationDialog.bind(this)}>{this.state.generateVIFFile} </Button>
                                 </OverlayTrigger>
 
                                 <FlexView className="edit-vif-toggle-btn">
@@ -214,6 +214,7 @@ const VIFLoadComponent = observer(
                                     <OverlayTrigger placement="top" overlay={<Tooltip> {EDIT_TEXTBOX} </Tooltip>}>
                                         <div className="toggle-switch">
                                             <Switch
+                                                id="pcEditVifToggleSwitch"
                                                 checked={this.state.editVifValues}
                                                 onChange={this.vifEditToggleButtonClicked.bind(this)}
                                                 onColor="#0000ff"
@@ -243,9 +244,9 @@ const VIFLoadComponent = observer(
                         </Modal.Header>
                         <Modal.Body>
                             <FlexView column >
-                                <Dropdown className="irDrop-port-align" >
+                                <Dropdown className="irDrop-port-align" id="pcVifConfigDutTypeComboBox" >
                                     <span className="label-text-padding">DUT Type</span>
-                                    <Dropdown.Toggle className="dropdowncustom vif-config-dropdown" variant="success">{this.state.dutType}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom vif-config-dropdown" id="pcVifConfigDutTypeComboBox" variant="success">{this.state.dutType}</Dropdown.Toggle>
                                     <Dropdown.Menu className="vif-config-dropdown-menu">
                                         {
                                             Constants.DUT_TYPE.map((dutType, index) => {
@@ -257,17 +258,17 @@ const VIFLoadComponent = observer(
                                 <FlexView>
                                     <span className="port-label-padding">Set Default Value</span>
                                     <label className="label-checkbox-align">
-                                        <input type="radio" className="checkbox-text-align" checked={this.state.isDefaultValueChecked} onChange={this.isDefaultValueChecked} />
+                                        <input type="radio" id="pcVifConfigDefaultValueYesRadioBtn" className="checkbox-text-align" checked={this.state.isDefaultValueChecked} onChange={this.isDefaultValueChecked} />
                                         Yes
                                      </label>
 
                                     <label className="label-checkbox-align getcaps-checkbox">
-                                        <input type="radio" className="checkbox-text-align" checked={!this.state.isDefaultValueChecked} onChange={this.isDefaultValueChecked} />
+                                        <input type="radio"  id="pcVifConfigDefaultValueNoRadioBtn" className="checkbox-text-align" checked={!this.state.isDefaultValueChecked} onChange={this.isDefaultValueChecked} />
                                         No
                                     </label>
                                 </FlexView>
                                 <FlexView className="vif-config-ok-button">
-                                    <Button className="grl-button vif-config-button" onClick={() => this.handleVifConfigOkButton()}>Ok</Button>
+                                    <Button className="grl-button vif-config-button"  id="pcVifConfigOkBtn" onClick={() => this.handleVifConfigOkButton()}>Ok</Button>
                                 </FlexView>
                             </FlexView>
                         </Modal.Body>

@@ -38,10 +38,10 @@ const NewProjectButton = observer(
             return (
                 <FlexView className="project-input-field">
                     <span className="project-name-label">Project Name </span>
-                    <input type="text" className={"project-name-input" + enableBorder} value={mainstore.productCapsProjectName} onKeyPress={this.handleKeyPress} onChange={(e) => this.onProjectNameInputChange(e)} />
+                    <input type="text" className={"project-name-input" + enableBorder} id="pcNewProjectNameInputField" value={mainstore.productCapsProjectName} onKeyPress={this.handleKeyPress} onChange={(e) => this.onProjectNameInputChange(e)} />
                     {this.state.enableSaveButton ?
                         <OverlayTrigger placement="auto" overlay={<Tooltip> {PC_NEW_PROJECT_SAVE_BTN} </Tooltip>}>
-                            <Button className="grl-button btn-primary project-name-save-btn" onClick={() => this.saveProjectname()}>Save</Button>
+                            <Button className="grl-button btn-primary project-name-save-btn" id="pcNewProjectNameSaveBtn" onClick={() => this.saveProjectname()}>Save</Button>
                         </OverlayTrigger> : null}
                 </FlexView>
             );

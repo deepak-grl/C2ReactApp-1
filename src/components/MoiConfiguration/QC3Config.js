@@ -68,7 +68,7 @@ const QC3Config = observer((props) => {
               <td className="panellabel">QC 2.0/3.0 DUT Type</td>
               <td colSpan="2" className="dropdown-config">
                 <Dropdown >
-                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{qc3Info.dutType}</Dropdown.Toggle>
+                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcQc3Qc2.0/3.0DutTypeComboBox">{qc3Info.dutType}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.QC3DutTypes.map((uutType, index) => {
@@ -84,7 +84,7 @@ const QC3Config = observer((props) => {
               <td className="panellabel">Connector Type</td>
               <td colSpan="2" className="dropdown-config">
                 <Dropdown >
-                  <Dropdown.Toggle disabled={qc3Info.dutType === "QC4Plus"} className="dropdowncustom" variant="success" id="dropdown-basic">{qc3Info.dutType === "QC4Plus" ? Constants.QC3Connectortype[1] : qc3Info.connectorType}</Dropdown.Toggle>
+                  <Dropdown.Toggle disabled={qc3Info.dutType === "QC4Plus"} className="dropdowncustom" variant="success" id="tcQc3ConnectorTypeComboBox">{qc3Info.dutType === "QC4Plus" ? Constants.QC3Connectortype[1] : qc3Info.connectorType}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.QC3Connectortype.map((uutType, index) => {
@@ -100,7 +100,7 @@ const QC3Config = observer((props) => {
               <td className="panellabel">Connector Type Cable</td>
               <td colSpan="2" className="dropdown-config">
                 <Dropdown >
-                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{ qc3Info.connectorTypeCable}</Dropdown.Toggle>
+                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcQc3ConnectorTypeCableComboBox">{qc3Info.connectorTypeCable}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.CONNECTOR_TYPE_CABLE.map((cable, index) => {
@@ -115,20 +115,20 @@ const QC3Config = observer((props) => {
             {qc3Info.connectorType === Constants.QC3Connectortype[0] ?
               < tr >
                 <td className="panellabel"> Cable IR drop</td>
-                <td className="panel-input" ><Form.Control className="panelcontrol textbox" onChange={irDropTextBoxOnChange} type="text" value={qc3Info.irDrop} disabled={qc3Info.connectorType === "TypeC_TypeC"} placeholder="" /></td>
+                <td className="panel-input" ><Form.Control className="panelcontrol textbox" id="tcQc3CableIRDropComboBox" onChange={irDropTextBoxOnChange} type="text" value={qc3Info.irDrop} disabled={qc3Info.connectorType === "TypeC_TypeC"} placeholder="" /></td>
                 <td className="alignlabel">(ohm)</td>
               </tr>
               : null}
 
             <tr>
               <td className="panellabel" >5V Max  Current</td>
-              <td className="panel-input" ><Form.Control type="text" className="panelcontrol textbox" onChange={ratedCurrent5VTextBoxOnChange} value={qc3Info.ratedCurrent5V} placeholder="" /></td>
+              <td className="panel-input" ><Form.Control type="text" className="panelcontrol textbox" id="tcQc35VMaxCurrentInputField" onChange={ratedCurrent5VTextBoxOnChange} value={qc3Info.ratedCurrent5V} placeholder="" /></td>
               <td className="alignlabel">(A)</td>
             </tr>
 
             <tr>
               <td className="panellabel">9V Max Current</td>
-              <td className="panel-input"><Form.Control type="text" className="panelcontrol textbox" onChange={ratedCurrent9VTextBoxOnChange} value={qc3Info.ratedCurrent9V} placeholder="" /></td>
+              <td className="panel-input"><Form.Control type="text" className="panelcontrol textbox" id="tcQc39VMaxCurrentInputField" onChange={ratedCurrent9VTextBoxOnChange} value={qc3Info.ratedCurrent9V} placeholder="" /></td>
               <td className="alignlabel">(A)</td>
             </tr>
 
@@ -136,19 +136,19 @@ const QC3Config = observer((props) => {
               <td>
                 <p className="panellabel">
                   12V Max Current</p></td>
-              <td className="panel-input"><Form.Control type="text" className="panelcontrol textbox" onChange={ratedCurrent12VTextBoxOnChange} value={qc3Info.ratedCurrent12V} placeholder="" /></td>
+              <td className="panel-input"><Form.Control type="text" className="panelcontrol textbox" id="tcQc312VMaxCurrentInputField" onChange={ratedCurrent12VTextBoxOnChange} value={qc3Info.ratedCurrent12V} placeholder="" /></td>
               <td className="alignlabel">(A)</td>
             </tr>
 
             <tr>
-              <td className="panellabel">  <Form.Check inline onChange={isTweleveRatedCurrentEnabled} type='checkbox' />20V Max Current</td>
-              <td className="panel-input"><Form.Control type="text" className="panelcontrol textbox" onChange={ratedCurrent20VTextBoxOnChange} value={qc3Info.ratedCurrent20V} placeholder="" disabled={!qc3Info.isUUTSupports20V} /></td>
+              <td className="panellabel">  <Form.Check inline onChange={isTweleveRatedCurrentEnabled} type='checkbox' id="tcQc320VMaxCurrentCheckBox" />20V Max Current</td>
+              <td className="panel-input"><Form.Control type="text" className="panelcontrol textbox" id="tcQc320VMaxCurrentInputField" onChange={ratedCurrent20VTextBoxOnChange} value={qc3Info.ratedCurrent20V} placeholder="" disabled={!qc3Info.isUUTSupports20V} /></td>
               <td className="alignlabel">(A)</td>
             </tr>
 
             <tr>
               <td className="panellabel">DUT Rated Power</td>
-              <td className="panel-input"><Form.Control type="text" className="panelcontrol textbox" onChange={dutRatedPowerTextBoxOnChange} value={qc3Info.dutRatedPower} placeholder="" /></td>
+              <td className="panel-input"><Form.Control type="text" className="panelcontrol textbox" id="tcQc3DutRatedPowerInputField" onChange={dutRatedPowerTextBoxOnChange} value={qc3Info.dutRatedPower} placeholder="" /></td>
               <td className="alignlabel">(W)</td>
             </tr>
 
@@ -156,7 +156,7 @@ const QC3Config = observer((props) => {
               <td className="panellabel">Ports</td>
               <td colSpan="2" className="dropdown-config">
                 <Dropdown >
-                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{qc3Info.ports}</Dropdown.Toggle>
+                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcQc3PortsComboBox">{qc3Info.ports}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.NoOfPorts.map((uutType, index) => {
@@ -172,7 +172,7 @@ const QC3Config = observer((props) => {
               <td className="panellabel">PD Support</td>
               <td colSpan="2" className="dropdown-config">
                 <Dropdown >
-                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{qc3Info.pdSupported}</Dropdown.Toggle>
+                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcQc3PdSupportComboBox">{qc3Info.pdSupported}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.PDSupport.map((uutType, index) => {
@@ -188,7 +188,7 @@ const QC3Config = observer((props) => {
               <td className="panellabel">QC DUT Type</td>
               <td colSpan="2" className="dropdown-config">
                 <Dropdown >
-                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{qc3Info.qcDUTtype}</Dropdown.Toggle>
+                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcQc3QcDutTypeComboBox">{qc3Info.qcDUTtype}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.QCDutCategory.map((uutType, index) => {
@@ -202,7 +202,7 @@ const QC3Config = observer((props) => {
             {qc3Info.qcDUTtype === Constants.QCDutCategory[2] ?   // showing the ISV only in QC3+ test cases
               <tr>
                 <td className="panellabel">Input Supply Voltage</td>
-                <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={qc3Info.inputSupplyVoltage} onChange={inputsupplyvoltageTextBoxOnChange} placeholder="" /></td>
+                <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={qc3Info.inputSupplyVoltage} id="tcQc3InputSupplyVoltageInputField" onChange={inputsupplyvoltageTextBoxOnChange} placeholder="" /></td>
                 <td className="alignlabel">
                   (V)
                   <OverlayTrigger placement="bottom" popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} overlay={<Tooltip className="car-charger-tooltip-inner-content-align">{CAR_CHARGER}</Tooltip>}>

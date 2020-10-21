@@ -47,30 +47,30 @@ const Report = observer(
                                 </tr>
                                 <tr>
                                     <td className="panellabel">Manufacturer</td>
-                                    <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={mainstore.reportUserInputs.manufacturer} onChange={this.handleOnManufacturerTextChange} /></td>
+                                    <td className="panel-input"><Form.Control className="panelcontrol textbox" id="tcReportManufacturerInputField" type="text" value={mainstore.reportUserInputs.manufacturer} onChange={this.handleOnManufacturerTextChange} /></td>
                                 </tr>
                                 <tr>
                                     <td className="panellabel">Model Number</td>
-                                    <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={mainstore.reportUserInputs.modelNumber} onChange={this.handleOnModelNumberTextChange} /></td>
+                                    <td className="panel-input"><Form.Control className="panelcontrol textbox" id="tcReportModelNumberInputField" type="text" value={mainstore.reportUserInputs.modelNumber} onChange={this.handleOnModelNumberTextChange} /></td>
                                 </tr>
                                 <tr>
                                     <td className="panellabel">Serial Number</td>
-                                    <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={mainstore.reportUserInputs.serialNumber} onChange={this.handleOnSerialNumberTextChange} /></td>
+                                    <td className="panel-input"><Form.Control className="panelcontrol textbox" id="tcReportSerialNumberInputField" type="text" value={mainstore.reportUserInputs.serialNumber} onChange={this.handleOnSerialNumberTextChange} /></td>
                                 </tr>
                                 <tr >
                                     <td colSpan="2" className="panelHeading">Test Information</td>
                                 </tr>
                                 <tr>
                                     <td className="panellabel">Test Lab</td>
-                                    <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={mainstore.reportUserInputs.testLab} onChange={this.handleOnTestLabTextChange} /></td>
+                                    <td className="panel-input"><Form.Control className="panelcontrol textbox" id="tcReportTestLabInputField" type="text" value={mainstore.reportUserInputs.testLab} onChange={this.handleOnTestLabTextChange} /></td>
                                 </tr>
                                 <tr>
                                     <td className="panellabel" >Test Engineer</td>
-                                    <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={mainstore.reportUserInputs.testEngineer} onChange={this.handleOnTestEngineerTextChange} /></td>
+                                    <td className="panel-input"><Form.Control className="panelcontrol textbox" id="tcReportTestEngineerInputField" type="text" value={mainstore.reportUserInputs.testEngineer} onChange={this.handleOnTestEngineerTextChange} /></td>
                                 </tr>
                                 <tr>
                                     <td className="panellabel">Remarks/Comments</td>
-                                    <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={mainstore.reportUserInputs.remarks} onChange={this.handleOnRemarkTextChange} /></td>
+                                    <td className="panel-input"><Form.Control className="panelcontrol textbox" id="tcReportRemarksInputField" type="text" value={mainstore.reportUserInputs.remarks} onChange={this.handleOnRemarkTextChange} /></td>
                                 </tr>
                             </tbody>
                         </Table>

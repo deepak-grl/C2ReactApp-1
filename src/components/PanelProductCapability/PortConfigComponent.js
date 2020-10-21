@@ -142,17 +142,17 @@ const PortConfigComponent = observer(
                 secondaryPortAlign = "secondary-port-align"
             }
             this.setgetCapsStatusDescrpition()
-
             return (<>
                 <FlexView column>
                     {(this.props.portnumber === Constants.PORTA) ? <p className="panelHeading">Port 1</p> : <p className="panelHeading">Port 2</p>}
 
                     {mainstore.numberofPorts === true ?
                         null :
-                        <Dropdown className="dut-port-align">
+                        <Dropdown className="dut-port-align" >
                             <span className="label-text-padding primaryport-padding">{this.props.portnumber === Constants.PORTA ? "Primary Port" : "Secondary Port"}</span>
-                            <Dropdown.Toggle className={"dropdowncustom " + secondaryPortAlign} variant="success" id="dropdown-basic" > {(this.state.selectedPort) ? (this.state.selectedPort) : ("Please Select Connected Port")}   </Dropdown.Toggle>
-                            <Dropdown.Menu>
+
+                            <Dropdown.Toggle className={"dropdowncustom " + secondaryPortAlign} variant="success" id={"pc" + (this.props.portnumber === Constants.PORTA ? Constants.PORT_TYPES[0] : Constants.PORT_TYPES[1]) + "PrimarySecondaryPortComboBox"}> {(this.state.selectedPort) ? (this.state.selectedPort) : ("Please Select Connected Port")}   </Dropdown.Toggle>
+                            <Dropdown.Menu >
                                 {
                                     mainstore.portLabelArrayEntries.map((portLabelValue, index) => {
                                         return <Dropdown.Item key={index} eventKey={portLabelValue} onSelect={this.portsDropDownOnChange.bind(this)}  >{portLabelValue}</Dropdown.Item>
@@ -170,12 +170,12 @@ const PortConfigComponent = observer(
                                     {checkDUtTypeIsEnabled ?
                                         <OverlayTrigger placement="top" overlay={<Tooltip> {PC_DUT_DISBALE_MODE} </Tooltip>}>
                                             <div className="align-dut-type">
-                                                <Dropdown.Toggle className={"dropdowncustom dut-Dropdown " + disbaleDutTypeField} variant="success" id={this.props.portnumber + "_DUT_TYPE "}>{mainstore.productCapabilityProps.ports[this.props.portnumber].dutType}</Dropdown.Toggle>    {/*Dropdown will disabled at that added a tooltip to indicate  */}
+                                                <Dropdown.Toggle className={"dropdowncustom dut-Dropdown " + disbaleDutTypeField} variant="success" id={"pc" + (this.props.portnumber === Constants.PORTA ? Constants.PORT_TYPES[0] : Constants.PORT_TYPES[1]) + "DutTypeComboBox"}>{mainstore.productCapabilityProps.ports[this.props.portnumber].dutType}</Dropdown.Toggle>    {/*Dropdown will disabled at that added a tooltip to indicate  */}
                                             </div>
                                         </OverlayTrigger>
                                         :
-                                        <Dropdown.Toggle className={"dropdowncustom dut-Dropdown"} variant="success" id={this.props.portnumber + "_DUT_TYPE "}>{mainstore.productCapabilityProps.ports[this.props.portnumber].dutType}</Dropdown.Toggle>}         {/*Dropdown in normal state without any tooltip */}
-                                    <Dropdown.Menu>
+                                        <Dropdown.Toggle className={"dropdowncustom dut-Dropdown"} variant="success" id={"pc" + (this.props.portnumber === Constants.PORTA ? Constants.PORT_TYPES[0] : Constants.PORT_TYPES[1]) + "DutTypeComboBox"}>{mainstore.productCapabilityProps.ports[this.props.portnumber].dutType}</Dropdown.Toggle>}         {/*Dropdown in normal state without any tooltip */}
+                                    <Dropdown.Menu >
                                         {
                                             Constants.USBPDDeviceType.map((uutType, index) => {
                                                 return <Dropdown.Item className="uutTypeSelection" key={index} eventKey={uutType} onSelect={this.dutTypeDropDownChange}>{uutType}</Dropdown.Item>
@@ -183,7 +183,7 @@ const PortConfigComponent = observer(
                                         }
                                     </Dropdown.Menu>
                                     <div className="product-caps-cable-selection-info-icon" >
-                                        <OverlayTrigger  popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
+                                        <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
                                             overlay={<Tooltip className="dut-type-info-tooltip tooltip-inner-content-align">{DUT_TYPE_INFO}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" />
                                         </OverlayTrigger>
                                     </div>
@@ -194,10 +194,10 @@ const PortConfigComponent = observer(
                     {mainstore.productCapabilityProps.ports[this.props.portnumber].dutType === Constants.USBPDDeviceType[6] ?
                         <div>
                             <FlexView className="dut-TypeSelection" column >
-                                {<Dropdown className="dut-port-align">
+                                {<Dropdown className="dut-port-align"  >
                                     <span className="label-text-padding">State Machine</span>
-                                    <Dropdown.Toggle disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} className="dropdowncustom state-machine-Dropdown" variant="success" id={this.props.portnumber + "_DUT_TYPE "}>{mainstore.productCapabilityProps.ports[this.props.portnumber].stateMachineType}</Dropdown.Toggle>        {/*Dropdown in normal state without any tooltip */}
-                                    <Dropdown.Menu>
+                                    <Dropdown.Toggle disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} className="dropdowncustom state-machine-Dropdown" variant="success" id={"pc" + (this.props.portnumber === Constants.PORTA ? Constants.PORT_TYPES[0] : Constants.PORT_TYPES[1]) + "StateMachineComboBox"}>{mainstore.productCapabilityProps.ports[this.props.portnumber].stateMachineType}</Dropdown.Toggle>        {/*Dropdown in normal state without any tooltip */}
+                                    <Dropdown.Menu >
                                         {
                                             Constants.STATE_MACHINE.map((machineType, index) => {
                                                 return <Dropdown.Item className="uutTypeSelection" key={index} eventKey={machineType} onSelect={this.stateMachineTypeDropDownChange}>{machineType}</Dropdown.Item>
@@ -213,10 +213,10 @@ const PortConfigComponent = observer(
                             </FlexView>
                         </div> : null}
 
-                    <Dropdown className="dut-port-align">
+                    <Dropdown className="dut-port-align"  >
                         {mainstore.reRenderCableSelectionDropDown ? null : null}             {/*we're updating "CABLE_DATA_TYPES" constant value in getcablename api ,it's not re-rendering , so using this variable to update the render method*/}
                         <span className="label-text-padding">Cable Selection</span>
-                        <Dropdown.Toggle disabled={!(mainstore.productCapabilityProps.ports[this.props.portnumber].cableType === Constants.CABLE_DATA_TYPES[0] || mainstore.productCapabilityProps.ports[this.props.portnumber].cableType === Constants.CABLE_DATA_TYPES[1]) && mainstore.productCapabilityProps.executionMode === "ComplianceMode"} className="dropdowncustom test-cableOptions-dropdown" variant="success" id={this.props.portnumber + "_CABLE_SELECTION"} >{mainstore.productCapabilityProps.ports[this.props.portnumber].cableType}</Dropdown.Toggle>
+                        <Dropdown.Toggle disabled={!(mainstore.productCapabilityProps.ports[this.props.portnumber].cableType === Constants.CABLE_DATA_TYPES[0] || mainstore.productCapabilityProps.ports[this.props.portnumber].cableType === Constants.CABLE_DATA_TYPES[1]) && mainstore.productCapabilityProps.executionMode === "ComplianceMode"} className="dropdowncustom test-cableOptions-dropdown" variant="success" id={"pc" + (this.props.portnumber === Constants.PORTA ? Constants.PORT_TYPES[0] : Constants.PORT_TYPES[1]) + "CableSelectionComboBox"} >{mainstore.productCapabilityProps.ports[this.props.portnumber].cableType}</Dropdown.Toggle>
                         {(mainstore.productCapabilityProps.ports[this.props.portnumber].cableType === Constants.CABLE_DATA_TYPES[0] || mainstore.productCapabilityProps.ports[this.props.portnumber].cableType === Constants.CABLE_DATA_TYPES[1]) && mainstore.productCapabilityProps.executionMode === "ComplianceMode" ?
                             < Dropdown.Menu >
                                 {
@@ -250,10 +250,10 @@ const PortConfigComponent = observer(
                         <div>
                             <FlexView>
                                 <OverlayTrigger placement="top" overlay={<Tooltip> {PC_GETCAP_BTN} </Tooltip>}>
-                                    <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button-blue grl-getCapabilities-button" id={this.props.portnumber + "_getCaps_button"} onClick={this.getCapabilities.bind(this)}>Get Device Data</Button>
+                                    <Button disabled={mainstore.isTesterStatusNotConnected} id={"pc" + (this.props.portnumber === Constants.PORTA ? Constants.PORT_TYPES[0] : Constants.PORT_TYPES[1]) + "GetDeviceDataBtn"} className="grl-button-blue grl-getCapabilities-button" onClick={this.getCapabilities.bind(this)}>Get Device Data</Button>
                                 </OverlayTrigger>
                                 <OverlayTrigger placement="top" overlay={<Tooltip > {PC_RESET_BTN} </Tooltip>}>
-                                    <Button className="grl-button grl-reset-button" id={this.props.portnumber + "_reset_button"} onClick={this.clearDeviceData.bind(this)} >Clear Device Data</Button>
+                                    <Button className="grl-button grl-reset-button" id={"pc" + (this.props.portnumber === Constants.PORTA ? Constants.PORT_TYPES[0] : Constants.PORT_TYPES[1]) + "ClearDeviceDataBtn"} onClick={this.clearDeviceData.bind(this)} >Clear Device Data</Button>
                                 </OverlayTrigger>
                                 <div className="clip-Loader-Align">
                                     <ClipLoader

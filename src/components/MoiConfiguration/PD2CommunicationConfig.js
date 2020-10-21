@@ -21,8 +21,8 @@ const PD2CommunicationConfig = observer((props) => {
   var vconnVoltage = dutType === Constants.USBPDDeviceType[5] ? (<tr>
     <td className="panellabel">Vconn Voltage</td>
     <td className="dropdown-config vconn-volt-info-div">
-      <Dropdown className="vconn-volt-info-img">
-        <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{pd2ConfigInfo.vconnVoltage_CE}</Dropdown.Toggle>
+      <Dropdown className="vconn-volt-info-img" >
+        <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcPd2CommunicationVconnVlotageComboBox">{pd2ConfigInfo.vconnVoltage_CE}</Dropdown.Toggle>
         <Dropdown.Menu>
           {
             Constants.CommunicationEngineVconnVoltageLevel.map((uutType, index) => {
@@ -59,7 +59,7 @@ const PD2CommunicationConfig = observer((props) => {
               <td className="panellabel">Noise Type</td>
               <td className="dropdown-config">
                 <Dropdown >
-                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{pd2ConfigInfo.noiseType}</Dropdown.Toggle>
+                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcPd2CommunicationNoiseTypeComboBox">{pd2ConfigInfo.noiseType}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.PD2Noise.map((uutType, index) => {

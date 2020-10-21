@@ -42,7 +42,7 @@ const TBTConfig = observer((props) => {
               <td className="panellabel"> Number Of Ports</td>
               <td className="dropdown-config">
                 <Dropdown >
-                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{tbtconfiginfo.portType}</Dropdown.Toggle>
+                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcTBTNumberOfPortsComboBox">{tbtconfiginfo.portType}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.NoOfPorts.map((uutType, index) => {
@@ -57,7 +57,7 @@ const TBTConfig = observer((props) => {
               <td className="panellabel">Powered Type</td>
               <td className="dropdown-config">
                 <Dropdown >
-                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{tbtconfiginfo.poweredType}</Dropdown.Toggle>
+                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcTBTPoweredTypeComboBox">{tbtconfiginfo.poweredType}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.PoweredType.map((uutType, index) => {
@@ -72,7 +72,7 @@ const TBTConfig = observer((props) => {
               <td className="panellabel">Device Type</td>
               <td className="dropdown-config">
                 <Dropdown >
-                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{tbtconfiginfo.deviceType}</Dropdown.Toggle>
+                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcTBTDeviceTypeComboBox">{tbtconfiginfo.deviceType}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.TBTDutCategory.map((uutType, index) => {
@@ -85,7 +85,7 @@ const TBTConfig = observer((props) => {
             </tr>
             <tr>
               <td className="panellabel">Stress Test Timer</td>
-              <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={tbtconfiginfo.stressTiming} onChange={stressTimingTextBoxOnChange} placeholder="" /></td>
+              <td className="panel-input"><Form.Control className="panelcontrol textbox" type="text" value={tbtconfiginfo.stressTiming} id="tcTBTStressTestTimerInputField" onChange={stressTimingTextBoxOnChange} placeholder="" /></td>
               <td className="alignlabel">(secs)</td>
             </tr>
 
@@ -94,16 +94,16 @@ const TBTConfig = observer((props) => {
               <td>
                 <FlexView column>
                   <label className="checkbox-label-width">
-                    <input type="checkbox" className="checkbox-align-custom" onChange={OnisPortACapMisMatchChange} checked={tbtconfiginfo.isPortACapMisMatchSet} type='checkbox' /> Port-A CapMisMatch
+                    <input type="checkbox" className="checkbox-align-custom" id="tcTBTPortACapMisMatchCheckBox" onChange={OnisPortACapMisMatchChange} checked={tbtconfiginfo.isPortACapMisMatchSet} type='checkbox' /> Port-A CapMisMatch
                   </label>
                   <label className="checkbox-label-width">
-                    <input type="checkbox" className="checkbox-align-custom" onChange={OnisPortBCapMisMatchChange} checked={tbtconfiginfo.isPortBCapMisMatchSet} type='checkbox' /> Port-B CapMisMatch
+                    <input type="checkbox" className="checkbox-align-custom" id="tcTBTPortBCapMisMatchCheckBox" onChange={OnisPortBCapMisMatchChange} checked={tbtconfiginfo.isPortBCapMisMatchSet} type='checkbox' /> Port-B CapMisMatch
                   </label>
                   <label className="checkbox-label-width">
-                    <input type="checkbox" className="checkbox-align-custom" onChange={OnisPortAGiveBackChange} checked={tbtconfiginfo.isPortAGiveBackSet} type='checkbox' />Port-A GiveBackFlag
+                    <input type="checkbox" className="checkbox-align-custom" id="tcTBTPortAGiveBackFlagCheckBox" onChange={OnisPortAGiveBackChange} checked={tbtconfiginfo.isPortAGiveBackSet} type='checkbox' />Port-A GiveBackFlag
                   </label>
                   <label className="checkbox-label-width">
-                    <input type="checkbox" className="checkbox-align-custom" onChange={OnisPortBGiveBackChange} checked={tbtconfiginfo.isPortBGiveBackSet} type='checkbox' />Port-B GiveBackFlag
+                    <input type="checkbox" className="checkbox-align-custom" id="tcTBTPortBGiveBackFlagCheckBox" onChange={OnisPortBGiveBackChange} checked={tbtconfiginfo.isPortBGiveBackSet} type='checkbox' />Port-B GiveBackFlag
                   </label>
                 </FlexView>
               </td>

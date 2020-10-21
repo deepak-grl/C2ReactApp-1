@@ -27,7 +27,7 @@ const VconnConfig = observer((props) => {
               <td className="panellabel">Vconn Voltage</td>
               <td className="dropdown-config vconn-volt-info-div">
                 <Dropdown className="vconn-volt-info-img">
-                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="dropdown-basic">{pd2DeterministicConfigInfo.vconnVoltage}</Dropdown.Toggle>
+                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcPd2DeterministicVconnVoltageComboBox">{pd2DeterministicConfigInfo.vconnVoltage}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.DeterministicVconnVoltageLevel.map((uutType, index) => {
