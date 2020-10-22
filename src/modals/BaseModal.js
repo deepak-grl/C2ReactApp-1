@@ -173,6 +173,7 @@ export const mainstore = observable({
       portType: '',
       poweredType: '',
       deviceType: '',
+      tbT_Version: '',
       stressTiming: '',
       isPortACapMisMatchSet: false,
       isPortAGiveBackSet: false,
