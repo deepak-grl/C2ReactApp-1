@@ -1,21 +1,27 @@
 import React from 'react'
-import { Form, Button } from 'react-bootstrap';
 import { basemodal, mainstore } from '../../modals/BaseModal';
 import { observe } from 'mobx';
 import { map } from 'rxjs/operators';
 import { ajax } from 'rxjs/ajax';
 import polling from 'rx-polling';
 import * as Constants from '../../Constants';
-import FlexView from 'react-flexview/lib';
 import { mouseBusy } from '../../utils';
 import PopUpModal from './PopUpModal';
-import ResultManager from '../PanelReportConfig/ResultManager';
 import toastNotification from '../../utils/toastNotification';
 class PopUpManager extends React.Component {
     constructor(props) {
         super(props);
         this.startPolling();
+
+        const disposer1 = observe(mainstore.apiMode, "isAppModeAPI", (change) => {
+            if (mainstore.apiMode.isAppModeAPI) {
+                mainstore.currentPanelIndex = 3;
+            } else {
+                mainstore.currentPanelIndex = 0;
+            }
+        });
     }
+
 
     startPolling() {
         const request$ = ajax({
@@ -54,6 +60,19 @@ class PopUpManager extends React.Component {
                         basemodal.sendPopUpDetails()
                     }
                 }
+
+                /*  Handling the API Mode or CTS mode polling  --- starts    */
+                mainstore.apiMode.appState = res.appState;
+                mainstore.apiMode.isAppModeAPI = res.isAppModeAPI
+                if (res.appState === Constants.READY)
+                    mainstore.isChartPollingForApiModeStarted = false
+                if (res.appState === Constants.BUSY && res.isAppModeAPI && !mainstore.isChartPollingForApiModeStarted) {
+                    mainstore.isChartPollingForApiModeStarted = true
+                    mainstore.panelResultPolling = true;      //Start polling      
+                    mainstore.chartPollEnabled = true;
+                }
+                /*  Handling the API Mode or CTS mode polling  --- ends */
+
             }, error => {
                 console.log("PopUpManager :: startPolling ::  AJAX ERROR ::", error);
                 if (error.status === 0) {

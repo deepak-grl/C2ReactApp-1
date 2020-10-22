@@ -297,3 +297,6 @@ Click No to stay in the Informational Mode`
 export const UNSUPPORTED_VIF = `Loaded unsupported VIF for Compilance Test Mode
 To run tests in Compliance Mode please load the VIF generated from USB-IF official VIF generator tool
 Please use Informational Test Mode to load VIF file generated from tools other than USB-IF VIF generator`
+
+export const CTS_MODE_MESSAGE = "Switch from CTS mode to API mode, \n Click OK to proceed API mode, Click Cancel to Stay in CTS mode."
+export const API_MODE_MESSAGE = "Switch from API mode to CTS mode, \n Click OK to proceed CTS mode, Click Cancel to Stay in API mode."

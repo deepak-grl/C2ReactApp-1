@@ -105,6 +105,7 @@ export const mainstore = observable({
   qcLegacyTestCase: [],
   configControllerCaptureInProgress: false,
   skipMissingVIFFieldToast: null,
+  isChartPollingForApiModeStarted: false,
 
   alert: {//TODO @Thiru please deprecate this and use the new Toast to all the places used instead of the browser alert
     alertMessage: "",

@@ -49,24 +49,28 @@ const TopNavBar = observer(
       mainstore.chartPollEnabled = runTest;
     }
 
-    apiModeChanged = () => {
-      mainstore.apiMode.appState = Constants.BUSY
-      mainstore.apiMode.isAppModeAPI = !mainstore.apiMode.isAppModeAPI
-      if (mainstore.apiMode.appState === Constants.BUSY && mainstore.apiMode.isAppModeAPI)
-        basemodal.showPopUp("Do You want Switch from API Mode to CTS mode.  \nClick OK stop the current execution.   \nClick Cancel to keep on execution under process", null, 'Info', null, false, 'OKCancel', null, this.switchedToApiMode.bind(this))
+    appModeSelection = (event) => {
+      if (event)
+        basemodal.showPopUp(Constants.CTS_MODE_MESSAGE, null, 'Info', null, false, 'OKCancel', null, this.switchedAppMode.bind(this, event))
       else
-        basemodal.putAppMode()
+        basemodal.showPopUp(Constants.API_MODE_MESSAGE, null, 'Info', null, false, 'OKCancel', null, this.switchedAppMode.bind(this, event))
     }
 
-    switchedToApiMode = () => {
+    switchedAppMode = (event) => {
       if (mainstore.popUpInputs.responseButton === "Ok") {
         basemodal.forceStopCurrentExecution()
+        mainstore.apiMode.isAppModeAPI = event;
         basemodal.putAppMode()
-      }
-      else {
-        mainstore.apiMode.isAppModeAPI = false   //keeping in the api mode 
+        if (mainstore.apiMode.isAppModeAPI) {
+          mainstore.currentPanelIndex = 3;
+        } else {
+          mainstore.currentPanelIndex = 0;
+        }
+      } else {
+        mainstore.apiMode.isAppModeAPI = !event   //to stay in the previous mode
       }
     }
+
 
     render() {
 
@@ -114,11 +118,11 @@ const TopNavBar = observer(
                   <NavItem href="#" >
                     <div className="app-modetoggle-switch">
                       <span className="app-mode-label"> Set App Mode : </span>
-                      <p className="set-app-mode-labels">API</p>
+                      <p className="set-app-mode-labels">CTS</p>
                       <Switch
                         className="app-mode-switch-btn"
                         checked={mainstore.apiMode.isAppModeAPI}
-                        onChange={this.apiModeChanged.bind(this)}
+                        onChange={this.appModeSelection}
                         onColor="#0000ff"
                         offColor="#c1c1c1"
                         offHandleColor="#06789a"
@@ -132,7 +136,7 @@ const TopNavBar = observer(
                         checkedIcon={<div style={{ color: "white", fontSize: "14px", paddingLeft: "3px" }}>  </div>}
                       // disabled={mainstore.productCapabilityProps.vifFileName === Constants.VIF_LOAD_BTN_DEFAULT}
                       />
-                      <p className="set-app-mode-labels">CTS</p>
+                      <p className="set-app-mode-labels">API</p>
                     </div>
                   </NavItem>
                   <NavItem href="#" className="progress-bar-nav-div" >

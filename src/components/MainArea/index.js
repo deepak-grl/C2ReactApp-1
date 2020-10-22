@@ -262,12 +262,15 @@ class GlassPanel extends React.Component {
     const disposer1 = observe(mainstore, "renderGlassPaneWhileGetcaps", (change) => {
       this.setState({ reRender: this.state.reRender + 1 })
     });
+    const disposer2 = observe(mainstore.apiMode, "isAppModeAPI", (change) => {
+      this.setState({ reRender: this.state.reRender + 1 })
+    });
   }
   render() {
     var isGlasspaneActive = false;
     if (mainstore.isCalibratedButtonClicked === true && mainstore.currentPanelIndex !== 5)
       isGlasspaneActive = true
-    else if (mainstore.currentPanelIndex !== 3 && mainstore.status.appState === Constants.BUSY) {
+    else if (mainstore.currentPanelIndex !== 3 && (mainstore.status.appState === Constants.BUSY || mainstore.apiMode.isAppModeAPI)) {
       isGlasspaneActive = true;
     }
 
