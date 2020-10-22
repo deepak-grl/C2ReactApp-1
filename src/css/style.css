@@ -2348,14 +2348,11 @@ width:40%!important;
 }
 
 .copyGetCapsbtn {
-  width: 50% !important;
-  margin-left: 112px;
-  margin-right: 0;
+  width: 210px;
   display: flex;
   flex: 1;
-  -webkit-justify-content: center;
   justify-content: center;
-  margin-right: 11px;
+  margin-right: 0px;
 }
 
 .xml-file-converter-link {
@@ -2367,7 +2364,7 @@ width:40%!important;
   color: blue;
   text-decoration: underline;
   margin-right: 0px;
-  width: 128px;
+  /* width: 128px; */
   margin-top: 12px;
 }
 
@@ -2382,10 +2379,11 @@ width:40%!important;
 }
 
 .generate-vif-device-btn {
-  width: 210px;
-  margin-left: 113px;
+  width: 220px!important;
+  /* margin-left: 113px; */
   flex: 1;
-  margin-right: 140px;
+  height:auto;
+  margin-right: 0;
 }
 
 .load-vif-label {

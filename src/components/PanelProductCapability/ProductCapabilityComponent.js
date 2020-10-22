@@ -145,10 +145,7 @@ const ProductCapabilityComponent = observer(
                                     <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip>{this.state.generateVIFFileDeviceData} </Tooltip>}>
                                         <Button className="grl-button generate-vif-device-btn generate-vif-button-height-min-screen" id="pcGenerateVifDeviceDataBtn" onClick={this.showDialogForVifGenerationDialog.bind(this)}>{this.state.generateVIFFileDeviceData} </Button>
                                     </OverlayTrigger>
-                                </FlexView>
-                            </>}
-
-                        < FlexView >
+                            
                             {mainstore.productCapabilityProps.executionMode !== Constants.COMPLIANCE_MODE ?
                                 <>
                                     <OverlayTrigger placement="top" overlay={<Tooltip>Copy Device data to VIF data</Tooltip>}>
@@ -156,11 +153,13 @@ const ProductCapabilityComponent = observer(
                                     </OverlayTrigger>
                                 </>
                                 : null}
-
-                            <OverlayTrigger placement="top" overlay={<Tooltip> {PC_FILE_CONVERTER_BTN} </Tooltip>}>
-                                <a href="javascript:void(0);" onClick={() => window.open("https://www.usb.org/document-library/usb-vendor-info-file-generator")} className={"xml-tool" + compilanceModeSelected} id="pcVifGeneratorLinkLabel">VIF Generator</a>
-                            </OverlayTrigger>
                         </FlexView>
+                            </>}
+
+                    
+                          <OverlayTrigger placement="top" overlay={<Tooltip> {PC_FILE_CONVERTER_BTN} </Tooltip>}>
+                                <a href="javascript:void(0);" onClick={() => window.open("https://www.usb.org/document-library/usb-vendor-info-file-generator")} className={"xml-tool " + compilanceModeSelected } id="pcVifGeneratorLinkLabel">USB-IF VIF Generator Download Link</a>
+                            </OverlayTrigger>
                     </FlexView>
 
                     <FlexView className="right-border panel-padding vif-editor-custom-width vif-editor-mobiledisplay" column >
