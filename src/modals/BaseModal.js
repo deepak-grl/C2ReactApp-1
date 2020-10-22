@@ -228,6 +228,11 @@ export const mainstore = observable({
     deterministicConfig: {
       vconnVoltage: ""
     },
+
+    pdMergedConfig: {
+      cableEnd: "",
+    },
+
     cbChargerConfiguration: {
       is_FRSwapConnected: false,
       is_FLIRConnected: false,
@@ -468,6 +473,7 @@ class BaseModal {
     this.putMoiSptComponents();
     this.putMoiTbtComponents();
     this.putDeterministicComponents();
+    this.putPdMergedComponents();
     this.putMoiFunctionalComponents();
     this.putMoiPd2Components();
     this.putCbComponents();
@@ -516,6 +522,7 @@ class BaseModal {
     this.getPortConfig(this.getTestList.bind(this))
     this.getMoiPd3Components();
     this.getMoiDeterministicComponents();
+    this.getMoiPdMergedComponents();
     this.getMoiDpAltComponents();
     this.getMoiQc4Components();
     this.getMoiQc3Components();
@@ -794,6 +801,14 @@ class BaseModal {
     });
   }
 
+  getMoiPdMergedComponents() {
+    ajax.callGET(Constants.URL_TestConfiguration + "GetPdMergedConfiguration", {}, function (response) {
+      mainstore.testConfiguration.pdMergedConfig = response.data;
+    }, function (error) {
+      console.log("Error", error);
+    });
+  }
+
   getMoiDpAltComponents() {
     ajax.callGET(Constants.URL_TestConfiguration + "GetDpAltConfiguration", {}, function (response) {
       mainstore.testConfiguration.dpAltModeConfiguration = response.data;
@@ -938,6 +953,13 @@ class BaseModal {
 
   putDeterministicComponents() {
     ajax.callAndWaitPUT(Constants.URL_TestConfiguration + "PutDeterministicConfiguration", mainstore.testConfiguration.deterministicConfig, function () {
+    }, function (error) {
+      console.log("Error", error);
+    });
+  }
+
+  putPdMergedComponents() {
+    ajax.callAndWaitPUT(Constants.URL_TestConfiguration + "PutPdMergedConfiguration", mainstore.testConfiguration.pdMergedConfig, function () {
     }, function (error) {
       console.log("Error", error);
     });

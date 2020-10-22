@@ -20,6 +20,7 @@ import PD3Config from './PD3Config';
 import { ENABLEORDISABLEPOPUP, ENABLEDEBUGMODE } from '../../Constants/tooltip';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { observe, set } from 'mobx';
+import PdMergedConfig from './PdMergedConfig';
 
 var isPopUpMoiTestCaseSelected = false;
 const MoiComponents = observer(
@@ -113,7 +114,7 @@ const MoiComponents = observer(
         }
 
         render() {
-            var showPD3Config = mainstore.selectedMoiTestCase.includes(Constants.Pd3Tests)  || this.checkIfMoiIsSelected(Constants.Pd3Tests);
+            var showPD3Config = mainstore.selectedMoiTestCase.includes(Constants.Pd3Tests) || this.checkIfMoiIsSelected(Constants.Pd3Tests);
             var showQC4Config = mainstore.selectedMoiTestCase.includes(Constants.Qc4Tests) || this.checkIfMoiIsSelected(Constants.Qc4Tests);
             var showqQC3Config = (mainstore.selectedMoiTestCase.includes(Constants.Qc3Tests) || mainstore.selectedMoiTestCase.includes(Constants.Qc3PlusTests)) || (this.checkIfMoiIsSelected(Constants.Qc3Tests) || this.checkIfMoiIsSelected(Constants.Qc3PlusTests));
             var showSptConfig = mainstore.selectedMoiTestCase.includes(Constants.SourcePowerTests) || this.checkIfMoiIsSelected(Constants.SourcePowerTests);
@@ -125,6 +126,8 @@ const MoiComponents = observer(
             var showcbChargerConfig = mainstore.selectedMoiTestCase.includes(Constants.MfgWwcTests) || this.checkIfMoiIsSelected(Constants.MfgWwcTests);
             var showMfiTestConfig = mainstore.selectedMoiTestCase.includes(Constants.MFiTests) || this.checkIfMoiIsSelected(Constants.MFiTests)
             var showBC_1_2TestConfig = mainstore.selectedMoiTestCase.includes(Constants.BC_1_2Tests) || this.checkIfMoiIsSelected(Constants.BC_1_2Tests)
+            var showPdMergedTestConfig = mainstore.selectedMoiTestCase.includes(Constants.PdMergedTests) || this.checkIfMoiIsSelected(Constants.PdMergedTests)
+
 
             let pd3Config = <PD3Config display={showPD3Config ? 'block' : 'none'} />
             let qc4Config = <QC4Config display={showQC4Config ? 'block' : 'none'} />
@@ -138,6 +141,7 @@ const MoiComponents = observer(
             let cbChargerConfig = <MfgWwcConfig display={showcbChargerConfig ? 'block' : 'none'} />
             let mfiChargerConfig = <MifiChargerConfig display={showMfiTestConfig ? 'block' : 'none'} />
             let bc_1_2TestConfig = <BCTestConfig display={showBC_1_2TestConfig ? 'block' : 'none'} />
+            let pdMergedTestConfig = <PdMergedConfig display={showPdMergedTestConfig ? 'block' : 'none'} />
             let ifTestCaseSelected = mainstore.selectedMoiTestCase.length > 0
 
             return (
@@ -166,7 +170,7 @@ const MoiComponents = observer(
                                 <input type="textbox" id="tcRunSelectedTestInputField" className="popup-timer-input" disabled={!this.state.isReRunSelected} value={this.state.isReRunSelected ? mainstore.testExecutionRepeat : 0} onChange={(e) => { this.reRunSelectedTestsInputValue(e) }} />
 
                                 <label className="debug-mode-checkbox checkbox-label-width">
-                                    <input type="checkbox" id="tcTimeoutEnableDebugModeCheckBox"  className="functional-moi-checkbox" disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} checked={mainstore.commonMoiSetting.enableDebugMode} type='checkbox' onChange={(e) => { this.debugMode(e) }} />Enable Debug Mode
+                                    <input type="checkbox" id="tcTimeoutEnableDebugModeCheckBox" className="functional-moi-checkbox" disabled={mainstore.productCapabilityProps.executionMode === Constants.COMPLIANCE_MODE} checked={mainstore.commonMoiSetting.enableDebugMode} type='checkbox' onChange={(e) => { this.debugMode(e) }} />Enable Debug Mode
                                  </label>
                                 <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{ENABLEDEBUGMODE}</Tooltip>}>
                                     <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
@@ -212,6 +216,7 @@ const MoiComponents = observer(
                             {cbChargerConfig}
                             {mfiChargerConfig}
                             {bc_1_2TestConfig}
+                            {pdMergedTestConfig}
                         </div>
                     </FlexView>
                 </>
