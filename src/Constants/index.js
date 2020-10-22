@@ -59,6 +59,7 @@ export const CommunicationEngineVconnVoltageLevel = ["_5_75V", "_2_75V", "_4_25V
 export const DeterministicVconnVoltageLevel = ["_2_75V", "_5_75V"]
 export const PD2Noise = ["Two Tone Noise", "Square Wave Noise"]
 export const BCDetectionTypes = ['Implemented', 'Not_Implemented']
+export const PDMergedCableEnd = ['End1', 'End2']
 export const CONNECTOR_TYPE_CABLE = ['Spl_Emarker_Cable', 'Standard_Cable']
 
 // MOI Configuration END
@@ -82,6 +83,7 @@ export const USBFunctionalHubPortTypesTest = "TD.4.12.2 Hub Port Types Test";
 export const MFiTests = "MFi Charger Tests";
 export const BC_1_2Tests = "BC1.2 DCP Sink Tests";
 export const Qc3PlusTests = "QC3+ Tests"
+export const PdMergedTests = "PD Merged Tests (Beta)";
 
 //Test Selection START
 export const MoiList = ["Power Delivery 3.0 Tests", "BC 1.2 Tests", "MFi Tests", "MFG and WWC Tests", "Source Power Tests", "Quick Charge 4 Tests", "PD2 Deterministic Tests", "USB-C Functional Tests", "PD2 Communication Engine Tests", "DisplayPort Alternate Mode Tests", "Quick Charger 3.0 Tests", "Thunderbolt Power Tests"]
