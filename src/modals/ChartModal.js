@@ -128,10 +128,13 @@ export class ChartModal {
             if (chartstore.signalFileReadStatus === Constants.READY || chartstore.signalFileReadStatus === Constants.ERROR) {
                 clearInterval(me.readStatusPoll)
                 chartAjaxModal.getSignalFileStartTime();
-                chartAjaxModal.getSignalFileStopTime(); //chartAjaxModal.getSignalFileStopTime(me.loadPlotData.bind(me));
-                chartAjaxModal.getChannelList(me.loadPlotData.bind(me))
+                chartAjaxModal.getSignalFileStopTime(me.loadPlotDataCallBack.bind(me)); //chartAjaxModal.getSignalFileStopTime(me.loadPlotData.bind(me));
             }
         }, 2000)
+    }
+
+    loadPlotDataCallBack() {
+        chartAjaxModal.getChannelList(this.loadPlotData.bind(this))
     }
 
     loadPlotData = () => {
