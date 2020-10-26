@@ -155,42 +155,43 @@ const PopUpModal = observer(
             }
             return (<>
                 {(mainstore.popUpInputs.displayPopUp && mainstore.popUpInputs.title !== '' && mainstore.popUpInputs.message !== '') ? <>
-                    <div className="modal-backdrop"></div>
-                    <FlexView column className={"custom-scroll-popup " + popupImgWidthHeight}>
-                        <FlexView>
-                            <p className={"popup-title "}><strong className="popup-heder-font-align" >{mainstore.popUpInputs.title}</strong></p>
-                        </FlexView>
-                        {popupImage ? null :
+                    <div className="modal-backdrop">
+                        <FlexView column className={"custom-scroll-popup " + popupImgWidthHeight}>
+                            <FlexView>
+                                <p className={"popup-title "}><strong className="popup-heder-font-align" >{mainstore.popUpInputs.title}</strong></p>
+                            </FlexView>
+                            {popupImage ? null :
+                                <hr className="horizontal-ruler" />
+                            }
+                            {popupImage}
+                            <FlexView>
+                                <FlexView className="form-group1">
+                                    {popupIcon}
+                                </FlexView>
+                                <FlexView className="form-group2 display-message-div">
+                                    <strong className={"displayMessage " + alignPopUpMessage}>{mainstore.popUpInputs.message}</strong>
+                                </FlexView>
+
+                            </FlexView>
+                            <FlexView className="form-group2">
+                                {popupInputTextBox}
+                                {/* {mainstore.popUpInputs.isFrontEndPopUp === true && <Form.Control className="modal-input-field-align" type="text" onChange={(e) => this.userInputTextBoxChange(e)} value={mainstore.popUpInputs.textBoxString} />} */}
+                            </FlexView>
+                            <div>{popupDropDown}</div>
+
                             <hr className="horizontal-ruler" />
-                        }
-                        {popupImage}
-                        <FlexView>
-                            <FlexView className="form-group1">
-                                {popupIcon}
+                            <FlexView className="popupbuttons-align">
+                                <div className="align-timer-text">
+                                    {mainstore.popUpInputs.showTimer || mainstore.enableOrDisableAllPopups && mainstore.popUpInputs.mandatePopUp === false ?
+                                        <OverlayTrigger placement="right" trigger="hover" overlay={<Tooltip style={{ zIndex: '99999', position: 'relative' }}>Pop Up will close after {mainstore.popUpInputs.showTimerForModal} secs</Tooltip>}>
+                                            <label>Time Left(sec):   <p className={"modal-timer-align"}>{mainstore.popUpInputs.showTimerForModal}</p></label>
+                                        </OverlayTrigger>
+                                        : null}
+                                </div>
+                                {this.displayButtons()}
                             </FlexView>
-                            <FlexView className="form-group2 display-message-div">
-                                <strong className={"displayMessage " + alignPopUpMessage}>{mainstore.popUpInputs.message}</strong>
-                            </FlexView>
-
                         </FlexView>
-                        <FlexView className="form-group2">
-                            {popupInputTextBox}
-                            {/* {mainstore.popUpInputs.isFrontEndPopUp === true && <Form.Control className="modal-input-field-align" type="text" onChange={(e) => this.userInputTextBoxChange(e)} value={mainstore.popUpInputs.textBoxString} />} */}
-                        </FlexView>
-                        <div>{popupDropDown}</div>
-
-                        <hr className="horizontal-ruler" />
-                        <FlexView className="popupbuttons-align">
-                            <div className="align-timer-text">
-                                {mainstore.popUpInputs.showTimer || mainstore.enableOrDisableAllPopups && mainstore.popUpInputs.mandatePopUp === false ?
-                                    <OverlayTrigger placement="right" trigger="hover" overlay={<Tooltip style={{ zIndex: '99999', position: 'relative' }}>Pop Up will close after {mainstore.popUpInputs.showTimerForModal} secs</Tooltip>}>
-                                        <label>Time Left(sec):   <p className={"modal-timer-align"}>{mainstore.popUpInputs.showTimerForModal}</p></label>
-                                    </OverlayTrigger>
-                                    : null}
-                            </div>
-                            {this.displayButtons()}
-                        </FlexView>
-                    </FlexView>
+                    </div>
                 </> : null}
             </>);
         }
