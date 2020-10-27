@@ -123,3 +123,5 @@ export const ENABLEDEBUGMODE = `Additional information will be added to test cas
 export const FIVEPORTREPEATCOUNT = `Use this option to repeat the test execution for a given number of times`
 
 export const FIVEPORTNOTE = `Navigate to product capability panel and select informational mode`
+
+export const CONFIG_CTRL_APP_MODE= `Enable DP AUX Sniffer License to decode DP AUX packets`

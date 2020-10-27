@@ -2380,10 +2380,10 @@ width:40%!important;
 }
 
 .generate-vif-device-btn {
-  width: 220px!important;
+  width: 220px !important;
   /* margin-left: 113px; */
   flex: 1;
-  height:auto;
+  height: auto;
   margin-right: 0;
 }
 
@@ -3361,6 +3361,12 @@ label {
 .configure {
   margin-left: 49px;
   margin-bottom: -4px;
+}
+
+.config-app-mode-dropdown-info-icon {
+  margin-left: 3px;
+  margin-top: 5px;
+  margin-right: -10px;
 }
 
 .app-mode-dropdown {

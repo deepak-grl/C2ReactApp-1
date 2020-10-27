@@ -4,7 +4,7 @@ import FlexView from 'react-flexview/lib';
 import * as Constants from '../../Constants';
 import { basemodal, mainstore } from '../../modals/BaseModal';
 import { ClipLoader } from 'react-spinners';
-import { APPLY_CONFIGURE } from '../../Constants/tooltip';
+import { APPLY_CONFIGURE, CONFIG_CTRL_APP_MODE } from '../../Constants/tooltip';
 import { observer } from "mobx-react";
 
 let applyStatusDescription = ""
@@ -30,7 +30,7 @@ const Configure = observer(
         onChangeAppMode = (index) => {
             mainstore.configControl.c2Config.appMode = index
             if (index === 1)
-                mainstore.configControl.c2Config.portType = 0
+                mainstore.configControl.c2Config.portType = 0;
         }
 
         onChangePdSpecType = (index) => mainstore.configControl.c2Config.pdSpecType = index;
@@ -84,8 +84,19 @@ const Configure = observer(
 
         downloadCaptureFile = () => basemodal.getCaptureFile(null);
 
-        render() {
+        dpAuxSnifferLicenseInfo = () => {
+            let dpAuxExpired = false;
+            mainstore.connectionInfo.licenseInfo.map(license => {
+                if (license["moduleName"] === "DP AUX Sniffer")
+                    if (license["moduleStatus"] === "EXPIRED")
+                        dpAuxExpired = true
+                    else
+                        dpAuxExpired = false;
+            })
+            return dpAuxExpired;
+        }
 
+        render() {
             if (mainstore.popUpInputs.spinnerID === 5)
                 applyStatusDescription = mainstore.popUpInputs.spinnerDesc
 
@@ -116,7 +127,7 @@ const Configure = observer(
 
             return (
                 <>
-                    < FlexView className="panel-padding config-controller-width configure-container" column >
+                    <FlexView className="panel-padding config-controller-width configure-container" column >
                         <p className="panelHeading">Configure</p>
                         <div className="panel-div">
                             <span className="configure-label-padding" >App Mode
@@ -129,6 +140,13 @@ const Configure = observer(
                                             })
                                         }
                                     </Dropdown.Menu>
+                                    {Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1] && this.dpAuxSnifferLicenseInfo() ?
+                                        <div className="config-app-mode-dropdown-info-icon" >
+                                            <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
+                                                overlay={<Tooltip className="dut-type-info-tooltip tooltip-inner-content-align">{CONFIG_CTRL_APP_MODE}</Tooltip>}><img className="firmware-version-icon" src="../../images/warning.png" />
+                                            </OverlayTrigger>
+                                        </div> : null
+                                    }
                                 </Dropdown >
                             </span>
 
