@@ -1759,7 +1759,7 @@
       "1:PDUSB Hub",
       "2:PDUSB Peripheral",
       "3:PSD",
-      "4:Reserved",
+      "4:Unused",
       "5:Alternate Mode Adapter(AMA)"
     ],
     "SubFields": []
@@ -2078,12 +2078,12 @@
     "MaxValue": null,
     "Multipliers": null,
     "ComboBoxEntries": [
-      "0-2:Reserved",
-      "",
-      "",
+      "0:Unused",
+      "1:Unused",
+      "2:Unused",
       "3:Passive Cable",
       "4:Active Cable",
-      "",
+      "5:Unused",
       "6:Vconn Powered Device"
     ],
     "SubFields": []
@@ -2201,8 +2201,8 @@
     "MaxValue": null,
     "Multipliers": null,
     "ComboBoxEntries": [
-      "0-1:Reserved",
-      "",
+      "0:Unused",
+      "1:Unused",
       "2:USB Type-C",
       "3:Captive"
     ],
@@ -2272,10 +2272,10 @@
     "MaxValue": null,
     "Multipliers": null,
     "ComboBoxEntries": [
-      "0:Reserved",
+      "0:Unused",
       "1:3A",
       "2:5A",
-      "3:Reserved"
+      "3:Unused"
     ],
     "SubFields": []
   },

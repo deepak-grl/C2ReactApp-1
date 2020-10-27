@@ -77,15 +77,17 @@ class VIFRow extends React.Component {
             var fileStrigify = "";//JSON.stringify(fileElement);
             var ddb = <DropdownButton id={disableVifComboBox} key={"ddb-" + index} title={fileElement.getTextValueForDropDown()} onClick={(e) => { this.showToastMessage(e) }} className={textStyle} >
                 {listitems.map((valItem, index) => {
-                    //return <Dropdown.Item key={index + valItem} eventKey={JSON.stringify(fileElement)} onSelect={this.vifDropDownSelect}>{valItem}</Dropdown.Item>
-                    return <Dropdown.Item key={index + valItem} className={disableVifComboBox + "index"}
-                        eventKey={fileStrigify}
-                        onSelect={function () {
-                            //fileItem.setCurrentValue(index);
-                            fileElement.setSelectedIndex(index);
-                            me.props.vIFEditor.updateVIFDataInUI();
-                        }}
-                    > {valItem} </Dropdown.Item>
+                    if (!valItem.includes("Unused")) {   //*Not displaying the dropdown menu option called "Unused" in UI 
+                        //return <Dropdown.Item key={index + valItem} eventKey={JSON.stringify(fileElement)} onSelect={this.vifDropDownSelect}>{valItem}</Dropdown.Item>
+                        return <Dropdown.Item key={index + valItem} className={disableVifComboBox + "index"}
+                            eventKey={fileStrigify}
+                            onSelect={function () {
+                                //fileItem.setCurrentValue(index);
+                                fileElement.setSelectedIndex(index);
+                                me.props.vIFEditor.updateVIFDataInUI();
+                            }}
+                        > {valItem} </Dropdown.Item>
+                    }
                 })
                 }
             </DropdownButton>;
