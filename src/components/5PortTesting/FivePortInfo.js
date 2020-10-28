@@ -213,6 +213,7 @@ const FivePortInfo = observer(
         }
 
         render() {
+            console.log('this.props.portNumber: ', this.props.portNumber);
             if (mainstore.fivePortConfiguration[this.props.portNumber].isEnabled === false)
                 disable5Port = " disable-port "
             else
@@ -220,6 +221,7 @@ const FivePortInfo = observer(
 
             var activePortColor = document.getElementsByClassName('nav-link')[this.props.portNumber + 3];               //3 indicates the  starting postion of 1st tab(port) in five port 
             if (mainstore.fivePortConfiguration[this.props.portNumber].isEnabled === true)
+
                 activePortColor.setAttribute('style', 'background-color:#229a22 !important');
             else {
                 if (activePortColor !== undefined && activePortColor !== " ")
@@ -237,7 +239,7 @@ const FivePortInfo = observer(
 
                             <FlexView className="five-port-label-bottom-spacing">
                                 <label className="label-project-name-align"> Project Name</label>
-                                <input type="text" className="project-name-input-field" placeholder="Name of Project" value={mainstore.fivePortConfiguration[this.props.portNumber].newProjectName ? mainstore.fivePortConfiguration[this.props.portNumber].newProjectName : ''} onChange={(e) => this.handlePojectNameOnChange(e)} />
+                                <input type="text" id={"opFivePortTestingTab" + (this.props.portNumber + 1) + "ProjectNameInputField"} className="project-name-input-field" placeholder="Name of Project" value={mainstore.fivePortConfiguration[this.props.portNumber].newProjectName ? mainstore.fivePortConfiguration[this.props.portNumber].newProjectName : ''} onChange={(e) => this.handlePojectNameOnChange(e)} />
                             </FlexView>
 
                             <FlexView className="five-port-label-bottom-spacing">
@@ -245,6 +247,7 @@ const FivePortInfo = observer(
                                 <OverlayTrigger placement="top" overlay={<Tooltip > {ENABLE_PORT} </Tooltip>}>
                                     <div className="toggle-switch">
                                         <Switch
+                                            id={"opFivePortTestingTab" + (this.props.portNumber + 1) + "EnablePortToggleSwitch"}
                                             checked={mainstore.fivePortConfiguration[this.props.portNumber].isEnabled ? mainstore.fivePortConfiguration[this.props.portNumber].isEnabled : false}
                                             onChange={() => this.enablePortToggleButtonClicked()}
                                             onColor="#0000ff"
@@ -266,7 +269,7 @@ const FivePortInfo = observer(
                             <FlexView className={disable5Port + "five-port-label-bottom-spacing"}>
                                 <Dropdown className="cable-selection-dropdown-five-port">
                                     <span className="cable-selection-label-padding">Cable Selection</span>
-                                    <Dropdown.Toggle className="dropdowncustom cable-options-dropdown grl-button" variant="success" id={this.props.portNumber + "_CABLE_SELECTION"} >{mainstore.fivePortConfiguration[this.props.portNumber].cableType}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom cable-options-dropdown grl-button" variant="success" id={"opFivePortTestingTab" + (this.props.portNumber + 1) + "CableSelectionComboBox"} >{mainstore.fivePortConfiguration[this.props.portNumber].cableType}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.CABLE_DATA_TYPES.map((data, index) => {
@@ -281,12 +284,12 @@ const FivePortInfo = observer(
                             <FlexView className={disable5Port + "five-port-label-bottom-spacing"} >
                                 <span className="port-label-padding dut-info-label">DUT Info</span>
                                 <label className="label-checkbox-align">
-                                    <input type="radio" value="vif" className="checkbox-text-align" checked={mainstore.fivePortConfiguration[this.props.portNumber].isVifLoaded ? mainstore.fivePortConfiguration[this.props.portNumber].isVifLoaded : false} onChange={() => this.isVifChecked(true)} />
+                                    <input type="radio" id={"opFivePortTestingTab" + (this.props.portNumber + 1) + "VifRadioBtn"} value="vif" className="checkbox-text-align" checked={mainstore.fivePortConfiguration[this.props.portNumber].isVifLoaded ? mainstore.fivePortConfiguration[this.props.portNumber].isVifLoaded : false} onChange={() => this.isVifChecked(true)} />
                                     VIF
                          </label>
 
                                 <label className="label-checkbox-align getcaps-checkbox">
-                                    <input type="radio" value="getcaps" className="checkbox-text-align" checked={!mainstore.fivePortConfiguration[this.props.portNumber].isVifLoaded} onChange={() => this.isVifChecked(false)} />
+                                    <input type="radio" id={"opFivePortTestingTab" + (this.props.portNumber + 1) + "DutTypeRadioBtn"} value="getcaps" className="checkbox-text-align" checked={!mainstore.fivePortConfiguration[this.props.portNumber].isVifLoaded} onChange={() => this.isVifChecked(false)} />
                                     DUT Type
                          </label>
                             </FlexView>
@@ -295,14 +298,14 @@ const FivePortInfo = observer(
                                 <FlexView className={disable5Port + "five-port-label-bottom-spacing"}>
                                     <span className="port-label-padding">VIF Source</span>
                                     <OverlayTrigger placement="top" overlay={<Tooltip > {BROWSE_VIF} </Tooltip>}>
-                                        <Button className={"grl-button load-file-button" + disable5Port} onClick={(e) => { this.displayFileDialog(e) }}>{mainstore.fivePortConfiguration[this.props.portNumber].vifFileName}</Button>
+                                        <Button id={"opFivePortTestingTab" + (this.props.portNumber + 1) + "VifSourceBtn"} className={"grl-button load-file-button" + disable5Port} onClick={(e) => { this.displayFileDialog(e) }}>{mainstore.fivePortConfiguration[this.props.portNumber].vifFileName}</Button>
                                     </OverlayTrigger>
                                 </FlexView>
                                 :
                                 <FlexView className={disable5Port + "five-port-label-bottom-spacing"}>
                                     <Dropdown className="dut-type-dropdown-five-port">
                                         <span className="port-label-padding">DUT Type</span>
-                                        <Dropdown.Toggle className="grl-button fiveport-dut-type" id={this.props.portNumber + "_DUT_TYPE"} >{mainstore.fivePortConfiguration[this.props.portNumber].dutType}</Dropdown.Toggle>
+                                        <Dropdown.Toggle className="grl-button fiveport-dut-type" id={"opFivePortTestingTab" + (this.props.portNumber + 1) + "DutTypeComboBox"} >{mainstore.fivePortConfiguration[this.props.portNumber].dutType}</Dropdown.Toggle>
                                         <Dropdown.Menu className="config-dropdown-menu">
                                             {
                                                 Constants.USBPDDeviceType.map((uutType, index) => {
@@ -318,6 +321,7 @@ const FivePortInfo = observer(
                                 <span className="port-label-padding">MOI List</span>
                                 <Select
                                     // autoFocus
+                                    id={"opFivePortTestingTab" + (this.props.portNumber + 1) + "MoiListComboBox"}
                                     isMulti
                                     placeholder="Select MOI"
                                     className='select-dropdown-padding'
@@ -347,13 +351,14 @@ const FivePortInfo = observer(
                             <FlexView className={disable5Port + "five-port-label-bottom-spacing"}>
                                 <p className="five-port-failure-repeat-text-align">Repeat Count </p>
                                 <div className="numeric-input-align-five-port">
-                                    <NumericInput className="five-port-failure-repeat-btn" min={0} max={100} value={mainstore.fivePortConfiguration[this.props.portNumber].failureRepeatCount} style={{ width: '100px' }} onChange={this.onFailureRepeatInputChange} />
+                                    <NumericInput id={"opFivePortTestingTab" + (this.props.portNumber + 1) + "RepeatCountInputField"} className="five-port-failure-repeat-btn" min={0} max={100} value={mainstore.fivePortConfiguration[this.props.portNumber].failureRepeatCount} style={{ width: '100px' }} onChange={this.onFailureRepeatInputChange} />
                                     <div className="five-port-repeat-info-icon" ><OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="tooltip-inner-content-align">{FIVEPORTREPEATCOUNT}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" /></OverlayTrigger></div>
                                 </div>
                             </FlexView>
                             <FlexView className={disable5Port + "five-port-label-bottom-spacing"}>
                                 <span className="failure-condition-label-padding">Repeat Condition</span>
                                 <Select
+                                    id={"opFivePortTestingTab" + (this.props.portNumber + 1) + "RepeastConditionBComboBox"}
                                     isMulti
                                     placeholder="Select Condition"
                                     className='failure-condition-dropdown-padding'

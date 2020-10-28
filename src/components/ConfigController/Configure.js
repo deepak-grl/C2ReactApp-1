@@ -112,7 +112,7 @@ const Configure = observer(
 
                 <span className="configure-label-padding">Controller Mode
                     {<Dropdown className="config-control-dropdown-flex">
-                        <Dropdown.Toggle className="dropdowncustom controller-mode" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1]} variant="success" id="dropdown-basic">{Constants.CONTROLLER_MODES[mainstore.configControl.c2Config.controllerMode]}</Dropdown.Toggle>
+                        <Dropdown.Toggle className="dropdowncustom controller-mode" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1]} id="opConfigControllerConfigureControllerModeComboBox" variant="success">{Constants.CONTROLLER_MODES[mainstore.configControl.c2Config.controllerMode]}</Dropdown.Toggle>
                         <Dropdown.Menu className="config-dropdown-menu">
                             {
                                 Constants.CONTROLLER_MODES.map((uutType, index) => {
@@ -132,7 +132,7 @@ const Configure = observer(
                         <div className="panel-div">
                             <span className="configure-label-padding" >App Mode
                                <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom app-mode-dropdown" variant="success" id="dropdown-basic" >{Constants.APP_MODE[mainstore.configControl.c2Config.appMode]}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom app-mode-dropdown" variant="success" id="opConfigControllerConfigureAppModeComboBox" >{Constants.APP_MODE[mainstore.configControl.c2Config.appMode]}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.APP_MODE.map((mode, index) => {
@@ -152,7 +152,7 @@ const Configure = observer(
 
                             <span className="configure-label-padding fixture-selection-label">{`DP AUX Sniffer \nconnected to `}
                                 <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom fixture-selection-dropdown" variant="success" id="dropdown-basic" >{Constants.FIXTURE_SELECTION[mainstore.configControl.c2Config.fixtureSelection]}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom fixture-selection-dropdown" variant="success" id="opConfigControllerConfigureDpAuxSnifferComboBox" >{Constants.FIXTURE_SELECTION[mainstore.configControl.c2Config.fixtureSelection]}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.FIXTURE_SELECTION.map((fixture, index) => {
@@ -165,7 +165,7 @@ const Configure = observer(
 
                             <span className="configure-label-padding" >Port Type
                                 <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom configure" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1]} variant="success" id="dropdown-basic" >{Constants.PORT_TYPES[mainstore.configControl.c2Config.portType]}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom configure" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1]} variant="success" id="opConfigControllerConfigurePortTypeComboBox" >{Constants.PORT_TYPES[mainstore.configControl.c2Config.portType]}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.PORT_TYPES.map((data, index) => {
@@ -179,7 +179,7 @@ const Configure = observer(
 
                             <span className="configure-label-padding">Test Cable Type
                                 <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom cable-type" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1]} variant="success" id="dropdown-basic">{Constants.CABLE_DATA_TYPES[mainstore.configControl.c2Config.cableType]}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom cable-type" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1]} variant="success" id="opConfigControllerConfigureTestCableTypeComboBox">{Constants.CABLE_DATA_TYPES[mainstore.configControl.c2Config.cableType]}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.CABLE_DATA_TYPES.map((data, index) => {
@@ -192,7 +192,7 @@ const Configure = observer(
 
                             <span className="configure-label-padding">PD Spec Type
                                   <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom pd-spec" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1]} variant="success" id="dropdown-basic">{Constants.PDREV_TYPES[mainstore.configControl.c2Config.pdSpecType]}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom pd-spec" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1]} variant="success" id="opConfigControllerConfigurePdSpecTypeComboBox">{Constants.PDREV_TYPES[mainstore.configControl.c2Config.pdSpecType]}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.PDREV_TYPES.map((data, index) => {
@@ -205,7 +205,7 @@ const Configure = observer(
 
                             <span className="configure-label-padding">Cable Emulation
                                  <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom cable-emulation" variant="success" id="dropdown-basic">{Constants.CABLE_EMULATION[mainstore.configControl.c2Config.cableEmulation]}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom cable-emulation" variant="success" id="opConfigControllerConfigureCableEmulationComboBox">{Constants.CABLE_EMULATION[mainstore.configControl.c2Config.cableEmulation]}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.CABLE_EMULATION.map((data, index) => {
@@ -218,7 +218,7 @@ const Configure = observer(
 
                             <span className="configure-label-padding">Rp Level
                                   <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom rp-level" variant="success" id="dropdown-basic">{Constants.RP_LEVELS[mainstore.configControl.c2Config.rpLevel]}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom rp-level" variant="success" id="opConfigControllerConfigureRpLevelComboBox">{Constants.RP_LEVELS[mainstore.configControl.c2Config.rpLevel]}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.RP_LEVELS.map((data, index) => {
@@ -231,7 +231,7 @@ const Configure = observer(
 
                             <FlexView>
                                 <OverlayTrigger placement="top" overlay={<Tooltip > {APPLY_CONFIGURE} </Tooltip>}>
-                                    <Button className="grl-button configure-apply-button" disabled={mainstore.isTesterStatusNotConnected} onClick={this.getControls.bind(this)}>Apply </Button>
+                                    <Button className="grl-button configure-apply-button" id="opConfigControllerConfigureApplyBtn" disabled={mainstore.isTesterStatusNotConnected} onClick={this.getControls.bind(this)}>Apply </Button>
                                 </OverlayTrigger>
                                 <div className="cliploader-div">
                                     <ClipLoader
@@ -248,29 +248,29 @@ const Configure = observer(
 
                             <FlexView >
                                 <span className="configure-label-padding">Emulate Cable</span>
-                                <Button className="grl-button configure-attach-button attach-detach-btn-align" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1] || mainstore.isTesterStatusNotConnected} onClick={this.handleAttach.bind(this)}>Attach </Button>
-                                <Button className="grl-button configure-detach-button" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1] || mainstore.isTesterStatusNotConnected} onClick={this.handleDetach.bind(this)}>Detach </Button>
+                                <Button className="grl-button configure-attach-button attach-detach-btn-align" id="opConfigControllerConfigureAttachBtn" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1] || mainstore.isTesterStatusNotConnected} onClick={this.handleAttach.bind(this)}>Attach </Button>
+                                <Button className="grl-button configure-detach-button" id="opConfigControllerConfigureDetachBtn" disabled={Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1] || mainstore.isTesterStatusNotConnected} onClick={this.handleDetach.bind(this)}>Detach </Button>
                             </FlexView>
 
                             <FlexView>
                                 <span className="configure-label-padding config-channels-checkbox">Channels</span>
                                 <label className={"checkbox-label-align"}>
-                                    <input type="checkbox" className="checkbox-text-align" checked={mainstore.configControlChannels.isCheckedVbus} onChange={() => { this.onChangeVbusCheck() }} />
+                                    <input type="checkbox" id="opConfigControllerConfigureChannelsVBusCheckBox" className="checkbox-text-align" checked={mainstore.configControlChannels.isCheckedVbus} onChange={() => { this.onChangeVbusCheck() }} />
                                VBUS
                             </label>
                                 <label className={"checkbox-label-align"}>
-                                    <input type="checkbox" className="checkbox-text-align" checked={mainstore.configControlChannels.isCheckedCc1} onChange={() => { this.onChangeCcOneCheck() }} />
+                                    <input type="checkbox" id="opConfigControllerConfigureChannelsCC1CheckBox" className="checkbox-text-align" checked={mainstore.configControlChannels.isCheckedCc1} onChange={() => { this.onChangeCcOneCheck() }} />
                                CC1
                             </label>
                                 <label className={"checkbox-label-align"}>
-                                    <input type="checkbox" className="checkbox-text-align" checked={mainstore.configControlChannels.isCheckedCc2} onChange={() => { this.onChangeCc2TwoCheck() }} />
+                                    <input type="checkbox" id="opConfigControllerConfigureChannelsCC2heckBox" className="checkbox-text-align" checked={mainstore.configControlChannels.isCheckedCc2} onChange={() => { this.onChangeCc2TwoCheck() }} />
                                CC2
                             </label>
                             </FlexView>
 
                             <FlexView >
                                 <span className="configure-label-padding">Signal Capture</span>
-                                <Button disabled={mainstore.isTesterStatusNotConnected} className={"grl-button configure-attach-button start-capture-btn-align " + startCaptureBtnColor} onClick={() => { this.startCapture() }}>Start </Button>
+                                <Button id="opConfigControllerConfigureStartBtn" disabled={mainstore.isTesterStatusNotConnected} className={"grl-button configure-attach-button start-capture-btn-align " + startCaptureBtnColor} onClick={() => { this.startCapture() }}>Start </Button>
                                 <div className="cliploader-div">
                                     <ClipLoader
                                         sizeUnit={"px"}
@@ -279,14 +279,14 @@ const Configure = observer(
                                         loading={this.state.startCaptureLoader}
                                     />
                                 </div>
-                                <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button configure-detach-button" onClick={() => { this.stopCapture() }}>Stop </Button>
+                                <Button id="opConfigControllerConfigureStopBtn" disabled={mainstore.isTesterStatusNotConnected} className="grl-button configure-detach-button" onClick={() => { this.stopCapture() }}>Stop </Button>
                             </FlexView>
                             <FlexView >
                                 <span className="configure-label-padding">Capture File</span>
                                 <p className="save-location-config">{mainstore.configControlSaveLocation}</p>
                             </FlexView>
                             <FlexView >
-                                <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button configure-attach-button download-capture-btn-align " onClick={() => { this.downloadCaptureFile() }}>Download Capture </Button>
+                                <Button id="opConfigControllerConfigureDownloadCaptureBtn" disabled={mainstore.isTesterStatusNotConnected} className="grl-button configure-attach-button download-capture-btn-align " onClick={() => { this.downloadCaptureFile() }}>Download Capture </Button>
                             </FlexView>
                         </div>
                     </FlexView>

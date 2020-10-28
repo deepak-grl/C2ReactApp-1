@@ -162,7 +162,7 @@ const RequestMessage = observer(
                 MaximumPower: this.state.operatingPowerMaximumValue,
                 MinimumPower: this.state.operatingPowerMinimumValue,
                 PpsOperatingCurrent: this.state.ppsOperatingCurrent,
-                OutputVoltage:this.state.outputVoltage
+                OutputVoltage: this.state.outputVoltage
             }
             basemodal.putConfigRequestMessage();
         }
@@ -174,20 +174,20 @@ const RequestMessage = observer(
             var ppsDefaultOutputVoltage = 20;
             var setGiveBackFlag =
                 <label className="request-specs">
-                    <input type="checkbox" className="checkbox-text-align" checked={this.state.setGiveBackFlag} onChange={this.toggleChangeGiveBack} />  Set Give Back Flag
+                    <input type="checkbox" id="opConfigControllerRequestMessageSetGiveBackFlagCheckBox" className="checkbox-text-align" checked={this.state.setGiveBackFlag} onChange={this.toggleChangeGiveBack} />  Set Give Back Flag
             </label>
 
             var showFixedAndVariableOperatinCurrent =
                 <>
                     <label className="checkbox-label-align">Operating Current {defaultOperatingCurrent}mA Units:
-                        <input className="request-input-field-width" type="text" placeholder="10mA Units" value={this.state.operatingCurrentValue} onChange={(evt) => this.handlechangeOperatingCurrent(evt)}></input>
+                        <input className="request-input-field-width" id="opConfigControllerRequestMessageOperatingCurrentInputField" type="text" placeholder="10mA Units" value={this.state.operatingCurrentValue} onChange={(evt) => this.handlechangeOperatingCurrent(evt)}></input>
                         <p> {(this.state.operatingCurrentValue) * defaultOperatingCurrent}mA</p>
                     </label>
                 </>
             var showBatteryOperatingPower =
                 <>
                     <label className="checkbox-label-align">Operating Power in {defaultOperatingPowerValue}mW Units:
-                        <input type="text" className="request-input-field-width" value={this.state.operatingPowerValue} onChange={(e) => this.handlechangeOperatingPower(e)}></input>
+                        <input type="text" className="request-input-field-width" id="opConfigControllerRequestMessageOperatingPowerInputField" value={this.state.operatingPowerValue} onChange={(e) => this.handlechangeOperatingPower(e)}></input>
                         <p>{this.state.operatingPowerValue * defaultOperatingPowerValue}mW</p>
                     </label>
 
@@ -199,7 +199,7 @@ const RequestMessage = observer(
                     <div className="panel-div disable-request-message">
                         <span className="request-supply-text">PDO Index
                     <Dropdown className="config-control-dropdown-flex">
-                                <Dropdown.Toggle disabled className="dropdowncustom pdo-Index" variant="success" id="dropdown-basic">{this.state.PodTypes}</Dropdown.Toggle>
+                                <Dropdown.Toggle disabled className="dropdowncustom pdo-Index" variant="success" id="opConfigControllerRequestMessagePdoIndexComboBox">{this.state.PodTypes}</Dropdown.Toggle>
                                 <Dropdown.Menu className="config-dropdown-menu">
                                     {
                                         Constants.PDO_TYPES.map((data, index) => {
@@ -212,7 +212,7 @@ const RequestMessage = observer(
 
                         <span className="request-supply-text">Supply Index
                     <Dropdown className="config-control-dropdown-flex">
-                                <Dropdown.Toggle disabled className="dropdowncustom supply-type" variant="success" id="dropdown-basic">{this.state.SupplyTypes}</Dropdown.Toggle>
+                                <Dropdown.Toggle disabled className="dropdowncustom supply-type" variant="success" id="opConfigControllerRequestMessageSupplyIndexComboBox">{this.state.SupplyTypes}</Dropdown.Toggle>
                                 <Dropdown.Menu className="config-dropdown-menu">
                                     {
                                         Constants.SUPPLY_TYPES.map((data, index) => {
@@ -229,14 +229,14 @@ const RequestMessage = observer(
                                 {this.state.showOperatingCurrent ? (<div>
                                     {showFixedAndVariableOperatinCurrent}
                                     <label className="checkbox-label-align">Maximum Current {defaultOperatingCurrent}mA Units:
-                                        <input type="text"  className="request-input-field-width" placeholder="10mA Units" value={this.state.operatingCurrentMaximumValue} onChange={(e) => this.handlechangeMaximumCurrent(e)}></input>
+                                        <input type="text" id="opConfigControllerRequestMessageMaximumCurrentInputField" className="request-input-field-width" placeholder="10mA Units" value={this.state.operatingCurrentMaximumValue} onChange={(e) => this.handlechangeMaximumCurrent(e)}></input>
                                         <p>{this.state.operatingCurrentMaximumValue * defaultOperatingCurrent}mA</p>
                                     </label>
                                 </div>) :
                                     (<div>
                                         {showFixedAndVariableOperatinCurrent}
                                         <label className="checkbox-label-align">Minimum Current {defaultOperatingCurrent}mA Units:
-                                            <input type="text"  className="request-input-field-width" placeholder="10mA Units" value={this.state.operatingCurrentMinimumValue} onChange={(e) => this.handlechangeMinimumCurrent(e)}></input>
+                                            <input type="text" className="request-input-field-width" id="opConfigControllerRequestMessageMinimumCurrentInputField" placeholder="10mA Units" value={this.state.operatingCurrentMinimumValue} onChange={(e) => this.handlechangeMinimumCurrent(e)}></input>
                                             <p>{this.state.operatingCurrentMinimumValue * defaultOperatingCurrent}mA</p>
                                         </label>
                                     </div>)
@@ -249,14 +249,14 @@ const RequestMessage = observer(
                                 {this.state.showOperatingPower ? (<div>
                                     {showBatteryOperatingPower}
                                     <label className="checkbox-label-align">Maximum Power in {defaultOperatingPowerValue}mW Units :
-                                    <input type="text"  className="request-input-field-width" value={this.state.operatingPowerMaximumValue} onChange={(e) => this.handlechangeMaximumPower(e)}></input>
+                                    <input type="text" id="opConfigControllerRequestMessageMaximumPowerInputField" className="request-input-field-width" value={this.state.operatingPowerMaximumValue} onChange={(e) => this.handlechangeMaximumPower(e)}></input>
                                         <p>{this.state.operatingPowerMaximumValue * defaultOperatingPowerValue}mW</p>
                                     </label>
                                 </div>) :
                                     (<div>
                                         {showBatteryOperatingPower}
                                         <label className="checkbox-label-align">Minimum Power in {defaultOperatingPowerValue}mW Units:
-                                        <input type="text"  className="request-input-field-width" value={this.state.operatingPowerMinimumValue} onChange={(e) => this.handlechangeMinimumPower(e)}></input>
+                                        <input type="text " id="opConfigControllerRequestMessageMinimumPowerInputField" className="request-input-field-width" value={this.state.operatingPowerMinimumValue} onChange={(e) => this.handlechangeMinimumPower(e)}></input>
                                             <p>{this.state.operatingPowerMinimumValue * defaultOperatingPowerValue}mW</p>
                                         </label>
                                     </div>)
@@ -267,11 +267,11 @@ const RequestMessage = observer(
                         {this.state.SupplyTypes === "PPS" ? (
                             <>
                                 <label className="checkbox-label-align">Output Voltage in {ppsDefaultOutputVoltage}mV units
-                            < input type="text"  className="request-input-field-width" value={this.state.outputVoltage} onChange={(e) => this.handleChangeOutputVoltage(e)}></input>
+                            < input type="text" className="request-input-field-width" id="opConfigControllerRequestMessageOutputVoltageInputField" value={this.state.outputVoltage} onChange={(e) => this.handleChangeOutputVoltage(e)}></input>
                                     <p>{this.state.outputVoltage * ppsDefaultOutputVoltage}mV</p>
                                 </label>
                                 <label className="checkbox-label-align">Operating Current {ppsDefaultOperatingCurrent}mA units
-                              <input type="text"  className="request-input-field-width" value={this.state.ppsOperatingCurrent} onChange={(e) => this.handleChangePpsOperatingCurrent(e)}></input>
+                              <input type="text" className="request-input-field-width" id="opConfigControllerRequestMessageOpeartingCurrentInputField" value={this.state.ppsOperatingCurrent} onChange={(e) => this.handleChangePpsOperatingCurrent(e)}></input>
                                     <p>{this.state.ppsOperatingCurrent * ppsDefaultOperatingCurrent}mA</p>
                                 </label>
                             </>) : null
@@ -279,27 +279,27 @@ const RequestMessage = observer(
 
                         <FlexView className="panel-padding checkbox-text-align request-sub-container" column>
                             <label className="checkbox-label-align">
-                                <input type="checkbox" className="checkbox-text-align" checked={this.state.isCheckedCapabilityMismatch} onChange={this.toggleChangeCapabilityMismatch} />
+                                <input type="checkbox" id="opConfigControllerRequestMessageCapabilityMismatchCheckBox" className="checkbox-text-align" checked={this.state.isCheckedCapabilityMismatch} onChange={this.toggleChangeCapabilityMismatch} />
                                 Capability Mismatch
                             </label>
 
                             <label className="checkbox-label-align">
-                                <input type="checkbox" className="checkbox-text-align" checked={this.state.isCheckedUsbCommunication} onChange={this.toggleChangeUsbCommunication} />
+                                <input type="checkbox" id="opConfigControllerRequestMessageUSBCommunicationsCableMismatchCheckBox" className="checkbox-text-align" checked={this.state.isCheckedUsbCommunication} onChange={this.toggleChangeUsbCommunication} />
                                 USB Communications Cable Mismatch
                             </label>
 
                             <label className="checkbox-label-align">
-                                <input type="checkbox" className="checkbox-text-align" checked={this.state.isCheckedNoUsb} onChange={this.toggleChangeNoUsb} />
+                                <input type="checkbox" id="opConfigControllerRequestMessageNoUsbSuspendCheckBox" className="checkbox-text-align" checked={this.state.isCheckedNoUsb} onChange={this.toggleChangeNoUsb} />
                                 NO USB Suspend
                             </label>
 
                             <label className="checkbox-label-align">
-                                <input type="checkbox" className="checkbox-text-align" checked={this.state.isCheckedUnchunkedExtend} onChange={this.toggleChangeUnchunkedExtend} />
+                                <input type="checkbox" id="opConfigControllerRequestMessageUnchunckedExtendMessageSupportCheckBox" className="checkbox-text-align" checked={this.state.isCheckedUnchunkedExtend} onChange={this.toggleChangeUnchunkedExtend} />
                                 Unchuncked Extend Message Support
                         </label>
 
                             <OverlayTrigger placement="bottom" overlay={<Tooltip> {CO_REQUEST_BTN} </Tooltip>}>
-                                <Button disabled className="grl-button config-request-grl-button-align" onClick={this.requestMessage.bind(this)}>Request</Button>
+                                <Button disabled id="opConfigControllerRequestMessageRequestBtn" className="grl-button config-request-grl-button-align" onClick={this.requestMessage.bind(this)}>Request</Button>
                             </OverlayTrigger>
                         </FlexView>
                     </div >

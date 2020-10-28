@@ -100,7 +100,7 @@ const SendMessage = observer(
                         <div className="panel-div">
                             <span className="configure-label-padding">Sop Type
                         <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom sop-type" variant="success" id="dropdown-basic">{this.state.SopTypes}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom sop-type" variant="success" id="opConfigControllerSendMessageSopTypeComboBox" >{this.state.SopTypes}</Dropdown.Toggle>
                                     <Dropdown.Menu className="config-dropdown-menu">
                                         {
                                             Constants.SOP_TYPES.map((data, index) => {
@@ -113,7 +113,7 @@ const SendMessage = observer(
 
                             <span className="configure-label-padding">Message Type
                         <Dropdown className="config-control-dropdown-flex">
-                                    <Dropdown.Toggle className="dropdowncustom message-type" variant="success" id="dropdown-basic">{this.state.MessageTypes}</Dropdown.Toggle>
+                                    <Dropdown.Toggle className="dropdowncustom message-type" variant="success" id="opConfigControllerSendMessageMessageTypeComboBox">{this.state.MessageTypes}</Dropdown.Toggle>
                                     <Dropdown.Menu className="force-scroll config-dropdown-menu" onWheel={(e) => this.listenScrollEvent(e)}>
                                         {
                                             Constants.MESSAGE_TYPES.map((data, index) => {
@@ -128,7 +128,7 @@ const SendMessage = observer(
                             <label className="svid-align">SVID(0X0000)
                            <span className="svid-input-span-text-align">0X
                             </span>
-                                <input type="text" className="svid-input" name='value' maxLength={4} value={mainstore.configControl.sendMessage.svid} onChange={(e) => this.handleChange(e)}
+                                <input type="text" id="opConfigControllerSendMessageSvidInputField" className="svid-input" name='value' maxLength={4} value={mainstore.configControl.sendMessage.svid} onChange={(e) => this.handleChange(e)}
                                     disabled={this.state.isSvidDisabled} />
                             </label>
 
@@ -138,7 +138,7 @@ const SendMessage = observer(
 
                         <FlexView>
                             <OverlayTrigger placement="top" overlay={<Tooltip> {CO_SEND_BTN} </Tooltip>}>
-                                <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button config-send-button" onClick={this.getdeviceinfo.bind(this)}>Send</Button>
+                                <Button id="opConfigControllerSendMessageSendBtn" disabled={mainstore.isTesterStatusNotConnected} className="grl-button config-send-button" onClick={this.getdeviceinfo.bind(this)}>Send</Button>
                             </OverlayTrigger>
                             <div className="cliploader-div">
                                 <ClipLoader

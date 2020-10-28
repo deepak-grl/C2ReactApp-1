@@ -325,12 +325,12 @@ const PortTesting = observer(
                                 onClick={(event) => { event.target.value = null; }}
                             />
                             <FlexView className="auto-run-btn-div-five-port">
-                                <Button className={"grl-button port-run-button "} onClick={(e) => { this.saveFivePortInfoGenerationDialog() }}>Save Five Port Data</Button>
-                                <Button className={"grl-button port-run-button "} onClick={(e) => { this.displayFileDialog(e) }}>{this.state.fileName}</Button>
+                                <Button id="opFivePortSaveFivePortDataBtn" className={"grl-button port-run-button "} onClick={(e) => { this.saveFivePortInfoGenerationDialog() }}>Save Five Port Data</Button>
+                                <Button id="opFivePortLoadFivePortDataBtn" className={"grl-button port-run-button "} onClick={(e) => { this.displayFileDialog(e) }}>{this.state.fileName}</Button>
                             </FlexView>
                             <FlexView className="auto-run-btn-div-five-port">
                                 <OverlayTrigger placement="top" overlay={<Tooltip>{fivePortStartButtonTooltip}</Tooltip>}>
-                                    <Button disabled={!mainstore.disableFivePortExecutionBtn || mainstore.isTesterStatusNotConnected} className={"grl-button port-run-button " + buttonClass} onClick={(e) => { this.validateFivePortToStartEexcution() }}>{buttonText}</Button>
+                                    <Button id="opFiveportStartAndStopExecutionBtn" disabled={!mainstore.disableFivePortExecutionBtn || mainstore.isTesterStatusNotConnected} className={"grl-button port-run-button " + buttonClass} onClick={(e) => { this.validateFivePortToStartEexcution() }}>{buttonText}</Button>
                                 </OverlayTrigger>
                             </FlexView>
 
@@ -338,19 +338,19 @@ const PortTesting = observer(
                                 <label className="com-port-label">
                                     <span className="com-port-text">COM Port
                                 <OverlayTrigger placement="top" overlay={<Tooltip>COM Port Info Image</Tooltip>}>
-                                            <img src="../../images/icons8-five-port-help-48.png" alt="help-five-port" className="plot-toolbar-img help-img-com-port" onClick={() => this.showComPortInfoImage()} />
+                                            <img src="../../images/icons8-five-port-help-48.png" id="opFiveportComPortImage" alt="help-five-port" className="plot-toolbar-img help-img-com-port" onClick={() => this.showComPortInfoImage()} />
                                         </OverlayTrigger>
                                     </span>
-                                    <input type="text" className="com-port-input-field" value={this.state.comPort} onChange={(e) => this.handleComPortOnChange(e)} />
+                                    <input type="text" id="opFiveportComPortInputField" className="com-port-input-field" value={this.state.comPort} onChange={(e) => this.handleComPortOnChange(e)} />
                                 </label>
 
                                 <p className="select-port-label">Select Port </p>
                                 <div className="select-port-input">
-                                    <NumericInput min={1} max={5} value={this.state.currentSelectedPort} onChange={this.onCurrentSelectedPortInputChange} />
+                                    <NumericInput min={1} max={5} id="opFiveportSelectPortInputField" value={this.state.currentSelectedPort} onChange={this.onCurrentSelectedPortInputChange} />
                                 </div>
 
                                 <OverlayTrigger placement="auto" overlay={<Tooltip>Current Selected Port</Tooltip>}>
-                                    <Button disabled={mainstore.isTesterStatusNotConnected} className="grl-button current-port-check-button" onClick={(e) => { this.checkCurrentSelectedPort() }}>Connect</Button>
+                                    <Button disabled={mainstore.isTesterStatusNotConnected} id="opFiveportConnectBtn" className="grl-button current-port-check-button" onClick={(e) => { this.checkCurrentSelectedPort() }}>Connect</Button>
                                 </OverlayTrigger>
                                 <div className="cliploader-check-selected-port-status">
                                     <ClipLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={this.state.loading} />
@@ -370,7 +370,7 @@ const PortTesting = observer(
 
                             <FlexView column className="five-port-height">
                                 <Tabs activeKey={this.state.activeTab} className="tab-pane-control" onSelect={this.handleSelectedTab} >
-                                    <Tab eventKey="1" title="1" id="tab-btn-align">
+                                    <Tab eventKey="1" title="1" >
                                         <FivePortInfo portNumber={0} />
                                     </Tab>
                                     <Tab eventKey="2" title="2">

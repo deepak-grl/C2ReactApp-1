@@ -419,7 +419,7 @@ class PanelResults extends React.Component {
                             <div className="scroll-test-case-div">
                                 <label className="scroll-current-test-checkbox-label-width">
                                     {/* {this.state.isScrollingToCurrentTestCaseEnabled ? */}
-                                    <input type="checkbox" checked={this.state.isScrollingToCurrentTestCaseEnabled} className={"grl-button scroll-testcase-btn" + scrollToTestCaseBackground} onChange={(event) => this.scrollToCurrentRunningTestCase(event)} />Scroll To Current Test
+                                    <input type="checkbox" id="rcScrollToCurrentTestCheckbox" checked={this.state.isScrollingToCurrentTestCaseEnabled} className={"grl-button scroll-testcase-btn" + scrollToTestCaseBackground} onChange={(event) => this.scrollToCurrentRunningTestCase(event)} />Scroll To Current Test
                                 </label>
                             </div>
                             : null
