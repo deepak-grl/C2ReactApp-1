@@ -204,7 +204,7 @@ const PanelConnectionSetup = observer(
           <p className="firmware-spinner-status">{scanNetworkSpinnerDescription}</p>
           <div className="panel-div">C2 IP Address</div>
           <FlexView>
-            <Select onFocus={this.onIpDropDownFocus} onBlur={this.onIpDropDownBlur}
+            <Select id="csC2IpAddressComboBox" onFocus={this.onIpDropDownFocus} onBlur={this.onIpDropDownBlur}
               open={this.state.showIpAddressDropDown} className="ip-address-textbox" value={ci.testerIpAddress} showSearch={false}
               onSearch={null} onChange={this.ipAddressChange} onSelect={this.onIpDropDownSelected} allowClear placeholder="Please enter/select C2 address" combobox>
               {
