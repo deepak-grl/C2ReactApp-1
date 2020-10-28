@@ -126,14 +126,14 @@ const IrDropCalibration = observer(class IrDropCalibration extends Component {
                     <FlexView column className="right-border  align-on-zoom panel-padding scroll mobile-product-capability-left-side-container" style={{ width: "58%", paddingLeft: '20px', overflowY: 'auto', marginTop: '0px' }}>
                         <FlexView>
                             <span className="label-text-padding">Cable Name</span>
-                            <input className="cable-name" disabled={this.state.loading} value={this.state.inputValue} maxLength="10" placeholder="cablename" onChange={(e) => this.cableNameOnChange(e)} />
+                            <input className="cable-name" id="opCableIRDropCalibrationCableNameInputField" disabled={this.state.loading} value={this.state.inputValue} maxLength="10" placeholder="cablename" onChange={(e) => this.cableNameOnChange(e)} />
                             <div className="irDrop-cable-name-info-btn" ><OverlayTrigger placement="left" overlay={<Tooltip className="tooltip-inner-content-align">{IRDROP_CABLENAME_INFO} </Tooltip>}><img src="../../images/irDrop-info.png" alt="info-irdrop" className="info-img-irdrop" /></OverlayTrigger></div>
                         </FlexView>
 
                         <FlexView>
                             <Dropdown className="irDrop-port-align">
                                 <span className="label-text-padding">Cable Type</span>
-                                <Dropdown.Toggle disabled={this.state.loading} className="dropdowncustom cable-type-Dropdown" variant="success">{this.state.cableType}</Dropdown.Toggle>
+                                <Dropdown.Toggle disabled={this.state.loading} className="dropdowncustom cable-type-Dropdown" variant="success" id="opCableIRDropCalibrationCableTypeComboBox">{this.state.cableType}</Dropdown.Toggle>
                                 <Dropdown.Menu className="config-dropdown-menu">
                                     {
                                         Constants.IR_DROP_CABLE_DATA_TYPES.map((cableType, index) => {
@@ -163,11 +163,11 @@ const IrDropCalibration = observer(class IrDropCalibration extends Component {
                             <p>{mainstore.irDropCalibrationStatus}</p>
                         </FlexView>
                         <FlexView>
-                            <Button className="grl-button calibrate-button" disabled={mainstore.connectionInfo.testerStatus !== "Connected"} onClick={() => this.calibrateButtonClicked()}>Calibrate</Button>
+                            <Button id="opCableIRDropCalibrationCalibrateBtn" className="grl-button calibrate-button" disabled={mainstore.connectionInfo.testerStatus !== "Connected"} onClick={() => this.calibrateButtonClicked()}>Calibrate</Button>
                             <div className="cliploader-calibrate-status">
                                 <ClipLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={this.state.loading} />
                             </div>
-                            <Button className="grl-button view-values-btn" onClick={() => this.showReportFile()}>Download File</Button>
+                            <Button id="opCableIRDropCalibrationDownloadFileBtn" className="grl-button view-values-btn" onClick={() => this.showReportFile()}>Download File</Button>
                         </FlexView>
                         <p className="ir-drop-spinner-status"> {irDropSpinnerDesc}</p>
                     </FlexView>
