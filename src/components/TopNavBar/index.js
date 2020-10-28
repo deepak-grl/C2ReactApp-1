@@ -120,6 +120,7 @@ const TopNavBar = observer(
                       <span className="app-mode-label"> Set App Mode : </span>
                       <p className="set-app-mode-labels">CTS</p>
                       <Switch
+                        id="setAppModeToggleSwitch"
                         className="app-mode-switch-btn"
                         checked={mainstore.apiMode.isAppModeAPI}
                         onChange={this.appModeSelection}

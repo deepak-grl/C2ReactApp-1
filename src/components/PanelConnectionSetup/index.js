@@ -195,7 +195,7 @@ const PanelConnectionSetup = observer(
           <div className="panel-div">Ethernet Connection Settings </div>
           <FlexView className="set_button_position">
             <OverlayTrigger placement="bottom" overlay={<Tooltip> {CS_IPDISCOVER_BTN} </Tooltip>}>
-              <Button disabled={this.state.firmwareUpdateLoading || this.state.eLoadFirmwareUpdateLoading || mainstore.connectionStatusLoader} onClick={this.onClickDiscoverIP} className="grl-button connectionsetup-leftsideSetWidth" id="connectionsetup_AutoDiscoverIP_button">{CS_SCAN_NETWORK_BTN}</Button>
+              <Button disabled={this.state.firmwareUpdateLoading || this.state.eLoadFirmwareUpdateLoading || mainstore.connectionStatusLoader} onClick={this.onClickDiscoverIP} className="grl-button connectionsetup-leftsideSetWidth" id="csScanNetworkBtn">{CS_SCAN_NETWORK_BTN}</Button>
             </OverlayTrigger>
             <div className="connection-setup-cliploader-div">
               <ClipLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={this.state.autoDiscoverLoading} />
@@ -212,14 +212,14 @@ const PanelConnectionSetup = observer(
               }
             </Select>
             <OverlayTrigger placement="auto" overlay={<Tooltip> {CS_CONNECT_BTN} </Tooltip>}>
-              <Button disabled={this.state.firmwareUpdateLoading || this.state.eLoadFirmwareUpdateLoading || this.state.autoDiscoverLoading} onClick={this.tryConnectWithC2} className="grl-connect-button grl-button connectionsetup-leftsideSetWidth" id="connectionsetup_connect_button">{CS_CONNECTION_BTN}</Button>
+              <Button disabled={this.state.firmwareUpdateLoading || this.state.eLoadFirmwareUpdateLoading || this.state.autoDiscoverLoading} onClick={this.tryConnectWithC2} className="grl-connect-button grl-button connectionsetup-leftsideSetWidth" id="csConnectBtn">{CS_CONNECTION_BTN}</Button>
             </OverlayTrigger>
             <div>
               <ClipLoader sizeUnit={"px"} size={30} color={'#123abc'} loading={mainstore.connectionStatusLoader} />
             </div>
           </FlexView>
           <FlexView>
-            <a href="javascript:void(0);" onClick={this.showSetupImagePopUp} className="connection-setup-image">Setup Diagram</a>
+            <a href="javascript:void(0);" onClick={this.showSetupImagePopUp} id="csSetupDiagramLinkLabel" className="connection-setup-image">Setup Diagram</a>
           </FlexView>
           <FlexView className="connection-status-description">
             <p className="connect-spinner-status">{connectSpinnerDescription}</p>
@@ -229,16 +229,16 @@ const PanelConnectionSetup = observer(
             <div className="panel-div">Tool Updates</div>
             <FlexView className="update-firmware-btn-div">
               <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip>{FIRMWARE_UPDATE}  </Tooltip>}>
-                <Button disabled={mainstore.isTesterStatusNotConnected || this.state.eLoadFirmwareUpdateLoading || this.state.autoDiscoverLoading || mainstore.connectionStatusLoader} className="grl-button grl-button update-firmware-btn-width" id="connectionsetup_update_firmware_button" onClick={this.firmwareUpdate}>{CS_UPDATE_FIRMWARE_BTN}</Button>
+                <Button disabled={mainstore.isTesterStatusNotConnected || this.state.eLoadFirmwareUpdateLoading || this.state.autoDiscoverLoading || mainstore.connectionStatusLoader} className="grl-button grl-button update-firmware-btn-width" id="csUpdateFirmwareBtn" onClick={this.firmwareUpdate}>{CS_UPDATE_FIRMWARE_BTN}</Button>
               </OverlayTrigger>
               <div className="update-firmware-btn-cliploader-div">
                 <ClipLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={this.state.firmwareUpdateLoading} />
               </div>
-              <a href="javascript:void(0);" onClick={this.showFirmwareUpdateInstructionPopup} className="update-firmware-label">Firmware Update Instructions</a>
+              <a href="javascript:void(0);" onClick={this.showFirmwareUpdateInstructionPopup} id="csFirmwareUpdateInstructionsLinkLabel" className="update-firmware-label">Firmware Update Instructions</a>
             </FlexView>
             <p className="firmware-spinner-status"> {updateFirmwareSpinnerDescription}</p>
             <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip> {UPDATE_ELOAD_FIRMWARE} </Tooltip>}>
-              <Button disabled={mainstore.isTesterStatusNotConnected || this.state.firmwareUpdateLoading || this.state.autoDiscoverLoading || mainstore.connectionStatusLoader} className="grl-button update-eloadFirmware" id="connectionsetup_update_eload_firmware_button" onClick={this.updateEloadFirmware}>{CS_UPDATE_ELOAD_FIRMWARE_BTN}</Button>
+              <Button disabled={mainstore.isTesterStatusNotConnected || this.state.firmwareUpdateLoading || this.state.autoDiscoverLoading || mainstore.connectionStatusLoader} className="grl-button update-eloadFirmware" id="csUpdateEloadFirmwareBtn" onClick={this.updateEloadFirmware}>{CS_UPDATE_ELOAD_FIRMWARE_BTN}</Button>
             </OverlayTrigger>
             {/* <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip> </Tooltip>}>
               <Button disabled className="grl-button" id="connectionsetup_update_software_button">{CS_UPDATE_SOFTWARE_BTN}</Button>
