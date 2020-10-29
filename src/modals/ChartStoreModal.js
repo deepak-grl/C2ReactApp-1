@@ -27,12 +27,7 @@ export const chartstore = observable({
   vBar_zIndex_markerNum: Constants.MARKER_ONE,
   allSelectedChanelNumbers: [],
   LoadWaveformFile_Response: Constants.RESPONSE_VALID,
-  rowStartTime: 0,
-  rowStopTime: 0,
-  rowStartAndStopTImeDiff: 0,
-  previousPktDelay: 0,
-  postPktDelay: 0,
-  dpAuxRawData: '',
+  packetTimingDetails: {},
   chartValues: {
     startTimeZoom: 0,
     endTimeZoom: 0

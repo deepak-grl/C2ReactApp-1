@@ -148,6 +148,8 @@ class PlotToolbar extends React.Component {
             clearInterval(this.readStatusPoll)
         chartstore.isPlotDataLoading = true;
         chartstore.isPlotResultActive = true;
+        chartstore.packetTimingDetails = {}             //clearing the packet time details  
+        chartstore.ccPacket.packetDetails = []          //clearing the packet details
         ajax.fileUpload(path, file, "WaveformFile", function (response) {
             basemodal.chartModal.plotReadyStatusPoll();
             mainstore.isTestResultInOfflineMode = true;

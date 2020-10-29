@@ -57,6 +57,8 @@ class PanelResults extends React.Component {
                 setTimeout(() => {
                     this.pollingObj = this.startPolling()
                 }, 1000);//Adding timeout to allow backend to create new test list
+                chartstore.packetTimingDetails = {}             //clearing the packet time details  
+                chartstore.ccPacket.packetDetails = []          //clearing the packet details
                 mainstore.isPollingChecked = false;
                 mainstore.currentCClinePacketsClicked = -1;
             } else {

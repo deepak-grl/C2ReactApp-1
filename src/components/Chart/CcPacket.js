@@ -233,25 +233,25 @@ export const CcPacket = observer(class CcPacket extends React.Component {
             customNavbarOnSpitterMoves(Constants.PLOTTOOLBAR_ICON_TOTAL_WIDTH);
         }
         //calculating  Packet Time Details
-        chartstore.rowStartTime = row.startTime;
-        chartstore.rowStopTime = row.stopTime;
-        chartstore.rowStartAndStopTImeDiff = ((row.stopTime - row.startTime) * 1000).toFixed(4);
+        chartstore.packetTimingDetails.rowStartTime = row.startTime;
+        chartstore.packetTimingDetails.rowStopTime = row.stopTime;
+        chartstore.packetTimingDetails.rowStartAndStopTImeDiff = ((row.stopTime - row.startTime) * 1000).toFixed(4);
         if (tableData[rowIndex - 1] !== undefined) {
-            chartstore.previousPktDelay = ((row.startTime - tableData[rowIndex - 1].startTime) * 1000).toFixed(4)
+            chartstore.packetTimingDetails.previousPktDelay = ((row.startTime - tableData[rowIndex - 1].startTime) * 1000).toFixed(4)
         }
         else {
-            chartstore.previousPktDelay = 0;
+            chartstore.packetTimingDetails.previousPktDelay = 0;
         }
         if (tableData[rowIndex + 1] !== undefined) {
-            chartstore.postPktDelay = ((tableData[rowIndex + 1].startTime - row.startTime) * 1000).toFixed(4)
+            chartstore.packetTimingDetails.postPktDelay = ((tableData[rowIndex + 1].startTime - row.startTime) * 1000).toFixed(4)
         }
         else {
-            chartstore.postPktDelay = 0;
+            chartstore.packetTimingDetails.postPktDelay = 0;
         }
         if (row.dpDesc && row.dpDesc !== "")
-            chartstore.dpAuxRawData = row.dpDesc
+            chartstore.packetTimingDetails.dpAuxRawData = row.dpDesc
         else
-            chartstore.dpAuxRawData = ""
+            chartstore.packetTimingDetails.dpAuxRawData = ""
         return <PacketDetails key={"packet-" + rowIndex} />
     }
 
@@ -360,9 +360,9 @@ export const CcPacket = observer(class CcPacket extends React.Component {
         if (this.state.chartUpdate) {
             var loaderDiv = <>{(chartstore.isPlotDataLoading === true && chartstore.isPlotResultActive === true) ?
                 <div className="bar-Loader">
-                    <FadeLoader sizeUnit={"px"} height={15} width={7} color={'#85d4e1'} loading={true} />
-                    <p className="fade-loader-text">Loading...</p>
-                </div> : null
+                <img src={"../../images/Spinner-1s-217px.svg"} />
+                <p className="loader-text">Loading...</p>
+            </div> : null
             }</>;
 
             var ChartComps_height = (window.innerHeight * 0.6) - (Constants.TOP_NAVBAR_HEIGHT / 2); // ploat page : converting height to 60% (minus Topnav height (90/2) minus 8 (xAxisLabels())). 
@@ -431,13 +431,14 @@ export const PacketDetails = observer(class PacketDetails extends React.Componen
         return (
             <><p className="panelHeading" >Packet Details</p>
                 <div className="packet-time-details">
-                    <p>Start Time : {chartstore.rowStartTime + " S"}</p>
-                    <p>End Time : {chartstore.rowStopTime + " S"}</p>
-                    <p>Pkt Duration : {chartstore.rowStartAndStopTImeDiff + " ms"}</p>
-                    <p>Prev Pkt Delay : {chartstore.previousPktDelay + " ms"} </p>
-                    <p>Post Pkt Delay : {chartstore.postPktDelay + " ms"}</p>
-                    {chartstore.dpAuxRawData !== "" ? <p>Raw Data : {chartstore.dpAuxRawData}</p> : null}
+                    <p>Start Time : {chartstore.packetTimingDetails.rowStartTime ? chartstore.packetTimingDetails.rowStartTime : 0} S</p>
+                    <p>End Time : {chartstore.packetTimingDetails.rowStopTime ? chartstore.packetTimingDetails.rowStopTime : 0} S</p>
+                    <p>Pkt Duration : {chartstore.packetTimingDetails.rowStopTime ? chartstore.packetTimingDetails.rowStartAndStopTImeDiff : 0} ms</p>
+                    <p>Prev Pkt Delay : {chartstore.packetTimingDetails.previousPktDelay ? chartstore.packetTimingDetails.previousPktDelay : 0} ms </p>
+                    <p>Post Pkt Delay : {chartstore.packetTimingDetails.postPktDelay ? chartstore.packetTimingDetails.postPktDelay : 0} ms</p>
+                    {chartstore.packetTimingDetails.dpAuxRawData !== "" ? <p>Raw Data : {chartstore.packetTimingDetails.dpAuxRawData}</p> : null}
                 </div>
+
                 <div style={{ height: '100%' }} onWheel={(e) => utils.listenScrollEvent(e)} className="scroll setMaxHeight">
                     <ReactTable data={chartstore.ccPacket.packetDetails} pivotBy={["parent"]}
                         columns={[
