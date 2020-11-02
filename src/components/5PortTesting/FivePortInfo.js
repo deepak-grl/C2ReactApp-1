@@ -213,7 +213,6 @@ const FivePortInfo = observer(
         }
 
         render() {
-            console.log('this.props.portNumber: ', this.props.portNumber);
             if (mainstore.fivePortConfiguration[this.props.portNumber].isEnabled === false)
                 disable5Port = " disable-port "
             else

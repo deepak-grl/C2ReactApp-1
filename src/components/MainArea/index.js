@@ -159,7 +159,7 @@ class MainArea extends React.Component {
       var panelIndex = 0;
       for (panelIndex = 0; panelIndex < this.panleRefs.length; panelIndex++)
         this.panleRefs[panelIndex].current.className = "scroll-content-disabled"
-      this.panleRefs[this.props.currentPanelIndex].current.className = ""
+      this.panleRefs[this.props.currentPanelIndex].current.className = "scroll-content-sticky"
     }
   }
 
@@ -225,7 +225,7 @@ class MainArea extends React.Component {
   wrapPanel = (Wrappanel, index) => {
     this.panleRefs.push(React.createRef());
     var disabledClass;
-    index === this.props.currentPanelIndex ? disabledClass = "" : disabledClass = "scroll-content-disabled"
+    index === this.props.currentPanelIndex ? disabledClass = "scroll-content-sticky" : disabledClass = "scroll-content-disabled";
 
     return (
       <div ref={this.panleRefs[index]} key={index} className={disabledClass} >

@@ -239,6 +239,13 @@ header {
   /* msie */
 }
 
+.scroll-content-sticky{
+  position: sticky;
+  top: 0;
+  z-index: 2!important;
+  height: 0;
+}
+
 /* scroll-panel height is 90 * 4  */
 .scroll-panel {
   height: auto;

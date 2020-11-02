@@ -650,6 +650,7 @@ export const PlotGlassPanel = observer(class PlotGlassPanel extends React.Compon
         super(props);
         this.canvas_OffsetLeft = 0;
         this.yaxisLabelWidth = Constants.LEFT_NAV_WIDTH + Constants.CUSTOM_YAXIS_LABEL_WIDTH;
+        this.leftNavBarWith = 130; //*Added positon sticky for the entire parent div(scroll-content-sticky),so here we need to take  left nav bar width,
         this.state = {
             mouseDownX: 0,
             rectStart: 0,
@@ -659,7 +660,7 @@ export const PlotGlassPanel = observer(class PlotGlassPanel extends React.Compon
     }
 
     dragStart = (e) => {
-        this.canvas_OffsetLeft = document.getElementsByClassName("Resizer")[0].offsetLeft + Constants.SPLITTER_BAR_WIDTH + this.yaxisLabelWidth;
+        this.canvas_OffsetLeft = document.getElementsByClassName("Resizer")[0].offsetLeft + Constants.SPLITTER_BAR_WIDTH + this.yaxisLabelWidth + this.leftNavBarWith;
         this.setState({ mouseDownX: e.clientX - this.canvas_OffsetLeft });
         e.preventDefault();
     }
