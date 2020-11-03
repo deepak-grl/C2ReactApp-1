@@ -347,8 +347,15 @@ class PanelResults extends React.Component {
                             if (testCase.protocolMarker > -1) {
                                 this.updateMarkerValues(testCase)
                             }
+                            mainstore.isTestResultCaptureFileNameEmpty = false;
                             basemodal.putLoadWaveformFile(moi.children[j].captureFileName, this.fileLoadComplete.bind(this))
                             return;
+                        }
+                        else {
+                            mainstore.isTestResultCaptureFileNameEmpty = true;
+                            chartstore.packetTimingDetails = {}             //clearing the packet time details  
+                            chartstore.ccPacket.packetDetails = []          //clearing the packet details
+                            basemodal.chartModal.resetPlot();
                         }
                     }
                     else {

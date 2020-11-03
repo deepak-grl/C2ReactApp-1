@@ -49,6 +49,7 @@ export class ChartModal {
         this.cClinePacketsArray = [];
         this.packetDistanceMultiplier = 1;
         this.currentTool = Constants.MODE_CURSORE;
+        this.requestChartRerender()
     }
 
     enableZoomInMode() {

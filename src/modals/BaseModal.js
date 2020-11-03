@@ -81,6 +81,7 @@ export const mainstore = observable({
   imgWidth: 760,
   isTestResultInOfflineMode: false,
   alignTestResultsClearPopUp: false,
+  isTestResultCaptureFileNameEmpty: false,
   copyVifInfo: {},
   isVifLoadedFromProductCaps: true,
   disableFivePortExecutionBtn: false,

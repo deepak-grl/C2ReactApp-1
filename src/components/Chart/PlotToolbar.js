@@ -61,6 +61,10 @@ class PlotToolbar extends React.Component {
         const disposer2 = observe(chartstore, "allSelectedChanelNumbers", (change) => {
             me.setState({ allSelectedChanelNumbers: change.newValue });
         });
+
+        const disposer3 = observe(mainstore, "isTestResultCaptureFileNameEmpty", (change) => {
+            this.handleClickReset()
+        });
     }
 
     componentDidMount() {
@@ -373,7 +377,8 @@ class PlotToolbar extends React.Component {
         setPlotCursor(Constants.MODE_CURSORE);
         startTime = chartstore.signalFileStartTime;
         endTime = chartstore.signalFileStopTime;
-        basemodal.chartModal.singlePlotDataCall(this.rand++, startTime, endTime);
+        if (!mainstore.isTestResultCaptureFileNameEmpty)
+            basemodal.chartModal.singlePlotDataCall(this.rand++, startTime, endTime);
         chartstore.showVerticalBar = false;
         mainstore.showMarkerByDefault = false;
         basemodal.chartModal.requestChartRerender();        //imp if Mask enable then vZoom then reset it will take y-axis max value from graph not from mask maxVal (+ 0.15)
