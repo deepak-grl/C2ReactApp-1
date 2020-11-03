@@ -561,7 +561,7 @@ const Marker = observer(class Marker extends React.Component {
 
         mainstore.markerTimeDiffernce = mainstore.markerTimeDiffernce + 1;  //to re reder the marker differnece
         if (this.state.isMarker_mouseDown === true && e.clientX !== 0 && this.state.isMarkerLabelClicked === false) {
-            var canvas_OffsetLeft = document.getElementsByClassName("Resizer")[0].offsetLeft + Constants.SPLITTER_BAR_WIDTH;
+            var canvas_OffsetLeft = document.getElementsByClassName("Resizer")[0].offsetLeft + Constants.SPLITTER_BAR_WIDTH + Constants.POSITION_STICKY_LEFTNAV_WIDTH_OFFSETLEFT;
             var markerPoint = e.clientX - canvas_OffsetLeft;    // - Constants.TEMP_OFFSET_VBAR;        //-canvas_OffsetLeft;
             chartstore.zoomDragReactagle.offsetWidth = canvas_OffsetLeft;
             chartstore.zoomDragReactagle.width = e.clientX;
@@ -650,7 +650,6 @@ export const PlotGlassPanel = observer(class PlotGlassPanel extends React.Compon
         super(props);
         this.canvas_OffsetLeft = 0;
         this.yaxisLabelWidth = Constants.LEFT_NAV_WIDTH + Constants.CUSTOM_YAXIS_LABEL_WIDTH;
-        this.leftNavBarWith = 130; //*Added positon sticky for the entire parent div(scroll-content-sticky),so here we need to take  left nav bar width,
         this.state = {
             mouseDownX: 0,
             rectStart: 0,
@@ -660,7 +659,7 @@ export const PlotGlassPanel = observer(class PlotGlassPanel extends React.Compon
     }
 
     dragStart = (e) => {
-        this.canvas_OffsetLeft = document.getElementsByClassName("Resizer")[0].offsetLeft + Constants.SPLITTER_BAR_WIDTH + this.yaxisLabelWidth + this.leftNavBarWith;
+        this.canvas_OffsetLeft = document.getElementsByClassName("Resizer")[0].offsetLeft + Constants.SPLITTER_BAR_WIDTH + this.yaxisLabelWidth + Constants.POSITION_STICKY_LEFTNAV_WIDTH_OFFSETLEFT;
         this.setState({ mouseDownX: e.clientX - this.canvas_OffsetLeft });
         e.preventDefault();
     }

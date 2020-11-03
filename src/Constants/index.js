@@ -126,6 +126,7 @@ export const GAP_BW_SPLITTER_CANVAS = 8;
 export const PACKET_ICON_WIDTH = 25;      //20;
 export const CC_PACKET_TIMESTAMP_WIDTH = 100;   //128;
 export const PACKET_ICON_HEIGHT = 25;
+export const POSITION_STICKY_LEFTNAV_WIDTH_OFFSETLEFT = 130;  //*Added positon sticky for the entire parent div(scroll-content-sticky),so here we need to take  left nav bar width,
 //export const TEMP_OFFSET_VBAR = 130;
 export const CUSTOM_YAXIS_LABEL_WIDTH = 40; // minus this width to "LEFT_NAV_WIDTH" & "GRAPH_YAXIS_WIDTH"
 export const PLOT_TOOLBAR_HEIGHT = 40;
