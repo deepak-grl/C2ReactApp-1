@@ -24,7 +24,7 @@ let orderedTestList = [];
 let selectedTestCase = [];
 var selectedFilters = []
 let selectedMoi = [];
-let disableQCTest = " ";
+let parentNodes = []
 let checkTestCaseNameIsNotEmpty = " ";
 const PanelTestConfig = observer(
   class PanelTestConfig extends React.Component {
@@ -40,6 +40,7 @@ const PanelTestConfig = observer(
         reRender: false,
         checkedKeys: {},
         isMoiDragged: false,
+        expandAllTestList: false,
       };
       var me = this;
       const disposer = observe(mainstore.testConfiguration, "selectedCertifiedFilter", (change) => {
@@ -87,9 +88,11 @@ const PanelTestConfig = observer(
         }
         else {
           parent.push(<TreeNode className={n.title} disableCheckbox={mainstore.connectionInfo.testerStatus !== "Connected"} key={n.title} title={n.title}  >{children}</TreeNode>)
+          if (!parentNodes.includes(n.title))
+            parentNodes.push(n.title)
         }
       }
-      this.getMoiOrder(parent)
+      this.getMoiOrder(parent);
       return parent;
     }
 
@@ -106,32 +109,6 @@ const PanelTestConfig = observer(
       for (let n of parent) {
         if (!(orderedTestList.includes(n.key)))
           orderedTestList.push(n.key)
-      }
-
-      // this code is used before adding one more parent(second parent) to the QC3 Test case list , so now we're using the above for loop to update the ordered test list
-      {
-        // for (var i = 0; i < parent.length; i++) {
-        //   if (parent[i].props.children !== undefined && parent[i].props.children.length > 0) {
-
-
-        //     for (var j = 0; j < parent[i].props.children.length; j++) {
-        //       console.log('parent[i].props.children: ', parent[i].props.children);
-        //       if (parent[j] !== undefined) {
-        //         if (orderedTestList.includes(parent[j].key)) {
-        //           orderedTestList.splice(orderedTestList.indexOf(parent[j].key), 1);
-        //           orderedTestList.push(parent[j].key)
-        //         }
-        //         else {
-        //           orderedTestList.push(parent[j].key)
-        //         }
-        //       }
-        //       if (orderedTestList.includes(parent[i].props.children[j].key))
-        //         orderedTestList.splice(orderedTestList.indexOf(parent[i].props.children[j].key), 1);
-        //       orderedTestList.push(parent[i].props.children[j].key)
-
-        //     }
-        //   }
-        // }
       }
     }
 
@@ -316,14 +293,25 @@ const PanelTestConfig = observer(
       });
     };
 
+    expandOrCollapseTestList = () => {
+      this.setState({ expandAllTestList: !this.state.expandAllTestList }, () => { this.setExpandedKeysForAllTestCases() })
+    }
+
+    setExpandedKeysForAllTestCases = () => {
+      if (this.state.expandAllTestList)
+        this.setState({ expandedKeys: parentNodes })
+      else
+        this.setState({ expandedKeys: [] })
+    }
+
     render() {
       searchedNodes = this.state.searchString.trim()
         ? this.keywordFilter(_.cloneDeep(mainstore.testConfiguration.testList), this.state.searchString)
         : mainstore.testConfiguration.testList;
       var loop = this.createTreeNodes(searchedNodes);
 
-      let certFilter = (<FlexView column>
-        {<Dropdown className="dut-port-align" >
+      let certFilter = (<FlexView>
+        {<Dropdown className="dut-port-align cert-filter-dropdown" >
           <Dropdown.Toggle className="dropdowncustom setwidth" variant="success" id="tcCertificationComboBox">{this.state.selectedCertFilter}</Dropdown.Toggle>
           <Dropdown.Menu>
             {
@@ -333,6 +321,9 @@ const PanelTestConfig = observer(
             }
           </Dropdown.Menu>
         </Dropdown >}
+        <label className="checkbox-label-width expand-test-list-checkbox">
+          <input type="checkbox" id="tcExpandTestListCheckBox" className="functional-moi-checkbox" checked={this.state.expandAllTestList} onChange={(e) => { this.expandOrCollapseTestList(e) }} />Expand Test List
+         </label>
       </FlexView >);
 
       let disableTestCaseList = ""
@@ -377,7 +368,9 @@ const PanelTestConfig = observer(
                 }}
               />
               {certFilter}
+
               <FlexView column >
+
               </FlexView>
             </div>
             {mainstore.connectionInfo.testerStatus !== 'Connected' ? <div className="test-cases-title">*Please connect to a GRL-C2 to execute the available test cases</div> : null}

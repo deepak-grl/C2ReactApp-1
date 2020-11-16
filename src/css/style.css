@@ -239,10 +239,10 @@ header {
   /* msie */
 }
 
-.scroll-content-sticky{
+.scroll-content-sticky {
   position: sticky;
   top: 0;
-  z-index: 2!important;
+  z-index: 2 !important;
   height: 0;
 }
 
@@ -954,7 +954,7 @@ button:focus {
   overflow-x: auto !important;
   height: 100%;
   display: flex;
-  margin-bottom: 7px;
+  margin-bottom: 20px;
 }
 
 .scroll-testcase-btn {
@@ -2465,6 +2465,15 @@ width:40%!important;
 .test-selection-treeview-container {
   overflow: auto;
   height: 80%;
+}
+
+.cert-filter-dropdown {
+  flex: 1 !important;
+}
+
+.expand-test-list-checkbox {
+  padding-top: 10px;
+  padding-left: 10px;
 }
 
 .moi-container {
