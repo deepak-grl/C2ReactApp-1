@@ -62,8 +62,10 @@ class PopUpManager extends React.Component {
                 }
 
                 /*  Handling the API Mode or CTS mode polling  --- starts    */
-                mainstore.apiMode.appState = res.appState;
-                mainstore.apiMode.isAppModeAPI = res.isAppModeAPI
+                if (!mainstore.isSetAppModeToggled) {
+                    mainstore.apiMode.appState = res.appState;
+                    mainstore.apiMode.isAppModeAPI = res.isAppModeAPI;
+                }
                 if (res.appState === Constants.READY)
                     mainstore.isChartPollingForApiModeStarted = false
                 if (res.appState === Constants.BUSY && res.isAppModeAPI && !mainstore.isChartPollingForApiModeStarted) {

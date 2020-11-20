@@ -58,9 +58,9 @@ const TopNavBar = observer(
 
     switchedAppMode = (event) => {
       if (mainstore.popUpInputs.responseButton === "Ok") {
-        basemodal.forceStopCurrentExecution()
         mainstore.apiMode.isAppModeAPI = event;
-        basemodal.putAppMode()
+        mainstore.isSetAppModeToggled = true;
+        basemodal.forceStopCurrentExecution(basemodal.putAppMode.bind(this))
         if (mainstore.apiMode.isAppModeAPI) {
           mainstore.currentPanelIndex = 3;
         } else {
@@ -70,7 +70,6 @@ const TopNavBar = observer(
         mainstore.apiMode.isAppModeAPI = !event   //to stay in the previous mode
       }
     }
-
 
     render() {
 

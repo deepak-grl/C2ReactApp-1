@@ -67,6 +67,7 @@ export const mainstore = observable({
   connectionStatusLoader: false,
   eLoadResponseData: '',
   isEloadAdressLoaded: false,
+  isSetAppModeToggled: false,
   fivePortTestingFlag: false,
   showConfigPopup: false,
   showIrDropCalibrationPopUp: false,
@@ -655,6 +656,7 @@ class BaseModal {
 
   forceStopCurrentExecution(callBack) {
     ajax.callGET(Constants.URL_ConnectionSetup + "ForceStopCurrentExecution", {}, function (response) {
+      mainstore.isSetAppModeToggled = false;
       if (callBack)
         callBack();
     }, function (error) {
