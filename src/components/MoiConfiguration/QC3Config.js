@@ -54,7 +54,7 @@ const QC3Config = observer((props) => {
     qc3Info.inputSupplyVoltage = event.target.value.replace(/[^0-9.]/g, "")        //to allow only positive and decimal numbers;
   }
 
-  const isTweleveRatedCurrentEnabled = (event) => {
+  const isTwentyRatedCurrentEnabled = (event) => {
     qc3Info.isUUTSupports20V = event.target.checked;
   }
 
@@ -141,7 +141,7 @@ const QC3Config = observer((props) => {
             </tr>
 
             <tr>
-              <td className="panellabel">  <Form.Check inline onChange={isTweleveRatedCurrentEnabled} type='checkbox' id="tcQc320VMaxCurrentCheckBox" />20V Max Current</td>
+              <td className="panellabel">  <Form.Check inline onChange={isTwentyRatedCurrentEnabled} checked={qc3Info.isUUTSupports20V} type='checkbox' id="tcQc320VMaxCurrentCheckBox" />20V Max Current</td>
               <td className="panel-input"><Form.Control type="text" className="panelcontrol textbox" id="tcQc320VMaxCurrentInputField" onChange={ratedCurrent20VTextBoxOnChange} value={qc3Info.ratedCurrent20V} placeholder="" disabled={!qc3Info.isUUTSupports20V} /></td>
               <td className="alignlabel">(A)</td>
             </tr>
