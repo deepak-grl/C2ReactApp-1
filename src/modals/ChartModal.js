@@ -283,7 +283,7 @@ export class ChartModal {
     singlePlotDataCall(random, newStartTimeZoom, newEndTimeZoom) {
         //chartstore.isPlotDataLoading = true;
         var me = this;
-        if (mainstore.status.appState !== Constants.BUSY) {
+        if (mainstore.status.appState !== Constants.BUSY && mainstore.apiMode.appState === Constants.READY) {
             this.stopTimer();
             setPlotButtonCursor_Wait(true);
             setPlotCursor(4);
