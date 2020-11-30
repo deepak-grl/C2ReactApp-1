@@ -310,7 +310,7 @@ const PanelTestConfig = observer(
         : mainstore.testConfiguration.testList;
       var loop = this.createTreeNodes(searchedNodes);
 
-      let certFilter = (<FlexView>
+      let certFilter = (<>
         {<Dropdown className="dut-port-align cert-filter-dropdown" >
           <Dropdown.Toggle className="dropdowncustom setwidth" variant="success" id="tcCertificationComboBox">{this.state.selectedCertFilter}</Dropdown.Toggle>
           <Dropdown.Menu>
@@ -321,10 +321,8 @@ const PanelTestConfig = observer(
             }
           </Dropdown.Menu>
         </Dropdown >}
-        <label className="checkbox-label-width expand-test-list-checkbox">
-          <input type="checkbox" id="tcExpandTestListCheckBox" className="functional-moi-checkbox" checked={this.state.expandAllTestList} onChange={(e) => { this.expandOrCollapseTestList(e) }} />Expand Test List
-         </label>
-      </FlexView >);
+
+      </ >);
 
       let disableTestCaseList = ""
       if (mainstore.connectionInfo.testerStatus !== 'Connected' && checkTestCaseNameIsNotEmpty !== "" && loop[0] !== undefined) {
@@ -359,18 +357,24 @@ const PanelTestConfig = observer(
                   </div>
                 </FlexView>
               </div>
-              <Input
-                id="tcSearchTestCaseInputField"
-                className='panel-search-input '
-                placeholder=" &#xf002; Search"
-                onChange={(event, data) => {
-                  this.onSearchKeywordChange(event, data, searchedNodes);
-                }}
-              />
-              {certFilter}
-
-              <FlexView column >
-
+              <FlexView>
+                {certFilter}
+                <Input
+                  id="tcSearchTestCaseInputField"
+                  className='panel-search-input '
+                  placeholder=" &#xf002; Search"
+                  onChange={(event, data) => {
+                    this.onSearchKeywordChange(event, data, searchedNodes);
+                  }}
+                />
+              </FlexView>
+              <FlexView>
+                <label className="checkbox-label-width expand-test-list-checkbox">
+                  <input type="checkbox" id="tcExpandTestListCheckBox" className="functional-moi-checkbox" checked={this.state.expandAllTestList} onChange={(e) => { this.expandOrCollapseTestList(e) }} />Expand Test List
+               </label>
+                <FlexView className="selected-test-count-div">
+                  <span>Selected Tests: <strong>{mainstore.testConfiguration.selectedTestList.length + "/" + orderedTestList.length} </strong></span>
+                </FlexView>
               </FlexView>
             </div>
             {mainstore.connectionInfo.testerStatus !== 'Connected' ? <div className="test-cases-title">*Please connect to a GRL-C2 to execute the available test cases</div> : null}
