@@ -2157,18 +2157,18 @@ width:40%!important;
   margin-left: 42px;
 }
 
-.cable-selection-tooltip-inner-content-align > .tooltip-inner{
+.cable-selection-tooltip-inner-content-align>.tooltip-inner {
   max-width: max-content;
   padding: 0;
   margin: 0;
 }
 
-.cable-selection-tolltip-table{
-  color: white!important;
+.cable-selection-tolltip-table {
+  color: white !important;
 }
 
-.cable-selection-tolltip-table-td{
-padding: 3px !important
+.cable-selection-tolltip-table-td {
+  padding: 3px !important
 }
 
 .panel-setWidth {
@@ -2502,7 +2502,7 @@ padding: 3px !important
   margin-left: 5px;
   padding: 3px;
   width: 50px;
-  background-color: #002077!important;
+  background-color: #002077 !important;
   font-size: 13px;
 }
 
@@ -2859,6 +2859,10 @@ padding: 3px !important
   color: black !important;
 }
 
+.progress {
+  background-color: rgb(212, 220, 230) !important;
+}
+
 .test-results-notify-count {
   display: inline !important;
   /* position: relative; */
@@ -2907,7 +2911,33 @@ padding: 3px !important
 .results-notify {
   padding: 4px 0px 10px;
   justify-content: center;
+  min-width: 420px!important;
   /* min-height: initial !important; */
+}
+
+.reRun-test-result {
+  margin-bottom: 17px;
+  margin-left: -95px;
+  margin-right: 50px;
+}
+
+.results-progress-label-div {
+  padding-left: 5px;
+}
+
+.results-running-test {
+  margin-left: -70px;
+}
+
+.results-progress-bar-div {
+  margin: 0 5px;
+  flex-flow: column !important;
+  flex: 5 !important;
+}
+
+.result-progress-div {
+  min-width: 350px!important;
+  min-height: auto !important;
 }
 
 .css-14bf3rg-style-style,
@@ -2942,7 +2972,7 @@ padding: 3px !important
   margin-bottom: -7px;
   height: 23px;
   margin-top: 30px;
-  min-width: 300px !important;
+  min-width: 420px !important;
 }
 
 .skip-btn-align {

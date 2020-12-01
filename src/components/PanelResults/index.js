@@ -415,8 +415,6 @@ class PanelResults extends React.Component {
     }
 
     render() {
-
-
         var passLabel = this.state.pass > 0 ? "Pass:" + this.state.pass + '/' + this.state.totalTestCase : "";
         var warningLabel = this.state.warning > 0 ? "Warning:" + this.state.warning + '/' + this.state.totalTestCase : "";
         var failLabel = this.state.fail > 0 ? "Fail:" + this.state.fail + '/' + this.state.totalTestCase : "";
@@ -435,18 +433,31 @@ class PanelResults extends React.Component {
                         }
                     </p>
                     <FlexView hAlignContent='center' vAlignContent='bottom' className="setbottomspcing-execBtn">
-                        <TestExecutionButton sortMoiOrder={panelTestConfig.sortMoiOrder} />
+                        {this.state.repeatCount !== "" ?
+                            <FlexView className="reRun-test-result">
+                                <p>Rerun : <strong> {this.state.repeatCount}</strong></p>
+                            </FlexView> : null}
                         {/* <FlexView column className="testexecutionbutton-container">
                             <OverlayTrigger placement="auto" trigger="hover" delay={{ show: 0, hide: 1 }} overlay={<Tooltip> Clear Test Case Results </Tooltip>}>
                                 <Button onClick={this.clearTestResults} disabled className="grl-button clear-test-results-btn">Clear Test Results</Button>
                             </OverlayTrigger>
                         </FlexView > */}
+                        <TestExecutionButton sortMoiOrder={panelTestConfig.sortMoiOrder} />
                     </FlexView>
-                    <ProgressBar>
-                        <ProgressBar animated={this.HaveTestsBeenExecuted} max={this.state.totalTestCase} variant="success" now={this.state.pass} key={1} />
-                        <ProgressBar animated={this.HaveTestsBeenExecuted} max={this.state.totalTestCase} variant="warning" now={this.state.warning} key={2} />
-                        <ProgressBar animated={this.HaveTestsBeenExecuted} max={this.state.totalTestCase} variant="danger" now={this.state.fail} key={3} />
-                    </ProgressBar>
+                    <FlexView className="result-progress-div">
+                        {mainstore.testExecutionProgressPercentage ?
+                            <FlexView className="results-progress-label-div">
+                                <span> Progress : <strong > {mainstore.testExecutionProgressPercentage + "%"}</strong> </span>
+                            </FlexView> : null}
+                        <FlexView className="results-progress-bar-div">
+                            <ProgressBar>
+                                <ProgressBar animated={this.HaveTestsBeenExecuted} max={this.state.totalTestCase} variant="success" now={this.state.pass} key={1} />
+                                <ProgressBar animated={this.HaveTestsBeenExecuted} max={this.state.totalTestCase} variant="warning" now={this.state.warning} key={2} />
+                                <ProgressBar animated={this.HaveTestsBeenExecuted} max={this.state.totalTestCase} variant="danger" now={this.state.fail} key={3} />
+                            </ProgressBar>
+                        </FlexView>
+                    </FlexView>
+
                     <CountResults pass={this.state.pass} warning={this.state.warning} fail={this.state.fail} incomplete={this.state.incomplete} total={this.state.totalTestCase} repeatCount={this.state.repeatCount} exPortNumber={this.state.exPortNumber} />
                     <FlexView id='test-selection-tree' className="c2-treeview-nodes results-treeview">
                         <div onWheel={(e) => utils.listenScrollEvent(e)} className="scroll" id="scroll-back-to-original-position">
@@ -470,47 +481,36 @@ class PanelResults extends React.Component {
 class CountResults extends React.Component {
     render() {
         var repeatResultsAlign = " ";
-        var repeactIcon = "";
-        if (this.props.repeatCount !== "") {
-            repeatResultsAlign = ' repeat-results-icon-align'
-            if (mainstore.status.appState === Constants.BUSY)
-                repeactIcon = "repeat-count.gif"
-            else
-                repeactIcon = "repeat-count-stop.png"
-        }
+        let totalCompletedestCase = this.props.pass + this.props.fail + this.props.warning + this.props.incomplete;
         return (
             <>
                 <FlexView className="results-notify">
+                    {mainstore.status.appState === Constants.BUSY ?
+                        <div className="results-running-test">Running : <strong className="test-results-notify-count"> {totalCompletedestCase + "/" + this.props.total}</strong> tests</div>
+                        : null}
                     <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of test cases passed </Tooltip>}>
                         <div className={"results-icon-align" + repeatResultsAlign}>
-                            <img className="set-results-icon-dimensions" src="../../images/pass.png" /><strong className="test-results-notify-count">  {this.props.pass}/{this.props.total}</strong>
+                            <img className="set-results-icon-dimensions" src="../../images/pass.png" /><strong className="test-results-notify-count">  {this.props.pass}</strong>
                         </div>
                     </OverlayTrigger>
 
                     <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of test cases failed </Tooltip>}>
                         <div className={"results-icon-align" + repeatResultsAlign}>
-                            <img className="set-results-icon-dimensions" src="../../images/fail.png" /><strong className="test-results-notify-count"> {this.props.fail}/{this.props.total}</strong>
+                            <img className="set-results-icon-dimensions" src="../../images/fail.png" /><strong className="test-results-notify-count"> {this.props.fail}</strong>
                         </div>
                     </OverlayTrigger>
 
                     <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of test cases incomplete </Tooltip>}>
                         <div className={"results-icon-align" + repeatResultsAlign}>
-                            <img className="set-results-icon-dimensions" src="../../images/skip_incomplete.png" /><strong className="test-results-notify-count"> {this.props.incomplete}/{this.props.total}</strong>
+                            <img className="set-results-icon-dimensions" src="../../images/skip_incomplete.png" /><strong className="test-results-notify-count"> {this.props.incomplete}</strong>
                         </div>
                     </OverlayTrigger>
 
                     <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of warning test cases</Tooltip>}>
                         <div className={"results-icon-align" + repeatResultsAlign}>
-                            <img className="set-results-icon-dimensions" src="../../images/warning.png" /><strong className="test-results-notify-count"> {this.props.warning}/{this.props.total}</strong>
+                            <img className="set-results-icon-dimensions" src="../../images/warning.png" /><strong className="test-results-notify-count"> {this.props.warning}</strong>
                         </div>
                     </OverlayTrigger>
-
-                    {this.props.repeatCount !== "" ?
-                        <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> current run test case sequence </Tooltip>}>
-                            <div className={"results-icon-align" + repeatResultsAlign}>
-                                <img className="set-results-repeat-icon-dimensions" src={"../../images/" + repeactIcon} /><strong className="test-results-notify-count">  {this.props.repeatCount}</strong>
-                            </div>
-                        </OverlayTrigger> : null}
                 </FlexView>
                 <hr className="horizontal-sepaerator" />
                 {
@@ -520,7 +520,6 @@ class CountResults extends React.Component {
                             <hr className="horizontal-sepaerator" />
                         </div> : null
                 }
-
             </>
         )
     }

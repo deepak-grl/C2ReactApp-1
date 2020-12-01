@@ -741,7 +741,6 @@ class BaseModal {
 
   getCableName() {
     ajax.callGET(Constants.URL_TestConfiguration + "GetCableName", {}, function (response) {
-      console.log('response: ', response);
       mainstore.getCableNameForTooltip = response.data
     }, function (error) {
       console.log("Error", error);
