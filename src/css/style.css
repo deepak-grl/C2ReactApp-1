@@ -2911,14 +2911,22 @@ width:40%!important;
 .results-notify {
   padding: 4px 0px 10px;
   justify-content: center;
-  min-width: 420px!important;
+  min-width: 420px !important;
   /* min-height: initial !important; */
+}
+
+.results-icon-div {
+  flex: 1 !important;
 }
 
 .reRun-test-result {
   margin-bottom: 17px;
-  margin-left: -95px;
-  margin-right: 50px;
+  margin-left: 5px;
+  flex: 1 !important;
+}
+
+.results-test-execution-btn-div {
+  flex: 3 !important;
 }
 
 .results-progress-label-div {
@@ -2926,7 +2934,7 @@ width:40%!important;
 }
 
 .results-running-test {
-  margin-left: -70px;
+  margin-left: 5px;
 }
 
 .results-progress-bar-div {
@@ -2936,7 +2944,7 @@ width:40%!important;
 }
 
 .result-progress-div {
-  min-width: 350px!important;
+  min-width: 350px !important;
   min-height: auto !important;
 }
 

@@ -442,7 +442,9 @@ class PanelResults extends React.Component {
                                 <Button onClick={this.clearTestResults} disabled className="grl-button clear-test-results-btn">Clear Test Results</Button>
                             </OverlayTrigger>
                         </FlexView > */}
-                        <TestExecutionButton sortMoiOrder={panelTestConfig.sortMoiOrder} />
+                        <FlexView className={this.state.repeatCount !== "" ? "results-test-execution-btn-div" : null}>
+                            <TestExecutionButton sortMoiOrder={panelTestConfig.sortMoiOrder} />
+                        </FlexView>
                     </FlexView>
                     <FlexView className="result-progress-div">
                         {mainstore.testExecutionProgressPercentage ?
@@ -488,29 +490,31 @@ class CountResults extends React.Component {
                     {mainstore.status.appState === Constants.BUSY ?
                         <div className="results-running-test">Running : <strong className="test-results-notify-count"> {totalCompletedestCase + "/" + this.props.total}</strong> tests</div>
                         : null}
-                    <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of test cases passed </Tooltip>}>
-                        <div className={"results-icon-align" + repeatResultsAlign}>
-                            <img className="set-results-icon-dimensions" src="../../images/pass.png" /><strong className="test-results-notify-count">  {this.props.pass}</strong>
-                        </div>
-                    </OverlayTrigger>
+                    <FlexView className="results-icon-div">
+                        <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of test cases passed </Tooltip>}>
+                            <div className={"results-icon-align" + repeatResultsAlign}>
+                                <img className="set-results-icon-dimensions" src="../../images/pass.png" /><strong className="test-results-notify-count">  {this.props.pass}</strong>
+                            </div>
+                        </OverlayTrigger>
 
-                    <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of test cases failed </Tooltip>}>
-                        <div className={"results-icon-align" + repeatResultsAlign}>
-                            <img className="set-results-icon-dimensions" src="../../images/fail.png" /><strong className="test-results-notify-count"> {this.props.fail}</strong>
-                        </div>
-                    </OverlayTrigger>
+                        <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of test cases failed </Tooltip>}>
+                            <div className={"results-icon-align" + repeatResultsAlign}>
+                                <img className="set-results-icon-dimensions" src="../../images/fail.png" /><strong className="test-results-notify-count"> {this.props.fail}</strong>
+                            </div>
+                        </OverlayTrigger>
 
-                    <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of test cases incomplete </Tooltip>}>
-                        <div className={"results-icon-align" + repeatResultsAlign}>
-                            <img className="set-results-icon-dimensions" src="../../images/skip_incomplete.png" /><strong className="test-results-notify-count"> {this.props.incomplete}</strong>
-                        </div>
-                    </OverlayTrigger>
+                        <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of test cases incomplete </Tooltip>}>
+                            <div className={"results-icon-align" + repeatResultsAlign}>
+                                <img className="set-results-icon-dimensions" src="../../images/skip_incomplete.png" /><strong className="test-results-notify-count"> {this.props.incomplete}</strong>
+                            </div>
+                        </OverlayTrigger>
 
-                    <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of warning test cases</Tooltip>}>
-                        <div className={"results-icon-align" + repeatResultsAlign}>
-                            <img className="set-results-icon-dimensions" src="../../images/warning.png" /><strong className="test-results-notify-count"> {this.props.warning}</strong>
-                        </div>
-                    </OverlayTrigger>
+                        <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of warning test cases</Tooltip>}>
+                            <div className={"results-icon-align" + repeatResultsAlign}>
+                                <img className="set-results-icon-dimensions" src="../../images/warning.png" /><strong className="test-results-notify-count"> {this.props.warning}</strong>
+                            </div>
+                        </OverlayTrigger>
+                    </FlexView>
                 </FlexView>
                 <hr className="horizontal-sepaerator" />
                 {
