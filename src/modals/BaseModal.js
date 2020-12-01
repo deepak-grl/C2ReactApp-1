@@ -54,6 +54,7 @@ export const mainstore = observable({
   devicePdPortTypeValue: null,
   filePdPortTypeValue: null,
   captiveCableVal: 0,
+  getCableNameForTooltip: [],
   loadedVifVendorName: '',
   isVifXmlLoaded: false,
   productCapsProjectName: 'NewProject',
@@ -98,7 +99,6 @@ export const mainstore = observable({
   isMfiEloadConnected: false,
   handleAutoClosePopup: false,
   showReRunTestCase: false,
-  reRenderCableSelectionDropDown: false,
   irDropCalibrationStatus: "",
   fivePortSelectedPortStatus: "",
   allSelectedBtns: [],
@@ -741,14 +741,8 @@ class BaseModal {
 
   getCableName() {
     ajax.callGET(Constants.URL_TestConfiguration + "GetCableName", {}, function (response) {
-      for (var i = 0; i < response.data.length; i++) {
-        if (response.data[i].length > 0) {
-          if (Constants.CABLE_DATA_TYPES_FOR_UI_ONLY[i].includes("("))
-            Constants.CABLE_DATA_TYPES_FOR_UI_ONLY[i] = Constants.CABLE_DATA_TYPES_FOR_UI_ONLY[i].substring(0, Constants.CABLE_DATA_TYPES_FOR_UI_ONLY[i].indexOf("("));
-          Constants.CABLE_DATA_TYPES_FOR_UI_ONLY[i] = Constants.CABLE_DATA_TYPES_FOR_UI_ONLY[i] + "(" + response.data[i] + ")"
-          mainstore.reRenderCableSelectionDropDown = !mainstore.reRenderCableSelectionDropDown;
-        }
-      }
+      console.log('response: ', response);
+      mainstore.getCableNameForTooltip = response.data
     }, function (error) {
       console.log("Error", error);
     });

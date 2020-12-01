@@ -2157,6 +2157,20 @@ width:40%!important;
   margin-left: 42px;
 }
 
+.cable-selection-tooltip-inner-content-align > .tooltip-inner{
+  max-width: max-content;
+  padding: 0;
+  margin: 0;
+}
+
+.cable-selection-tolltip-table{
+  color: white!important;
+}
+
+.cable-selection-tolltip-table-td{
+padding: 3px !important
+}
+
 .panel-setWidth {
   width: 100%;
 }

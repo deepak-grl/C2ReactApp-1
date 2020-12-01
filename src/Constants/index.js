@@ -97,9 +97,7 @@ export const LISTSINKPDO = "ListSinkPDO";
 export const SVIDLIST = "SvidList";
 
 //Test Cable Combo Select
-export const CABLE_DATA_TYPES = ["GRL-SPL Test Cable 1", "GRL-SPL Test Cable 2", "USB-C STD Test Cable 1", "USB-C STD Test Cable 2", "Captive Cable", "No Cable"];
-
-export const CABLE_DATA_TYPES_FOR_UI_ONLY = ["GRL-SPL Test Cable 1", "GRL-SPL Test Cable 2", "USB-C STD Test Cable 1", "USB-C STD Test Cable 2", "Captive Cable", "No Cable"];
+export const CABLE_DATA_TYPES = ["GRL-SPL Test Cable 1", "GRL-SPL Test Cable 2", "USB-C STD Test Cable 1", "USB-C STD Test Cable 2", "Captive Cable", "No Test Cable"];
 
 export const COMPLIANCE_CABLE_TYPES = ["GRL-SPL Test Cable 1", "GRL-SPL Test Cable 2"]
 //C2 App Status

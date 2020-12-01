@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Button, Dropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Button, Dropdown, OverlayTrigger, Table, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import * as Constants from '../../Constants';
 import { mouseBusy, resizeSplitterPaneToNormalMode } from '../../utils';
@@ -10,6 +10,7 @@ import { observer } from "mobx-react";
 import { convertCapsJsonFormat } from '../../modals/JsonConverter';
 import { chartstore } from "../../modals/ChartStoreModal";
 import { observe } from "mobx";
+import { TableBody } from "semantic-ui-react";
 
 let getCapsStatusDescription = '';
 // let splittedCableName = ''
@@ -24,11 +25,6 @@ const PortConfigComponent = observer(
                 stateMachineType: mainstore.productCapabilityProps.ports[this.props.portnumber].getStateMachineType(),
                 loading: false,
             };
-
-            // const disposer = observe(mainstore, "reRenderCableSelectionDropDown", (change) => {
-            //     if(mainstore.connectionInfo.testerStatus === "Connected")
-
-            // });
         }
 
         dutTypeDropDownChange = eventKey => {
@@ -130,6 +126,33 @@ const PortConfigComponent = observer(
                 getCapsStatusDescription = mainstore.popUpInputs.spinnerDesc
         }
 
+        cableTooltipl() {
+            return (
+                <>
+                    <p className="cable-selection-tolltip-table-td">Test cable name to map cable drop compensation value</p>
+                    <Table className="cable-selection-tolltip-table">
+                        <tbody>
+                            {
+                                Constants.CABLE_DATA_TYPES.map((ele, index) => {
+                                    return (
+                                        mainstore.getCableNameForTooltip[index] ?
+                                            <tr>
+                                                <td className="cable-selection-tolltip-table-td">
+                                                    {ele}
+                                                </td>
+                                                <td className="cable-selection-tolltip-table-td"> - </td>
+                                                <td className="cable-selection-tolltip-table-td"> {mainstore.getCableNameForTooltip ? mainstore.getCableNameForTooltip[index] : null} </td>
+                                            </tr>
+                                            : null
+                                    )
+                                })
+                            }
+                        </tbody>
+                    </Table>
+                </>
+            )
+        }
+
         render() {
             var secondaryPortAlign = "";
             var rerenderRequired = mainstore.productCapabilityProps.rerenderRandomNum
@@ -204,7 +227,7 @@ const PortConfigComponent = observer(
                                             })
                                         }
                                     </Dropdown.Menu>
-                                    <div className="product-caps-cable-selection-info-icon" >
+                                    <div className="product-caps-cable-selection-info-icon " >
                                         <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
                                             overlay={<Tooltip className="product-caps-cable-selection-tooltip-inner-content-align">{STATE_MACHINE_INFO}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" />
                                         </OverlayTrigger>
@@ -214,7 +237,6 @@ const PortConfigComponent = observer(
                         </div> : null}
 
                     <Dropdown className="dut-port-align"  >
-                        {mainstore.reRenderCableSelectionDropDown ? null : null}             {/*we're updating "CABLE_DATA_TYPES" constant value in getcablename api ,it's not re-rendering , so using this variable to update the render method*/}
                         <span className="label-text-padding">Cable Selection</span>
                         <Dropdown.Toggle disabled={!(mainstore.productCapabilityProps.ports[this.props.portnumber].cableType === Constants.CABLE_DATA_TYPES[0] || mainstore.productCapabilityProps.ports[this.props.portnumber].cableType === Constants.CABLE_DATA_TYPES[1]) && mainstore.productCapabilityProps.executionMode === "ComplianceMode"} className="dropdowncustom test-cableOptions-dropdown" variant="success" id={"pc" + (this.props.portnumber === Constants.PORTA ? Constants.PORT_TYPES[0] : Constants.PORT_TYPES[1]) + "CableSelectionComboBox"} >{mainstore.productCapabilityProps.ports[this.props.portnumber].cableType}</Dropdown.Toggle>
                         {(mainstore.productCapabilityProps.ports[this.props.portnumber].cableType === Constants.CABLE_DATA_TYPES[0] || mainstore.productCapabilityProps.ports[this.props.portnumber].cableType === Constants.CABLE_DATA_TYPES[1]) && mainstore.productCapabilityProps.executionMode === "ComplianceMode" ?
@@ -227,7 +249,7 @@ const PortConfigComponent = observer(
                             </Dropdown.Menu>
                             : <Dropdown.Menu >
                                 {
-                                    Constants.CABLE_DATA_TYPES_FOR_UI_ONLY.map((data, index) => {
+                                    Constants.CABLE_DATA_TYPES.map((data, index) => {
                                         return <Dropdown.Item key={index} eventKey={data} value={data} onSelect={this.cableTypedropDownChange.bind(this)}>{data}</Dropdown.Item>
                                     })
                                 }
@@ -239,8 +261,8 @@ const PortConfigComponent = observer(
                                 </OverlayTrigger>
                             </div> :
                             <div className="product-caps-cable-selection-info-icon" >
-                                <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
-                                    overlay={<Tooltip className="tooltip-inner-content-align">{FP_CABLE_SELECTION}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" />
+                                <OverlayTrigger trigger="click" popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
+                                    overlay={<Tooltip className=" cable-selection-tooltip-inner-content-align">{this.cableTooltipl()}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" />
                                 </OverlayTrigger>
                             </div>
                         }
