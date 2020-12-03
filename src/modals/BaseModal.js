@@ -1528,6 +1528,14 @@ class BaseModal {
     });
   }
 
+  getTryCableFlip() {
+    ajax.callGET(Constants.URL_ConfigControl + "GetTryCableFlip", {}, function (response) {
+    }, function (error) {
+      console.log("Error", error)
+    });
+  }
+
+
   getSelectedTabMoiConfiguration(selectedTab, previousActiveTab) {
     mainstore.testConfigurationFivePort[previousActiveTab] = JSON.parse(JSON.stringify(mainstore.testConfiguration));
     if (mainstore.testConfigurationFivePort[selectedTab]) {

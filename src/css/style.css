@@ -3317,6 +3317,24 @@ only screen and (max-width: 1024px)
   justify-content: center;
 }
 
+.try-cable-flip-label {
+  white-space: nowrap;
+  text-decoration: underline;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.try-cable-flip-label-tooltip>.tooltip-inner {
+  max-width: 300px !important;
+  white-space: pre-line;
+  text-align: inherit;
+}
+
+.info-icon-try-cable-flip {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
 .config-request-grl-button-align {
   /* margin-left: 113px;
   margin-right: 0;

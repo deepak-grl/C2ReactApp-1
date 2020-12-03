@@ -79,7 +79,7 @@ export const COMPLIANCE_CABLE_SELECTION = `1. GRL-SPL test cable(Vconn pass-thro
 2. Primary test port of DUT should be connected to Port 1 of Tester.
 3. To run test cases with standard USB - C cable, select informational test mode and choose the test cable type`
 
-export const DUT_TYPE_INFO =`Provider: Supplies power to the port partner.Ex: Wall/car charger
+export const DUT_TYPE_INFO = `Provider: Supplies power to the port partner.Ex: Wall/car charger
 Consumer: Sinks power from the port partner.Ex: Bus-powered Hub/Dock, adapter
 DRP: Can act as Source or Sink.Ex: Notebook PC, self-powered Dock/Hub, power bank
 Cable: Interconnects source and sink
@@ -109,9 +109,9 @@ export const FRSWAP_TEST_INFO = `Select this option if FR_Swap AUTO test fixture
 This test fixture is required for running Fast Role Swap test cases when DUT acts as Initial Source 
 Fast Role Swap test results are for informational only for now and these are not mandatory for certification testing`
 
-export const VCONN_INFO =`Deterministic tests need to be tested using VCONN voltage 2.75V , 5.75V`
-export const PD3_VCONN_INFO=`PD3 tests need to be tested using VCONN voltage 2.75V , 5.75V`
-export const COMM_VCONN_INFO=`1. All the Communication Engine Cable tests need to be tested using VCONN voltage 2.75V , 5.75V
+export const VCONN_INFO = `Deterministic tests need to be tested using VCONN voltage 2.75V , 5.75V`
+export const PD3_VCONN_INFO = `PD3 tests need to be tested using VCONN voltage 2.75V , 5.75V`
+export const COMM_VCONN_INFO = `1. All the Communication Engine Cable tests need to be tested using VCONN voltage 2.75V , 5.75V
 2. TDA 1.1.1.1.1 CABLE PHY TX EYE test need to be tested using VCONN voltage 2.75V , 4.25V , 5.75V`
 
 export const CAR_CHARGER = `For Car Chargers, repeat all the test cases with 9V, 12.5V and 16V input voltage supply connected to DUT`
@@ -124,4 +124,7 @@ export const FIVEPORTREPEATCOUNT = `Use this option to repeat the test execution
 
 export const FIVEPORTNOTE = `Navigate to product capability panel and select informational mode`
 
-export const CONFIG_CTRL_APP_MODE= `Enable DP AUX Sniffer License to decode DP AUX packets`
+export const CONFIG_CTRL_APP_MODE = `Enable DP AUX Sniffer License to decode DP AUX packets`
+
+export const TRY_CABLE_FLIP = `To indicate the change in cable orientation. 
+ To differentiate DP AUX transaction in multiple orientation`

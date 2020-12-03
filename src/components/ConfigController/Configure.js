@@ -4,7 +4,7 @@ import FlexView from 'react-flexview/lib';
 import * as Constants from '../../Constants';
 import { basemodal, mainstore } from '../../modals/BaseModal';
 import { ClipLoader } from 'react-spinners';
-import { APPLY_CONFIGURE, CONFIG_CTRL_APP_MODE } from '../../Constants/tooltip';
+import { APPLY_CONFIGURE, CONFIG_CTRL_APP_MODE, TRY_CABLE_FLIP } from '../../Constants/tooltip';
 import { observer } from "mobx-react";
 
 let applyStatusDescription = ""
@@ -95,6 +95,9 @@ const Configure = observer(
             })
             return dpAuxExpired;
         }
+
+        onClickTryFlipCable = () => basemodal.getTryCableFlip();
+
 
         render() {
             if (mainstore.popUpInputs.spinnerID === 5)
@@ -266,6 +269,10 @@ const Configure = observer(
                                     <input type="checkbox" id="opConfigControllerConfigureChannelsCC2heckBox" className="checkbox-text-align" checked={mainstore.configControlChannels.isCheckedCc2} onChange={() => { this.onChangeCc2TwoCheck() }} />
                                CC2
                             </label>
+                                <FlexView>
+                                    <a href="javascript:void(0);" onClick={() => { this.onClickTryFlipCable() }} id="opConfigControllerConfigureChannelsTryFlipCableLinkLabel" className="try-cable-flip-label">Try Cable Flip</a>
+                                    <div className="info-icon-try-cable-flip" ><OverlayTrigger placement="bottom" overlay={<Tooltip className="try-cable-flip-label-tooltip">{TRY_CABLE_FLIP}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" /></OverlayTrigger></div>
+                                </FlexView>
                             </FlexView>
 
                             <FlexView >
