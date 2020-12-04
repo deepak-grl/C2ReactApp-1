@@ -3322,6 +3322,7 @@ only screen and (max-width: 1024px)
   text-decoration: underline;
   margin-top: 5px;
   margin-left: 5px;
+  color: #0601ff!important;
 }
 
 .try-cable-flip-label-tooltip>.tooltip-inner {
@@ -3333,6 +3334,12 @@ only screen and (max-width: 1024px)
 .info-icon-try-cable-flip {
   margin-left: 5px;
   margin-top: 5px;
+}
+
+.disable-try-flipCable{
+  pointer-events: none;
+  opacity: 0.7;
+  user-select: none;
 }
 
 .config-request-grl-button-align {

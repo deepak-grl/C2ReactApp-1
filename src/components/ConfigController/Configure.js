@@ -269,7 +269,7 @@ const Configure = observer(
                                     <input type="checkbox" id="opConfigControllerConfigureChannelsCC2heckBox" className="checkbox-text-align" checked={mainstore.configControlChannels.isCheckedCc2} onChange={() => { this.onChangeCc2TwoCheck() }} />
                                CC2
                             </label>
-                                <FlexView>
+                                <FlexView className={mainstore.status.appState === Constants.READY ? "disable-try-flipCable" : null}>
                                     <a href="javascript:void(0);" onClick={() => { this.onClickTryFlipCable() }} id="opConfigControllerConfigureChannelsTryFlipCableLinkLabel" className="try-cable-flip-label">Try Cable Flip</a>
                                     <div className="info-icon-try-cable-flip" ><OverlayTrigger placement="bottom" overlay={<Tooltip className="try-cable-flip-label-tooltip">{TRY_CABLE_FLIP}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" /></OverlayTrigger></div>
                                 </FlexView>
