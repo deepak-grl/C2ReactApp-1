@@ -1,0 +1,25 @@
+{
+	"buildVersion": "v5.0.2",
+	"supportedBrowsers": [
+		{
+			"Chrome": {
+				"supportedVersion": "79.0.4147.90"
+			}
+		},
+		{
+			"Firefox": {
+				"supportedVersion": "76.0"
+			}
+		},
+		{
+			"Safari": {
+				"supportedVersion": "76.0.1"
+			}
+		},
+		{
+			"Microsoft Edge": {
+				"supportedVersion": "77.0.664.52"
+			}
+		}
+	]
+}
