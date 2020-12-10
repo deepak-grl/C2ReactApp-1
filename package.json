@@ -67,7 +67,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "postbuild": "node rename-file",
     "watch-css": "less-watch-compiler src/css src/css",
     "build": "react-scripts build",
     "test": "react-scripts test",
