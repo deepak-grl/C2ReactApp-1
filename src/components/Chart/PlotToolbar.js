@@ -379,8 +379,8 @@ class PlotToolbar extends React.Component {
         endTime = chartstore.signalFileStopTime;
         if (!mainstore.isTestResultCaptureFileNameEmpty)
             basemodal.chartModal.singlePlotDataCall(this.rand++, startTime, endTime);
-        chartstore.showVerticalBar = false;
-        mainstore.showMarkerByDefault = false;
+        // chartstore.showVerticalBar = false;
+        // mainstore.showMarkerByDefault = false;
         basemodal.chartModal.requestChartRerender();        //imp if Mask enable then vZoom then reset it will take y-axis max value from graph not from mask maxVal (+ 0.15)
     }
     handleClickMerge = () => {
