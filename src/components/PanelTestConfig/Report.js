@@ -1,8 +1,9 @@
 import React from 'react'
-import { Form, Table } from 'react-bootstrap';
+import { Form, Table, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import { observer } from 'mobx-react';
 import { mainstore } from '../../modals/BaseModal';
+import { REPORT_FOLDER_PATH_SUCCESS } from '../../Constants/tooltip';
 
 const Report = observer(
     class Report extends React.Component {
@@ -33,6 +34,10 @@ const Report = observer(
 
         handleOnRemarkTextChange = (event) => {
             mainstore.reportUserInputs.remarks = event.target.value
+        }
+
+        handleOnReportFolderPathTextChange = (event) => {
+            mainstore.reportUserInputs.reportFolderPath = event.target.value
         }
 
         render() {
@@ -71,6 +76,14 @@ const Report = observer(
                                 <tr>
                                     <td className="panellabel">Remarks/Comments</td>
                                     <td className="panel-input"><Form.Control className="panelcontrol textbox" id="tcReportRemarksInputField" type="text" value={mainstore.reportUserInputs.remarks} onChange={this.handleOnRemarkTextChange} /></td>
+                                </tr>
+                                <tr>
+                                    <td className="panellabel">Report Folder Path</td>
+                                    <td className="panel-input report-folder-path-td"><Form.Control className="panelcontrol textbox" id="tcReportRemarksInputField" type="text" value={mainstore.reportUserInputs.reportFolderPath} onChange={this.handleOnReportFolderPathTextChange} />
+                                        <OverlayTrigger placement="bottom" overlay={<Tooltip className="car-charger-tooltip-inner-content-align">{mainstore.reportPathStatus.status ? (REPORT_FOLDER_PATH_SUCCESS + mainstore.reportUserInputs.reportFolderPath) : mainstore.reportPathStatus.desc}</Tooltip>}>
+                                            <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
+                                        </OverlayTrigger>
+                                    </td>
                                 </tr>
                             </tbody>
                         </Table>

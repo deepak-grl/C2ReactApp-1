@@ -1232,6 +1232,10 @@ width:40%!important;
   padding: 0px;
 }
 
+.report-folder-path-td{
+  display: flex!important;
+}
+
 .dropdown-config .dropdowncustom {
   min-width: 100%;
   line-height: initial;

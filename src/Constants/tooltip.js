@@ -128,3 +128,6 @@ export const CONFIG_CTRL_APP_MODE = `Enable DP AUX Sniffer License to decode DP 
 
 export const TRY_CABLE_FLIP = `To indicate the change in cable orientation. 
  To differentiate DP AUX transaction in multiple orientation`
+
+export const REPORT_FOLDER_PATH_SUCCESS = `Recently executed test reports were stored successfully into `
+

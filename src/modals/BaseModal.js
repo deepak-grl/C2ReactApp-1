@@ -294,6 +294,11 @@ export const mainstore = observable({
     testLab: '',
     testEngineer: '',
     remarks: '',
+    reportFolderPath: '',
+  },
+  reportPathStatus: {
+    status: true,
+    desc: "",
   },
   reportInputs: {//TODO Ajith this can be deprecated right 
     testRunInfo: [],
@@ -1068,6 +1073,14 @@ class BaseModal {
   //Product Capability End
 
   //Report Generation Start
+  getReportPathStatus() {
+    ajax.callGET(Constants.URL_ReportConfiguration + "GetReportPathStatus", {}, function (response) {
+      mainstore.reportPathStatus = response.data
+    }, function (error) {
+      console.log("Error", error)
+    });
+  }
+
   getCurrentReportFileName() {
     ajax.callGET(Constants.URL_ReportConfiguration + "GetReportFileName", {}, function (response) {
       mainstore.currentReportFileName = ""

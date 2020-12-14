@@ -153,6 +153,7 @@ class PanelResults extends React.Component {
                         if (this.HaveTestsBeenExecuted) {
                             this.testCompletionToast = new toastNotification(mainstore.renderGlassPaneWhileGetcaps === true ? "Get Capability fields are updated !" : "Test execution completed !", Constants.TOAST_INFO, 10000)
                             this.testCompletionToast.show();
+                            basemodal.getReportPathStatus()
                             mainstore.showMarkerByDefault = true;
                             mainstore.enableOrDisableAllPopups = false;
                             chartstore.showVerticalBar = !chartstore.showVerticalBar
