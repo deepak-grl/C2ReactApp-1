@@ -41,6 +41,9 @@ const Report = observer(
         }
 
         render() {
+            let imageName = "fail";
+            if (mainstore.reportPathStatus.status)
+                imageName = "pass"
             return (
                 <FlexView className="panel-setWidth" column>
                     <p className="panelHeading">Report Generation</p>
@@ -81,7 +84,7 @@ const Report = observer(
                                     <td className="panellabel">Report Folder Path</td>
                                     <td className="panel-input report-folder-path-td"><Form.Control className="panelcontrol textbox" id="tcReportRemarksInputField" type="text" value={mainstore.reportUserInputs.reportFolderPath} onChange={this.handleOnReportFolderPathTextChange} />
                                         <OverlayTrigger placement="bottom" overlay={<Tooltip className="car-charger-tooltip-inner-content-align">{mainstore.reportPathStatus.status ? (REPORT_FOLDER_PATH_SUCCESS + mainstore.reportUserInputs.reportFolderPath) : mainstore.reportPathStatus.desc}</Tooltip>}>
-                                            <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
+                                            <img src={"../../images/" + imageName + ".png"} alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
                                         </OverlayTrigger>
                                     </td>
                                 </tr>
