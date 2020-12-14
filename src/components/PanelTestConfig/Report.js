@@ -82,7 +82,7 @@ const Report = observer(
                                 </tr>
                                 <tr>
                                     <td className="panellabel">Report Folder Path</td>
-                                    <td className="panel-input report-folder-path-td"><Form.Control className="panelcontrol textbox" id="tcReportRemarksInputField" type="text" value={mainstore.reportUserInputs.reportFolderPath} onChange={this.handleOnReportFolderPathTextChange} />
+                                    <td className="panel-input report-folder-path-td"><Form.Control className="panelcontrol textbox" id="tcReportFolderPathInputField" type="text" value={mainstore.reportUserInputs.reportFolderPath} onChange={this.handleOnReportFolderPathTextChange} />
                                         <OverlayTrigger placement="bottom" overlay={<Tooltip className="car-charger-tooltip-inner-content-align">{mainstore.reportPathStatus.status ? (REPORT_FOLDER_PATH_SUCCESS + mainstore.reportUserInputs.reportFolderPath) : mainstore.reportPathStatus.desc}</Tooltip>}>
                                             <img src={"../../images/" + imageName + ".png"} alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
                                         </OverlayTrigger>
