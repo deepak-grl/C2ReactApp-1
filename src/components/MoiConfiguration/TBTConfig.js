@@ -16,6 +16,8 @@ const TBTConfig = observer((props) => {
   }
   const deviceTypeDropDownOnChange = (eventKey) => {
     tbtconfiginfo.deviceType = eventKey;
+    if (eventKey === Constants.TBTDutCategory[0])
+      tbtconfiginfo.poweredType = Constants.PoweredType[0]
   }
   const stressTimingTextBoxOnChange = (event) => {
     tbtconfiginfo.stressTiming = event.target.value.replace(/[^0-9.]/g, "")        //to allow only positive and decimal numbers;
@@ -61,7 +63,7 @@ const TBTConfig = observer((props) => {
               <td className="panellabel">Powered Type</td>
               <td className="dropdown-config">
                 <Dropdown >
-                  <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcTBTPoweredTypeComboBox">{tbtconfiginfo.poweredType}</Dropdown.Toggle>
+                  <Dropdown.Toggle disabled={tbtconfiginfo.deviceType === Constants.TBTDutCategory[0]} className="dropdowncustom" variant="success" id="tcTBTPoweredTypeComboBox">{tbtconfiginfo.poweredType}</Dropdown.Toggle>
                   <Dropdown.Menu>
                     {
                       Constants.PoweredType.map((uutType, index) => {
