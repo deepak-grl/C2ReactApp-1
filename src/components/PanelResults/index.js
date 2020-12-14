@@ -226,7 +226,7 @@ class PanelResults extends React.Component {
                         value: testCase.id != null ? testCase.id : testCase.displayString, //TODO Find a better id parameter for test steps
                         label: testCase.displayString,
                         children: this.populateTreeViewNodes(testCase.children, parentIndex),
-                        icon: this.getTestResultIcon(testCase.result, parentIndex),
+                        icon: this.getTestResultIcon(testCase, parentIndex),
                         showCheckbox: false
                     }
                 )
@@ -285,9 +285,8 @@ class PanelResults extends React.Component {
         scrollToTestCaseBackground = " unlive-scroll-btn-color"
     }
 
-    getTestResultIcon(result, parentIndex) {
-        switch (result) {
-
+    getTestResultIcon(testCase, parentIndex) {
+        switch (testCase.result) {
             case 'FAIL':
                 return <p className={'result-fail rct-icon-indexValue' + parentIndex}  ></p>
             case 'INCOMPLETE':
@@ -303,7 +302,7 @@ class PanelResults extends React.Component {
             case 'ABORTED':
                 return <p className={'result-warning rct-icon-indexValue' + parentIndex} ></p>
             case 'RUNNING':
-                return <>{mainstore.stopScrollingTestCase ? null : <div id="CurrentRunningTest"></div>}
+                return <>{mainstore.stopScrollingTestCase ? null : <div id="CurrentRunningTest" title={testCase.displayString}></div>}
                     <ClipLoader css={'margin-left:-25px; margin-right: -4px'} sizeUnit={"em"} size={1.3} color={'#123abc'} loading={this.state.loading} />
                     {/* {this.scrollTo()} */}
                 </>
