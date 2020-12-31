@@ -1,30 +1,30 @@
-import React from 'react';
-import FlexView from 'react-flexview/lib';
-import CheckboxTree from 'react-checkbox-tree';
-import MoiComponents from '../MoiConfiguration'
-import { mainstore, basemodal } from '../../modals/BaseModal';
-import { observer } from 'mobx-react';
-import { observe } from 'mobx';
-import 'react-checkbox-tree/lib/react-checkbox-tree.css';
-import * as Constants from '../../Constants';
-import { Input } from "semantic-ui-react";
 import _ from "lodash";
-import Report from './Report';
-import { Button, Dropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import TestExecutionButton from './TestExecutionButton';
-import utils from '../../utils';
-import { TC_PASSTESTCASES, TC_FAILEDTESTCASES, TC_WARNINGTESTCASES, TC_CLEARFILTERS, TC_REPEAT, TC_INCOMPLETETESTCASE } from '../../Constants/tooltip';
-import NumericInput from 'react-numeric-input';
+import { observe } from 'mobx';
+import { observer } from 'mobx-react';
 import Tree, { TreeNode } from 'rc-tree';
+import React from 'react';
+import { Button, Dropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import 'react-checkbox-tree/lib/react-checkbox-tree.css';
+import FlexView from 'react-flexview/lib';
+import { Input } from "semantic-ui-react";
+import * as Constants from '../../Constants';
+import { TC_CLEARFILTERS, TC_FAILEDTESTCASES, TC_INCOMPLETETESTCASE, TC_PASSTESTCASES, TC_WARNINGTESTCASES } from '../../Constants/tooltip';
+import '../../css/draggable.css';
 import '../../css/rc_tree.css';
-import '../../css/draggable.css'
+import { basemodal, mainstore } from '../../modals/BaseModal';
+import utils from '../../utils';
+import MoiComponents from '../MoiConfiguration';
+import Report from './Report';
+import TestExecutionButton from './TestExecutionButton';
 
 let searchedNodes = [];
 let orderedTestList = [];
 let selectedTestCase = [];
 var selectedFilters = []
 let selectedMoi = [];
-let parentNodes = []
+let parentNodes = [];
+let selectedTestCaseCount = []
+let testCaseListWithoutMoiName = []
 let checkTestCaseNameIsNotEmpty = " ";
 const PanelTestConfig = observer(
   class PanelTestConfig extends React.Component {
@@ -54,6 +54,7 @@ const PanelTestConfig = observer(
       orderedTestList = []   //ordered test list not updating while test list gets updated  , so clearing here and updating the ordered list in getmoiorder method
       this.setState({ reRender: !this.state.reRender, checkedKeys: checked })
       mainstore.testConfiguration.selectedTestList = checked;
+      selectedTestCaseCount = checked;
       if (targetNode.checked === false) {
         mainstore.selectedMoiTestCase = [];
         mainstore.selectedMoiTestCase.push(...checked)
@@ -63,7 +64,6 @@ const PanelTestConfig = observer(
       else {
         mainstore.selectedMoiTestCase.push(...checked)
         mainstore.selectedMoiTestCase.push(...targetNode.halfCheckedKeys)
-
         //Removing the QC_LEGACY Second Parent in the selected test list
         for (var i = 0; i < Constants.QC_LEGACY_PARENT_NAMES.length; i++) {
           if (mainstore.testConfiguration.selectedTestList.includes(Constants.QC_LEGACY_PARENT_NAMES[i])) {
@@ -82,7 +82,7 @@ const PanelTestConfig = observer(
         if (n.children.length > 0) {
           children = this.createTreeNodes(n.children);
         }
-        if (children.length == 0) {
+        if (children.length === 0) {
           parent.push(<TreeNode disabled={mainstore.connectionInfo.testerStatus !== "Connected"} className={this.disableQCLegacyTestCases(n.title)} key={n.title} title={n.title} />)
           checkTestCaseNameIsNotEmpty = n.title
         }
@@ -92,7 +92,8 @@ const PanelTestConfig = observer(
             parentNodes.push(n.title)
         }
       }
-      this.getMoiOrder(parent);
+      this.getMoiOrder(parent, parentNodes);
+      this.removeTestCaseParentNameForCount(parentNodes)
       return parent;
     }
 
@@ -103,12 +104,29 @@ const PanelTestConfig = observer(
       }
     }
 
+    removeTestCaseParentNameForCount = (name) => {
+      for (let i = 0; i < name.length; i++) {
+        if (selectedTestCaseCount.includes(name[i])) {
+          let removeMoiName = selectedTestCaseCount.indexOf(name[i]);
+          if (removeMoiName !== -1)
+            selectedTestCaseCount.splice(removeMoiName, 1)
+        }
+      }
+    }
 
     //Re-ordering the Moi list order while dragging
-    getMoiOrder = (parent) => {
+    getMoiOrder = (parent, parentName) => {
       for (let n of parent) {
         if (!(orderedTestList.includes(n.key)))
           orderedTestList.push(n.key)
+      }
+      testCaseListWithoutMoiName = orderedTestList.slice(0);
+      for (let i = 0; i < parentName.length; i++) {
+        if (testCaseListWithoutMoiName.includes(parentName[i])) {
+          let removedTestCaseMoiName = testCaseListWithoutMoiName.indexOf(parentName[i]);
+          if (removedTestCaseMoiName !== -1)
+            testCaseListWithoutMoiName.splice(removedTestCaseMoiName, 1)
+        }
       }
     }
 
@@ -373,7 +391,7 @@ const PanelTestConfig = observer(
                   <input type="checkbox" id="tcExpandTestListCheckBox" className="functional-moi-checkbox" checked={this.state.expandAllTestList} onChange={(e) => { this.expandOrCollapseTestList(e) }} />Expand Test List
                </label>
                 <FlexView className="selected-test-count-div">
-                  <span>Selected Tests: <strong>{mainstore.testConfiguration.selectedTestList.length + "/" + orderedTestList.length} </strong></span>
+                  <span>Selected Tests: <strong>{selectedTestCaseCount.length + "/" + testCaseListWithoutMoiName.length} </strong></span>
                 </FlexView>
               </FlexView>
             </div>
