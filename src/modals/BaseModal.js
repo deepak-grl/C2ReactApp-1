@@ -1548,8 +1548,10 @@ class BaseModal {
     });
   }
 
-  tbtSelfCalibration() {
+  tbtSelfCalibration(callback) {
     ajax.callGET(Constants.URL_ConfigControl + "SetTBTSelfCalibration", {}, function (response) {
+      if (callback)
+        callback();
     }, function (error) {
       console.log("Error", error)
     });
