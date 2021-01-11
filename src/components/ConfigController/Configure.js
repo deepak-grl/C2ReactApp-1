@@ -14,6 +14,7 @@ const Configure = observer(
             grlSpclCableSelected: true,
             startCaptureLoader: false,
             loading: false,
+            selfCalibrationLoader: false,
         };
 
         getControls() {
@@ -98,6 +99,13 @@ const Configure = observer(
 
         onClickTryFlipCable = () => basemodal.getTryCableFlip();
 
+        tbtSelfCalibration = () => {
+            this.setState({ selfCalibrationLoader: true }, basemodal.tbtSelfCalibration(this.selfCalibrationLoader.bind(this)))
+        }
+
+        selfCalibrationLoader = () => {
+            this.setState({ selfCalibrationLoader: false })
+        }
 
         render() {
             if (mainstore.popUpInputs.spinnerID === 5)
@@ -294,6 +302,17 @@ const Configure = observer(
                             </FlexView>
                             <FlexView >
                                 <Button id="opConfigControllerConfigureDownloadCaptureBtn" disabled={mainstore.isTesterStatusNotConnected} className="grl-button configure-attach-button download-capture-btn-align " onClick={() => { this.downloadCaptureFile() }}>Download Capture </Button>
+                            </FlexView>
+                            <FlexView >
+                                <Button id="opConfigControllerSelfCalibrationBtn" disabled={mainstore.isTesterStatusNotConnected} className="grl-button configure-attach-button download-capture-btn-align " onClick={() => { this.tbtSelfCalibration() }}>TBT Self Calibration </Button>
+                                <div className="cliploader-div" style={{ margin: "0px", marginTop: "5px" }}>
+                                    <ClipLoader
+                                        sizeUnit={"px"}
+                                        size={25}
+                                        color={'#123abc'}
+                                        loading={this.state.selfCalibrationLoader}
+                                    />
+                                </div>
                             </FlexView>
                         </div>
                     </FlexView>

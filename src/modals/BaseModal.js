@@ -1548,6 +1548,12 @@ class BaseModal {
     });
   }
 
+  tbtSelfCalibration() {
+    ajax.callGET(Constants.URL_ConfigControl + "SetTBTSelfCalibration", {}, function (response) {
+    }, function (error) {
+      console.log("Error", error)
+    });
+  }
 
   getSelectedTabMoiConfiguration(selectedTab, previousActiveTab) {
     mainstore.testConfigurationFivePort[previousActiveTab] = JSON.parse(JSON.stringify(mainstore.testConfiguration));
