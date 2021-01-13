@@ -440,43 +440,156 @@ class PlotToolbar extends React.Component {
             <label key={'chanel_selector' + i} className="custom-dropdown-label" htmlFor={"chanelNum" + ele.chanelNum} ><input type="checkbox" name="one" value="one" id={"chanelNum" + ele.chanelNum} onChange={(e) => this.showHideChanel(e, ele.chanelNum, ele.isChecked)} checked={ele.isChecked} /> {Constants.GRAPH_YAXIS_LABEL[ele.chanelNum]} </label>
         );
         return (
-            <div className="plot-toggle" style={{ backgroundColor: 'lightgrey', height: '40px' }} >
-                <img src="../../images/navbar-icon.jpg" id="navbar_icon_img" className="hideImage" alt="navbar" style={{ width: '40px', cursor: 'pointer' }} />
-                <div className="chart-plottoolbar" data-html2canvas-ignore="true">
-                    <PlotToolBarButtons tooltip={PLT_SAVE} img={"../../images/chartIcons/PNG/save.png"} clickHandler={this.showTraceFileModal.bind(this)} alt={"save-as"} buttonId={"chart_toolbar_save_button"} />
-                    <PlotToolBarButtons tooltip={PLT_LOAD} img={"../../images/chartIcons/PNG/load.png"} clickHandler={this.displayFileDialog.bind(this)} alt={"folder"} className={mainstore.isTestResultInOfflineMode ? "load-trace-btn" : null} separtorClassName={"toolbar-btn-separtor"} buttonId={"chart_toolbar_load_button"} />
-                    <div style={{ display: 'none' }} ><input ref={(ref) => { this.refUploadInput = ref; }} accept=".grltrace" type="file" style={{ display: 'none' }} onClick={(e) => e.target.value = null} onChange={this.onFileSelect} /></div>
-                    <PlotToolBarButtons tooltip={PLT_ZOOM_IN} img={"../../images/chartIcons/PNG/Horizontal-zoom-in.png"} clickHandler={this.handleClickZoomIn} alt={"zoom-in"} className={this.getButtonBackgroundForZooms(this.zoominButton)} buttonId={"chart_toolbar_horizontal_zoom_in_button"} />
-                    <PlotToolBarButtons tooltip={PLT_ZOOM_OUT} img={"../../images/chartIcons/PNG/Horizontal-zoom-out.png"} clickHandler={this.handleClickZoomOut} alt={"zoom-out"} className={this.getButtonBackgroundForZooms(this.zoomoutButton)} buttonId={"chart_toolbar_horizontal_zoom_out_button"} />
-                    <PlotToolBarButtons tooltip={PLT_VERTICAL_ZOOM} img={"../../images/chartIcons/PNG/vertical-zoom-in.png"} clickHandler={this.handleClickVerticalZoom} alt={"vertical-zoom-in"} className={this.getButtonBackgroundForZooms(this.verticalZoomButton)} buttonId={"chart_toolbar_vertical_zoom_in"} />
-                    <PlotToolBarButtons tooltip={PLT_VERTICAL_ZOOMOUT} img={"../../images/chartIcons/PNG/vertical-zoom-out.png"} clickHandler={this.handleClickVerticalZoomOut} alt={"vertical-zoom-out"} className={this.getButtonBackgroundForZooms(this.verticalZoomOutButton)} buttonId={"chart_toolbar_vertical_zoom_out"} />
-                    <PlotToolBarButtons tooltip={PLT_RESET} img={"../../images/chartIcons/PNG/fit.png"} clickHandler={this.handleClickReset} alt={"fit"} buttonId={"chart_toolbar_fit_button"} />
-                    <PlotToolBarButtons tooltip={PLT_MOUSE_PAN} img={"../../images/chartIcons/PNG/hand.png"} clickHandler={this.handleClickPan} alt={"hands"} className={this.getButtonBackgroundForZooms(this.panButton)} separtorClassName={"toolbar-btn-separtor"} buttonId={"chart_toolbar_click_pan_button"} />
-                    <PlotToolBarButtons tooltip={PLT_PAN_LEFT} img={"../../images/chartIcons/PNG/move-left.png"} clickHandler={this.handlePanLeft} alt={"hands"} buttonId={"chart_toolbar_pan_left_button"} />
-                    <PlotToolBarButtons tooltip={PLT_PAN_RIGHT} img={"../../images/chartIcons/PNG/move-right.png"} clickHandler={this.handlePanRight} alt={"pan-right"} buttonId={"chart_toolbar_pan_right_button"} />
-                    <PlotToolBarButtons tooltip={PLT_PAN_TOP} img={"../../images/chartIcons/PNG/move-top.png"} clickHandler={this.handlePanTop} alt={"hands"} buttonId={"chart_toolbar_pan_top_button"} />
-                    <PlotToolBarButtons tooltip={PLT_PAN_BOTTOM} img={"../../images/chartIcons/PNG/move-bottom.png"} clickHandler={this.handlePanBottom} alt={"hands"} buttonId={"chart_toolbar_pan_bottom_button"} />
-                    <PlotToolBarButtons tooltip={PLT_MERGE} img={"../../images/chartIcons/PNG/merge.png"} clickHandler={this.handleClickMerge} alt={"merge"} className={this.getButtonBackground(this.mergeButton)} buttonId={"chart_toolbar_merge_button"} />
-                    <PlotToolBarButtons tooltip={PLT_UNMERGE} img={"../../images/chartIcons/PNG/unmerge.png"} clickHandler={this.handleClickUnMerge} alt={"unmerge"} className={this.getButtonBackground(this.unMergeButton)} buttonId={"chart_toolbar_unmerge_button"} />
-                    <PlotToolBarButtons tooltip={PLT_HMARKER} img={"../../images/chartIcons/PNG/enable-disable-signal-markers.png"} clickHandler={this.horizontalMarker.bind(this)} alt={"marker"} className={chartstore.showVerticalBar ? "plot-toolbar-img2" + " " + this.getButtonBackgroundForMarker(this.markerButton) : "plot-toolbar-img2"} buttonId={""} />
-                    <PlotToolBarButtons tooltip={PLT_MASK} img={"../../images/chartIcons/PNG/mask.png"} clickHandler={this.handleMask} alt={"mask"} className={this.getButtonBackground(this.chartMask)} buttonId={""} />
-                    <PlotToolBarButtons tooltip={PLT_SCREENSHOT} img={"../../images/chartIcons/PNG/screenshot.png"} buttonId={"btn_screenshot"} alt={"screenshot"} />
+            <div className='plot-toggle' style={{ backgroundColor: 'lightgrey', height: '40px' }}>
+                <img src='../../images/navbar-icon.jpg' id='navbar_icon_img' className='hideImage' alt='navbar' style={{ width: '40px', cursor: 'pointer' }} />
+                <div className='chart-plottoolbar' data-html2canvas-ignore='true'>
+                    <PlotToolBarButtons
+                        tooltip={PLT_SAVE}
+                        img={'../../images/chartIcons/PNG/save.png'}
+                        clickHandler={this.showTraceFileModal.bind(this)}
+                        alt={'save-as'}
+                        buttonId={'chart_toolbar_save_button'}
+                    />
+                    <PlotToolBarButtons
+                        tooltip={PLT_LOAD}
+                        img={'../../images/chartIcons/PNG/load.png'}
+                        clickHandler={this.displayFileDialog.bind(this)}
+                        alt={'folder'}
+                        className={mainstore.isTestResultInOfflineMode ? 'load-trace-btn' : null}
+                        separtorClassName={'toolbar-btn-separtor'}
+                        buttonId={'chart_toolbar_load_button'}
+                    />
+                    <div style={{ display: 'none' }}>
+                        <input
+                            ref={(ref) => {
+                                this.refUploadInput = ref;
+                            }}
+                            accept='.grltrace'
+                            type='file'
+                            style={{ display: 'none' }}
+                            onClick={(e) => (e.target.value = null)}
+                            onChange={this.onFileSelect}
+                        />
+                    </div>
+                    <PlotToolBarButtons
+                        tooltip={PLT_ZOOM_IN}
+                        img={'../../images/chartIcons/PNG/Horizontal-zoom-in.png'}
+                        clickHandler={this.handleClickZoomIn}
+                        alt={'zoom-in'}
+                        className={this.getButtonBackgroundForZooms(this.zoominButton)}
+                        buttonId={'chart_toolbar_horizontal_zoom_in_button'}
+                    />
+                    <PlotToolBarButtons
+                        tooltip={PLT_ZOOM_OUT}
+                        img={'../../images/chartIcons/PNG/Horizontal-zoom-out.png'}
+                        clickHandler={this.handleClickZoomOut}
+                        alt={'zoom-out'}
+                        className={this.getButtonBackgroundForZooms(this.zoomoutButton)}
+                        buttonId={'chart_toolbar_horizontal_zoom_out_button'}
+                    />
+                    <PlotToolBarButtons
+                        tooltip={PLT_VERTICAL_ZOOM}
+                        img={'../../images/chartIcons/PNG/vertical-zoom-in.png'}
+                        clickHandler={this.handleClickVerticalZoom}
+                        alt={'vertical-zoom-in'}
+                        className={this.getButtonBackgroundForZooms(this.verticalZoomButton)}
+                        buttonId={'chart_toolbar_vertical_zoom_in'}
+                    />
+                    <PlotToolBarButtons
+                        tooltip={PLT_VERTICAL_ZOOMOUT}
+                        img={'../../images/chartIcons/PNG/vertical-zoom-out.png'}
+                        clickHandler={this.handleClickVerticalZoomOut}
+                        alt={'vertical-zoom-out'}
+                        className={this.getButtonBackgroundForZooms(this.verticalZoomOutButton)}
+                        buttonId={'chart_toolbar_vertical_zoom_out'}
+                    />
+                    <PlotToolBarButtons tooltip={PLT_RESET} img={'../../images/chartIcons/PNG/fit.png'} clickHandler={this.handleClickReset} alt={'fit'} buttonId={'chart_toolbar_fit_button'} />
+                    <PlotToolBarButtons
+                        tooltip={PLT_MOUSE_PAN}
+                        img={'../../images/chartIcons/PNG/hand.png'}
+                        clickHandler={this.handleClickPan}
+                        alt={'hands'}
+                        className={this.getButtonBackgroundForZooms(this.panButton)}
+                        separtorClassName={'toolbar-btn-separtor'}
+                        buttonId={'chart_toolbar_click_pan_button'}
+                    />
+                    <PlotToolBarButtons tooltip={PLT_PAN_LEFT} img={'../../images/chartIcons/PNG/move-left.png'} clickHandler={this.handlePanLeft} alt={'hands'} buttonId={'chart_toolbar_pan_left_button'} />
+                    <PlotToolBarButtons
+                        tooltip={PLT_PAN_RIGHT}
+                        img={'../../images/chartIcons/PNG/move-right.png'}
+                        clickHandler={this.handlePanRight}
+                        alt={'pan-right'}
+                        buttonId={'chart_toolbar_pan_right_button'}
+                    />
+                    <PlotToolBarButtons tooltip={PLT_PAN_TOP} img={'../../images/chartIcons/PNG/move-top.png'} clickHandler={this.handlePanTop} alt={'hands'} buttonId={'chart_toolbar_pan_top_button'} />
+                    <PlotToolBarButtons
+                        tooltip={PLT_PAN_BOTTOM}
+                        img={'../../images/chartIcons/PNG/move-bottom.png'}
+                        clickHandler={this.handlePanBottom}
+                        alt={'hands'}
+                        buttonId={'chart_toolbar_pan_bottom_button'}
+                    />
+                    <PlotToolBarButtons
+                        tooltip={PLT_MERGE}
+                        img={'../../images/chartIcons/PNG/merge.png'}
+                        clickHandler={this.handleClickMerge}
+                        alt={'merge'}
+                        className={this.getButtonBackground(this.mergeButton)}
+                        buttonId={'chart_toolbar_merge_button'}
+                    />
+                    <PlotToolBarButtons
+                        tooltip={PLT_UNMERGE}
+                        img={'../../images/chartIcons/PNG/unmerge.png'}
+                        clickHandler={this.handleClickUnMerge}
+                        alt={'unmerge'}
+                        className={this.getButtonBackground(this.unMergeButton)}
+                        buttonId={'chart_toolbar_unmerge_button'}
+                    />
+                    <PlotToolBarButtons
+                        tooltip={PLT_HMARKER}
+                        img={'../../images/chartIcons/PNG/enable-disable-signal-markers.png'}
+                        clickHandler={this.horizontalMarker.bind(this)}
+                        alt={'marker'}
+                        className={chartstore.showVerticalBar ? 'plot-toolbar-img2' + ' ' + this.getButtonBackgroundForMarker(this.markerButton) : 'plot-toolbar-img2'}
+                        buttonId={''}
+                    />
+                    <PlotToolBarButtons
+                        tooltip={PLT_MASK}
+                        img={'../../images/chartIcons/PNG/mask.png'}
+                        clickHandler={this.handleMask}
+                        alt={'mask'}
+                        className={this.getButtonBackground(this.chartMask)}
+                        buttonId={''}
+                    />
+                    <PlotToolBarButtons tooltip={PLT_SCREENSHOT} img={'../../images/chartIcons/PNG/screenshot.png'} buttonId={'btn_screenshot'} alt={'screenshot'} />
                 </div>
 
-                <div className="plotlive_btn_div" data-html2canvas-ignore="true">
-                    <div className="custom-dropdown-btn">
-                        <Button><div className="custom_dropdown_btn"> Channels &nbsp; <img src="../../images/chartIcons/PNG/move-bottom.png" alt="dropdown" style={{ width: '15px' }} /></div>
-                            <div className="custom-dropdown-items-container hidden">
-                                {listItems}
+                <div className='plotlive_btn_div' data-html2canvas-ignore='true'>
+                    <div className='custom-dropdown-btn'>
+                        <Button>
+                            <div className='custom_dropdown_btn'>
+                                {' '}
+										Channels &nbsp; <img src='../../images/chartIcons/PNG/move-bottom.png' alt='dropdown' style={{ width: '15px' }} />
                             </div>
+                            <div className='custom-dropdown-items-container hidden'>{listItems}</div>
                         </Button>
                     </div>
-                    {(mainstore.isPollingChecked) ? <OverlayTrigger placement="auto" overlay={<Tooltip> {PLT_UNLIVE_UPDATES} </Tooltip>}>
-                        <Button id="chart_toolbar_live_updates_button" className="plot-toolbar-btn2" onClick={this.togglePolling}><img src="../../images/chartIcons/PNG/unlive.png" alt="objects" className="plot-toolbar-live-updates-btn" /></Button></OverlayTrigger> : <OverlayTrigger placement="auto" overlay={<Tooltip> {PLT_LIVE_UPDATES} </Tooltip>}>
-                            <Button id="chart_toolbar_unlive_updates_button" className="plot-toolbar-btn2" onClick={this.togglePolling}><img src="../../images/chartIcons/PNG/Live.png" alt="objects" className="plot-toolbar-live-updates-btn" /></Button></OverlayTrigger>}
+                    {mainstore.isPollingChecked ? (
+                        <OverlayTrigger placement='auto' overlay={<Tooltip> {PLT_UNLIVE_UPDATES} </Tooltip>}>
+                            <Button id='chart_toolbar_live_updates_button' className='plot-toolbar-btn2' onClick={this.togglePolling}>
+                                <img src='../../images/chartIcons/PNG/unlive.png' alt='objects' className='plot-toolbar-live-updates-btn' />
+                            </Button>
+                        </OverlayTrigger>
+                    ) : (
+                            <OverlayTrigger placement='auto' overlay={<Tooltip> {PLT_LIVE_UPDATES} </Tooltip>}>
+                                <Button id='chart_toolbar_unlive_updates_button' className='plot-toolbar-btn2' onClick={this.togglePolling}>
+                                    <img src='../../images/chartIcons/PNG/Live.png' alt='objects' className='plot-toolbar-live-updates-btn' />
+                                </Button>
+                            </OverlayTrigger>
+                        )}
                 </div>
             </div>
-        )
+        );
     }
 }
 export default PlotToolbar;

@@ -1,12 +1,10 @@
 
 //TODO @Ajith Please clean up import
-import React from 'react'
-import { Form, Button, Dropdown, DropdownButton, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { basemodal, mainstore } from '../../modals/BaseModal';
-import * as Constants from '../../Constants';
-import FlexView from 'react-flexview/lib';
 import { observer } from 'mobx-react';
-import { observe } from 'mobx';
+import React from 'react';
+import { Button, Dropdown, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import FlexView from 'react-flexview/lib';
+import { basemodal, mainstore } from '../../modals/BaseModal';
 
 const PopUpModal = observer(
     class PopUpModal extends React.Component {
@@ -46,6 +44,7 @@ const PopUpModal = observer(
                 if (mainstore.popUpInputs.callBackMethod)
                     mainstore.popUpInputs.callBackMethod();
             }
+            mainstore.popUpInputs.responseButton = '';
         }
 
         displayButtons = () => {
