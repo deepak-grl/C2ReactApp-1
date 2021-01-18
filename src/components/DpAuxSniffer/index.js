@@ -1,7 +1,7 @@
-import React, { Component } from "react"
-import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import FlexView from 'react-flexview/lib';
 import { observer } from "mobx-react";
+import React, { Component } from "react";
+import { Button } from 'react-bootstrap';
+import FlexView from 'react-flexview/lib';
 import { basemodal } from "../../modals/BaseModal";
 
 const DpAuxSniffer = observer(class DpAuxSniffer extends Component {

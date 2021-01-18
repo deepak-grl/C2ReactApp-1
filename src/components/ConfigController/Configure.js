@@ -15,6 +15,7 @@ const Configure = observer(
             startCaptureLoader: false,
             loading: false,
             selfCalibrationLoader: false,
+            isStopBtnClicked: false,
         };
 
         getControls() {
@@ -61,12 +62,16 @@ const Configure = observer(
             basemodal.configControllerStartCapture();
         }
 
-        stopCapture = () => basemodal.configControllerStopCapture(this.doneCaptureLoading.bind(this));
+        stopCapture = () => {
+            basemodal.configControllerStopCapture(this.doneCaptureLoading.bind(this));
+            this.setState({ isStopBtnClicked: true })
+        }
 
         doneCaptureLoading = () => {
             this.setChartAndPollingState(false)
             mainstore.configControllerCaptureInProgress = false
             mainstore.enableGlassPaneIfOptionsPanelSelected = false;
+            this.setState({ isStopBtnClicked: false })
         }
 
         setChartAndPollingState = (enableStatus) => {
@@ -113,6 +118,7 @@ const Configure = observer(
 
             let startCaptureBtnColor = " ";
             let disableRequestMessage = ""
+
             if (this.state.startCaptureLoader)
                 startCaptureBtnColor = "start-capture-btn-color"
 
@@ -294,7 +300,7 @@ const Configure = observer(
                                         loading={this.state.startCaptureLoader}
                                     />
                                 </div>
-                                <Button id="opConfigControllerConfigureStopBtn" disabled={mainstore.isTesterStatusNotConnected} className="grl-button configure-detach-button" onClick={() => { this.stopCapture() }}>Stop </Button>
+                                <Button id="opConfigControllerConfigureStopBtn" disabled={mainstore.isTesterStatusNotConnected || mainstore.status.appState === Constants.READY || this.state.isStopBtnClicked} className="grl-button configure-detach-button" onClick={() => { this.stopCapture() }}>Stop </Button>
                             </FlexView>
                             <FlexView >
                                 <span className="configure-label-padding">Capture File</span>

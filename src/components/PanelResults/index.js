@@ -351,12 +351,12 @@ class PanelResults extends React.Component {
                             basemodal.putLoadWaveformFile(moi.children[j].captureFileName, this.fileLoadComplete.bind(this))
                             return;
                         }
-                        else {
-                            mainstore.isTestResultCaptureFileNameEmpty = true;
-                            chartstore.packetTimingDetails = {}             //clearing the packet time details  
-                            chartstore.ccPacket.packetDetails = []          //clearing the packet details
-                            basemodal.chartModal.resetPlot();
-                        }
+                        // else {
+                        //     mainstore.isTestResultCaptureFileNameEmpty = true;
+                        //     chartstore.packetTimingDetails = {}             //clearing the packet time details  
+                        //     chartstore.ccPacket.packetDetails = []          //clearing the packet details
+                        //     basemodal.chartModal.resetPlot();
+                        // }
                     }
                     else {
                         let k;
@@ -384,6 +384,7 @@ class PanelResults extends React.Component {
                 //chartstore.chartValues.startTimeZoom = testStep.signalStartMarker - (testStep.signalStartMarker * 0.05);
                 //chartstore.chartValues.endTimeZoom = testStep.signalStopMarker + (testStep.signalStopMarker * 0.05);   
                 this.updateMarkerValues(testStep);
+                console.log("********************")
                 basemodal.chartModal.singlePlotDataCall(this.randomNumber++, newStartTimeZoom, newEndTimeZoom);
                 resizeSplitterPaneToNormalMode()
                 return;
