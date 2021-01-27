@@ -43,8 +43,8 @@ const PopUpModal = observer(
                 mainstore.popUpInputs.shouldTextBoxBeAdded = false;
                 if (mainstore.popUpInputs.callBackMethod)
                     mainstore.popUpInputs.callBackMethod();
+                mainstore.popUpInputs.responseButton = '';
             }
-            mainstore.popUpInputs.responseButton = '';
         }
 
         displayButtons = () => {
