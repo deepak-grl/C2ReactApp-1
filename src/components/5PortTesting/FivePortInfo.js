@@ -117,16 +117,6 @@ const FivePortInfo = observer(
             this.setState({ enable5Port: !this.state.enable5Port });
             mainstore.fivePortConfiguration[this.props.portNumber].isEnabled = !mainstore.fivePortConfiguration[this.props.portNumber].isEnabled;
             basemodal.syncAjaxCalls();
-            // this.displayMoiBasedOnLicenseInfo()
-        }
-
-        displayMoiBasedOnLicenseInfo = () => {
-            this.state.fivePortMoiList = []
-            mainstore.connectionInfo.licenseInfo.map((license, index) => {
-                if (license['moduleStatus'] !== "EXPIRED" && !(this.state.fivePortMoiList.includes(license['moduleName'])) && license["moduleName"].length > 3) {
-                    this.state.fivePortMoiList.push(license["moduleName"])
-                }
-            })
         }
 
         displayFileDialog = event => {

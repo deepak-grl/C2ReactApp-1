@@ -92,13 +92,16 @@ const Configure = observer(
 
         dpAuxSnifferLicenseInfo = () => {
             let dpAuxExpired = false;
-            mainstore.connectionInfo.licenseInfo.map(license => {
-                if (license["moduleName"] === "DP AUX Sniffer")
-                    if (license["moduleStatus"] === "EXPIRED")
-                        dpAuxExpired = true
-                    else
-                        dpAuxExpired = false;
-            })
+            if (mainstore.connectionInfo.licenseInfo && mainstore.connectionInfo.licenseInfo.length > 0) {
+                mainstore.connectionInfo.licenseInfo.map(license => {
+                    if (license["moduleName"] === "DP AUX Sniffer")
+                        if (license["moduleStatus"] === "EXPIRED")
+                            dpAuxExpired = true
+                        else
+                            dpAuxExpired = false;
+                })
+            }
+
             return dpAuxExpired;
         }
 
@@ -160,7 +163,7 @@ const Configure = observer(
                                     {Constants.APP_MODE[mainstore.configControl.c2Config.appMode] === Constants.APP_MODE[1] && this.dpAuxSnifferLicenseInfo() ?
                                         <div className="config-app-mode-dropdown-info-icon" >
                                             <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
-                                                overlay={<Tooltip className="dut-type-info-tooltip tooltip-inner-content-align">{CONFIG_CTRL_APP_MODE}</Tooltip>}><img className="firmware-version-icon" src="../../images/warning.png" />
+                                                overlay={<Tooltip className="dut-type-info-tooltip tooltip-inner-content-align">{CONFIG_CTRL_APP_MODE}</Tooltip>}><img className="firmware-version-icon" alt='warning' src="../../images/warning.png" />
                                             </OverlayTrigger>
                                         </div> : null
                                     }
