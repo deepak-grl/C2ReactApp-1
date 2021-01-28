@@ -235,6 +235,7 @@ export const mainstore = observable({
 
     pdMergedConfig: {
       cableEnd: "",
+      noiseType: '',
     },
 
     cbChargerConfiguration: {
