@@ -19,13 +19,14 @@ const PdMergedConfig = observer((props) => {
 
     return (
         <>
-            {
-                mainstore.productCapabilityProps.ports[Constants.PORTA].getDutType() === Constants.USBPDDeviceType[5] ?
-                    <FlexView column style={{ display: props.display }}>
-                        <p className='panelHeading'>PD Merged Test Configuration</p>
-                        <FlexView column>
-                            <Table striped bordered hover>
-                                <tbody>
+
+            <FlexView column style={{ display: props.display }}>
+                <p className='panelHeading'>PD Merged Test Configuration</p>
+                <FlexView column>
+                    <Table striped bordered hover>
+                        <tbody>
+                            {
+                                mainstore.productCapabilityProps.ports[Constants.PORTA].getDutType() === Constants.USBPDDeviceType[5] ?
                                     <tr>
                                         <td className="panellabel">Cable End</td>
                                         <td className="dropdown-config">
@@ -41,28 +42,27 @@ const PdMergedConfig = observer((props) => {
                                             </Dropdown >
                                         </td>
                                     </tr>
+                                    : null}
 
-                                    <tr>
-                                        <td className="panellabel">Noise Type</td>
-                                        <td className="dropdown-config">
-                                            <Dropdown >
-                                                <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcPdMergedNoiseTypeComboBox">{pdMergedConfig.noiseType}</Dropdown.Toggle>
-                                                <Dropdown.Menu>
-                                                    {
-                                                        Constants.PD2Noise.map((noiseType, index) => {
-                                                            return <Dropdown.Item key={index} eventKey={noiseType} onSelect={noiseTypeDropDownOnChange} >{noiseType}</Dropdown.Item>
-                                                        })
-                                                    }
-                                                </Dropdown.Menu>
-                                            </Dropdown >
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </Table>
-                        </FlexView>
-                    </FlexView> : null
-            }
+                            <tr>
+                                <td className="panellabel">Noise Type</td>
+                                <td className="dropdown-config">
+                                    <Dropdown >
+                                        <Dropdown.Toggle className="dropdowncustom" variant="success" id="tcPdMergedNoiseTypeComboBox">{pdMergedConfig.noiseType}</Dropdown.Toggle>
+                                        <Dropdown.Menu>
+                                            {
+                                                Constants.PD2Noise.map((noiseType, index) => {
+                                                    return <Dropdown.Item key={index} eventKey={noiseType} onSelect={noiseTypeDropDownOnChange} >{noiseType}</Dropdown.Item>
+                                                })
+                                            }
+                                        </Dropdown.Menu>
+                                    </Dropdown >
+                                </td>
+                            </tr>
+                        </tbody>
+                    </Table>
+                </FlexView>
+            </FlexView>
         </>
     )
 }
