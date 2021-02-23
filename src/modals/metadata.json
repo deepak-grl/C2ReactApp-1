@@ -2319,8 +2319,8 @@
     "MaxValue": null,
     "Multipliers": null,
     "ComboBoxEntries": [
-      "0:Passive",
-      "1:Active"
+      "0:Active",
+      "1:Passive"
     ],
     "SubFields": []
   },
@@ -2547,6 +2547,48 @@
     "ComboBoxEntries": [
       "0:Gen 1",
       "1:Gen 2 or higher"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Active_Cable_U3_U0_Trans_Mode",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:U3 to U0 direct",
+      "1:U3 to U0 through U3S"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Active_Cable_USB2_Hub_Hops_Consumed",
+    "VifFieldType": 1,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": 0,
+    "MaxValue": 3,
+    "Multipliers": null,
+    "ComboBoxEntries": [],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Active_Cable_Optically_Isolated",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
     ],
     "SubFields": []
   },
@@ -2812,6 +2854,22 @@
     "ComboBoxEntries": [
       "0:SRIS",
       "1:Bit-Level"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Repeater_One_Type",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:SRIS Re-timer",
+      "1:Bit-Level Re-timer",
+      "2:Linear Re-driver"
     ],
     "SubFields": []
   },
