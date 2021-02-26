@@ -54,7 +54,7 @@ const PanelTestConfig = observer(
       orderedTestList = []   //ordered test list not updating while test list gets updated  , so clearing here and updating the ordered list in getmoiorder method
       this.setState({ reRender: !this.state.reRender, checkedKeys: checked })
       mainstore.testConfiguration.selectedTestList = checked;
-      selectedTestCaseCount = checked;
+      mainstore.selectedTestCaseCount = checked;
       if (targetNode.checked === false) {
         mainstore.selectedMoiTestCase = [];
         mainstore.selectedMoiTestCase.push(...checked)
@@ -93,7 +93,7 @@ const PanelTestConfig = observer(
         }
       }
       this.getMoiOrder(parent, parentNodes);
-      this.removeTestCaseParentNameForCount(parentNodes)
+      this.removeTestCaseParentNameForCount(parentNodes, mainstore.selectedTestCaseCount)
       return parent;
     }
 
@@ -104,12 +104,12 @@ const PanelTestConfig = observer(
       }
     }
 
-    removeTestCaseParentNameForCount = (name) => {
+    removeTestCaseParentNameForCount = (name, testList) => {
       for (let i = 0; i < name.length; i++) {
-        if (selectedTestCaseCount.includes(name[i])) {
-          let removeMoiName = selectedTestCaseCount.indexOf(name[i]);
+        if (testList.includes(name[i])) {
+          let removeMoiName = testList.indexOf(name[i]);
           if (removeMoiName !== -1)
-            selectedTestCaseCount.splice(removeMoiName, 1)
+            testList.splice(removeMoiName, 1)
         }
       }
     }
@@ -121,13 +121,7 @@ const PanelTestConfig = observer(
           orderedTestList.push(n.key)
       }
       testCaseListWithoutMoiName = orderedTestList.slice(0);
-      for (let i = 0; i < parentName.length; i++) {
-        if (testCaseListWithoutMoiName.includes(parentName[i])) {
-          let removedTestCaseMoiName = testCaseListWithoutMoiName.indexOf(parentName[i]);
-          if (removedTestCaseMoiName !== -1)
-            testCaseListWithoutMoiName.splice(removedTestCaseMoiName, 1)
-        }
-      }
+      this.removeTestCaseParentNameForCount(parentName, testCaseListWithoutMoiName)
     }
 
     certFilterDropDownOnChange = eventKey => {
@@ -323,6 +317,7 @@ const PanelTestConfig = observer(
     }
 
     render() {
+      orderedTestList = []
       searchedNodes = this.state.searchString.trim()
         ? this.keywordFilter(_.cloneDeep(mainstore.testConfiguration.testList), this.state.searchString)
         : mainstore.testConfiguration.testList;
@@ -391,7 +386,7 @@ const PanelTestConfig = observer(
                   <input type="checkbox" id="tcExpandTestListCheckBox" className="functional-moi-checkbox" checked={this.state.expandAllTestList} onChange={(e) => { this.expandOrCollapseTestList(e) }} />Expand Test List
                </label>
                 <FlexView className="selected-test-count-div">
-                  <span>Selected Tests: <strong>{selectedTestCaseCount.length + "/" + testCaseListWithoutMoiName.length} </strong></span>
+                  <span>Selected Tests: <strong>{mainstore.selectedTestCaseCount.length + "/" + testCaseListWithoutMoiName.length} </strong></span>
                 </FlexView>
               </FlexView>
             </div>

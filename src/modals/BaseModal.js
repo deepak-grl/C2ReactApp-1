@@ -108,6 +108,7 @@ export const mainstore = observable({
   configControllerCaptureInProgress: false,
   skipMissingVIFFieldToast: null,
   isChartPollingForApiModeStarted: false,
+  selectedTestCaseCount: [],
 
   alert: {//TODO @Thiru please deprecate this and use the new Toast to all the places used instead of the browser alert
     alertMessage: "",
@@ -731,6 +732,7 @@ class BaseModal {
     ajax.callGET(Constants.URL_TestConfiguration + "GetTestCaseList", {}, function (response) {
       mainstore.testConfiguration.testList = response.data
       mainstore.selectedMoiTestCase = [];
+      mainstore.selectedTestCaseCount = []
       mainstore.testConfiguration.selectedTestList = []
     }, function (error) {
       console.log("Error", error);
