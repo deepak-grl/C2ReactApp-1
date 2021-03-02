@@ -443,13 +443,13 @@ class PlotToolbar extends React.Component {
             <div className='plot-toggle' style={{ backgroundColor: 'lightgrey', height: '40px' }}>
                 <img src='../../images/navbar-icon.jpg' id='navbar_icon_img' className='hideImage' alt='navbar' style={{ width: '40px', cursor: 'pointer' }} />
                 <div className='chart-plottoolbar' data-html2canvas-ignore='true'>
-                    {/* <PlotToolBarButtons
+                    <PlotToolBarButtons
                         tooltip={PLT_SAVE}
                         img={'../../images/chartIcons/PNG/save.png'}
                         clickHandler={this.showTraceFileModal.bind(this)}
                         alt={'save-as'}
                         buttonId={'chart_toolbar_save_button'}
-                    /> */}
+                    />
                     <PlotToolBarButtons
                         tooltip={PLT_LOAD}
                         img={'../../images/chartIcons/PNG/load.png'}
