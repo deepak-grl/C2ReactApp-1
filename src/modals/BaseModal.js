@@ -59,7 +59,6 @@ export const mainstore = observable({
   isVifXmlLoaded: false,
   productCapsProjectName: 'NewProject',
   getCapsPortNumber: 1,
-  isCreateNewVifInProgress: false,
   isVifFieldChange: false,
   copyLoadedXmlVif: [],
   selectedEload: '',

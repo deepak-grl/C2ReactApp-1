@@ -77,25 +77,23 @@ export default class ProductCapabilityProps {
     }
 
     cableTypeSelectionRules(dutTypeSet) {
-        if (dutTypeSet === Constants.USBPDDeviceType[5] && mainstore.isCreateNewVifInProgress === false) {
+        if (dutTypeSet === Constants.USBPDDeviceType[5]) {
             if (this.cableType !== Constants.CABLE_DATA_TYPES[5] && this.cableType !== Constants.CABLE_DATA_TYPES[4]) {
                 mainstore.previousCableType = this.cableType;
             }
-            var alertCabletypeSelected = new toastNotification("Selected test cable type: " + Constants.CABLE_DATA_TYPES[5] + ". Ensure same cable type is selected otherwise select the test cable type appropriately.", Constants.TOAST_INFO, 5000)
+            let alertCabletypeSelected = new toastNotification("Selected test cable type: " + Constants.CABLE_DATA_TYPES[5] + ". Ensure same cable type is selected otherwise select the test cable type appropriately.", Constants.TOAST_INFO, 5000)
             alertCabletypeSelected.show();
             this.setCableType(Constants.CABLE_DATA_TYPES[5]);
         }
-        else if (mainstore.captiveCableVal === 1 && mainstore.isCreateNewVifInProgress === false) {
-            var alertCabletypeSelected = new toastNotification("Selected test cable type: " + Constants.CABLE_DATA_TYPES[4] + ". Ensure same cable type is selected otherwise select the test cable type appropriately.", Constants.TOAST_INFO, 5000)
+        else if (mainstore.captiveCableVal === 1) {
+            let alertCabletypeSelected = new toastNotification("Selected test cable type: " + Constants.CABLE_DATA_TYPES[4] + ". Ensure same cable type is selected otherwise select the test cable type appropriately.", Constants.TOAST_INFO, 5000)
             alertCabletypeSelected.show();
             this.setCableType(Constants.CABLE_DATA_TYPES[4]);
         }
         else {
-            if (mainstore.isCreateNewVifInProgress === false) {
-                var alertCabletypeSelected = new toastNotification("Selected test cable type: " + mainstore.previousCableType + ". Ensure same cable type is selected otherwise select the test cable type appropriately.", Constants.TOAST_INFO, 5000)
-                alertCabletypeSelected.show();
-                this.setCableType(mainstore.previousCableType);
-            }
+            let alertCabletypeSelected = new toastNotification("Selected test cable type: " + mainstore.previousCableType + ". Ensure same cable type is selected otherwise select the test cable type appropriately.", Constants.TOAST_INFO, 5000)
+            alertCabletypeSelected.show();
+            this.setCableType(mainstore.previousCableType);
         }
     }
 

@@ -132,7 +132,6 @@ const VIFLoadComponent = observer(
         }
 
         showVifModal = () => {
-            mainstore.isCreateNewVifInProgress = true;
             this.setState({ showVifConfigModal: !this.state.showVifConfigModal })
         }
         handleCloseVifModal = () => {
@@ -171,7 +170,6 @@ const VIFLoadComponent = observer(
         handleVifConfigOkButton = () => {
             this.setDefaultValues();
             this.setState({ showVifConfigModal: false });
-            mainstore.isCreateNewVifInProgress = true;
         }
         render() {
             return (
@@ -263,12 +261,12 @@ const VIFLoadComponent = observer(
                                      </label>
 
                                     <label className="label-checkbox-align getcaps-checkbox">
-                                        <input type="radio"  id="pcVifConfigDefaultValueNoRadioBtn" className="checkbox-text-align" checked={!this.state.isDefaultValueChecked} onChange={this.isDefaultValueChecked} />
+                                        <input type="radio" id="pcVifConfigDefaultValueNoRadioBtn" className="checkbox-text-align" checked={!this.state.isDefaultValueChecked} onChange={this.isDefaultValueChecked} />
                                         No
                                     </label>
                                 </FlexView>
                                 <FlexView className="vif-config-ok-button">
-                                    <Button className="grl-button vif-config-button"  id="pcVifConfigOkBtn" onClick={() => this.handleVifConfigOkButton()}>Ok</Button>
+                                    <Button className="grl-button vif-config-button" id="pcVifConfigOkBtn" onClick={() => this.handleVifConfigOkButton()}>Ok</Button>
                                 </FlexView>
                             </FlexView>
                         </Modal.Body>
