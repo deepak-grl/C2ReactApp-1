@@ -538,10 +538,11 @@ export class VIFElement {
                             if (this.json._text && this.comboBoxEntries().length) {
                                 this.json._text = this.comboBoxEntries()[val]
 
-                                if (this.json._text.includes(":")) {
-                                    this.json._text = this.json._text.split(":")
-                                    this.json._text = this.json._text[1]
-                                }
+                                if (this.json._text)
+                                    if (this.json._text.includes(":")) {
+                                        this.json._text = this.json._text.split(":")
+                                        this.json._text = this.json._text[1]
+                                    }
                             }
                         }
                     }

@@ -80,10 +80,11 @@ const VIFLoadComponent = observer(
         }
 
         clearVifData() {
-            if (basemodal.vifDataModal.portA.deviceJson)
-                basemodal.vifDataModal.clearVifFileValues();
-            else
-                basemodal.vifDataModal.clearAll();
+            if (basemodal.vifDataModal.portA)
+                if (basemodal.vifDataModal.portA.deviceJson)
+                    basemodal.vifDataModal.clearVifFileValues();
+                else
+                    basemodal.vifDataModal.clearAll();
             basemodal.vifDataModal.clearVifData()
         }
 
