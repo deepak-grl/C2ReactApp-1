@@ -528,6 +528,21 @@ export class VIFElement {
 
                         if (this.isLiveMode(lrefVal, val)) {
                             this._getAttribute(this.json).value = val;
+
+                            if (this.comboBoxEntries()[val] === "NO" || this.comboBoxEntries()[val] === "YES") {
+                                if (val === 0)
+                                    this._getAttribute(this.json).value = "false";
+                                else if (val === 1)
+                                    this._getAttribute(this.json).value = "true";
+                            }
+                            if (this.json._text && this.comboBoxEntries().length) {
+                                this.json._text = this.comboBoxEntries()[val]
+
+                                if (this.json._text.includes(":")) {
+                                    this.json._text = this.json._text.split(":")
+                                    this.json._text = this.json._text[1]
+                                }
+                            }
                         }
                     }
                 }
