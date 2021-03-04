@@ -66,6 +66,7 @@ const PortConfigComponent = observer(
         getCapabilities() {
             mainstore.renderGlassPaneWhileGetcaps = true
             mainstore.isGetCapsEnabled = true;
+            mainstore.loadedTraceFileName = ""
             mainstore.status.appState = Constants.BUSY
             mainstore.isGetDeviceCapsInProgress = true;//Mainstore is taking time for this variable's change to update
             basemodal.getCapabilities(this.props.portnumber, this.loadGetCapsData.bind(this));

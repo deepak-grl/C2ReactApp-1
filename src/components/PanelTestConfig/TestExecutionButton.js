@@ -45,6 +45,7 @@ const TestExecutionButton = observer(
             mainstore.handleAutoClosePopup = true
             resizeSplitterPaneToNormalMode();            //splitterpane will be close if previously open,while running the testcase
             basemodal.putCommonTestConfiguration()
+            mainstore.loadedTraceFileName = ""
         }
 
         resettingVariablesToDefaults = () => {

@@ -1,26 +1,23 @@
-import React from 'react'
-import CheckboxTree from 'react-checkbox-tree';
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faIgloo } from '@fortawesome/free-solid-svg-icons'
-import 'react-checkbox-tree/lib/react-checkbox-tree.css';
-import { Button } from 'react-bootstrap';
-import { OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { SCROLL_TO_TESTCASE, STOP_SCROLL_TO_TESTCASE } from '../../Constants/tooltip';
-import { map } from 'rxjs/operators';
-import { ajax } from 'rxjs/ajax';
-import polling from 'rx-polling';
-import * as Constants from '../../Constants';
-import FlexView from 'react-flexview/lib';
-import { mainstore, basemodal } from '../../modals/BaseModal';
-import { chartstore } from '../../modals/ChartStoreModal';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faIgloo } from '@fortawesome/free-solid-svg-icons';
 import { observe } from 'mobx';
-import ProgressBar from 'react-bootstrap/ProgressBar'
+import React from 'react';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import CheckboxTree from 'react-checkbox-tree';
+import 'react-checkbox-tree/lib/react-checkbox-tree.css';
+import FlexView from 'react-flexview/lib';
 import { ClipLoader } from 'react-spinners';
-import { mouseBusy, resizeSplitterPaneToNormalMode } from '../../utils';
-import TestExecutionButton from '../PanelTestConfig/TestExecutionButton';
-import PanelTestConfig from '../PanelTestConfig/index'
+import polling from 'rx-polling';
+import { ajax } from 'rxjs/ajax';
+import { map } from 'rxjs/operators';
+import * as Constants from '../../Constants';
+import { basemodal, mainstore } from '../../modals/BaseModal';
+import { chartstore } from '../../modals/ChartStoreModal';
+import utils, { mouseBusy, resizeSplitterPaneToNormalMode } from '../../utils';
 import toastNotification from '../../utils/toastNotification';
-import utils from '../../utils';
+import PanelTestConfig from '../PanelTestConfig/index';
+import TestExecutionButton from '../PanelTestConfig/TestExecutionButton';
 var scrollToTestCaseBackground = " unlive-scroll-btn-color";
 
 var panelTestConfig = new PanelTestConfig();
@@ -351,12 +348,13 @@ class PanelResults extends React.Component {
                             basemodal.putLoadWaveformFile(moi.children[j].captureFileName, this.fileLoadComplete.bind(this))
                             return;
                         }
-                        // else {
-                        //     mainstore.isTestResultCaptureFileNameEmpty = true;
-                        //     chartstore.packetTimingDetails = {}             //clearing the packet time details  
-                        //     chartstore.ccPacket.packetDetails = []          //clearing the packet details
-                        //     basemodal.chartModal.resetPlot();
-                        // }
+                        else {
+                            mainstore.isTestResultCaptureFileNameEmpty = true;
+                            chartstore.packetTimingDetails = {}             //clearing the packet time details  
+                            chartstore.ccPacket.packetDetails = []          //clearing the packet details
+                            basemodal.chartModal.resetPlot();
+                            chartstore.showVerticalBar = false;
+                        }
                     }
                     else {
                         let k;
@@ -384,7 +382,6 @@ class PanelResults extends React.Component {
                 //chartstore.chartValues.startTimeZoom = testStep.signalStartMarker - (testStep.signalStartMarker * 0.05);
                 //chartstore.chartValues.endTimeZoom = testStep.signalStopMarker + (testStep.signalStopMarker * 0.05);   
                 this.updateMarkerValues(testStep);
-                console.log("********************")
                 basemodal.chartModal.singlePlotDataCall(this.randomNumber++, newStartTimeZoom, newEndTimeZoom);
                 resizeSplitterPaneToNormalMode()
                 return;
@@ -419,6 +416,8 @@ class PanelResults extends React.Component {
         var passLabel = this.state.pass > 0 ? "Pass:" + this.state.pass + '/' + this.state.totalTestCase : "";
         var warningLabel = this.state.warning > 0 ? "Warning:" + this.state.warning + '/' + this.state.totalTestCase : "";
         var failLabel = this.state.fail > 0 ? "Fail:" + this.state.fail + '/' + this.state.totalTestCase : "";
+        let totalCompletedestCase = this.state.pass + this.state.fail + this.state.warning + this.state.incomplete;
+
         return (
             <FlexView style={{ width: '100%', height: Constants.MAX_PANEL_HEIGHT }} className="panelresults-container" key="main_key1">
                 <FlexView column className="panel-setWidth">
@@ -447,21 +446,30 @@ class PanelResults extends React.Component {
                             <TestExecutionButton sortMoiOrder={panelTestConfig.sortMoiOrder} />
                         </FlexView>
                     </FlexView>
-                    <FlexView className="result-progress-div">
-                        {mainstore.testExecutionProgressPercentage ?
-                            <FlexView className="results-progress-label-div">
-                                <span> Progress : <strong > {mainstore.testExecutionProgressPercentage + "%"}</strong> </span>
-                            </FlexView> : null}
-                        <FlexView className="results-progress-bar-div">
-                            <ProgressBar>
-                                <ProgressBar animated={this.HaveTestsBeenExecuted} max={this.state.totalTestCase} variant="success" now={this.state.pass} key={1} />
-                                <ProgressBar animated={this.HaveTestsBeenExecuted} max={this.state.totalTestCase} variant="warning" now={this.state.warning} key={2} />
-                                <ProgressBar animated={this.HaveTestsBeenExecuted} max={this.state.totalTestCase} variant="danger" now={this.state.fail} key={3} />
-                            </ProgressBar>
-                        </FlexView>
-                    </FlexView>
+
+                    {mainstore.loadedTraceFileName ?
+                        <FlexView className="loaded-trace-filename-div">
+                            <span>Capture FileName : {mainstore.loadedTraceFileName}  </span>
+                        </FlexView> :
+                        <FlexView className="result-progress-div">
+                            {mainstore.testExecutionProgressPercentage ?
+                                <FlexView className="results-progress-label-div">
+                                    <span> Progress : <strong> {mainstore.testExecutionProgressPercentage + "%"} </strong>
+                                       ( <strong className="test-results-notify-count"> {totalCompletedestCase + "/" + this.state.totalTestCase}</strong> tests)
+                                    </span>
+                                </FlexView> : null}
+                            <FlexView className="results-progress-bar-div">
+                                <ProgressBar>
+                                    <ProgressBar animated={this.HaveTestsBeenExecuted} max={this.state.totalTestCase} variant="success" now={this.state.pass} key={1} />
+                                    <ProgressBar animated={this.HaveTestsBeenExecuted} max={this.state.totalTestCase} variant="warning" now={this.state.warning} key={2} />
+                                    <ProgressBar animated={this.HaveTestsBeenExecuted} max={this.state.totalTestCase} variant="danger" now={this.state.fail} key={3} />
+                                </ProgressBar>
+                            </FlexView>
+                        </FlexView>}
+
 
                     <CountResults pass={this.state.pass} warning={this.state.warning} fail={this.state.fail} incomplete={this.state.incomplete} total={this.state.totalTestCase} repeatCount={this.state.repeatCount} exPortNumber={this.state.exPortNumber} />
+
                     <FlexView id='test-selection-tree' className="c2-treeview-nodes results-treeview">
                         <div onWheel={(e) => utils.listenScrollEvent(e)} className="scroll" id="scroll-back-to-original-position">
                             <CheckboxTree
@@ -476,7 +484,7 @@ class PanelResults extends React.Component {
 
                 </FlexView>
 
-            </FlexView>
+            </FlexView >
         );
     }
 }
@@ -484,14 +492,11 @@ class PanelResults extends React.Component {
 class CountResults extends React.Component {
     render() {
         var repeatResultsAlign = " ";
-        let totalCompletedestCase = this.props.pass + this.props.fail + this.props.warning + this.props.incomplete;
         return (
             <>
                 <FlexView className="results-notify">
-                    {mainstore.status.appState === Constants.BUSY ?
-                        <div className="results-running-test">Running : <strong className="test-results-notify-count"> {totalCompletedestCase + "/" + this.props.total}</strong> tests</div>
-                        : null}
                     <FlexView className="results-icon-div">
+                        <span className="test-summary-label"> Test Summary : </span>
                         <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip className="count-results-tooltip"> Number of test cases passed </Tooltip>}>
                             <div className={"results-icon-align" + repeatResultsAlign}>
                                 <img className="set-results-icon-dimensions" src="../../images/pass.png" /><strong className="test-results-notify-count">  {this.props.pass}</strong>

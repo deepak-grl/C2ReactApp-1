@@ -147,6 +147,7 @@ class PlotToolbar extends React.Component {
 
     onFileSelect = (event) => {
         var file = event.target.files[0];
+        mainstore.loadedTraceFileName = file.name;
         var path = Constants.URL_Plot + "PutWaveformFile";
         if (this.readStatusPoll != null)
             clearInterval(this.readStatusPoll)
