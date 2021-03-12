@@ -19,6 +19,7 @@ let connectionStatus = " "
 let updateFirmwareSpinnerDescription = '';
 let connectSpinnerDescription = '';
 let scanNetworkSpinnerDescription = '';
+let eloadSpinnerDescription = '';
 const PanelConnectionSetup = observer(
   class PanelConnectionSetup extends React.Component {
     constructor(props) {
@@ -77,8 +78,8 @@ const PanelConnectionSetup = observer(
     }
 
     doneEloadFirmWareUpdate = () => {
+      eloadSpinnerDescription = ""
       this.setState({ eLoadFirmwareUpdateLoading: false })
-      updateFirmwareSpinnerDescription = ""
     }
 
     ipAddressChange = (value, option) => {
@@ -143,6 +144,9 @@ const PanelConnectionSetup = observer(
         connectSpinnerDescription = mainstore.popUpInputs.spinnerDesc
       else if (mainstore.popUpInputs.spinnerID === 2)
         scanNetworkSpinnerDescription = mainstore.popUpInputs.spinnerDesc
+      else if (mainstore.popUpInputs.spinnerID === 9)
+        eloadSpinnerDescription = mainstore.popUpInputs.spinnerDesc
+
     }
 
     callConnectButtonAfterUpdatingFirmware = () => {
@@ -204,7 +208,7 @@ const PanelConnectionSetup = observer(
           <p className="firmware-spinner-status">{scanNetworkSpinnerDescription}</p>
           <div className="panel-div">C2 IP Address</div>
           <FlexView>
-            <Select  onFocus={this.onIpDropDownFocus} onBlur={this.onIpDropDownBlur}
+            <Select onFocus={this.onIpDropDownFocus} onBlur={this.onIpDropDownBlur}
               open={this.state.showIpAddressDropDown} className="ip-address-textbox" value={ci.testerIpAddress} showSearch={false}
               onSearch={null} onChange={this.ipAddressChange} onSelect={this.onIpDropDownSelected} allowClear placeholder="Please enter/select C2 address" combobox>
               {
@@ -237,12 +241,19 @@ const PanelConnectionSetup = observer(
               <a href="javascript:void(0);" onClick={this.showFirmwareUpdateInstructionPopup} id="csFirmwareUpdateInstructionsLinkLabel" className="update-firmware-label">Firmware Update Instructions</a>
             </FlexView>
             <p className="firmware-spinner-status"> {updateFirmwareSpinnerDescription}</p>
-            <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip> {UPDATE_ELOAD_FIRMWARE} </Tooltip>}>
-              <Button disabled={mainstore.isTesterStatusNotConnected || this.state.firmwareUpdateLoading || this.state.autoDiscoverLoading || mainstore.connectionStatusLoader} className="grl-button update-eloadFirmware" id="csUpdateEloadFirmwareBtn" onClick={this.updateEloadFirmware}>{CS_UPDATE_ELOAD_FIRMWARE_BTN}</Button>
-            </OverlayTrigger>
-            {/* <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip> </Tooltip>}>
+
+            <FlexView className="update-firmware-btn-div">
+              <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip> {UPDATE_ELOAD_FIRMWARE} </Tooltip>}>
+                <Button disabled={mainstore.isTesterStatusNotConnected || this.state.firmwareUpdateLoading || this.state.autoDiscoverLoading || mainstore.connectionStatusLoader} className="grl-button update-eloadFirmware" id="csUpdateEloadFirmwareBtn" onClick={this.updateEloadFirmware}>{CS_UPDATE_ELOAD_FIRMWARE_BTN}</Button>
+              </OverlayTrigger>
+              {/* <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip> </Tooltip>}>
               <Button disabled className="grl-button" id="connectionsetup_update_software_button">{CS_UPDATE_SOFTWARE_BTN}</Button>
             </OverlayTrigger> */}
+              <div className="update-firmware-btn-cliploader-div">
+                <ClipLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={this.state.eLoadFirmwareUpdateLoading} />
+              </div>
+            </FlexView>
+            <p className="firmware-spinner-status"> {eloadSpinnerDescription}</p>
           </FlexView>
 
         </FlexView >
