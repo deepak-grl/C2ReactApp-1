@@ -369,6 +369,7 @@ export const mainstore = observable({
     isFrontEndPopUp: false,
     callBackMethod: null,
     comboBoxEntries: [],
+    selectedComboBoxValue: '',
     defaultResponseButton: '',
     showTimer: false,
     showTimerForModal: 15,

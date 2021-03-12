@@ -26,7 +26,7 @@ const PopUpModal = observer(
         }
 
         comboBoxEntriesType(eventKey) {
-            mainstore.popUpInputs.userTextBoxInput = eventKey;
+            mainstore.popUpInputs.selectedComboBoxValue = eventKey;
         }
         userInputTextBoxChange = (event) => {
             mainstore.popUpInputs.userTextBoxInput = event.target.value
@@ -142,7 +142,7 @@ const PopUpModal = observer(
             var popupDropDown;
             if (mainstore.popUpInputs.comboBoxEntries != null && mainstore.popUpInputs.comboBoxEntries.length > 0) {
                 popupDropDown = <Dropdown className="popup-dropdown-align" >
-                    <Dropdown.Toggle className="dropdowncustom" variant="success" >{mainstore.popUpInputs.comboBoxEntries[0]}</Dropdown.Toggle>
+                    <Dropdown.Toggle className="dropdowncustom" variant="success" >{mainstore.popUpInputs.selectedComboBoxValue}</Dropdown.Toggle>
                     <Dropdown.Menu>
                         {
                             mainstore.popUpInputs.comboBoxEntries.map((comboBoxValue, index) => {

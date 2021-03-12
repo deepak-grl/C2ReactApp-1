@@ -47,6 +47,8 @@ class PopUpManager extends React.Component {
                     mainstore.popUpInputs.showTimer = res.showTimer;
                     mainstore.popUpInputs.defaultResponseButton = res.defaultResponseButton;
                     mainstore.popUpInputs.mandatePopUp = res.mandatePopUp;
+                    if (mainstore.messageBox.comboBoxEntries && mainstore.popUpInputs.selectedComboBoxValue === '')
+                        mainstore.popUpInputs.selectedComboBoxValue = mainstore.messageBox.comboBoxEntries[0];
                     if (mainstore.popUpInputs.showTimer)
                         mainstore.popUpInputs.showTimerForModal = res.timerCount;
                     mainstore.popUpInputs.spinnerID = res.spinnerId;
