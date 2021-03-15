@@ -1,18 +1,16 @@
-import React from 'react';
-import { Button, OverlayTrigger, Tooltip, Table } from 'react-bootstrap';
-import FlexView from 'react-flexview/lib';
-import LicenseInfo from "./LicenseInfo"
-import { ClipLoader } from 'react-spinners';
-import ToolTip from '../ToolTip';
-import { IP_CONFIG, CS_CONNECT_BTN, FIRMWARE_UPDATE, UPDATE_ELOAD_FIRMWARE, CS_IPDISCOVER_BTN } from '../../Constants/tooltip';
-import { CS_SCAN_NETWORK_BTN, CS_CONNECTION_BTN, CS_UPDATE_FIRMWARE_BTN, CS_UPDATE_ELOAD_FIRMWARE_BTN, CS_UPDATE_SOFTWARE_BTN } from '../../Constants/uilabels';
-import * as Constants from '../../Constants';
 import { observer } from 'mobx-react';
-import { mainstore, basemodal } from '../../modals/BaseModal';
-import { mouseBusy } from '../../utils';
-import Select, { Option, SelectPropTypes } from 'rc-select';
+import Select from 'rc-select';
+import React from 'react';
+import { Button, OverlayTrigger, Table, Tooltip } from 'react-bootstrap';
+import FlexView from 'react-flexview/lib';
+import { ClipLoader } from 'react-spinners';
+import * as Constants from '../../Constants';
+import { CS_CONNECT_BTN, CS_IPDISCOVER_BTN, FIRMWARE_UPDATE, UPDATE_ELOAD_FIRMWARE } from '../../Constants/tooltip';
+import { CS_CONNECTION_BTN, CS_SCAN_NETWORK_BTN, CS_UPDATE_ELOAD_FIRMWARE_BTN, CS_UPDATE_FIRMWARE_BTN } from '../../Constants/uilabels';
 import '../../css/rc-table.css';
-import utils from '../../utils';
+import { basemodal, mainstore } from '../../modals/BaseModal';
+import utils, { mouseBusy } from '../../utils';
+import LicenseInfo from "./LicenseInfo";
 
 let connectionInfoClone = {}
 let connectionStatus = " "
@@ -93,7 +91,7 @@ const PanelConnectionSetup = observer(
       this.onIpDropDownFocus()
     }
     getAllIpAddresses = () => {
-      return mainstore.IPAddressHistory.map((item, id) => (<Select.Option key={item.ipAddress}><option value={item.ipAddress}>{item.ipAddress}</option>{item.isActive === true ? <img className="ipaddress-icon plot-toolbar-img" src="../../images/pass.png" /> : <img className="ipaddress-icon plot-toolbar-img" src="../../images/fail.png" />}</Select.Option>))
+      return mainstore.IPAddressHistory.map((item, id) => (<Select.Option key={item.ipAddress}><option value={item.ipAddress}>{item.ipAddress}</option>{item.isActive === true ? <img alt="pass" className="ipaddress-icon plot-toolbar-img" src="../../images/pass.png" /> : <img alt="fail" className="ipaddress-icon plot-toolbar-img" src="../../images/fail.png" />}</Select.Option>))
     }
 
     onIpDropDownSelected = (event) => {
@@ -129,7 +127,7 @@ const PanelConnectionSetup = observer(
           if (compareFwResult !== 0) {
             return <>
               <OverlayTrigger placement="auto" overlay={<Tooltip> Please update the firmware version. The version compatible with this build is {mainstore.latestFirmwareVersion} </Tooltip>}>
-                <img className="firmware-version-icon" src="../../images/warning.png" />
+                <img alt="warning" className="firmware-version-icon" src="../../images/warning.png" />
               </OverlayTrigger >
             </>
           }
@@ -235,6 +233,12 @@ const PanelConnectionSetup = observer(
               <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip>{FIRMWARE_UPDATE}  </Tooltip>}>
                 <Button disabled={mainstore.isTesterStatusNotConnected || this.state.eLoadFirmwareUpdateLoading || this.state.autoDiscoverLoading || mainstore.connectionStatusLoader} className="grl-button grl-button update-firmware-btn-width" id="csUpdateFirmwareBtn" onClick={this.firmwareUpdate}>{CS_UPDATE_FIRMWARE_BTN}</Button>
               </OverlayTrigger>
+              {
+                mainstore.firmwareVersionTooltip ?
+                  <OverlayTrigger placement="auto" overlay={<Tooltip> Please update the firmware version. The version compatible with this build is {mainstore.firmwareVersionTooltip} </Tooltip>}>
+                    <img alt="warning" className="firmware-version-icon" src="../../images/warning.png" />
+                  </OverlayTrigger >
+                  : null}
               <div className="update-firmware-btn-cliploader-div">
                 <ClipLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={this.state.firmwareUpdateLoading} />
               </div>
@@ -249,6 +253,13 @@ const PanelConnectionSetup = observer(
               {/* <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip> </Tooltip>}>
               <Button disabled className="grl-button" id="connectionsetup_update_software_button">{CS_UPDATE_SOFTWARE_BTN}</Button>
             </OverlayTrigger> */}
+              {
+                mainstore.eloadVersionTooltip ?
+                  <OverlayTrigger placement="auto" overlay={<Tooltip> Please update the firmware version. The version compatible with this build is {mainstore.eloadVersionTooltip} </Tooltip>}>
+                    <img alt="warning" className="firmware-version-icon" src="../../images/warning.png" />
+                  </OverlayTrigger >
+                  : null}
+
               <div className="update-firmware-btn-cliploader-div">
                 <ClipLoader sizeUnit={"px"} size={25} color={'#123abc'} loading={this.state.eLoadFirmwareUpdateLoading} />
               </div>
@@ -279,7 +290,9 @@ const PanelConnectionSetup = observer(
                   <tr>
                     <th className="panel-connection-setup-tester-info device-details-border">Firmware Version </th>
                     <td className="panel-connection-setup-tester-info tester-info-border  device-details-border">
-                      <div className="right-spacing-tester"><b>{ci.firmwareVersion}</b> {mainstore.connectionInfo.firmwareVersion ? this.checkFirmwareVersion() : null} </div>
+                      <div className="right-spacing-tester"><b>{ci.firmwareVersion}</b>
+                        {/* {mainstore.connectionInfo.firmwareVersion ? this.checkFirmwareVersion() : null} */}
+                      </div>
                     </td>
                   </tr>
 

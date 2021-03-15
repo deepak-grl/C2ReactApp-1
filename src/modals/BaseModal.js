@@ -110,6 +110,8 @@ export const mainstore = observable({
   selectedTestCaseCount: [],
   loadedTraceFileName: '',
   isNewVifCreated: false,
+  firmwareVersionTooltip: '',
+  eloadVersionTooltip: '',
 
   alert: {//TODO @Thiru please deprecate this and use the new Toast to all the places used instead of the browser alert
     alertMessage: "",
@@ -1319,12 +1321,14 @@ class BaseModal {
   }
 
   latestFirmwareVersion() {
-    ajax.callGET(Constants.URL_ConnectionSetup + "LatestFirmwareVersion", {}, function (response) {
-      mainstore.latestFirmwareVersion = response.data;
+    ajax.callGET(Constants.URL_ConnectionSetup + "LatestFirmwareAndEloadVersion", {}, function (response) {
+      mainstore.firmwareVersionTooltip = response.data[0];
+      mainstore.eloadVersionTooltip = response.data[1];
     }, function (error) {
       console.log("Error", error)
     });
   }
+
   updateEloadFirmware(callback) {
     ajax.callGET(Constants.URL_App + "GetUpdateEloadFirmware", {}, function (response) {
       if (callback)

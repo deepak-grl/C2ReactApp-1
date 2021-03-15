@@ -2090,7 +2090,8 @@ width:40%!important;
 
 .firmware-version-icon {
   width: 20px;
-  padding-bottom: 3px;
+  height: 20px;
+  margin-top: 8px;
 }
 
 .rc-select-selection--single .rc-select-selection__rendered {
