@@ -1,19 +1,18 @@
-import React from "react"
-import { Button, OverlayTrigger, Tooltip, Modal, Dropdown } from 'react-bootstrap';
-import FlexView from 'react-flexview/lib';
-import * as Constants from '../../Constants';
-import { mouseBusy, xmlToJson } from '../../utils';
-import { basemodal, mainstore } from '../../modals/BaseModal';
-import { observer } from 'mobx-react';
-import { PC_CLEAR_BTN } from '../../Constants/tooltip';
 import fileDownloader from 'js-file-download';
+import { observer } from 'mobx-react';
+import React from "react";
+import { Button, Dropdown, Modal, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import FlexView from 'react-flexview/lib';
 import Switch from "react-switch";
-import { EDIT_TEXTBOX } from '../../Constants/tooltip';
+import * as Constants from '../../Constants';
+import { EDIT_TEXTBOX, PC_CLEAR_BTN } from '../../Constants/tooltip';
 import ajax from '../../modals/AjaxUtils';
-import providerSampleVif from '../../vif_files/Sample_Provider_Vif';
+import { basemodal, mainstore } from '../../modals/BaseModal';
+import { mouseBusy, xmlToJson } from '../../utils';
+import cableSampleVif from '../../vif_files/Sample_Cable_Vif';
 import consumerSampleVif from '../../vif_files/Sample_Consumer_Vif';
 import drpSampleVif from '../../vif_files/Sample_Drp_Vif';
-import cableSampleVif from '../../vif_files/Sample_Cable_Vif';
+import providerSampleVif from '../../vif_files/Sample_Provider_Vif';
 
 var convert = require('xml-js');
 var vifFileToSetDefaultValues = providerSampleVif;
@@ -108,6 +107,7 @@ const VIFLoadComponent = observer(
                 mainstore.loadedVifVendorName = ""
                 mainstore.skipMissingVIFFieldToast = null;
                 mainstore.isVifFieldChange = false;
+                mainstore.isNewVifCreated = false;
                 mainstore.copyLoadedXmlVif = JSON.parse(JSON.stringify(data))
                 mainstore.cableSelectionFromDropDownInInformational = false;
                 mainstore.loadSelectedCableFromBackend = false;
@@ -170,6 +170,7 @@ const VIFLoadComponent = observer(
 
         handleVifConfigOkButton = () => {
             this.setDefaultValues();
+            mainstore.isNewVifCreated = true;
             this.setState({ showVifConfigModal: false });
         }
         render() {

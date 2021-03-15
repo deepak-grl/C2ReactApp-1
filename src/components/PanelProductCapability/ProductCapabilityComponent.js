@@ -1,17 +1,16 @@
-import React, { Component } from "react"
-import { Form, Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { PC_FILE_CONVERTER_BTN } from '../../Constants/tooltip';
+import fileDownloader from 'js-file-download';
+import { observer } from 'mobx-react';
+import React, { Component } from "react";
+import { Button, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import * as Constants from '../../Constants';
-import VIFEditor from './VIFEditor';
-import utils from '../../utils';
+import { PC_FILE_CONVERTER_BTN } from '../../Constants/tooltip';
 import { basemodal, mainstore } from '../../modals/BaseModal';
-import { observer } from 'mobx-react';
-import VIFLoadComponent from "./VIFLoadComponent";
-import PortConfigComponent from "./PortConfigComponent";
+import utils from '../../utils';
 import NewProjectButton from "../PanelTestConfig/NewProjectButton";
-import fileDownloader from 'js-file-download';
-import ProductCapabilityProps from "./ProductCapabilityProps";
+import PortConfigComponent from "./PortConfigComponent";
+import VIFEditor from './VIFEditor';
+import VIFLoadComponent from "./VIFLoadComponent";
 var convert = require('xml-js');
 
 let informationalCableType = "";
@@ -34,9 +33,11 @@ const ProductCapabilityComponent = observer(
                 if (mainstore.isVifXmlLoaded)
                     basemodal.showPopUp(mainstore.loadedVifVendorName === "USB-IF" ? Constants.USB_IF_LOADEDVIF : Constants.NON_USB_IFLOADED_VIF, null, 'VIF fields Changed', null, false, 'OKCancel', null, this.showNewVIF.bind(this, event.currentTarget.value))
             }
-            if (!mainstore.isVifFieldChange && !mainstore.popUpInputs.displayPopUp) {
+            if (!mainstore.isVifFieldChange && !mainstore.popUpInputs.displayPopUp && !mainstore.isNewVifCreated) {
                 this.appMode(event.currentTarget.value)
             }
+            if (mainstore.isNewVifCreated)
+                basemodal.showPopUp(Constants.CREATE_NEW_VIF, null, 'Manually Created VIF', null, false, 'OKCancel', null, this.clearCreateNewVifData.bind(this, event.currentTarget.value))
         }
 
 
@@ -74,11 +75,22 @@ const ProductCapabilityComponent = observer(
         }
 
         clearLoadedGeneratedDeviceDataFromInfoToCompMode() {
-            if (mainstore.popUpInputs.responseButton === "Ok")
-                if (basemodal.vifDataModal.portA.fileJson && mainstore.loadedVifVendorName !== "USB-IF") {
-                    basemodal.vifDataModal.clearAll();
-                    basemodal.vifDataModal.clearVifData()
-                }
+            if (basemodal.vifDataModal.portA.fileJson && mainstore.loadedVifVendorName !== "USB-IF") {
+                this.emptyVifFields()
+            }
+        }
+
+        emptyVifFields = () => {
+            basemodal.vifDataModal.clearAll();
+            basemodal.vifDataModal.clearVifData();
+        }
+
+        clearCreateNewVifData = (selectedMode) => {
+            if (mainstore.popUpInputs.responseButton === "Ok") {
+                mainstore.isNewVifCreated = false;
+                this.emptyVifFields()
+                this.appMode(selectedMode)
+            }
         }
 
         copyDeviceData() {
@@ -145,21 +157,21 @@ const ProductCapabilityComponent = observer(
                                     <OverlayTrigger placement="auto" trigger="hover" overlay={<Tooltip>{this.state.generateVIFFileDeviceData} </Tooltip>}>
                                         <Button className="grl-button generate-vif-device-btn generate-vif-button-height-min-screen" id="pcGenerateVifDeviceDataBtn" onClick={this.showDialogForVifGenerationDialog.bind(this)}>{this.state.generateVIFFileDeviceData} </Button>
                                     </OverlayTrigger>
-                            
-                            {mainstore.productCapabilityProps.executionMode !== Constants.COMPLIANCE_MODE ?
-                                <>
-                                    <OverlayTrigger placement="top" overlay={<Tooltip>Copy Device data to VIF data</Tooltip>}>
-                                        <Button className="grl-button-blue copyGetCapsbtn" id="pcCopyDeviceDataToVifDataBtn" disabled={!mainstore.isGetCapsEnabled} onClick={this.copyDeviceData.bind(this)}>Copy Device Data to VIF Data</Button>
-                                    </OverlayTrigger>
-                                </>
-                                : null}
-                        </FlexView>
+
+                                    {mainstore.productCapabilityProps.executionMode !== Constants.COMPLIANCE_MODE ?
+                                        <>
+                                            <OverlayTrigger placement="top" overlay={<Tooltip>Copy Device data to VIF data</Tooltip>}>
+                                                <Button className="grl-button-blue copyGetCapsbtn" id="pcCopyDeviceDataToVifDataBtn" disabled={!mainstore.isGetCapsEnabled} onClick={this.copyDeviceData.bind(this)}>Copy Device Data to VIF Data</Button>
+                                            </OverlayTrigger>
+                                        </>
+                                        : null}
+                                </FlexView>
                             </>}
 
-                    
-                          <OverlayTrigger placement="top" overlay={<Tooltip> {PC_FILE_CONVERTER_BTN} </Tooltip>}>
-                                <a href="javascript:void(0);" onClick={() => window.open("https://www.usb.org/document-library/usb-vendor-info-file-generator")} className={"xml-tool " + compilanceModeSelected } id="pcVifGeneratorLinkLabel">USB-IF VIF Generator Download Link</a>
-                            </OverlayTrigger>
+
+                        <OverlayTrigger placement="top" overlay={<Tooltip> {PC_FILE_CONVERTER_BTN} </Tooltip>}>
+                            <a href="javascript:void(0);" onClick={() => window.open("https://www.usb.org/document-library/usb-vendor-info-file-generator")} className={"xml-tool " + compilanceModeSelected} id="pcVifGeneratorLinkLabel">USB-IF VIF Generator Download Link</a>
+                        </OverlayTrigger>
                     </FlexView>
 
                     <FlexView className="right-border panel-padding vif-editor-custom-width vif-editor-mobiledisplay" column >

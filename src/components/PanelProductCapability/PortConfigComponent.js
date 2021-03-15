@@ -1,16 +1,14 @@
-import React, { Component } from "react"
+import { observer } from "mobx-react";
+import React, { Component } from "react";
 import { Button, Dropdown, OverlayTrigger, Table, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
-import * as Constants from '../../Constants';
-import { mouseBusy, resizeSplitterPaneToNormalMode } from '../../utils';
-import { basemodal, mainstore } from '../../modals/BaseModal';
-import { PC_RESET_BTN, PC_GETCAP_BTN, PC_DUT_DISBALE_MODE, FP_CABLE_SELECTION, COMPLIANCE_CABLE_SELECTION, STATE_MACHINE_INFO, DUT_TYPE_INFO } from '../../Constants/tooltip';
 import { ClipLoader } from 'react-spinners';
-import { observer } from "mobx-react";
-import { convertCapsJsonFormat } from '../../modals/JsonConverter';
+import * as Constants from '../../Constants';
+import { COMPLIANCE_CABLE_SELECTION, DUT_TYPE_INFO, PC_DUT_DISBALE_MODE, PC_GETCAP_BTN, PC_RESET_BTN, STATE_MACHINE_INFO } from '../../Constants/tooltip';
+import { basemodal, mainstore } from '../../modals/BaseModal';
 import { chartstore } from "../../modals/ChartStoreModal";
-import { observe } from "mobx";
-import { TableBody } from "semantic-ui-react";
+import { convertCapsJsonFormat } from '../../modals/JsonConverter';
+import { mouseBusy, resizeSplitterPaneToNormalMode } from '../../utils';
 
 let getCapsStatusDescription = '';
 // let splittedCableName = ''
@@ -66,6 +64,7 @@ const PortConfigComponent = observer(
         getCapabilities() {
             mainstore.renderGlassPaneWhileGetcaps = true
             mainstore.isGetCapsEnabled = true;
+            mainstore.isNewVifCreated = false;
             mainstore.loadedTraceFileName = ""
             mainstore.status.appState = Constants.BUSY
             mainstore.isGetDeviceCapsInProgress = true;//Mainstore is taking time for this variable's change to update

@@ -109,6 +109,7 @@ export const mainstore = observable({
   isChartPollingForApiModeStarted: false,
   selectedTestCaseCount: [],
   loadedTraceFileName: '',
+  isNewVifCreated: false,
 
   alert: {//TODO @Thiru please deprecate this and use the new Toast to all the places used instead of the browser alert
     alertMessage: "",
