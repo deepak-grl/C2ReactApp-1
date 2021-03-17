@@ -26,12 +26,12 @@ const ResultManager = observer(
 
         }
 
-        deleteTestResults = (event) => {
-            basemodal.deleteTestResult(event.target.id, this.loadListOfTestRuns.bind(this))
+        deleteTestResults = (index) => {
+            basemodal.deleteTestResult(index, this.loadListOfTestRuns.bind(this))
         }
 
-        downloadTestResults = (event) => {
-            basemodal.downloadResults(event.target.id)
+        downloadTestResults = (index) => {
+            basemodal.downloadResults(index)
         }
 
         deleteAllTestResults = (event) => {
@@ -84,8 +84,8 @@ const ResultManager = observer(
                                      }*/}
                                     <OverlayTrigger placement="right" overlay={<Tooltip>{runInfo['resultsFolder'].split('\\').pop()} </Tooltip>}><td>{runInfo['resultsFolder'].split('\\').pop()}</td></OverlayTrigger>
                                     <td>{runInfo['folderSize']} MBs</td>
-                                    <td><Button id="reportManagementDeleteReportBtn" className="grl-button btn-primary refresh-btn" onClick={this.deleteTestResults}>{DELETE_REPORT}</Button></td>
-                                    <td><Button id="reportManagementDownloadReportBtn" className="grl-button btn-primary refresh-btn" onClick={this.downloadTestResults}>{DOWNLOAD_REPORT}</Button></td>
+                                    <td><Button id="reportManagementDeleteReportBtn" className="grl-button btn-primary refresh-btn" onClick={() => { this.deleteTestResults(index) }}>{DELETE_REPORT}</Button></td>
+                                    <td><Button id="reportManagementDownloadReportBtn" className="grl-button btn-primary refresh-btn" onClick={() => { this.downloadTestResults(index) }}>{DOWNLOAD_REPORT}</Button></td>
                                 </tr>)
                             })}
                         </tbody>
