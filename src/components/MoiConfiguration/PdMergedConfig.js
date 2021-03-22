@@ -16,6 +16,9 @@ const PdMergedConfig = observer((props) => {
         pdMergedConfig.noiseType = eventKey;
     }
 
+    const onEprTestFixtureEnabledChange = (event) => {
+        pdMergedConfig.isEPRFixtureConnected = event.target.checked;;
+    }
 
     return (
         <>
@@ -59,6 +62,18 @@ const PdMergedConfig = observer((props) => {
                                     </Dropdown >
                                 </td>
                             </tr>
+
+                            {
+                                mainstore.selectedMoiTestCase.includes(Constants.PdMerged_EPR_SRC_Tests) || mainstore.selectedMoiTestCase.includes(Constants.PdMerged_EPR_SNK_Tests) ?
+                                    <tr>
+                                        <td col="true"></td>
+                                        <td>
+                                            <label className="checkbox-label-width">
+                                                <input type="checkbox" id="tcPdMergeConnectFixtureCheckBox" className="checkbox-align-custom" onChange={onEprTestFixtureEnabledChange} checked={pdMergedConfig.isEPRFixtureConnected} /> Connect EPR Test Fixture
+                                             </label>
+                                        </td>
+                                    </tr> : null
+                            }
                         </tbody>
                     </Table>
                 </FlexView>

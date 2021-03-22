@@ -239,6 +239,7 @@ export const mainstore = observable({
 
     pdMergedConfig: {
       cableEnd: "",
+      isEPRFixtureConnected: false,
       noiseType: '',
     },
 

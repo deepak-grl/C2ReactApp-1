@@ -85,6 +85,8 @@ export const MFiTests = "MFi Charger Tests";
 export const BC_1_2Tests = "BC1.2 DCP Sink Tests";
 export const Qc3PlusTests = "QC3+ Tests"
 export const PdMergedTests = "PD Merged Tests (Beta)";
+export const PdMerged_EPR_SRC_Tests = "PDMER_EPR_SRC";
+export const PdMerged_EPR_SNK_Tests = "PDMER_EPR_SNK";
 
 //Test Selection START
 export const MoiList = ["Power Delivery 3.0 Tests", "BC 1.2 Tests", "MFi Tests", "MFG and WWC Tests", "Source Power Tests", "Quick Charge 4 Tests", "PD2 Deterministic Tests", "USB-C Functional Tests", "PD2 Communication Engine Tests", "DisplayPort Alternate Mode Tests", "Quick Charger 3.0 Tests", "Thunderbolt Power Tests"]
