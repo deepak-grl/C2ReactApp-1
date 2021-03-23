@@ -12,8 +12,10 @@ export default class ProductCapabilityProps {
         this.stateMachineType = stateMachineType
     }
 
-    setPortLableType(portLable) {
-        this.portLable = portLable
+    setPortLableType(portLable, index = 0, port) {
+        this.portLable = portLable;
+        mainstore.dutPortIndex_C2PortA = index
+        basemodal.vifDataModal.cableAndDutTypeSelectionCases(basemodal.vifDataModal.getCurrentPort(1), Constants.TYPE_FILE, port)
         this.syncToServer();
     }
 

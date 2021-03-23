@@ -65,6 +65,7 @@ export class VIFDataModal {
     }
 
     loadJson(jsonData, fileOrDevice, portIndex) {
+        mainstore.dutPortIndex_C2PortA = 0
         this.initialized = true;
         if (jsonData) { } else {
             throw Error("json null");
@@ -123,42 +124,54 @@ export class VIFDataModal {
 
         port.createJsonStructureForBackend();
 
-        var pdPortType = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getElementByName(VIF_ENUMS.PD_Port_Type);
+        this.cableAndDutTypeSelectionCases(port, fileOrDevice)
+        this.vifDataModified();
+        this.numOfPorts();
+        this.getPortLabels();
+        this.specialCases();
+        return port.vif;
+    }
+
+    cableAndDutTypeSelectionCases(port, fileOrDevice, portNumber = Constants.PORTA) {
+        let pdPortType = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getElementByName(VIF_ENUMS.PD_Port_Type);
 
         if (fileOrDevice === Constants.TYPE_FILE) {
             mainstore.filePdPortTypeValue = pdPortType.getValue();
         }
         var vifProductType = port.vif.getElementByName(VIF_ENUMS.VIF_Product_Type);
-        var captiveCable = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getElementByName(VIF_ENUMS.Captive_Cable);
+        let captiveCable = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getElementByName(VIF_ENUMS.Captive_Cable);
+        let typeCStateMachine = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getElementByName(VIF_ENUMS.Type_C_State_Machine);
+
+        if (port.vif.getComponents().length > 1) {
+            for (let index = 0; index < port.vif.getComponents().length; index++) {
+                if (typeCStateMachine.elementName === undefined)
+                    typeCStateMachine = port.vif.getComponents()[index].getElementByName(VIF_ENUMS.Type_C_State_Machine);
+            }
+        }
         mainstore.captiveCableVal = captiveCable.getValue();
-        var typeCStateMachine = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getElementByName(VIF_ENUMS.Type_C_State_Machine);
+
         let typeCStateMachineValue = true;
         if (typeCStateMachine.source && typeCStateMachine.source.fileJson && typeCStateMachine.source.fileJson.USB_PD_Support)
             typeCStateMachineValue = JSON.parse(typeCStateMachine.source.fileJson.USB_PD_Support._attributes.value)
 
         if (mainstore.isVifLoadedFromProductCaps === true) {
             if (vifProductType && vifProductType.getValue() === 1) {
-                mainstore.productCapabilityProps.ports[Constants.PORTA].setDutType(Constants.USBPDDeviceType[5])
+                mainstore.productCapabilityProps.ports[portNumber].setDutType(Constants.USBPDDeviceType[5])
             }
             else if (pdPortType) {
                 var dutTypeValue = Constants.USBPDDeviceType[pdPortType.getValue()];
                 if (dutTypeValue) {
-                    mainstore.productCapabilityProps.ports[Constants.PORTA].setDutType(dutTypeValue);
+                    mainstore.productCapabilityProps.ports[portNumber].setDutType(dutTypeValue);
                 }
                 else if (typeCStateMachine && typeCStateMachineValue === false) {
-                    mainstore.productCapabilityProps.ports[Constants.PORTA].setDutType(Constants.USBPDDeviceType[6])
-                    mainstore.productCapabilityProps.ports[Constants.PORTA].setStateMachineType(typeCStateMachine.source.fileJson.Type_C_State_Machine._text);
+                    mainstore.productCapabilityProps.ports[portNumber].setDutType(Constants.USBPDDeviceType[6])
+                    mainstore.productCapabilityProps.ports[portNumber].setStateMachineType(typeCStateMachine.source.fileJson.Type_C_State_Machine._text);
                 }
             }
 
         }
-        this.vifDataModified();
-        this.numOfPorts();
-        this.getPortLabels();
-        this.specialCases();
-        return port.vif;
-
     }
+
     numOfPorts() {
         var components = this.getCurrentPort(mainstore.currentPortIndex).vif.getComponents()
         if (components.length === 1 || 0) {

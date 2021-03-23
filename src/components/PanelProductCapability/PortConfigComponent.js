@@ -55,9 +55,9 @@ const PortConfigComponent = observer(
             mainstore.productCapabilityProps.ports[this.props.portnumber].setCableType(splitCableName)
         }
 
-        portsDropDownOnChange(eventKey) {
+        portsDropDownOnChange(eventKey, index) {
             this.setState({ selectedPort: eventKey })
-            mainstore.productCapabilityProps.ports[this.props.portnumber].setPortLableType(eventKey)
+            mainstore.productCapabilityProps.ports[this.props.portnumber].setPortLableType(eventKey, index, this.props.portnumber)
             basemodal.putVIFData(Constants.PORTA, mainstore.copyVifInfo)
         }
 
@@ -178,7 +178,7 @@ const PortConfigComponent = observer(
                             <Dropdown.Menu >
                                 {
                                     mainstore.portLabelArrayEntries.map((portLabelValue, index) => {
-                                        return <Dropdown.Item key={index} eventKey={portLabelValue} onSelect={this.portsDropDownOnChange.bind(this)}  >{portLabelValue}</Dropdown.Item>
+                                        return <Dropdown.Item key={index} eventKey={portLabelValue} onSelect={(e) => this.portsDropDownOnChange(e, index)}  >{portLabelValue}</Dropdown.Item>
                                     })
                                 }
                             </Dropdown.Menu>

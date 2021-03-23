@@ -268,7 +268,7 @@ class VIFEditor extends React.Component {
         items.push(<tr><td className="vifeditor-heade-row"
             onClick={() => { vifComp.UI_isPortExpanded = !vifComp.UI_isPortExpanded; basemodal.vifDataModal.vifDataModified(); }}>
             {vifComp.UI_isPortExpanded ? <i className="fa fa-fw fa-chevron-down align-vif-table-toggle-icons"></i> : <i className="fa fa-fw fa-chevron-right align-vif-table-toggle-icons"></i>}
-            {"Port" + (mainstore.currentPortIndex) + " [" + portLabelElementVal + "]"} </td>
+            {"Port Label" + " [" + portLabelElementVal + "]"} </td>
             <td></td>
             {mainstore.productCapabilityProps.executionMode !== "ComplianceMode" ?
                 < td ></td> : null
