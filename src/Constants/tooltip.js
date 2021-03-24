@@ -85,6 +85,8 @@ DRP: Can act as Source or Sink.Ex: Notebook PC, self-powered Dock/Hub, power ban
 Cable: Interconnects source and sink
 Note: A self-power Dock(DRP) and bus-powered dock(Consumer-Only) will have 2 different VIF file to test`
 
+export const PRIMARY_PORT_INFO = `Please select the port with connector type set to Type-C and run compliance test cases`
+
 export const USB_C_FUNCTIONAL_MOI_INFO = `TD 4.11.2 Sink Dead Battery Test
 Please visually inspect the presence of battery in PUT. Enable this check box if battery is available else, disable it.`
 
