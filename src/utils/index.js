@@ -270,10 +270,33 @@ function xmlToJson(file, callback) {
         xmlobject = event.target.result;
         var convertedJson = convert.xml2json(xmlobject, { compact: true, spaces: 4 });
         var parsedJson = JSON.parse(convertedJson);
+        loopEachVifField(parsedJson)
         callback(parsedJson);
     };
     reader.readAsText(file);
 }
+
+function loopEachVifField(parsedData) {
+    Object.keys(parsedData).forEach(elementName => {
+        let eleName = elementName
+        if (eleName.includes("vif:")) {
+            if (typeof (parsedData[elementName]) === 'object' && parsedData[elementName] !== null) {
+                if (parsedData[elementName].length) {
+                    for (var index = 0; index < parsedData[elementName].length; index++) {
+                        loopEachVifField(parsedData[elementName][index]);
+                    }
+                }
+                else
+                    loopEachVifField(parsedData[elementName]);
+                elementName = elementName.substring(elementName.indexOf(":") + 1)
+                parsedData[elementName] = parsedData[eleName]
+                delete parsedData[eleName]
+            }
+        }
+    })
+}
+
+
 function getWidthOfText(txt, fontname = "'Varela Round', sans-serif", fontsize = "14px") {
     if (getWidthOfText.c === undefined) {
         getWidthOfText.c = document.createElement('canvas');

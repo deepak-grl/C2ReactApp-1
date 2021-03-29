@@ -261,6 +261,21 @@
     "SubFields": []
   },
   {
+    "VifFieldEnum": "Captive_Cable_Is_eMarked",
+    "VifFieldType": 3,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "NO",
+      "YES"
+    ],
+    "SubFields": []
+  },
+  {
     "VifFieldEnum": "Port_Battery_Powered",
     "VifFieldType": 3,
     "VifFieldValue": "",
@@ -1342,6 +1357,22 @@
     "ComboBoxEntries": [
       "NO",
       "YES"
+    ],
+    "SubFields": []
+  },
+  {
+    "VifFieldEnum": "Device_Max_USB2_Speed",
+    "VifFieldType": 2,
+    "VifFieldValue": "",
+    "DisplayString": "",
+    "Units": "",
+    "MinValue": null,
+    "MaxValue": null,
+    "Multipliers": null,
+    "ComboBoxEntries": [
+      "0:Low Speed",
+      "1:Full Speed",
+      "2:high Speed"
     ],
     "SubFields": []
   },
