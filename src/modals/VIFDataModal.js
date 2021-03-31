@@ -1399,11 +1399,12 @@ export class MetaData {
         if (ele) {
             return ele[propertyName];
         } else {
-            if (elementName !== undefined)
+            if (elementName !== undefined && elementName !== "OptionalContent") {
                 if (mainstore.skipMissingVIFFieldToast === null) {
                     mainstore.skipMissingVIFFieldToast = new toastNotification(` Identified invalid VIF field , Please report it to support@graniteriverlabs.com, But still user can continue using this software`, Constants.TOAST_ERROR, 5000);
                     mainstore.skipMissingVIFFieldToast.show();
                 }
+            }
         }
         return '-!-';
     }

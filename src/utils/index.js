@@ -279,7 +279,7 @@ function xmlToJson(file, callback) {
 function loopEachVifField(parsedData) {
     Object.keys(parsedData).forEach(elementName => {
         let eleName = elementName
-        if (eleName.includes("vif:")) {
+        if (eleName.includes('vif:') || eleName.includes('opt:')) {
             if (typeof (parsedData[elementName]) === 'object' && parsedData[elementName] !== null) {
                 if (parsedData[elementName].length) {
                     for (var index = 0; index < parsedData[elementName].length; index++) {
