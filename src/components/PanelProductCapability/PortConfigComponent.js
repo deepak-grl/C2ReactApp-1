@@ -266,7 +266,7 @@ const PortConfigComponent = observer(
                                 </OverlayTrigger>
                             </div> :
                             <div className="product-caps-cable-selection-info-icon" >
-                                <OverlayTrigger trigger="click" popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
+                                <OverlayTrigger rootClose trigger="click" popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom"
                                     overlay={<Tooltip className=" cable-selection-tooltip-inner-content-align">{this.cableTooltipl()}</Tooltip>}><img src="../../images/sleep-info.png" alt="info-irdrop" className="info-img-irdrop" />
                                 </OverlayTrigger>
                             </div>
