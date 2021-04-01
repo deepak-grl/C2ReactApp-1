@@ -507,7 +507,7 @@ class BaseModal {
   }
 
   syncDataFromServer() {
-    mouseBusy(true)
+    // mouseBusy(true)
     this.getSoftwareVersion()
     this.getAppMode()
     this.loadConnectionSetupPanelValues()
@@ -1583,13 +1583,20 @@ class BaseModal {
       selectedTestList: [],
       testList: [],
 
+      pd3Configuration: {
+        vconnVoltage_PD3: "",
+        isFrSwapIncluded: false,
+      },
+
       pd2Configuration: {
         noiseType: "",
+        vconnVoltage_CE: '',
       },
       tbtConfiguration: {
         portType: '',
         poweredType: '',
         deviceType: '',
+        tbT_Version: '',
         stressTiming: '',
         isPortACapMisMatchSet: false,
         isPortAGiveBackSet: false,
@@ -1600,6 +1607,7 @@ class BaseModal {
       qc3Configuration: {
         dutType: '',
         connectorType: '',
+        connectorTypeCable: '',
         irDrop: '',
         ratedCurrent5V: '',
         ratedCurrent9V: '',
@@ -1623,12 +1631,17 @@ class BaseModal {
       },
 
       functionalConfiguration: {
-        typeCCanActAsHostValue: "",
-        typeCCanActAsDeviceValue: "",
+        typeCCanActAsHostValue: 0,
+        typeCCanActAsDeviceValue: 0,
         isHSValidationEnabled: false,
         isValidationAutomated: false,
         isBatteryConnectedToTheDut: false,
-        serverURL: ''
+        isFrSwapBoardConnected: false,
+        serverURL: '',
+        typeCPortOnHub: 0,
+        numberofType_C_Ports: "",
+        numberofMicroBPorts: '',
+        isConnectedHub: false,
       },
 
       dpAltModeConfiguration: {
@@ -1640,19 +1653,24 @@ class BaseModal {
       deterministicConfig: {
         vconnVoltage: ""
       },
+
+      pdMergedConfig: {
+        cableEnd: "",
+        isEPRFixtureConnected: false,
+        noiseType: '',
+      },
+
       cbChargerConfiguration: {
         is_FRSwapConnected: false,
         is_FLIRConnected: false,
       },
       mfiChargerConfiguration: {
+        selectedEloadChannel: Constants.ELOAD_CHANNEL[0],
         isCaptiveLightningPlugChecked: false,
       },
       bc_1_2TestConfiguration: {
         secondary_detection: '',
         bC_1_2_MaxCurrent: ''
-      },
-      pd3Configuration: {
-        isExternalBoardConnected: false,
       }
     }
   }
