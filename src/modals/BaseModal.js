@@ -507,7 +507,7 @@ class BaseModal {
   }
 
   syncDataFromServer() {
-    // mouseBusy(true)
+    mouseBusy(true)
     this.getSoftwareVersion()
     this.getAppMode()
     this.loadConnectionSetupPanelValues()
