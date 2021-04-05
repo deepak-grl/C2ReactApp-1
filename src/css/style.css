@@ -2186,12 +2186,13 @@ width:40%!important;
 }
 
 .load-vif-button {
-  width: 100% !important;
   display: flex;
   flex: 1;
   margin-right: 0px !important;
   justify-content: center;
   margin-left: 65px;
+  white-space: nowrap;
+  min-width: inherit;
 }
 
 .project-name-input {

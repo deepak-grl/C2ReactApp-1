@@ -33,8 +33,7 @@ const VIFLoadComponent = observer(
         readXMLFile = (file) => {
             var me = this;
             xmlToJson(file, function (parsedJson) {
-                mainstore.productCapabilityProps.vifFileName = file.name.length > 45 ? file.name.substring(0, 45) + '...' : file.name
-                // me.setState({ vifFileName: mainstore.productCapabilityProps.vifFileName })
+                mainstore.productCapabilityProps.vifFileName = file.name.length > 40 ? file.name.substring(0, 40) + '...' : file.name
                 me.loadFileData(parsedJson);
                 mouseBusy(false);
             });
