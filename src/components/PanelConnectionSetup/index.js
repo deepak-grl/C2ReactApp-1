@@ -1,3 +1,4 @@
+import { observe } from 'mobx';
 import { observer } from 'mobx-react';
 import Select from 'rc-select';
 import React from 'react';
@@ -28,13 +29,23 @@ const PanelConnectionSetup = observer(
         showIpAddressDropDown: false,
         firmwareUpdateLoading: false,
         eLoadFirmwareUpdateLoading: false,
+        isNetworkScanned: false,
       };
+
+      const disposer = observe(mainstore, "currentPanelIndex", (change) => {
+        if (this.state.showIpAddressDropDown && mainstore.currentPanelIndex !== 0)
+          this.onIpDropDownBlur()
+        else if (this.state.isNetworkScanned && mainstore.currentPanelIndex === 0) {
+          this.onIpDropDownFocus()
+        }
+      })
     }
 
     doneConnecting() {
       mainstore.connectionStatusLoader = false
       connectSpinnerDescription = ''
       mouseBusy(false);
+      this.setState({ isNetworkScanned: false })
     }
 
     tryConnectWithC2 = () => {
@@ -54,7 +65,7 @@ const PanelConnectionSetup = observer(
     }
 
     onClickDiscoverIP = () => {
-      this.setState({ autoDiscoverLoading: true });
+      this.setState({ autoDiscoverLoading: true, isNetworkScanned: true });
       basemodal.discoverIPAddress(this.doneC2Discovery.bind(this));
     }
 
@@ -95,7 +106,7 @@ const PanelConnectionSetup = observer(
     }
 
     onIpDropDownSelected = (event) => {
-      mainstore.connectionInfo.testerIpAddress = event
+      mainstore.connectionInfo.testerIpAddress = event;
       setTimeout(() => {
         this.onIpDropDownBlur()
       }, 50);//* Hack done as onFocus event is being fired from the internals of Select module
