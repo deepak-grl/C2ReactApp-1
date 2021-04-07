@@ -2649,9 +2649,9 @@
     "MaxValue": null,
     "Multipliers": null,
     "ComboBoxEntries": [
-      "0:USB 2 only, no Superspeed support",
+      "0:USB 2 only",
       "1:USB 3.2 Gen 1",
-      "2:USB 3.2_USB4 Gen 2",
+      "2:USB 3.2/USB4 Gen 2",
       "3:USB4 Gen3"
     ],
     "SubFields": []
