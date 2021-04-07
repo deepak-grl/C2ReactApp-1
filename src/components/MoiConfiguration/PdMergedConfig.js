@@ -1,9 +1,10 @@
-import React from 'react';
-import FlexView from 'react-flexview/lib';
-import { Dropdown, Table, Form } from 'react-bootstrap';
-import * as Constants from '../../Constants';
-import { mainstore } from '../../modals/BaseModal';
 import { observer } from 'mobx-react';
+import React from 'react';
+import { Dropdown, OverlayTrigger, Table, Tooltip } from 'react-bootstrap';
+import FlexView from 'react-flexview/lib';
+import * as Constants from '../../Constants';
+import { PDM_EPR_TEST_INFO } from '../../Constants/tooltip';
+import { mainstore } from '../../modals/BaseModal';
 
 const PdMergedConfig = observer((props) => {
     let pdMergedConfig = mainstore.testConfiguration.pdMergedConfig;
@@ -68,11 +69,17 @@ const PdMergedConfig = observer((props) => {
                                     <tr>
                                         <td col="true"></td>
                                         <td>
-                                            <label className="checkbox-label-width">
-                                                <input type="checkbox" id="tcPdMergeConnectFixtureCheckBox" className="checkbox-align-custom" onChange={onEprTestFixtureEnabledChange} checked={pdMergedConfig.isEPRFixtureConnected} /> Connect EPR Test Fixture
+                                            <FlexView>
+                                                <label className="checkbox-label-width">
+                                                    <input type="checkbox" id="tcPdMergeConnectFixtureCheckBox" className="functional-moi-checkbox" onChange={onEprTestFixtureEnabledChange} checked={pdMergedConfig.isEPRFixtureConnected} /> Connect EPR Test Fixture
                                              </label>
+                                                <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{PDM_EPR_TEST_INFO}</Tooltip>}>
+                                                    <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
+                                                </OverlayTrigger>
+                                            </FlexView>
                                         </td>
-                                    </tr> : null
+                                    </tr>
+                                    : null
                             }
                         </tbody>
                     </Table>

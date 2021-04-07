@@ -60,7 +60,7 @@ const FunctionalConfig = observer((props) => {
     if (selectedTestCaseList.includes(Constants.USBFunctionalDeadBatteryTest)) {
       showDeadBatteryCheckBox = <FlexView>
         <label className="checkbox-label-width">
-          <input type="checkbox" id="tcUSB-CFunctionalIsBatteryConnectedToDutCheckBox" className="functional-moi-checkbox" checked={funcInfo.isBatteryConnectedToTheDut} type='checkbox' onChange={isBatteryConnectedToTheDut} />Is Battery Connected to DUT
+          <input type="checkbox" id="tcUSB-CFunctionalIsBatteryConnectedToDutCheckBox" className="functional-moi-checkbox" checked={funcInfo.isBatteryConnectedToTheDut} onChange={isBatteryConnectedToTheDut} />Is Battery Connected to DUT
        </label>
         <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{USB_C_FUNCTIONAL_MOI_INFO}</Tooltip>}>
           <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />

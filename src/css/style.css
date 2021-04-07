@@ -2616,6 +2616,7 @@ width:40%!important;
   width: 50px;
   text-align: center;
   height: 23px;
+  border: 1px solid;
 }
 
 .rerun-condition-label {
