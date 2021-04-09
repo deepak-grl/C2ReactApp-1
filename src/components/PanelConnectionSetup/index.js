@@ -306,13 +306,13 @@ const PanelConnectionSetup = observer(
                       </div>
                     </td>
                   </tr>
-
+                  {/* 
                   <tr>
                     <th className="panel-connection-setup-tester-info device-details-border">Port Info </th>
                     <td className="panel-connection-setup-tester-info tester-info-border  device-details-border">
                       <div className="right-spacing-tester"> <b>{ci.portInfo}</b> </div>
                     </td>
-                  </tr>
+                  </tr> */}
 
                   <tr>
                     <th className="panel-connection-setup-tester-info device-details-border">Tester IP Address Info</th>
