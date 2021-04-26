@@ -1,5 +1,6 @@
 import React from 'react';
 import FlexView from 'react-flexview/lib';
+import Mode from '../AdminDebugMode/index';
 import PanelConnectionSetup from '../PanelConnectionSetup';
 import PanelProductCapability from '../PanelProductCapability';
 import PanelTestConfig from '../PanelTestConfig';
@@ -165,6 +166,7 @@ class MainArea extends React.Component {
 
   configScrollArea = () => {
     var allPanels = [];
+
     var panelCS = <PanelConnectionSetup />;
     var WPanelCS = this.wrapPanel(panelCS, 0);
     allPanels.push(WPanelCS);
@@ -197,7 +199,11 @@ class MainArea extends React.Component {
     var WPanelHelp = this.wrapPanel(panelHelp, 6)
     allPanels.push(WPanelHelp);
 
-
+   
+    var panelMode = <Mode />
+    var WPanelMode = this.wrapPanel(panelMode, 7)
+    allPanels.push(WPanelMode);
+   
 
     return (
       <div ref={this.scrollRef} onWheel={this.onMouseScroll.bind(this)} className="scroll-area">
@@ -286,4 +292,4 @@ class GlassPanel extends React.Component {
       </>
     )
   }
-} 
+}

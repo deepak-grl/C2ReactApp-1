@@ -3828,7 +3828,7 @@ label {
   margin-top: 8px !important;
 }
 
-.five-port-label-bottom-spacing {
+. {
   margin-bottom: 5px;
 }
 
@@ -4472,4 +4472,34 @@ label {
   float: right;
   margin-top: 2px;
   margin-right: 18px;
+}
+
+.mode-div{
+
+  position: relative;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+.mode-label{
+  font-size: medium;
+}
+.mode-name-input-field{
+    width: 255px;
+    line-height: 2;
+    margin-left: 20px;
+    border: 1px solid black;
+    display: flex;
+    flex: 1;
+    height: 30px;
+   
+}
+.mode-button{
+
+  width: 120px;
+  height: 30px;
+  background-color: blue;
+  text-align: center;
+  margin-left: 20px;
+  vertical-align:middle;
+  margin-right: 20px;
 }

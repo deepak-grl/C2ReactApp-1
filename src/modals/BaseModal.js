@@ -112,6 +112,7 @@ export const mainstore = observable({
   isNewVifCreated: false,
   firmwareVersionTooltip: '',
   eloadVersionTooltip: '',
+  appStatusMode:'EndUser',
 
   alert: {//TODO @Thiru please deprecate this and use the new Toast to all the places used instead of the browser alert
     alertMessage: "",
@@ -318,6 +319,12 @@ export const mainstore = observable({
     testResultsList: []
   },
 
+  modeStatus:{
+    captureLocation:'',
+    isOldRep:false,
+  },
+
+
   saveTraceFileModal: false,
   saveWaveFormFileName: 'GRL_Signal_File.grltrace',
 
@@ -508,6 +515,7 @@ class BaseModal {
 
   syncDataFromServer() {
     mouseBusy(true)
+    this.getAppStatusMode()
     this.getSoftwareVersion()
     this.getAppMode()
     this.loadConnectionSetupPanelValues()
@@ -634,6 +642,16 @@ class BaseModal {
   }
 
   //General App Start
+
+  getAppStatusMode(callBack) {
+    ajax.callGET(Constants.URL_App + "GetAppStatusMode", {}, function (response) {
+      mainstore.appStatusMode = response.data;
+      if (callBack)
+        callBack();
+    }, function (error) {
+      console.log("Error", error);
+    });
+  }
 
   getAppState(callBack) {
     ajax.callGET(Constants.URL_App + "GetAppState", {}, function (response) {
@@ -783,6 +801,13 @@ class BaseModal {
     ajax.callPOST(Constants.URL_TestConfiguration + "PostTestListToExecute/" + mainstore.testExecutionRepeat, mainstore.testConfiguration.selectedTestList, function (response) {
       mainstore.panelResultPolling = true;      //Start polling      
       mainstore.chartPollEnabled = true;
+    }, function (error) {
+      console.log("Error", error);
+    });
+  }
+
+  putUserData() {
+    ajax.callPUT(Constants.URL_DebugMode + "PutUserData", mainstore.modeStatus, {}, function (response) {
     }, function (error) {
       console.log("Error", error);
     });
