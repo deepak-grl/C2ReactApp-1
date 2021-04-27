@@ -170,7 +170,7 @@ export const SUCCESS = true;
 export const FAIL = false;
 export const STR_TEXT = "_text";
 export const STR_VALUE = "value";
-export const VIF_SUPPORTED_VERSION = "3.2.0.0";
+export const VIF_SUPPORTED_VERSION = "3.2.0.1";
 export const DecodedValueMismatch = "XML value does not match with the decoded value"
 
 //RulesEngine Combobox Entries
