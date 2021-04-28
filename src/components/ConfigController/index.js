@@ -4,7 +4,7 @@ import FlexView from 'react-flexview/lib';
 import Configure from "./Configure";
 import SendMessage from "./SendMessage";
 import RequestMessage from "./RequestMessage";
-import { mainstore } from '../../modals/BaseModal';
+import { mainstore } from '../../ViewModel/BaseModal';
 import { observer } from "mobx-react";
 
 const ConfigController = observer(

@@ -7,7 +7,7 @@ import Switch from "react-switch";
 import * as Constants from '../../Constants';
 import { EDIT_TEXTBOX, PC_CLEAR_BTN } from '../../Constants/tooltip';
 import ajax from '../../modals/AjaxUtils';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { mouseBusy, xmlToJson } from '../../utils';
 import cableSampleVif from '../../vif_files/Sample_Cable_Vif';
 import consumerSampleVif from '../../vif_files/Sample_Consumer_Vif';

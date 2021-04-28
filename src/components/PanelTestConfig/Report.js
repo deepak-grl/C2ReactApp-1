@@ -2,7 +2,7 @@ import React from 'react'
 import { Form, Table, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import { observer } from 'mobx-react';
-import { mainstore } from '../../modals/BaseModal';
+import { mainstore } from '../../ViewModel/BaseModal';
 import { REPORT_FOLDER_PATH_SUCCESS } from '../../Constants/tooltip';
 
 const Report = observer(

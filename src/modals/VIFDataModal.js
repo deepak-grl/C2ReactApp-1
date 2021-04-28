@@ -1,5 +1,5 @@
 import * as Constants from '../Constants';
-import { mainstore, basemodal } from './BaseModal';
+import { mainstore, basemodal } from '../ViewModel/BaseModal';
 import * as VIF_ENUMS from '../Constants/VIF_ENUMS';
 import cleaner from 'deep-cleaner';
 import _ from 'lodash';

@@ -4,7 +4,7 @@ import { Dropdown, OverlayTrigger, Table, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import * as Constants from '../../Constants';
 import { PDM_EPR_TEST_INFO } from '../../Constants/tooltip';
-import { mainstore } from '../../modals/BaseModal';
+import { mainstore } from '../../ViewModel/BaseModal';
 
 const PdMergedConfig = observer((props) => {
     let pdMergedConfig = mainstore.testConfiguration.pdMergedConfig;

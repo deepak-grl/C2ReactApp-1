@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Button, Dropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
-import { mainstore, basemodal } from '../../modals/BaseModal';
+import { mainstore, basemodal } from '../../ViewModel/BaseModal';
 import Switch from "react-switch";
 import { ENABLE_PORT, BROWSE_VIF, TC_REPEAT, FP_CABLE_SELECTION, FIVEPORTREPEATCOUNT } from '../../Constants/tooltip';
 import * as Constants from '../../Constants';

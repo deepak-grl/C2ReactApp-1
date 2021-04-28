@@ -9,7 +9,7 @@ import * as Constants from '../../Constants';
 import { CS_CONNECT_BTN, CS_IPDISCOVER_BTN, FIRMWARE_UPDATE, UPDATE_ELOAD_FIRMWARE } from '../../Constants/tooltip';
 import { CS_CONNECTION_BTN, CS_SCAN_NETWORK_BTN, CS_UPDATE_ELOAD_FIRMWARE_BTN, CS_UPDATE_FIRMWARE_BTN } from '../../Constants/uilabels';
 import '../../css/rc-table.css';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import utils, { mouseBusy } from '../../utils';
 import LicenseInfo from "./LicenseInfo";
 

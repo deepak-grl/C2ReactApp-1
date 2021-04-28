@@ -8,7 +8,7 @@ import { FadeLoader } from 'react-spinners';
 import PlotToolbar from './PlotToolbar';
 import { observer } from 'mobx-react';
 import { observe } from 'mobx';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { chartstore } from '../../modals/ChartStoreModal';
 import * as Constants from '../../Constants';
 import { timeFormatter, scrollToPacket, customNavbarOnSpitterMoves } from '../../utils';
@@ -360,9 +360,9 @@ export const CcPacket = observer(class CcPacket extends React.Component {
         if (this.state.chartUpdate) {
             var loaderDiv = <>{(chartstore.isPlotDataLoading === true && chartstore.isPlotResultActive === true) ?
                 <div className="bar-Loader">
-                <img src={"../../images/Spinner-1s-217px.svg"} />
-                <p className="loader-text">Loading...</p>
-            </div> : null
+                    <img src={"../../images/Spinner-1s-217px.svg"} />
+                    <p className="loader-text">Loading...</p>
+                </div> : null
             }</>;
 
             var ChartComps_height = (window.innerHeight * 0.6) - (Constants.TOP_NAVBAR_HEIGHT / 2); // ploat page : converting height to 60% (minus Topnav height (90/2) minus 8 (xAxisLabels())). 

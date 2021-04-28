@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { PC_NEW_PROJECT_SAVE_BTN } from '../../Constants/tooltip';
 import * as Constants from '../../Constants';
 import { observer } from 'mobx-react';

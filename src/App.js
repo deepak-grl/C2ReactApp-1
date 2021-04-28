@@ -3,7 +3,7 @@ import TopNavBar from './components/TopNavBar';
 import LeftNavBar from './components/LeftNavBar';
 import MainArea from './components/MainArea';
 import FlexView from 'react-flexview/lib';
-import { mainstore, basemodal } from './modals/BaseModal';
+import { mainstore, basemodal } from './ViewModel/BaseModal';
 import { chartstore } from './modals/ChartStoreModal';
 import { observe } from 'mobx';
 import * as Constants from './Constants';

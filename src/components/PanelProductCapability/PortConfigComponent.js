@@ -5,7 +5,7 @@ import FlexView from 'react-flexview/lib';
 import { ClipLoader } from 'react-spinners';
 import * as Constants from '../../Constants';
 import { COMPLIANCE_CABLE_SELECTION, DUT_TYPE_INFO, PC_DUT_DISBALE_MODE, PC_GETCAP_BTN, PC_RESET_BTN, PRIMARY_PORT_INFO, STATE_MACHINE_INFO } from '../../Constants/tooltip';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { chartstore } from "../../modals/ChartStoreModal";
 import { convertCapsJsonFormat } from '../../modals/JsonConverter';
 import { mouseBusy, resizeSplitterPaneToNormalMode } from '../../utils';

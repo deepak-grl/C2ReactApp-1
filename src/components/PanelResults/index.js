@@ -12,7 +12,7 @@ import polling from 'rx-polling';
 import { ajax } from 'rxjs/ajax';
 import { map } from 'rxjs/operators';
 import * as Constants from '../../Constants';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { chartstore } from '../../modals/ChartStoreModal';
 import utils, { mouseBusy, resizeSplitterPaneToNormalMode } from '../../utils';
 import toastNotification from '../../utils/toastNotification';

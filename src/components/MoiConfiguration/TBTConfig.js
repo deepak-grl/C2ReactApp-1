@@ -2,7 +2,7 @@ import React from 'react';
 import FlexView from 'react-flexview/lib';
 import { Form, Dropdown, Table } from 'react-bootstrap';
 import * as Constants from '../../Constants';
-import { mainstore } from '../../modals/BaseModal';
+import { mainstore } from '../../ViewModel/BaseModal';
 import { observer } from 'mobx-react';
 
 const TBTConfig = observer((props) => {

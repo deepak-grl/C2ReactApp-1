@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Button, Modal, Dropdown, Table, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
-import { mainstore, basemodal } from '../../modals/BaseModal';
+import { mainstore, basemodal } from '../../ViewModel/BaseModal';
 import { observer } from "mobx-react";
 import { observe } from 'mobx';
 import * as Constants from '../../Constants';

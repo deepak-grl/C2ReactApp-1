@@ -1,7 +1,7 @@
 import React from 'react';
 import FlexView from "react-flexview/lib";
 import { Table, DropdownButton, Dropdown } from 'react-bootstrap';
-import { mainstore, basemodal } from '../../modals/BaseModal';
+import { mainstore, basemodal } from '../../ViewModel/BaseModal';
 import { VIFDataModal, VIFRowData } from '../../modals/VIFDataModal';
 import * as VIF_ENUMS from '../../Constants/VIF_ENUMS';
 import utils from '../../utils';

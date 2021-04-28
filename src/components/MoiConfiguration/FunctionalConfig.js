@@ -4,7 +4,7 @@ import { Form, Table, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { USB_C_FUNCTIONAL_MOI_INFO, USB_FUNCTIONAL_DEVICE_URL, USB_TYPE_B_PORT, USB_TYPE_C_PORT, USB_HUB_CONNECTED } from '../../Constants/tooltip';
 import { observer } from 'mobx-react';
 import * as Constants from '../../Constants';
-import { mainstore, basemodal } from '../../modals/BaseModal';
+import { mainstore, basemodal } from '../../ViewModel/BaseModal';
 
 
 const FunctionalConfig = observer((props) => {

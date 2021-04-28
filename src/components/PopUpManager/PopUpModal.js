@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import React from 'react';
 import { Button, Dropdown, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 
 const PopUpModal = observer(
     class PopUpModal extends React.Component {

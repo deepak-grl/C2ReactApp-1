@@ -5,7 +5,7 @@ import { Button, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import * as Constants from '../../Constants';
 import { PC_FILE_CONVERTER_BTN } from '../../Constants/tooltip';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import utils from '../../utils';
 import NewProjectButton from "../PanelTestConfig/NewProjectButton";
 import PortConfigComponent from "./PortConfigComponent";

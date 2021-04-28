@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Button, Dropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import * as Constants from '../../Constants';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { ClipLoader } from 'react-spinners';
 import { APPLY_CONFIGURE, CONFIG_CTRL_APP_MODE, TRY_CABLE_FLIP } from '../../Constants/tooltip';
 import { observer } from "mobx-react";

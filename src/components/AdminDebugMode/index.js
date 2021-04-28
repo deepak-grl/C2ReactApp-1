@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Modal, Tab, Tabs, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import Switch from "react-switch";
 import { EDIT_TEXTBOX, PC_CLEAR_BTN } from '../../Constants/tooltip';
 import { observer } from 'mobx-react';

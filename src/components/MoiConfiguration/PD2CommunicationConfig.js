@@ -2,7 +2,7 @@ import React from 'react';
 import FlexView from 'react-flexview/lib';
 import { Dropdown, Table, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import * as Constants from '../../Constants';
-import { mainstore } from '../../modals/BaseModal';
+import { mainstore } from '../../ViewModel/BaseModal';
 import { observer } from 'mobx-react';
 import { FRSWAP_TEST_INFO, VCONN_INFO, COMM_VCONN_INFO } from '../../Constants/tooltip';
 

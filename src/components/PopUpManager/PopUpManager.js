@@ -1,5 +1,5 @@
 import React from 'react'
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { observe } from 'mobx';
 import { map } from 'rxjs/operators';
 import { ajax } from 'rxjs/ajax';

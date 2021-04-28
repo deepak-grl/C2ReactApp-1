@@ -3,7 +3,7 @@ import FlexView from 'react-flexview/lib';
 import { Table, Dropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { observer } from 'mobx-react';
 import * as Constants from '../../Constants';
-import { mainstore } from '../../modals/BaseModal';
+import { mainstore } from '../../ViewModel/BaseModal';
 import { FRSWAP_TEST_INFO, VCONN_INFO, PD3_VCONN_INFO } from '../../Constants/tooltip';
 
 const PD3Config = observer((props) => {

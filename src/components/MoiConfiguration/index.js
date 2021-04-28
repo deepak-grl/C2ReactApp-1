@@ -9,7 +9,7 @@ import VconnConfig from './VconnConfig'
 import FunctionalConfig from './FunctionalConfig';
 import PD2CommunicationConfig from './PD2CommunicationConfig';
 import { observer } from 'mobx-react';
-import { mainstore, basemodal } from '../../modals/BaseModal';
+import { mainstore, basemodal } from '../../ViewModel/BaseModal';
 import utils from '../../utils';
 import * as Constants from '../../Constants';
 import MfgWwcConfig from './MfgWwcConfig';
