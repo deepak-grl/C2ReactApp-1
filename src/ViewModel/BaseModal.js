@@ -514,7 +514,7 @@ class BaseModal {
   }
 
   syncDataFromServer() {
-    // mouseBusy(true)
+    mouseBusy(true)
     this.getAppStatusMode()
     this.getSoftwareVersion()
     this.getAppMode()
