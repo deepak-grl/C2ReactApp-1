@@ -112,7 +112,7 @@ export const mainstore = observable({
   isNewVifCreated: false,
   firmwareVersionTooltip: '',
   eloadVersionTooltip: '',
-  appStatusMode:'EndUser',
+  appStatusMode: Constants.USER_MODE,
 
   alert: {//TODO @Thiru please deprecate this and use the new Toast to all the places used instead of the browser alert
     alertMessage: "",

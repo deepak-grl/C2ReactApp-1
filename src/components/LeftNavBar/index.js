@@ -2,6 +2,7 @@ import React from 'react';
 import { ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import { PANELS } from '../../Constants';
+import * as Constants from '../../Constants';
 import { mainstore } from '../../modals/BaseModal';
 
 class LeftNavBar extends React.Component {
@@ -15,7 +16,7 @@ class LeftNavBar extends React.Component {
   }
 
   render() {
-    if(mainstore.appStatusMode === "Admin")
+    if(mainstore.appStatusMode === Constants.ADMIN_MODE)
     {
       var newItems ={ title: "Admin Mode", name: "Admin Mode" }
       var NEWPANELS = PANELS.concat(newItems);

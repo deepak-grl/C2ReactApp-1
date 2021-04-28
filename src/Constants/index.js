@@ -8,9 +8,10 @@ export const PANELS = [{ title: "Connection Setup", name: "ConnectionSetup" },
 { title: "Help", name: "Help" },
 //{ title: "Admin Mode", name: "Admin Mode" }
 ];
-
-const URL_Server_Address = "http://" + window.location.hostname + ":" + window.location.port + "/"
-//const URL_Server_Address = "http://" + window.location.hostname + ":5001/"
+export const ADMIN_MODE = "Admin";
+export const USER_MODE = "EndUser";
+//const URL_Server_Address = "http://" + window.location.hostname + ":" + window.location.port + "/"
+const URL_Server_Address = "http://" + window.location.hostname + ":5001/"
 export const URL_base = URL_Server_Address + "api/";
 export const URL_ConnectionSetup = URL_base + PANELS[0].name + "/";
 export const URL_ProductCapability = URL_base + PANELS[1].name + "/";
