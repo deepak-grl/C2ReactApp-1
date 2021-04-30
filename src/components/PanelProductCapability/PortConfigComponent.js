@@ -55,6 +55,7 @@ const PortConfigComponent = observer(
             mainstore.productCapabilityProps.ports[this.props.portnumber].setCableType(splitCableName)
         }
 
+        //TODO:: update the purpose of this function
         portsDropDownOnChange(eventKey, index) {
             this.setState({ selectedPort: eventKey })
             mainstore.productCapabilityProps.ports[this.props.portnumber].setPortLableType(eventKey, index, this.props.portnumber)

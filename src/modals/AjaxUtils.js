@@ -67,7 +67,7 @@ function _call(method, path, parameters, callback, onError) {
         url: path,
         data: parameters
     }).then(function (response) {
-        callback(response);
+        callback(response);  // using this "callback" to wait until this API gets executed in the Server app and gives response back
     })
         .catch(function (error) {
             console.log(error);
