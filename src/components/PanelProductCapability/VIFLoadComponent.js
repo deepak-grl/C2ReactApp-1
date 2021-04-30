@@ -103,6 +103,8 @@ const VIFLoadComponent = observer(
 
         loadFileData(data) {
             if (data) {
+                
+                //reset the existing VIF related objs in mainstore
                 mainstore.loadedVifVendorName = ""
                 mainstore.skipMissingVIFFieldToast = null;
                 mainstore.isVifFieldChange = false;
@@ -110,6 +112,8 @@ const VIFLoadComponent = observer(
                 mainstore.copyLoadedXmlVif = JSON.parse(JSON.stringify(data))
                 mainstore.cableSelectionFromDropDownInInformational = false;
                 mainstore.loadSelectedCableFromBackend = false;
+
+                //pass the loaded VIF XML file content into basemodal.vifDataModal
                 basemodal.vifDataModal.loadJson(data, Constants.TYPE_FILE, 1);
             }
         }

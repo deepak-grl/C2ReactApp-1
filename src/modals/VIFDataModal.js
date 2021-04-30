@@ -65,6 +65,7 @@ export class VIFDataModal {
     }
 
     loadJson(jsonData, fileOrDevice, portIndex) {
+
         mainstore.dutPortIndex_C2PortA = 0
         this.initialized = true;
         if (jsonData) { } else {
@@ -82,7 +83,8 @@ export class VIFDataModal {
             port.setDeviceData(jsonData);
         }
 
-        //Checking the loading VIF from GRL
+        //Checking the loading VIF is from GRL tool or USB-IF tool, 
+        //If the loaded VIF does not from GRL or USB-IF tool, show a error message and stop the further execution
         var vendorName = ""
         if (port.fileJson)
             if (mainstore.productCapabilityProps.executionMode === Constants.INFORMATIONAL_MODE || port.fileJson.VIF.VIF_App) {
@@ -105,6 +107,7 @@ export class VIFDataModal {
                 }
             }
 
+        //Checks the valid input xml file format
         var showValidXmlToast = new toastNotification("Please Provide a Valid XML File", Constants.TOAST_WARN, 4000);
         if (port.fileJson !== undefined && mainstore.isGetCapsEnabled !== true) {
             if (port.fileJson.VIF === undefined) {
@@ -114,7 +117,7 @@ export class VIFDataModal {
             }
         }
 
-        //Checking Version Number
+        //Checking Version Number, if the loaded xml is not compatible, show a warning message, further actions remains same
         if (port.fileJson && port.deviceJson === undefined) {
             if (port.fileJson.VIF.VIF_App)
                 if (port.fileJson.VIF.VIF_App.Version["_text"].split('.').join("") > Constants.VIF_SUPPORTED_VERSION.split('.').join("")) {
@@ -337,10 +340,13 @@ export class VIFPort {
 
             vifComponents.push(vifInfo)
         })
+
+        //Send the XML VIF data from UI to Server app, "vIFInfoModelNew" obj holds all the VIF file data
         var vIFInfoModelNew = { nonComponentVIFElements: nonComponentVIFElements, vifComponents: vifComponents }
         mainstore.copyVifInfo = vIFInfoModelNew
         if (mainstore.fivePortTestingFlag) {
-            basemodal.putVIFData(mainstore.fivePortPortName.portName, vIFInfoModelNew);
+            //async
+            basemodal.putVIFData(mainstore.fivePortPortName.portName, vIFInfoModelNew); 
         }
         else {
             if (mainstore.productCapabilityProps.vifFileName !== Constants.VIF_LOAD_BTN_DEFAULT) {
@@ -348,9 +354,12 @@ export class VIFPort {
             }
         }
     }
+
     getReportInputs() {
         basemodal.getReportInputs()
     }
+
+
     _getRowElementsForBackedJson(allrows) {
         let filteredAllrows = allrows.filter(function (obj) {
             var checkIsElementPresentInMetaData = basemodal.metaData.getElement(obj.elementName)
