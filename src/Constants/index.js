@@ -10,8 +10,9 @@ export const PANELS = [{ title: "Connection Setup", name: "ConnectionSetup" },
 ];
 export const ADMIN_MODE = "Admin";
 export const USER_MODE = "EndUser";
-//const URL_Server_Address = "http://" + window.location.hostname + ":" + window.location.port + "/"
-const URL_Server_Address = "http://" + window.location.hostname + ":5001/"
+
+const URL_Server_Address = "http://" + window.location.hostname + ":" + window.location.port + "/"
+//const URL_Server_Address = "http://" + window.location.hostname + ":5001/"
 export const URL_base = URL_Server_Address + "api/";
 export const URL_ConnectionSetup = URL_base + PANELS[0].name + "/";
 export const URL_ProductCapability = URL_base + PANELS[1].name + "/";
@@ -171,7 +172,7 @@ export const SUCCESS = true;
 export const FAIL = false;
 export const STR_TEXT = "_text";
 export const STR_VALUE = "value";
-export const VIF_SUPPORTED_VERSION = "3.2.0.1";
+export const VIF_SUPPORTED_VERSION = "3.2.0.0";
 export const DecodedValueMismatch = "XML value does not match with the decoded value"
 
 //RulesEngine Combobox Entries

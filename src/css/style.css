@@ -2430,7 +2430,7 @@ width:40%!important;
 } */
 
 .toggle-switch {
-  margin-top: 10px;
+  margin-top: 9px; 
   /* display: flex;
   flex: 1; */
 }
@@ -3828,9 +3828,6 @@ label {
   margin-top: 8px !important;
 }
 
-. {
-  margin-bottom: 5px;
-}
 
 .cable-selection-label-padding {
   margin-right: 30px;
@@ -4499,7 +4496,15 @@ label {
   height: 30px;
   background-color: blue;
   text-align: center;
-  margin-left: 20px;
+  margin-left: 10px;
+  margin-right: 2px;
   vertical-align:middle;
-  margin-right: 20px;
+}
+
+.spinner{
+  width:26px;
+}
+.spinner-desc{
+  margin-top:30px;
+  margin-left: 500px;
 }

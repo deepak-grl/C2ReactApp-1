@@ -4,7 +4,9 @@ import FlexView from 'react-flexview/lib';
 import { PANELS } from '../../Constants';
 import * as Constants from '../../Constants';
 import { mainstore } from '../../modals/BaseModal';
+import { observer } from 'mobx-react';
 
+const LeftNavBar = observer(
 class LeftNavBar extends React.Component {
  
   handleToggleChange = (val) => {
@@ -49,7 +51,7 @@ class LeftNavBar extends React.Component {
       </FlexView>);
   }
 
-}
+})
 
 
 export default LeftNavBar;
