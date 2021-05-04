@@ -6,12 +6,12 @@ export const PANELS = [{ title: "Connection Setup", name: "ConnectionSetup" },
 { title: "Report", name: "ReportsGeneration" },
 { title: "Options", name: "Options" },
 { title: "Help", name: "Help" },
-//{ title: "Admin Mode", name: "Admin Mode" }
+    //{ title: "Admin Mode", name: "Admin Mode" }
 ];
 export const ADMIN_MODE = "Admin";
 export const USER_MODE = "EndUser";
-//const URL_Server_Address = "http://" + window.location.hostname + ":" + window.location.port + "/"
-const URL_Server_Address = "http://" + window.location.hostname + ":5001/"
+const URL_Server_Address = "http://" + window.location.hostname + ":" + window.location.port + "/"
+// const URL_Server_Address = "http://" + window.location.hostname + ":5001/"
 export const URL_base = URL_Server_Address + "api/";
 export const URL_ConnectionSetup = URL_base + PANELS[0].name + "/";
 export const URL_ProductCapability = URL_base + PANELS[1].name + "/";
@@ -28,7 +28,7 @@ export const URL_IRDrop_Calibration = URL_base + "IRDropCalibration/";
 export const URL_FivePortConfig = URL_base + PANELS[2].name + "/";
 
 export const URL_DpAuxSniffer = URL_base + "DpAuxDecode/";
-export const URL_DebugMode =  URL_base + "DebugMode/";
+export const URL_DebugMode = URL_base + "DebugMode/";
 
 export const USBPDDeviceType = ["Consumer Only",
     "Consumer Provider",
