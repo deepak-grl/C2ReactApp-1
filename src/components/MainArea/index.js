@@ -9,7 +9,7 @@ import PanelHelp from '../PanelHelp';
 import PanelReportConfig from '../PanelReportConfig';
 import PanelPlot from '../PanelPlot';
 import SplitPane from 'react-split-pane';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import * as Constants from '../../Constants';
 import { PacketDetails } from '../Chart/CcPacket'
 import PopUpManager from '../PopUpManager/PopUpManager'
@@ -199,11 +199,11 @@ class MainArea extends React.Component {
     var WPanelHelp = this.wrapPanel(panelHelp, 6)
     allPanels.push(WPanelHelp);
 
-   
+
     var panelMode = <Mode />
     var WPanelMode = this.wrapPanel(panelMode, 7)
     allPanels.push(WPanelMode);
-   
+
 
     return (
       <div ref={this.scrollRef} onWheel={this.onMouseScroll.bind(this)} className="scroll-area">

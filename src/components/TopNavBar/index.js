@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, NavItem, Button } from 'react-bootstrap';
 import * as Constants from '../../Constants';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { chartstore } from '../../modals/ChartStoreModal';
 import { observer } from 'mobx-react';
 import { mouseBusy } from '../../utils';

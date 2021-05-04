@@ -11,7 +11,7 @@ import * as Constants from '../../Constants';
 import { TC_CLEARFILTERS, TC_FAILEDTESTCASES, TC_INCOMPLETETESTCASE, TC_PASSTESTCASES, TC_WARNINGTESTCASES } from '../../Constants/tooltip';
 import '../../css/draggable.css';
 import '../../css/rc_tree.css';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import utils from '../../utils';
 import MoiComponents from '../MoiConfiguration';
 import Report from './Report';
@@ -484,8 +484,8 @@ const PanelTestConfig = observer(
           {text.substring(startIndex + searchString.length)}
         </span>
       ) : (
-          <span>{text}</span>
-        );
+        <span>{text}</span>
+      );
     };
 
     getAllTreeNodes = (nodes, firstLevel) => {

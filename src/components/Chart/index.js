@@ -5,7 +5,7 @@ import { Line } from 'react-chartjs-2';
 import * as zoom from 'chartjs-plugin-zoom';
 import { observer } from 'mobx-react';
 import { observe } from 'mobx';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { chartstore, chartAjaxModal } from '../../modals/ChartStoreModal';
 import * as Constants from '../../Constants';
 import 'react-table/react-table.css'

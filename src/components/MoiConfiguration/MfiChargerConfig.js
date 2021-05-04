@@ -2,7 +2,7 @@ import React from 'react';
 import FlexView from 'react-flexview/lib';
 import { Form, Dropdown, Table, OverlayTrigger, Tooltip, Button } from 'react-bootstrap';
 import * as Constants from '../../Constants';
-import { mainstore, basemodal } from '../../modals/BaseModal';
+import { mainstore, basemodal } from '../../ViewModel/BaseModal';
 import { observer } from 'mobx-react';
 import { MFILIGHTNINGCABLE } from '../../Constants/tooltip';
 

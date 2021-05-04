@@ -7,7 +7,7 @@ import Switch from "react-switch";
 import * as Constants from '../../Constants';
 import { EDIT_TEXTBOX, PC_CLEAR_BTN } from '../../Constants/tooltip';
 import ajax from '../../modals/AjaxUtils';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { mouseBusy, xmlToJson } from '../../utils';
 import cableSampleVif from '../../vif_files/Sample_Cable_Vif';
 import consumerSampleVif from '../../vif_files/Sample_Consumer_Vif';
@@ -103,6 +103,8 @@ const VIFLoadComponent = observer(
 
         loadFileData(data) {
             if (data) {
+                
+                //reset the existing VIF related objs in mainstore
                 mainstore.loadedVifVendorName = ""
                 mainstore.skipMissingVIFFieldToast = null;
                 mainstore.isVifFieldChange = false;
@@ -110,6 +112,8 @@ const VIFLoadComponent = observer(
                 mainstore.copyLoadedXmlVif = JSON.parse(JSON.stringify(data))
                 mainstore.cableSelectionFromDropDownInInformational = false;
                 mainstore.loadSelectedCableFromBackend = false;
+
+                //pass the loaded VIF XML file content into basemodal.vifDataModal
                 basemodal.vifDataModal.loadJson(data, Constants.TYPE_FILE, 1);
             }
         }

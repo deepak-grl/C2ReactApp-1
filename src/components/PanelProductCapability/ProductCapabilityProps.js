@@ -1,4 +1,4 @@
-import { mainstore, basemodal } from '../../modals/BaseModal';
+import { mainstore, basemodal } from '../../ViewModel/BaseModal';
 import * as Constants from '../../Constants';
 import toastNotification from '../../utils/toastNotification';
 

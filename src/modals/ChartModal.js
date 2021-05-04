@@ -1,5 +1,5 @@
 import * as Constants from '../Constants';
-import { basemodal, mainstore } from './BaseModal';
+import { basemodal, mainstore } from '../ViewModel/BaseModal';
 import { chartstore } from './ChartStoreModal';
 import { observe } from 'mobx';
 import { mouseBusy, setPlotCursor, getVerticalMarkerTime, timeFormatter, scrollToPacket, setPlotButtonCursor_Wait, verticalZoomArea_CustomDiv } from '../utils';

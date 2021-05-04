@@ -1,5 +1,5 @@
 import React from 'react';
-import { basemodal } from '../../modals/BaseModal';
+import { basemodal } from '../../ViewModel/BaseModal';
 
 class ListHelp extends React.Component {
 

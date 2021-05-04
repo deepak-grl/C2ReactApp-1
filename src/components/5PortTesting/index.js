@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Button, Modal, Tab, Tabs, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
-import { mainstore, basemodal } from '../../modals/BaseModal';
+import { mainstore, basemodal } from '../../ViewModel/BaseModal';
 import { observer } from "mobx-react";
 import { ClipLoader } from 'react-spinners';
 import FivePortInfo from "./FivePortInfo";

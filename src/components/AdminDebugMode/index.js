@@ -3,8 +3,9 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import { ClipLoader } from 'react-spinners';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import Switch from "react-switch";
-import { basemodal, mainstore } from '../../modals/BaseModal';
+
 
 let executeButtonSpinnerDescription = '';
 

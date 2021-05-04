@@ -1,7 +1,7 @@
 import React from 'react'
 import FlexView from 'react-flexview/lib';
 import { Table, Form, Button, Modal } from 'react-bootstrap';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { observer } from 'mobx-react';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { RP_REFRESH, RP_SAVE_REPORT, RP_SAVE_REPORT_DATA, RP_DELETE_REPORT, RP_SETTINGS, RP_DATA_SIZE } from '../../Constants/tooltip';

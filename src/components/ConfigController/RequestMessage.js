@@ -2,7 +2,7 @@ import React from "react"
 import { Button, Dropdown, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import * as Constants from '../../Constants';
-import { mainstore, basemodal } from '../../modals/BaseModal';
+import { mainstore, basemodal } from '../../ViewModel/BaseModal';
 import { CO_REQUEST_BTN } from '../../Constants/tooltip';
 import { observer } from "mobx-react";
 

@@ -3,7 +3,7 @@ import FlexView from 'react-flexview/lib';
 import * as Constants from '../../Constants';
 import ajax from '../../modals/AjaxUtils';
 import { observe } from 'mobx';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { chartstore } from '../../modals/ChartStoreModal';
 import { Button, Navbar, Nav } from 'react-bootstrap';
 import { setPlotCursor, scrollToPacket, hideAndShowByClassName, customNavbarOnSpitterMoves } from '../../utils';
@@ -582,12 +582,12 @@ class PlotToolbar extends React.Component {
                             </Button>
                         </OverlayTrigger>
                     ) : (
-                            <OverlayTrigger placement='auto' overlay={<Tooltip> {PLT_LIVE_UPDATES} </Tooltip>}>
-                                <Button id='chart_toolbar_unlive_updates_button' className='plot-toolbar-btn2' onClick={this.togglePolling}>
-                                    <img src='../../images/chartIcons/PNG/Live.png' alt='objects' className='plot-toolbar-live-updates-btn' />
-                                </Button>
-                            </OverlayTrigger>
-                        )}
+                        <OverlayTrigger placement='auto' overlay={<Tooltip> {PLT_LIVE_UPDATES} </Tooltip>}>
+                            <Button id='chart_toolbar_unlive_updates_button' className='plot-toolbar-btn2' onClick={this.togglePolling}>
+                                <img src='../../images/chartIcons/PNG/Live.png' alt='objects' className='plot-toolbar-live-updates-btn' />
+                            </Button>
+                        </OverlayTrigger>
+                    )}
                 </div>
             </div>
         );

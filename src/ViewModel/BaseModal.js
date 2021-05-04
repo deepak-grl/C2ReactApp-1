@@ -1,16 +1,16 @@
 import { observable } from "mobx";
 import * as Constants from '../Constants';
-import ajax from './AjaxUtils';
-import { VIFDataModal, MetaData, UsbIf } from './VIFDataModal';
+import ajax from '../modals/AjaxUtils';
+import { VIFDataModal, MetaData, UsbIf } from '../modals/VIFDataModal';
 import fileDownloader from 'js-file-download';
-import * as  metadatajson from './metadata.json';
-import * as usbIfjson from './usbif.json';
-import { RulesEngine } from './RulesEngine';
-import { VIFComboBoxRules } from './ComboBoxRules';
+import * as  metadatajson from '../modals/metadata.json';
+import * as usbIfjson from '../modals/usbif.json';
+import { RulesEngine } from '../modals/RulesEngine';
+import { VIFComboBoxRules } from '../modals/ComboBoxRules';
 import toastNotification from '../utils/toastNotification'
 import ProductCapabilityProps from "../components/PanelProductCapability/ProductCapabilityProps"
 import { mouseBusy } from '../utils';
-import { chartstore } from './ChartStoreModal';
+import { chartstore } from '../modals/ChartStoreModal';
 
 //TODO @Thiru @Ajith @Sandeh @Gautham When making changes to base model please synchronize among the team
 export const mainstore = observable({
@@ -319,9 +319,9 @@ export const mainstore = observable({
     testResultsList: []
   },
 
-  modeStatus:{
-    captureLocation:'',
-    isOldRep:false,
+  modeStatus: {
+    captureLocation: '',
+    isOldRep: false,
   },
 
 

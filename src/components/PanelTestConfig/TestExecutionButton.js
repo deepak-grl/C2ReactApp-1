@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
-import { basemodal, mainstore } from '../../modals/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 import { chartstore } from '../../modals/ChartStoreModal';
 import { observer } from 'mobx-react';
 import { TC_RUN_BTN, TC_STOP_BTN } from '../../Constants/tooltip';

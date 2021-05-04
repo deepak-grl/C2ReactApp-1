@@ -1,7 +1,7 @@
 // import React from 'react'
 // import FlexView from 'react-flexview/lib';
 // import { Form, Button, Modal } from 'react-bootstrap';
-// import { basemodal, mainstore } from '../../modals/BaseModal';
+// import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 // import { observer } from 'mobx-react';
 // import { mouseBusy } from '../../utils';
 // const SaveFileModal = observer(
