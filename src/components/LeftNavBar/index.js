@@ -3,8 +3,11 @@ import { ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import { PANELS } from '../../Constants';
 import * as Constants from '../../Constants';
+import { observer } from 'mobx-react';
 import { mainstore } from '../../ViewModel/BaseModal';
 
+
+const LeftNavBar = observer(
 class LeftNavBar extends React.Component {
 
   handleToggleChange = (val) => {
@@ -48,7 +51,7 @@ class LeftNavBar extends React.Component {
       </FlexView>);
   }
 
-}
+})
 
 
 export default LeftNavBar;

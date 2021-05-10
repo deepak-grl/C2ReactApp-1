@@ -806,8 +806,10 @@ class BaseModal {
     });
   }
 
-  putUserData() {
+  putUserData(callback) {
     ajax.callPUT(Constants.URL_DebugMode + "PutUserData", mainstore.modeStatus, {}, function (response) {
+      if (callback)
+      callback()
     }, function (error) {
       console.log("Error", error);
     });
