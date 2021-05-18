@@ -82,7 +82,7 @@ const MoiComponents = observer(
 
         defaultTimerForPopupOnChange = (event) => {
             mainstore.commonMoiSetting.defaultTimerForPopup = event.target.value.replace(/\D/, '')        //to allow only positive numbers
-            mainstore.popupTimer.restoreDefaultTimerValue = event.target.value
+            mainstore.popupTimer.TimerValue = event.target.value
         }
 
         reRunSelectedTests = () => {

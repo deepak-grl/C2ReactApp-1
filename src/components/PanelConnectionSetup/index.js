@@ -122,7 +122,7 @@ const PanelConnectionSetup = observer(
     }
 
     showSetupImagePopUp() {
-      basemodal.showPopUp("Please Connect the UUT to Port1", null, 'C2 Setup Diagram', null, false, null, "PDC2 Connection Diagram.png", null)
+      basemodal.showPopUp("Please Connect the UUT to Port1", null, 'C2 Setup Diagram', null, false, null, "Static.png", null)
     }
 
     showFirmwareUpdateInstructionPopup() {
