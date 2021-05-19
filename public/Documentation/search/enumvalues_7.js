@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['get_5fbattery_5fcap_1458',['Get_Battery_Cap',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1aaf1908567d9fe13d277b91c5ea73844b',1,'GrlPdLib']]],
+  ['get_5fbattery_5fstatus_1459',['Get_Battery_Status',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1ac8e6744053880f8d4a879dc01e5c2dba',1,'GrlPdLib']]],
+  ['get_5fcountry_5fcodes_1460',['Get_Country_Codes',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1aa7e00727a39afb37d708c649bbcad33f',1,'GrlPdLib']]],
+  ['get_5fcountry_5finfo_1461',['Get_Country_Info',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1ab07ad0d8a16b06742e3d664255474b52',1,'GrlPdLib']]],
+  ['get_5fmanufacturer_5finfo_1462',['Get_Manufacturer_Info',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1a9429db0bff6c72f880a1e9b41259201c',1,'GrlPdLib']]],
+  ['get_5fpps_5fstatus_1463',['Get_PPS_Status',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1ab4e477476e49f23570cb20fb25ff162a',1,'GrlPdLib']]],
+  ['get_5fsink_5fcap_1464',['Get_Sink_Cap',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1a3cea7834c9023fe471a4557cff758d99',1,'GrlPdLib']]],
+  ['get_5fsink_5fcap_5fext_1465',['Get_Sink_Cap_Ext',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1a878cfa3e22c609806d4f9e7082c57083',1,'GrlPdLib']]],
+  ['get_5fsource_5fcap_1466',['Get_Source_Cap',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1a7ba2897453becd41857fc97656a7d342',1,'GrlPdLib']]],
+  ['get_5fsourcecap_5fextended_1467',['Get_SourceCap_Extended',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1abd8c252aa6a32f5f605f5b5c4d2f5b32',1,'GrlPdLib']]],
+  ['get_5fstatus_1468',['Get_Status',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1a12731e55b73cef633c1f0bd2891662f0',1,'GrlPdLib']]],
+  ['give_5fback_5fflag_1469',['Give_Back_Flag',['../namespace_grl_pd_lib.html#a3906635397ed510c5b5df389c7168d0ca4a4666353120dc75d37c9c74f8ad3d81',1,'GrlPdLib']]],
+  ['goodcrc_1470',['GoodCRC',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1a9e6fb3182f0f81373a34209d221eed88',1,'GrlPdLib']]],
+  ['google_5fcb_5fcharger_1471',['Google_CB_Charger',['../namespace_grl_pd_lib.html#ab18cf0e06ddb18ebb4edd0a1bc5ce28da3e83a9be42f6a48762f2cec94032dad6',1,'GrlPdLib']]],
+  ['gotomin_1472',['GotoMin',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1af78dde6ac67064c45707d1af0c6dc431',1,'GrlPdLib']]],
+  ['grl_5fspl_5fcable_1473',['GRL_SPL_CABLE',['../namespace_grl_pd_lib.html#a3d407f2dd9e2302cc816ed7c2203d4bdafb5c120a543ec36a6b3a0e7c99ce12c3',1,'GrlPdLib']]],
+  ['grl_5fspl_5fcable1_1474',['GRL_SPL_Cable1',['../namespace_grl_pd_lib.html#a3d407f2dd9e2302cc816ed7c2203d4bda9c0f0bf8a3d59a4bd278b76fdd216068',1,'GrlPdLib']]],
+  ['grl_5fspl_5fcable2_1475',['GRL_SPL_Cable2',['../namespace_grl_pd_lib.html#a3d407f2dd9e2302cc816ed7c2203d4bda9c82b3fa037dfb777855457191b93b3c',1,'GrlPdLib']]],
+  ['grl_5fusb_5flink_5freset_1476',['GRL_USB_LINK_RESET',['../namespace_grl_pd_lib.html#aef9641c4a92e39ef25ffb3a03524462ca1e47aaa7324d7f197e0355f86e7a39e8',1,'GrlPdLib']]],
+  ['ground_5fimp_1477',['Ground_Imp',['../namespace_grl_pd_lib.html#a3906635397ed510c5b5df389c7168d0ca41d6000389c7e4c0e9cd79935b22889a',1,'GrlPdLib']]],
+  ['ground_5fpin_5fprotearth_1478',['Ground_pin_ProtEarth',['../namespace_grl_pd_lib.html#a3906635397ed510c5b5df389c7168d0cac60a675eb9be0585906c82776690f5c0',1,'GrlPdLib']]],
+  ['ground_5fpin_5fsupport_1479',['Ground_pin_Support',['../namespace_grl_pd_lib.html#a3906635397ed510c5b5df389c7168d0ca765bfdb4053a28a06f40706352b2f2be',1,'GrlPdLib']]],
+  ['groupcmdtimingpkt_1480',['GroupCmdTimingPkt',['../namespace_grl_pd_lib.html#aa462a9b85396861e2e2973bbe0c264c1a331f20a714e2d1771b632a1e0e9dca26',1,'GrlPdLib']]],
+  ['grp_5fcmd_5fdpdn_5fasser_1481',['GRP_CMD_DPDN_ASSER',['../namespace_grl_pd_lib.html#addc5f331a14b119ae3c74d97e09fb0bbab4e57c9c9a2a54f1dd68f68ac8329a24',1,'GrlPdLib']]],
+  ['grp_5fcmd_5feload_1482',['GRP_CMD_ELOAD',['../namespace_grl_pd_lib.html#addc5f331a14b119ae3c74d97e09fb0bbaf3fe75cf3419bd1cf354cf9cfff65836',1,'GrlPdLib']]]
+];

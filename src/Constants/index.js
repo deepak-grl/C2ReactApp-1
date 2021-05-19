@@ -11,7 +11,6 @@ export const PANELS = [{ title: "Connection Setup", name: "ConnectionSetup" },
 export const ADMIN_MODE = "Admin";
 export const USER_MODE = "EndUser";
 
-
 const URL_Server_Address = "http://" + window.location.hostname + ":" + window.location.port + "/"
 //const URL_Server_Address = "http://" + window.location.hostname + ":5001/"
 
