@@ -6,6 +6,7 @@ import _ from 'lodash';
 import { VIFComboBoxRules } from './ComboBoxRules';
 import usbif from './usbif.json';
 import toastNotification from '../utils/toastNotification';
+import Popup from 'reactjs-popup';
 
 export class VIFDataModal {
     constructor() {
@@ -28,6 +29,8 @@ export class VIFDataModal {
         mainstore.selectedMoiTestCase = [];
         mainstore.testConfiguration.selectedTestList = [];
         mainstore.numberofPorts = true;
+        mainstore.fileProductType = null;
+        mainstore.deviceProductType = null ;
         mainstore.devicePdPortTypeValue = null;
         mainstore.filePdPortTypeValue = null;
         basemodal.getReportInputs()
@@ -116,7 +119,7 @@ export class VIFDataModal {
                 return showValidXmlToast
             }
         }
-
+       
         //Checking Version Number, if the loaded xml is not compatible, show a warning message, further actions remains same
         if (port.fileJson && port.deviceJson === undefined) {
             if (port.fileJson.VIF.VIF_App)
@@ -124,9 +127,18 @@ export class VIFDataModal {
                     basemodal.showPopUp("This SW version supports VIF files with version upto  " + [Constants.VIF_SUPPORTED_VERSION] + ". Still user can load other versions of VIF files and run test cases." + "\n" + "If you find any issue in loading the new VIF versions, Please report it to support@graniteriverlabs.com", null, 'VIF Version Support', null, null, null, null, null)
                 }
         }
+        
+        // var productType=port.fileJson.VIF.VIF_Product_Type._attributes.value
+        // if(mainstore.deviceProductType)
+        // {
+        //     if ( productType != mainstore.deviceProductType )
+        //     {
+        //         var showProductTypeMisMatch = new toastNotification(`Please clear the Device Data as UUT type is different`, Constants.TOAST_ERROR, 5000);
+        //         showProductTypeMisMatch.show();
+        //     }
+        //  }
 
         port.createJsonStructureForBackend();
-
         this.cableAndDutTypeSelectionCases(port, fileOrDevice)
         this.vifDataModified();
         this.numOfPorts();
@@ -137,20 +149,38 @@ export class VIFDataModal {
 
     cableAndDutTypeSelectionCases(port, fileOrDevice, portNumber = Constants.PORTA) {
         let pdPortType = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getElementByName(VIF_ENUMS.PD_Port_Type);
+        var vifProductType = port.vif.getElementByName(VIF_ENUMS.VIF_Product_Type);
 
         if (fileOrDevice === Constants.TYPE_FILE) {
             mainstore.filePdPortTypeValue = pdPortType.getValue();
+            mainstore.fileProductType = vifProductType.getValue();
         }
-        var vifProductType = port.vif.getElementByName(VIF_ENUMS.VIF_Product_Type);
+         
+       
         let captiveCable = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getElementByName(VIF_ENUMS.Captive_Cable);
         let typeCStateMachine = port.vif.getComponents()[mainstore.dutPortIndex_C2PortA].getElementByName(VIF_ENUMS.Type_C_State_Machine);
-
+        let connectorType =port.vif.getElementByName(VIF_ENUMS.Connector_Type);
         if (port.vif.getComponents().length > 1) {
             for (let index = 0; index < port.vif.getComponents().length; index++) {
                 if (typeCStateMachine.elementName === undefined)
                     typeCStateMachine = port.vif.getComponents()[index].getElementByName(VIF_ENUMS.Type_C_State_Machine);
             }
         }
+
+        var showConnectorType = new toastNotification("In the loaded VIF Connector Type is not Type C", Constants.TOAST_WARN, 4000);
+        if (port.vif.getComponents().length >1)
+        {
+            for (let index = 0; index < port.vif.getComponents().length; index++)
+             {
+                if (connectorType.elementName != "2:USB Type-C")
+                {
+                    showConnectorType.show();
+                    return;
+                }
+            }
+
+        }
+      
         mainstore.captiveCableVal = captiveCable.getValue();
 
         let typeCStateMachineValue = true;
@@ -943,6 +973,9 @@ class VIFBaseObject {
                 }
                 if (elementName === VIF_ENUMS.PD_Port_Type) {
                     mainstore.devicePdPortTypeValue = parseInt(deviceJsonEle['_attributes'].value)
+                }
+                if( elementName === VIF_ENUMS.VIF_Product_Type){
+                    mainstore.deviceProductType = parseInt(deviceJsonEle['_attributes'].value)
                 }
             }
         }

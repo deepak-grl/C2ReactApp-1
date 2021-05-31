@@ -31,8 +31,7 @@ class PopUpManager extends React.Component {
             map(response => response.response || [])
 
         );
-        polling(request$, { interval: 1000, backoffStrategy: "exponential", attempts: 2 })
-
+        polling(request$, { interval: 1000, backoffStrategy: "exponential", attempts: 4, backgroundPolling: true})
             .subscribe(res => {
                 if (res.isValid === true && res.index > mainstore.popUpInputs.popID) {
                     mainstore.popUpInputs.popID = res.index;
