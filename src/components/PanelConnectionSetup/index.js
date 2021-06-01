@@ -228,7 +228,8 @@ const PanelConnectionSetup = observer(
               <Button disabled={this.state.firmwareUpdateLoading || this.state.eLoadFirmwareUpdateLoading || this.state.autoDiscoverLoading} onClick={this.tryConnectWithC2} className="grl-connect-button grl-button connectionsetup-leftsideSetWidth" id="csConnectBtn">{CS_CONNECTION_BTN}</Button>
             </OverlayTrigger>
             <div>
-              <ClipLoader sizeUnit={"px"} size={30} color={'#123abc'} loading={mainstore.connectionStatusLoader} />
+            <ClipLoader sizeUnit={"px"} size={30} color={'#123abc'} loading={mainstore.connectionStatusLoader} />
+             
             </div>
           </FlexView>
           <FlexView>

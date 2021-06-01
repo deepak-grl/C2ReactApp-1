@@ -171,13 +171,6 @@ class VIFEditor extends React.Component {
         const deviceMisMatch = observe(mainstore, "devicePdPortTypeValue", (change) => {
             me.vifFieldsMisMatchToast()
         });
-        const productMisMatch = observe(mainstore, "fileProductType", (change) => {
-            me.vifProductTypeMisMatch()
-        });
-        const deviceProductMisMatch = observe(mainstore, "deviceProductType", (change) => {
-            me.vifProductTypeMisMatch()
-        });
-
     }
 
     vifFieldsMisMatchToast() {
@@ -192,21 +185,7 @@ class VIFEditor extends React.Component {
         }
     }
 
-    vifProductTypeMisMatch()
-    {
-        if ( mainstore.fileProductType !== null && mainstore.deviceProductType !== null )
-        {
-            if ( mainstore.fileProductType !== mainstore.deviceProductType )
-                {
-                    var showProductTypeMisMatch = new toastNotification(`Please clear the Device Data as UUT type is different`, Constants.TOAST_ERROR, 5000);
-                    showProductTypeMisMatch.show();
-                    mainstore.fileProductType = null;
-                    mainstore.deviceProductType = null;
-
-                }
-            
-        }
-    }
+  
    
 
 

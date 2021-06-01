@@ -300,7 +300,7 @@ class PanelResults extends React.Component {
                 return <p className={'result-warning rct-icon-indexValue' + parentIndex} ></p>
             case 'RUNNING':
                 return <>{mainstore.stopScrollingTestCase ? null : <div id="CurrentRunningTest" title={testCase.displayString}></div>}
-                    <ClipLoader css={'margin-left:-25px; margin-right: -4px'} sizeUnit={"em"} size={1.3} color={'#123abc'} loading={this.state.loading} />
+                    <ClipLoader css={'margin-left:-25px; margin-right: -4px'} sizeUnit={"px"} size={15} color={'#123abc'} loading={this.state.loading} />
                     {/* {this.scrollTo()} */}
                 </>
             case 'UNKNOWN':

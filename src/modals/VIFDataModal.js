@@ -29,8 +29,6 @@ export class VIFDataModal {
         mainstore.selectedMoiTestCase = [];
         mainstore.testConfiguration.selectedTestList = [];
         mainstore.numberofPorts = true;
-        mainstore.fileProductType = null;
-        mainstore.deviceProductType = null ;
         mainstore.devicePdPortTypeValue = null;
         mainstore.filePdPortTypeValue = null;
         basemodal.getReportInputs()
@@ -127,16 +125,7 @@ export class VIFDataModal {
                     basemodal.showPopUp("This SW version supports VIF files with version upto  " + [Constants.VIF_SUPPORTED_VERSION] + ". Still user can load other versions of VIF files and run test cases." + "\n" + "If you find any issue in loading the new VIF versions, Please report it to support@graniteriverlabs.com", null, 'VIF Version Support', null, null, null, null, null)
                 }
         }
-        
-        // var productType=port.fileJson.VIF.VIF_Product_Type._attributes.value
-        // if(mainstore.deviceProductType)
-        // {
-        //     if ( productType != mainstore.deviceProductType )
-        //     {
-        //         var showProductTypeMisMatch = new toastNotification(`Please clear the Device Data as UUT type is different`, Constants.TOAST_ERROR, 5000);
-        //         showProductTypeMisMatch.show();
-        //     }
-        //  }
+    
 
         port.createJsonStructureForBackend();
         this.cableAndDutTypeSelectionCases(port, fileOrDevice)
@@ -974,9 +963,7 @@ class VIFBaseObject {
                 if (elementName === VIF_ENUMS.PD_Port_Type) {
                     mainstore.devicePdPortTypeValue = parseInt(deviceJsonEle['_attributes'].value)
                 }
-                if( elementName === VIF_ENUMS.VIF_Product_Type){
-                    mainstore.deviceProductType = parseInt(deviceJsonEle['_attributes'].value)
-                }
+               
             }
         }
         return this.allRowDatas;

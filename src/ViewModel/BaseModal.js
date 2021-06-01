@@ -51,8 +51,6 @@ export const mainstore = observable({
   isGetDeviceCapsInProgress: false,
   renderGlassPaneWhileGetcaps: false,
   previousCableType: Constants.CABLE_DATA_TYPES[0],
-  deviceProductType : null,
-  fileProductType : null,
   devicePdPortTypeValue: null,
   filePdPortTypeValue: null,
   captiveCableVal: 0,

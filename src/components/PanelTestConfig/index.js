@@ -79,15 +79,19 @@ const PanelTestConfig = observer(
       let parent = [];
       for (let n of nodes) {
         let children = [];
+        var titleWithVersion = n.title;
+        if(n.ctsVersion){
+          titleWithVersion = n.title +'-'+ n.ctsVersion;
+        }
         if (n.children.length > 0) {
           children = this.createTreeNodes(n.children);
         }
         if (children.length === 0) {
-          parent.push(<TreeNode disabled={mainstore.connectionInfo.testerStatus !== "Connected"} className={this.disableQCLegacyTestCases(n.title)} key={n.title} title={n.title} />)
+          parent.push(<TreeNode disabled={mainstore.connectionInfo.testerStatus !== "Connected"} className={this.disableQCLegacyTestCases(n.title)} key={n.title} title={titleWithVersion} />)
           checkTestCaseNameIsNotEmpty = n.title
         }
         else {
-          parent.push(<TreeNode className={n.title} disableCheckbox={mainstore.connectionInfo.testerStatus !== "Connected"} key={n.title} title={n.title}  >{children}</TreeNode>)
+          parent.push(<TreeNode className={n.title} disableCheckbox={mainstore.connectionInfo.testerStatus !== "Connected"} key={n.title} title={titleWithVersion}  >{children}</TreeNode>)
           if (!parentNodes.includes(n.title))
             parentNodes.push(n.title)
         }
