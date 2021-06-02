@@ -113,6 +113,10 @@ const MoiComponents = observer(
             mainstore.commonMoiSetting.reRunCondition = selectedCondition
         }
 
+        showEPRConnectionPopUp = ()=> {
+            basemodal.showPopUp("Connect the EPR test fixture to run the EPR test cases ", null, "Connect the EPR Test Fixture", null, false, null, "EPR_text_texture.png", null)
+          }
+
         render() {
             var showPD3Config = mainstore.selectedMoiTestCase.includes(Constants.Pd3Tests) || this.checkIfMoiIsSelected(Constants.Pd3Tests);
             var showQC4Config = mainstore.selectedMoiTestCase.includes(Constants.Qc4Tests) || this.checkIfMoiIsSelected(Constants.Qc4Tests);
@@ -141,7 +145,7 @@ const MoiComponents = observer(
             let cbChargerConfig = <MfgWwcConfig display={showcbChargerConfig ? 'block' : 'none'} />
             let mfiChargerConfig = <MifiChargerConfig display={showMfiTestConfig ? 'block' : 'none'} />
             let bc_1_2TestConfig = <BCTestConfig display={showBC_1_2TestConfig ? 'block' : 'none'} />
-            let pdMergedTestConfig = <PdMergedConfig display={showPdMergedTestConfig ? 'block' : 'none'} />
+            let pdMergedTestConfig = <PdMergedConfig display={showPdMergedTestConfig ? 'block' : 'none'}  popUp={this.showEPRConnectionPopUp} />
             let ifTestCaseSelected = mainstore.selectedMoiTestCase.length > 0
 
             return (

@@ -133,5 +133,6 @@ export const TRY_CABLE_FLIP = `To indicate the change in cable orientation.
 
 export const REPORT_FOLDER_PATH_SUCCESS = `Recently executed test reports were stored successfully into `
 
-export const PDM_EPR_TEST_INFO = `Connect the EPR test fixture to run the EPR test cases `
+export const PDM_EPR_TEST_INFO = `Connect the EPR test fixture to run the EPR test cases.
+ Click to view the setup image `
 

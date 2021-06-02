@@ -40,7 +40,7 @@ const PanelConnectionSetup = observer(
         }
       })
     }
-
+    
     doneConnecting() {
       mainstore.connectionStatusLoader = false
       connectSpinnerDescription = ''
@@ -128,7 +128,7 @@ const PanelConnectionSetup = observer(
     showFirmwareUpdateInstructionPopup() {
       basemodal.showPopUp(Constants.MANUAL_UPDATE_FIRMWARWE_INSTRUCTIONS, null, 'Update C2 Firmware Instruction', null, false, null, "C2FWUpdate.png", null)
     }
-
+    
     checkFirmwareVersion() {
       if (mainstore.connectionInfo !== undefined && Object.keys(mainstore.connectionInfo).length > 1) {
         var c2FirmwareVersion = mainstore.connectionInfo.firmwareVersion.split(" ");

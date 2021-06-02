@@ -4,7 +4,7 @@ import { Dropdown, OverlayTrigger, Table, Tooltip } from 'react-bootstrap';
 import FlexView from 'react-flexview/lib';
 import * as Constants from '../../Constants';
 import { PDM_EPR_TEST_INFO } from '../../Constants/tooltip';
-import { mainstore } from '../../ViewModel/BaseModal';
+import { basemodal, mainstore } from '../../ViewModel/BaseModal';
 
 const PdMergedConfig = observer((props) => {
     let pdMergedConfig = mainstore.testConfiguration.pdMergedConfig;
@@ -20,11 +20,13 @@ const PdMergedConfig = observer((props) => {
     const onEprTestFixtureEnabledChange = (event) => {
         pdMergedConfig.isEPRFixtureConnected = event.target.checked;;
     }
+    
 
     return (
         <>
-
+            
             <FlexView column style={{ display: props.display }}>
+            
                 <p className='panelHeading'>PD Merged Test Configuration</p>
                 <FlexView column>
                     <Table striped bordered hover>
@@ -73,8 +75,9 @@ const PdMergedConfig = observer((props) => {
                                                 <label className="checkbox-label-width">
                                                     <input type="checkbox" id="tcPdMergeConnectFixtureCheckBox" className="functional-moi-checkbox" onChange={onEprTestFixtureEnabledChange} checked={pdMergedConfig.isEPRFixtureConnected} /> Connect EPR Test Fixture
                                              </label>
-                                                <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{PDM_EPR_TEST_INFO}</Tooltip>}>
-                                                    <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" />
+                                                <OverlayTrigger popperConfig={{ modifiers: { preventOverflow: { enabled: false } } }} placement="bottom" overlay={<Tooltip className="usb-functional-moi-tooltip-inner-content-align">{PDM_EPR_TEST_INFO}   
+                                                </Tooltip>} >
+                                                    <img src="../../images/sleep-info.png" alt="info-irdrop" className="usb-device-url-img info-img-irdrop" onClick={props.popUp}/>
                                                 </OverlayTrigger>
                                             </FlexView>
                                         </td>
@@ -84,6 +87,9 @@ const PdMergedConfig = observer((props) => {
                         </tbody>
                     </Table>
                 </FlexView>
+            
+           
+
             </FlexView>
         </>
     )
